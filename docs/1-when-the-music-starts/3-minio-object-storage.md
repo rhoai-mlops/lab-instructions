@@ -15,19 +15,17 @@ Object storage provides a flexible and scalable way to store large amounts of un
     helm install minio mlops/minio
     </code></pre></div>
 
-4. You can access Minio via UI and check that there are already two buckets created for you. Below is the link to your Minio instance:
+4. You can access Minio via UI and check that there are already two buckets created for you. Below is the link to your Minio instance. Go to URL and use `minio` as username, `minio123` as password.
 
     ```yaml
     https://minio-ui-<TEAM_NAME>.<CLUSTER_DOMAIN>
     ```
 
-Go to URL and use `minio` as username, `minio123` as password.
-
 ![minio-ui.png](./images/minio-ui.png)
 
 `models` bucket is where we will store our buckets, and `pipelines` bucket is needed to store data science pipeline artifacts.
 
-5. If you go back to OpenShift AI UI, you'll also see that two `Data Connections` created for you. The `Data connections` is the part where we provide our Minio configuration and bucket information. You can see the details by clicking the three dots on the right hand side > `Edit data connection`  Data connections also help us to expose the bucket information into our notebooks so that we can use these information without hardcode them into our code.
+5. If you go back to OpenShift AI UI, you'll also see that two `Data Connections` created for you. The `Data connections` are the objects stores Minio configuration and bucket information. They are actually OpenShift secrets, defined in your data science project with the right annotations to be visible on this UI. You can see the details by clicking the three dots on the right hand side > `Edit data connection`  Data connections also help us to expose the bucket information into our notebooks so that we can use these information without hardcode them into our code.
 
 ![data-connections.png](./images/data-connections.png)
 

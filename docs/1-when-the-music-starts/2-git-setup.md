@@ -3,7 +3,7 @@
 Now we’ll setup our git projects to store our code and configuration. Spoiler alert: be watch out for GitOps 🦄🔥
 
 
-1. Log into GitLab with your credentials. GitLab URL [here](https://<GIT_SERVER>):
+1. Use the same credentials to login to GitLab. GitLab URL [here](https://<GIT_SERVER>):
 
     ```bash
     https://<GIT_SERVER>

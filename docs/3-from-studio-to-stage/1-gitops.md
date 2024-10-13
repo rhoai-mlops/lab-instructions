@@ -17,7 +17,7 @@ When something is seen as not matching the required state in Git, an application
 
 Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
 
-1. Go to OpenShift AI > Workbenches and click `Create workbench`
+1. Go to OpenShift AI > `TEAM_NAME` >  Workbenches and click `Create workbench`
 
   Select a name you want, could be something like `mlops-gitops` 
 
@@ -42,11 +42,16 @@ Since we are going to deal with some yaml files, let's switch to a different typ
     ```
 
 
-3. We are using the Red Hat GitOps Operator which was deployed as part of the cluster setup. Normally this step would be done as part of the Operator Install so its a bit more complicated than we would like. Because we did not know your team names ahead of time 👻 we will need to update an environment variable on the Operator Subscription. This tells the Operator its OK to deploy a cluster scoped ArgoCD instance into your <TEAM_NAME>-mlops project. Run this shell script:
+3. We are using the Red Hat GitOps Operator which was deployed as part of the cluster setup. Normally this step would be done as part of the Operator Install so its a bit more complicated than we would like. Because we did not know your team names ahead of time 👻 we will need to update an environment variable on the Operator Subscription. This tells the Operator its OK to deploy a cluster scoped Argo CD instance into your <TEAM_NAME>-mlops project. On the terminal, login to the cluster with your credentials as below and run the shell script:
 
     <p class="tip">
     🐌 THIS IS NOT GITOPS - Until we work out a better way to automate this. 🐎 If you see "...." in your terminal after you copy this shell script, do not worry. Hit return and it will run as designed.
     </p>
+
+  ```bash
+  export CLUSTER_DOMAIN="<CLUSTER_DOMAIN>"
+  oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
+  ```
 
     ```bash
       run()
@@ -117,11 +122,6 @@ Since we are going to deal with some yaml files, let's switch to a different typ
     ```
 
   Then, let's login to OpenShift, create our mlops namespace and deploy ArgoCD using helm and this piece of yaml:
-
-  ```bash
-  export CLUSTER_DOMAIN="<CLUSTER_DOMAIN>"
-  oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
-  ```
 
   ```bash
   oc new-project <TEAM_NAME>-mlops

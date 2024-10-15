@@ -20,11 +20,11 @@ These two were already installed in your dev environment. Now we need to bring t
 
     ```yaml
       # Data Science Pipeline Application
-      - name: minio
+      - name: dspa
         enabled: true
-        source: https://rhoai-mlops.github.io/mlops-helmcharts/
-        chart_name: dspa
-        source_ref: "0.0.3"
+        source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+        source_path: charts/dspa
+        source_ref: "main"
     ```
 
 3. And now, let's push the changes to our GitOps repository.

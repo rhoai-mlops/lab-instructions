@@ -29,12 +29,12 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
       jukebox:
         name: jukebox
         enabled: true
-        source: https://github.com/rhoai-mlops/mlops.git
+        source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
         source_ref: main
         source_path: charts/model-deployment
         values:
             model_path: models/jukebox
-            model_version: model.onnx
+            model_version: 1
     ```
 3. Let's get this deployed of course - it's not real unless its in git!
 

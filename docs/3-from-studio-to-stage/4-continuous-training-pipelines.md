@@ -12,6 +12,7 @@
 
 
 ```bash
+    cd /opt/app-root/src
     git clone https://github.com/rhoai-mlops/mlops-helmcharts.git
     cd mlops-helmcharts
     git remote set-url origin https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
@@ -28,7 +29,7 @@ Open up `mlops-gitops/toolings/values.yaml` and add the following piece of yaml.
   # CT Pipeline
   - name: pipelines
     enabled: true
-    source: https://<GIT_SERVER>/pinkfloyd/mlops-helmcharts.git
+    source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
     source_path: charts/pipelines
     source_ref: "main"
 ```

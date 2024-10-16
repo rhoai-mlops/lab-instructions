@@ -1,8 +1,8 @@
-## Inner Data Science Loop
+## Data Science Inner Loop
 
-Just like in traditional software development world, here the inner loop represents the iterative process of building, testing, and refining machine learning models.
+As in traditional software development world, here the inner loop represents the iterative process of building, testing, and refining machine learning models.
 
-This inner loop is essential in data science as well because it allows for continuous improvement and optimization of machine learning models. The main stages we usually see in building ML models are as below:
+This inner loop is essential in data science because it allows for continuous improvement and optimization of machine learning models. The principal stages we usually see in building ML models are as below:
 
 - Data Preparation: Gathering, cleaning, and transforming data into a suitable format for model training.
 - Model Development: Selecting and implementing appropriate machine learning algorithms.
@@ -10,9 +10,9 @@ This inner loop is essential in data science as well because it allows for conti
 - Model Evaluation: Assessing the model's performance using metrics like accuracy, precision, recall, and F1-score.
 - Model Refinement: Iterating on the previous steps to improve the model's accuracy and generalization capabilities.
 
-Let's get some experience on these stages by following the steps in notebooks we cloned to our workbench. It all starts with getting familiar with the dataset at hand, so we'll start with `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook.
+Let's get some experience on these stages by following the steps in the notebooks we cloned to our workbench. It all starts with getting familiar with the dataset at hand, so we will start with `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook.
 
-In a notebook, each box is called `cell`. You need to execute the steps in the Notebook by clicking ▶️ button on the top bar or hitting Shift+Enter when you click on a cell. 
+In a notebook, each box is called a `cell`. There are three kinds of cell: code cells, where you can write and execute code; markdown cells, where you can add documentation; and raw cells, which we don't need to worry about here. When you execute a code cell, it's output is shown directly below the cell. Select the first code cell and execute it by clicking ▶️ button on the top bar or typing Shift+Enter. This will execute the cell and advance to the next cell. Work through all the cells sequentially.
 
 At the end, we have a working model saved in Minio and we can serve it from OpenShift AI. 
 

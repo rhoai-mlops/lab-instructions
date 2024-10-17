@@ -14,4 +14,3 @@
   * [🧤 Extend App of Apps](3-from-studio-to-stage/3-extend-app-of-apps.md)
   * [🤖 Continuous Training Pipeline](3-from-studio-to-stage/4-continuous-training-pipelines.md)
   * [🏄‍♂️ Model Deployment](3-from-studio-to-stage/5-model-deployment.md)
-  * [🦋 GitOpsify Continuous Deployment](./3-from-studio-to-stage/6-gitopsify-deployment.md)

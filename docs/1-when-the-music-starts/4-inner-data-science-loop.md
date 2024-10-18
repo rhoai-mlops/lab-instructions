@@ -18,8 +18,13 @@ At the end, we have a working model saved in Minio and we can serve it from Open
 
 ![jupyter_notebook.png](./images/jupyter_notebook.png)
 
-Now make your way to the Notebook and when you have a model saved in the `models` bucket, come back here to follow the next steps 😁
-Instructions in the Notebook will let you know when to come back here :)
+Now it's time to start executing the `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook. Be sure to read all instruction - including th instructions at the end which tell you what follow-on notebooks to execute. You will execute the following notebooks in order:
+
+1. `jukebox/1-data_exploration/1-data_exploration.ipynb`
+2. `jukebox/2-dev_datascience/1-experiment-train.ipynb`
+3. `jukebox/2-dev_datascience/2-save_model.ipynb`
+
+Once you have executed the last notebook, you should have a model saved in the `models` bucket in Minio, now come back here to follow the next steps 😁
 
 ![model_in_bucket.png](./images/model_in_bucket.png)
 
@@ -47,7 +52,7 @@ Now that we have our model artifacts saved in the bucket, we can deploy it in ou
 
 ![jukebox.png](./images/jukebox.png)
 
-3. It will take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from Minio bucket, copies to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model!
+3. It will take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from Minio bucket, copies to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model! You will need to click on ```Internal Service``` link to get the endpoint URL.
 
 ![jukebox-deployed.png](./images/jukebox-deployed.png)
 

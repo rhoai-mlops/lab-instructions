@@ -19,17 +19,17 @@
 
     - Version selection: `2024.1`
 
-    - Deployment size: `Small`
-    - Cluster storage: `20 GB`. 
+    - Container size: `Small`
+    - Cluster storage: Create new persistent storage with size `20 GB`. 
     
-    - Select `Data connections` and choose the second option `Use existing data connection`
+    - Check `Use a data connection` and choose the second option `Use existing data connection`
     
       From the dropdown menu, select `models`
        
 
-    And finally, hit `Create`.
+    And finally, hit `Create workbench`.
 
-4. When it is in the running stage, just click `Open`.
+4. When the status of the new workbench indicates 'Running', click `Open`.
 
     ![create-a-workbench.png](./images/create-a-workbench.png)
 

@@ -16,6 +16,11 @@
       </div>
 
       <div class="team-inputs">
+        <label for="uname">User Name</label><br/>
+        <input type="text" id="uname" name="username" placeholder="Your user name..">
+      </div>
+
+      <div class="team-inputs">
         <label for="cdomain">Cluster Domain</label><br/>
         <input type="text" id="cdomain" name="clusterdomain" placeholder="Your cluster domain..">
       </div>
@@ -35,11 +40,13 @@
     
   <script>
     document.getElementById("tname").value = localStorage.getItem('TEAM_NAME') ? localStorage.getItem('TEAM_NAME') : '';
+    document.getElementById("uname").value = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '';
     document.getElementById("cdomain").value = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '';
     document.getElementById("gitserver").value = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '';
 
     function setNamesInStorage () {
       let tname = document.getElementById('tname').value.toLowerCase();
+      let uname = document.getElementById('uname').value.toLowerCase();
       let cdomain = (document.getElementById('cdomain').value.toLowerCase().indexOf('https://') > -1) 
                     ? document.getElementById('cdomain').value.toLowerCase().substring(8) 
                     : document.getElementById('cdomain').value.toLowerCase();
@@ -52,13 +59,18 @@
         alert('Please enter a team name');
         return;
       }
+      if (uname == '') {        
+        alert('Please enter a user name');
+        return;
+      }
       if (cdomain == '') {        
         alert('Please enter a cluster domain');
         return;
       }
 
-      console.info('INFO - setting team, cluster and git to :', tname, cdomain, gitserver);
+      console.info('INFO - setting team, user, cluster and git to :', tname, uname, cdomain, gitserver);
       localStorage.setItem('TEAM_NAME', tname);
+      localStorage.setItem('USER_NAME', uname);
       localStorage.setItem('CLUSTER_DOMAIN', cdomain);
       // gitserver is not nullable
       if (gitserver !== '') {
@@ -73,9 +85,11 @@
     function clearStorage () {
       console.info('INFO - clearing team and cluster');
       localStorage.removeItem('TEAM_NAME');
+      localStorage.removeItem('USER_NAME');
       localStorage.removeItem('CLUSTER_DOMAIN');
       localStorage.removeItem('GIT_SERVER');
       document.getElementById('tname').value = '';
+      document.getElementById('uname').value = '';
       document.getElementById('cdomain').value = '';
       document.getElementById('gitserver').value = '';
       location.reload();
@@ -119,9 +133,11 @@
 
             // Invoked each time before parsing the Markdown file.
             const teamName = localStorage.getItem('TEAM_NAME') ? localStorage.getItem('TEAM_NAME') : '<TEAM_NAME>';
+            const userName = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
             const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
             const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
             return content.replaceAll('<TEAM_NAME>', teamName)
+                    .replaceAll('<USER_NAME>'), userName)
                     .replaceAll('<CLUSTER_DOMAIN>', clusterDomain)
                     .replaceAll('<GIT_SERVER>', gitServer);
           });

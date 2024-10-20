@@ -12,7 +12,7 @@ You'll see two notebooks connected with a line. First one builds the model and t
 
 ![elyra.png](./images/elyra.png)
 
-2. Open up the `3-dev_datascience` folder,  click on an empty space in the left pane (File Browser) and select New Notebook, Keep the Kernel selection as it is and click `Select`. It creates `Untitled.ipynb`. 
+2. Open up the `2-dev_datascience` folder,  click on an empty space in the left pane (File Browser) and select New Notebook, Keep the Kernel selection as it is and click `Select`. It creates `Untitled.ipynb`. 
 
 3. Copy the below code block:
 
@@ -36,7 +36,7 @@ Then drag that Notebook and drop it into `4-train_save_model.pipeline` file. Con
 
 ![elyra-4.png](./images/elyra-4.png)
 
-5. When it is triggered succesfully, you'll get the below output. Click `Run Details` to follow the steps and see the pipeline outputs. It will take you to the OpenShift AI's Pipeline view.
+5. When it is triggered succesfully, you'll get the below output. Click `Run Details` to follow the steps and see the pipeline outputs. It will take you to OpenShift AI's Pipeline view.
 
 ![elyra-5.png](./images/elyra-5.png)
 

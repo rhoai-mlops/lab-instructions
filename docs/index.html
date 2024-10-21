@@ -9,23 +9,18 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 </head>
 <body>
-  <div class="team-name-form">
-      <div class="team-inputs">
-        <label for="tname">Team Name</label><br/>
-        <input type="text" id="tname" name="teamname" placeholder="Your team name..">
-      </div>
-
-      <div class="team-inputs">
+  <div class="user-name-form">
+      <div class="user-inputs">
         <label for="uname">User Name</label><br/>
-        <input type="text" id="uname" name="username" placeholder="Your user name..">
+        <input type="text" id="uname" name="username" placeholder="Your username..">
       </div>
 
-      <div class="team-inputs">
+      <div class="user-inputs">
         <label for="cdomain">Cluster Domain</label><br/>
         <input type="text" id="cdomain" name="clusterdomain" placeholder="Your cluster domain..">
       </div>
 
-      <div class="team-inputs">
+      <div class="user-inputs">
         <label for="gitserver">Git Server (optional)</label><br/>
         <input type="text" id="gitserver" name="gitserver" placeholder="Your git server..">
       </div>
@@ -39,13 +34,11 @@
   <div id="app"></div>
     
   <script>
-    document.getElementById("tname").value = localStorage.getItem('TEAM_NAME') ? localStorage.getItem('TEAM_NAME') : '';
     document.getElementById("uname").value = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '';
     document.getElementById("cdomain").value = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '';
     document.getElementById("gitserver").value = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '';
 
     function setNamesInStorage () {
-      let tname = document.getElementById('tname').value.toLowerCase();
       let uname = document.getElementById('uname').value.toLowerCase();
       let cdomain = (document.getElementById('cdomain').value.toLowerCase().indexOf('https://') > -1) 
                     ? document.getElementById('cdomain').value.toLowerCase().substring(8) 
@@ -55,12 +48,8 @@
                     : document.getElementById('gitserver').value.toLowerCase();
 
       // Check inputs
-      if (tname == '') {        
-        alert('Please enter a team name');
-        return;
-      }
       if (uname == '') {        
-        alert('Please enter a user name');
+        alert('Please enter a username');
         return;
       }
       if (cdomain == '') {        
@@ -68,8 +57,7 @@
         return;
       }
 
-      console.info('INFO - setting team, user, cluster and git to :', tname, uname, cdomain, gitserver);
-      localStorage.setItem('TEAM_NAME', tname);
+      console.info('INFO - setting user, cluster and git to :', uname, cdomain, gitserver);
       localStorage.setItem('USER_NAME', uname);
       localStorage.setItem('CLUSTER_DOMAIN', cdomain);
       // gitserver is not nullable
@@ -83,12 +71,10 @@
     }
 
     function clearStorage () {
-      console.info('INFO - clearing team and cluster');
-      localStorage.removeItem('TEAM_NAME');
+      console.info('INFO - clearing user and cluster');
       localStorage.removeItem('USER_NAME');
       localStorage.removeItem('CLUSTER_DOMAIN');
       localStorage.removeItem('GIT_SERVER');
-      document.getElementById('tname').value = '';
       document.getElementById('uname').value = '';
       document.getElementById('cdomain').value = '';
       document.getElementById('gitserver').value = '';
@@ -132,12 +118,10 @@
             })
 
             // Invoked each time before parsing the Markdown file.
-            const teamName = localStorage.getItem('TEAM_NAME') ? localStorage.getItem('TEAM_NAME') : '<TEAM_NAME>';
             const userName = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
             const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
             const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
-            return content.replaceAll('<TEAM_NAME>', teamName)
-                    .replaceAll('<USER_NAME>'), userName)
+            return content.replaceAll('<USER_NAME>', userName)
                     .replaceAll('<CLUSTER_DOMAIN>', clusterDomain)
                     .replaceAll('<GIT_SERVER>', gitServer);
           });
@@ -149,7 +133,7 @@
             <span><a href="https://www.redhat.com/en/services/consulting/open-innovation-labs">🥼🧪Red Hat Open Innovation Labs</a> </span>
             </footer>
             `;
-          
+
           hook.afterEach(function(html) {
             return html + footer;
           });
@@ -184,7 +168,7 @@
       outline: none !important;
       border: 2px solid #F5606D;
     }
-    .team-name-form {
+    .user-name-form {
       margin-left: 0%;
       background-color: #f3f3f3;
       padding-left: 20%;
@@ -194,13 +178,13 @@
       display: flex;
       align-items: center;
     }
-    .team-inputs {
+    .user-inputs {
       flex: 1;
     }
-    .team-inputs:first-child {
+    .user-inputs:first-child {
       /* margin-right: 30%; */
     }
-    .team-inputs:input,label {
+    .user-inputs:input,label {
       font-size: 12px;
       display: block;
     }

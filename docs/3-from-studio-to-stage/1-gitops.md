@@ -17,7 +17,7 @@ When something is seen as not matching the required state in Git, an application
 
 Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
 
-1. Go to OpenShift AI > `TEAM_NAME` >  Workbenches and click `Create workbench`
+1. Go to OpenShift AI > `USER_NAME` >  Workbenches and click `Create workbench`
 
   Select a name you want, could be something like `mlops-gitops` 
 
@@ -42,7 +42,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
     ```
 
 
-3. We are using the Red Hat GitOps Operator which was deployed as part of the cluster setup. Normally this step would be done as part of the Operator Install so its a bit more complicated than we would like. Because we did not know your team names ahead of time 👻 we will need to update an environment variable on the Operator Subscription. This tells the Operator its OK to deploy a cluster scoped Argo CD instance into your <TEAM_NAME>-mlops project. On the terminal, login to the cluster with your credentials as below and run the shell script:
+3. We are using the Red Hat GitOps Operator which was deployed as part of the cluster setup. Normally this step would be done as part of the Operator Install so its a bit more complicated than we would like. Because we did not know your team names ahead of time 👻 we will need to update an environment variable on the Operator Subscription. This tells the Operator its OK to deploy a cluster scoped Argo CD instance into your <USER_NAME>-mlops project. On the terminal, login to the cluster with your credentials as below and run the shell script:
 
     <p class="tip">
     🐌 THIS IS NOT GITOPS - Until we work out a better way to automate this. 🐎 If you see "...." in your terminal after you copy this shell script, do not worry. Hit return and it will run as designed.
@@ -60,13 +60,13 @@ Since we are going to deal with some yaml files, let's switch to a different typ
           -o jsonpath='{.spec.config.env[?(@.name=="ARGOCD_CLUSTER_CONFIG_NAMESPACES")].value}')
         opp=
         if [ -z $NS ]; then
-          NS="<TEAM_NAME>-mlops"
+          NS="<USER_NAME>-mlops"
           opp=add
-        elif [[ "$NS" =~ .*"<TEAM_NAME>-mlops".* ]]; then
-          echo "<TEAM_NAME>-mlops already added."
+        elif [[ "$NS" =~ .*"<USER_NAME>-mlops".* ]]; then
+          echo "<USER_NAME>-mlops already added."
           return
         else
-          NS="<TEAM_NAME>-mlops,${NS}"
+          NS="<USER_NAME>-mlops,${NS}"
           opp=replace
         fi
 
@@ -83,24 +83,24 @@ Since we are going to deal with some yaml files, let's switch to a different typ
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-bash">
       subscriptions.operators.coreos.com/openshift-gitops-operator patched
-      EnvVar set to: <TEAM_NAME>-mlops,anotherteam-mlops
+      EnvVar set to: <USER_NAME>-mlops,anotherteam-mlops
     </code></pre></div>
 
 3. Let’s perform a basic install of Argo CD. Using most of the defaults defined on the chart is sufficient for our use case.
 
   We’re are also going to configure Argo CD to be allowed pull from our git repository using a secret 🔐.
 
-  Configure our Argo CD instance with a secret in our <TEAM_NAME>-mlops namespace by creating a small bit of yaml 😋:
+  Configure our Argo CD instance with a secret in our <USER_NAME>-mlops namespace by creating a small bit of yaml 😋:
 
     ```bash
     cat << EOF > /tmp/argocd-values.yaml
     ignoreHelmHooks: true
     operator: []
     namespaces:
-      - <TEAM_NAME>-mlops
+      - <USER_NAME>-mlops
     argocd_cr:
       initialRepositories: |
-        - url: https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git
+        - url: https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
           type: git
           passwordSecret:
             key: password
@@ -109,7 +109,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
             key: username
             name: git-auth
           insecure: true
-        - url: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+        - url: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
           type: git
           passwordSecret:
             key: password
@@ -124,12 +124,12 @@ Since we are going to deal with some yaml files, let's switch to a different typ
   Then, let's login to OpenShift, create our mlops namespace and deploy ArgoCD using helm and this piece of yaml:
 
   ```bash
-  oc new-project <TEAM_NAME>-mlops
+  oc new-project <USER_NAME>-mlops
   ```
 
   ```bash
   helm upgrade --install argocd \
-    --namespace <TEAM_NAME>-mlops \
+    --namespace <USER_NAME>-mlops \
     -f /tmp/argocd-values.yaml \
     redhat-cop/gitops-operator
   ```
@@ -137,7 +137,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
 4. If we check in OpenShift we should see the Operator pod coming to life and (eventually) the argocd-server, dex and other pods spin up. To do this, we are going to run a command with a ‘watch’ flag to continuousy monitor pod creation.
 
   ```bash
-  oc get pods -w -n <TEAM_NAME>-mlops
+  oc get pods -w -n <USER_NAME>-mlops
   ```
 
   ![argocd-running.png](./images/argocd-running.png)
@@ -147,7 +147,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
 5. When all the pods are up and running, we can login to the UI of ArgoCD. Get the route and open it in a new browser tab.
 
   ```bash
-  echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <TEAM_NAME>-mlops)
+  echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
   ```
 
 6. Login to Argo CD by clicking `Log in via OpenShift` and use the OpenShift credentials provided.
@@ -169,13 +169,13 @@ Since we are going to deal with some yaml files, let's switch to a different typ
       * Version: `0.0.7`
    * On the "DESTINATION" box
       * Cluster URL: `https://kubernetes.default.svc`
-      * Namespace: `<TEAM_NAME>-mlops`
+      * Namespace: `<USER_NAME>-mlops`
 
     Your form should look like this:
 
     ![argocd-minio.png](./images/argocd-minio.png)
 
-9. After you hit create, you’ll see `minio` application is created and should start deploying in your `<TEAM_NAME>-mlops` namespace.
+9. After you hit create, you’ll see `minio` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
 
   ![argocd-minio-2.png](./images/argocd-minio-2.png)
 
@@ -186,7 +186,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
 11. You can verify Minio is running and behaving as expected by navigating to the url of the app:
 
   ```bash
-  echo https://$(oc get route/minio-ui -n <TEAM_NAME>-mlops --template='{{.spec.host}}')
+  echo https://$(oc get route/minio-ui -n <USER_NAME>-mlops --template='{{.spec.host}}')
   ```
 
 🪄🪄 Magic! You’ve now deployed Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄

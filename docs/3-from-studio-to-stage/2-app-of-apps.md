@@ -21,7 +21,7 @@
     ```bash
     git clone https://github.com/rhoai-mlops/mlops-gitops.git
     cd mlops-gitops
-    git remote set-url origin https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git
+    git remote set-url origin https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
     git push -u origin --all
     ```
 
@@ -34,11 +34,11 @@
 3. This `mlops-gitops` repository is actually just another Helm Chart with a pretty neat pattern built in to create App of Apps in Argo CD. Let's get right into it - in the your IDE, Open the `values.yaml` file in the root of the project. Update it to reference the git repo you just created and your team name. This values file is the default ones for the chart and will be applied to all of the instances of this chart we create. The Chart has Argo CD Application definition as a template, just like the one we manually created in the previous exercise when we deployed Minio in the UI of Argo CD.
 
     ```yaml
-    source: "https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git"
-    team: <TEAM_NAME>
+    source: "https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git"
+    team: <USER_NAME>
     ```
 
-4. The `values.yaml` file refers to the `toolings/values.yaml` which is where we store all the definitions of things we'll need for our countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with two objects. One for boostrapping the cluster with some namespaces and permissions. And another one is Minio, so that we actually have the Minio definition in Git. Because as we said, this is GitOps, definitions have to be stored in ✨Git✨. Update your `toolings/values.yaml` by changing your `\<TEAM_NAME\>` in the bootstrap section so it looks like this:
+4. The `values.yaml` file refers to the `toolings/values.yaml` which is where we store all the definitions of things we'll need for our countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with two objects. One for boostrapping the cluster with some namespaces and permissions. And another one is Minio, so that we actually have the Minio definition in Git. Because as we said, this is GitOps, definitions have to be stored in ✨Git✨. Update your `toolings/values.yaml` by changing your `\<USER_NAME\>` in the bootstrap section so it looks like this:
 
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">
@@ -57,13 +57,13 @@
                 kind: Group
                 role: admin
             namespaces:
-              - name: <TEAM_NAME>-mlops
+              - name: <USER_NAME>-mlops
                 bindings: *binds
                 operatorgroup: true
-              - name: <TEAM_NAME>-test
+              - name: <USER_NAME>-test
                 bindings: *binds
                 operatorgroup: true
-              - name: <TEAM_NAME>-stage
+              - name: <USER_NAME>-stage
                 bindings: *binds
                 operatorgroup: true
     </code></pre></div>
@@ -80,7 +80,7 @@
     ```
 
   <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - Bootstrap step also provides the necessary rolebindings. That means now the other users in the same team can access <b><TEAM_NAME></b> environments.
+    ⛷️ <b>NOTE</b> ⛷️ - Bootstrap step also provides the necessary rolebindings. That means now the other users in the same team can access <b><USER_NAME></b> environments.
   </p>
 
 
@@ -89,7 +89,7 @@
     Add the Secret to the cluster:
 
     ```bash
-    cat <<EOF | oc apply -n <TEAM_NAME>-mlops -f -
+    cat <<EOF | oc apply -n <USER_NAME>-mlops -f -
       apiVersion: v1
       data:
         password: "$(echo -n <GITLAB_PASSWORD> | base64 -w0)"
@@ -108,7 +108,7 @@
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
-    helm upgrade --install argoapps --namespace <TEAM_NAME>-mlops .
+    helm upgrade --install argoapps --namespace <USER_NAME>-mlops .
     ```
 
     ![argocd-bootrstrap-tooling](./images/argocd-bootstrap-tooling.png)
@@ -116,11 +116,11 @@
 8. As Argo CD sync's the resources we can see them in the cluster:
 
     ```bash
-    oc get projects | grep <TEAM_NAME>
+    oc get projects | grep <USER_NAME>
     ```
 
     ```bash
-    oc get pods -n <TEAM_NAME>-mlops
+    oc get pods -n <USER_NAME>-mlops
     ```
 
 🪄🪄 Magic! You've now deployed an app of apps to scaffold our tooling and projects in a repeatable and auditable way (via git!). Next up, we'll prepare our model deployment definitions. 🪄🪄

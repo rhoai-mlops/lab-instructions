@@ -22,7 +22,7 @@ These two were already installed in your dev environment. Now we need to bring t
       # Data Science Pipeline Application
       - name: dspa
         enabled: true
-        source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+        source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
         source_path: charts/dspa
         source_ref: "main"
     ```

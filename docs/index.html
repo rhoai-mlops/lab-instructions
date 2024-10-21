@@ -84,8 +84,8 @@
     window.$docsify = {
       auto2top: true,
       executeScript: true,
-      name: 'DevOps Culture & Practice Lab Exercises',
-      repo: 'https://github.com/rht-labs/tech-exercise',
+      name: 'MLOps Lab Exercises',
+      repo: 'https://github.com/rhoai-mlops/mlops-instructions',
       loadSidebar: true,
       subMaxLevel: 0,
       sidebarDisplayLevel: 0,
@@ -131,10 +131,9 @@
           const footer = `<hr/>
             <footer>
             <span><a href="https://www.redhat.com/en/services/consulting/open-innovation-labs">🥼🧪Red Hat Open Innovation Labs</a> </span>
-            <span  style="float:right;><a href="https://www.redhat.com/en/services/training/do500-devops-culture-and-practice-enablement">🧑‍🏫 DevOps Culture and Practice Enablement</a></span>
             </footer>
             `;
-          
+            
           hook.afterEach(function(html) {
             return html + footer;
           });

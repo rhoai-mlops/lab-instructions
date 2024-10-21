@@ -15,7 +15,7 @@
     cd /opt/app-root/src
     git clone https://github.com/rhoai-mlops/mlops-helmcharts.git
     cd mlops-helmcharts
-    git remote set-url origin https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+    git remote set-url origin https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
     git push -u origin --all
 ```
 
@@ -29,7 +29,7 @@ Open up `mlops-gitops/toolings/values.yaml` and add the following piece of yaml.
   # CT Pipeline
   - name: pipelines
     enabled: true
-    source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+    source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
     source_path: charts/pipelines
     source_ref: "main"
 ```
@@ -52,7 +52,7 @@ _Note: If you are seeing PVCs are still in Progressing status on Argo CD, it is 
 5. Now, let's take the webhook and add it to the Jukebox repository. Run the below command and copy the webhook:
 
 ```bash
-    echo https://$(oc -n <TEAM_NAME>-mlops get route el-ct-listener --template='{{ .spec.host }}')
+    echo https://$(oc -n <USER_NAME>-mlops get route el-ct-listener --template='{{ .spec.host }}')
 ```
 
 6. Once you have the URL, over on GitLab go to `Jukebox`` > `Settings` > `Integrations` to add the webhook:

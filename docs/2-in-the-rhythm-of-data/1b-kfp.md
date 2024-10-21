@@ -22,8 +22,8 @@ While Elyra was great for quick experimentation, KfP offers the robustness we ne
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">
         ...
-        Experiment details: https://ds-pipeline-dspa.<TEAM_NAME>.svc:8443/#/experiments/details/5bca7df3-1f2d
-        Run details: https://ds-pipeline-dspa.<TEAM_NAME>.svc:8443/#/runs/details/422f78a5-81a6-4052-9c8d-9d9d1a89b44a
+        Experiment details: https://ds-pipeline-dspa.<USER_NAME>.svc:8443/#/experiments/details/5bca7df3-1f2d
+        Run details: https://ds-pipeline-dspa.<USER_NAME>.svc:8443/#/runs/details/422f78a5-81a6-4052-9c8d-9d9d1a89b44a
     </code></pre></div>
 
 

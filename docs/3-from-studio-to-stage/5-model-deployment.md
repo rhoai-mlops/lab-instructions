@@ -29,7 +29,7 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
       jukebox:
         name: jukebox
         enabled: true
-        source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-helmcharts.git
+        source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
         source_ref: main
         source_path: charts/model-deployment
         values:
@@ -49,7 +49,7 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
 
     ```bash#test
     cd /opt/app-root/src/mlops-gitops
-    helm upgrade --install argoapps --namespace <TEAM_NAME>-mlops .
+    helm upgrade --install argoapps --namespace <USER_NAME>-mlops .
     ```
 
 5. You should see the two Jukebox application, one for `test` and one for `stage` deployed in Argo CD. 

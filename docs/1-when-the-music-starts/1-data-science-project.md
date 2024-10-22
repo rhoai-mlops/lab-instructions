@@ -1,10 +1,10 @@
 ## Data Science Project
 
-1. Login to OpenShift AI. The link and the credentials will be provided by your instructor. You'll see there is already a `Data Science Projects` created for you. 
+1. Login to OpenShift AI. The link and the credentials will be provided by your instructor. You'll see there are already two `Data Science Projects` created for you. 
 
 ![openshiftai.png](./images/openshiftai.png)
 
-2. Click on the project name. This project will be the place where we create our Jupyter Notebook environment, train our model and deploy our model.
+2. Click on the <USER_NAME> project. This project will be the place where we create our Jupyter Notebook environment, train our model and deploy our model.
 
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 
@@ -40,7 +40,7 @@
 5. Clone the Git repository that has model source code. Click the Git icon from the top of the left menu and , copy the GitHub link to clone the repository.
 
     ```bash
-    https://github.com/rhoai-mlops/jukebox.git
+    https://<GIT_SERVER>/<USER_NAME>/jukebox.git
     ```
 
     ![notebook-clone-repo.png](./images/notebook-clone-repo.png)

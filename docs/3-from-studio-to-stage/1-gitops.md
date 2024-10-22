@@ -12,7 +12,7 @@ From Argo CD's website, it is described as a tool that:
 
 When something is seen as not matching the required state in Git, an application becomes out of sync. Depending on how you have implemented your GitOps, Argo CD can then resync the changes to apply whatever is in Git immediately or fire a warning to initiate some other workflow. In the world of Continuous Delivery as implemented by ArgoCD, Git is the single source of truth, so we should always apply the changes as seen there.
 
-### Argo CD Basic Install
+### Argo CD
 > Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). We can configure Argo CD to take actions based on these differences, such as auto sync the changes from git to the cluster or fire a notification to say things have gone out of whack.
 
 Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
@@ -35,126 +35,34 @@ Since we are going to deal with some yaml files, let's switch to a different typ
 
    ![code-server-terminal.png](./images/code-server-terminal.png)
 
-  We've written a Helm Chart to deploy an instance of Argo CD to the cluster. On your terminal (in the IDE), add the `redhat-cop` helm charts repository. This is a collection of charts curated by consultants in the field from their experience with customers. Pull requests are welcomed :P
+  An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
 
-    ```bash
-    helm repo add redhat-cop https://redhat-cop.github.io/helm-charts
-    ```
+3. Log in to OpenShift by using your credentials:
 
-
-3. We are using the Red Hat GitOps Operator which was deployed as part of the cluster setup. Normally this step would be done as part of the Operator Install so its a bit more complicated than we would like. Because we did not know your team names ahead of time 👻 we will need to update an environment variable on the Operator Subscription. This tells the Operator its OK to deploy a cluster scoped Argo CD instance into your <USER_NAME>-mlops project. On the terminal, login to the cluster with your credentials as below and run the shell script:
-
-    <p class="tip">
-    🐌 THIS IS NOT GITOPS - Until we work out a better way to automate this. 🐎 If you see "...." in your terminal after you copy this shell script, do not worry. Hit return and it will run as designed.
-    </p>
-
-  ```bash
-  export CLUSTER_DOMAIN="<CLUSTER_DOMAIN>"
+```bash
   oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
-  ```
+```
 
-    ```bash
-      run()
-      {
-        NS=$(oc get subscriptions.operators.coreos.com/openshift-gitops-operator -n openshift-gitops-operator \
-          -o jsonpath='{.spec.config.env[?(@.name=="ARGOCD_CLUSTER_CONFIG_NAMESPACES")].value}')
-        opp=
-        if [ -z $NS ]; then
-          NS="<USER_NAME>-mlops"
-          opp=add
-        elif [[ "$NS" =~ .*"<USER_NAME>-mlops".* ]]; then
-          echo "<USER_NAME>-mlops already added."
-          return
-        else
-          NS="<USER_NAME>-mlops,${NS}"
-          opp=replace
-        fi
-
-        oc -n openshift-gitops-operator patch subscriptions.operators.coreos.com/openshift-gitops-operator --type=json -p \
-        '[{"op":"'$opp'","path":"/spec/config/env/1","value":{"name": "ARGOCD_CLUSTER_CONFIG_NAMESPACES", "value":"'${NS}'"}}]'
-        echo "EnvVar set to: $(oc get subscriptions.operators.coreos.com/openshift-gitops-operator -n openshift-gitops-operator \ 
-          -o jsonpath='{.spec.config.env[?(@.name=="ARGOCD_CLUSTER_CONFIG_NAMESPACES")].value}')"
-      }
-      run
-
-    ```
-
-    The output should look something like this with other teams appended as well:
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-bash">
-      subscriptions.operators.coreos.com/openshift-gitops-operator patched
-      EnvVar set to: <USER_NAME>-mlops,anotherteam-mlops
-    </code></pre></div>
-
-3. Let’s perform a basic install of Argo CD. Using most of the defaults defined on the chart is sufficient for our use case.
-
-  We’re are also going to configure Argo CD to be allowed pull from our git repository using a secret 🔐.
-
-  Configure our Argo CD instance with a secret in our <USER_NAME>-mlops namespace by creating a small bit of yaml 😋:
-
-    ```bash
-    cat << EOF > /tmp/argocd-values.yaml
-    ignoreHelmHooks: true
-    operator: []
-    namespaces:
-      - <USER_NAME>-mlops
-    argocd_cr:
-      initialRepositories: |
-        - url: https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
-          type: git
-          passwordSecret:
-            key: password
-            name: git-auth
-          usernameSecret:
-            key: username
-            name: git-auth
-          insecure: true
-        - url: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
-          type: git
-          passwordSecret:
-            key: password
-            name: git-auth
-          usernameSecret:
-            key: username
-            name: git-auth
-          insecure: true
-    EOF
-    ```
-
-  Then, let's login to OpenShift, create our mlops namespace and deploy ArgoCD using helm and this piece of yaml:
+Then check if Argo CD pods are alive:
 
   ```bash
-  oc new-project <USER_NAME>-mlops
-  ```
-
-  ```bash
-  helm upgrade --install argocd \
-    --namespace <USER_NAME>-mlops \
-    -f /tmp/argocd-values.yaml \
-    redhat-cop/gitops-operator
-  ```
-
-4. If we check in OpenShift we should see the Operator pod coming to life and (eventually) the argocd-server, dex and other pods spin up. To do this, we are going to run a command with a ‘watch’ flag to continuousy monitor pod creation.
-
-  ```bash
-  oc get pods -w -n <USER_NAME>-mlops
+  oc get pods -n <USER_NAME>-mlops
   ```
 
   ![argocd-running.png](./images/argocd-running.png)
 
-  You must do Control+C to break the ‘watch’ mode to continue to the next step. Once all your pods are running
 
-5. When all the pods are up and running, we can login to the UI of ArgoCD. Get the route and open it in a new browser tab.
+4. When all the pods are up and running, we can login to the UI of ArgoCD. Get the route and open it in a new browser tab.
 
   ```bash
   echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
   ```
 
-6. Login to Argo CD by clicking `Log in via OpenShift` and use the OpenShift credentials provided.
+5. Login to Argo CD by clicking `Log in via OpenShift` and use the OpenShift credentials provided.
 
   ![argocd-login.png](./images/argocd-login.png)
 
-7. Select `Allow selected permissions` for the initial login.
+6. Select `Allow selected permissions` for the initial login.
 
 8. You just logged into Argo CD 👏👏👏! Lets deploy a sample application through the UI. In fact, let’s get Argo CD to deploy Minio app you manually deployed previously. On Argo CD - click `CREATE APPLICATION`. You should see see an empty form. Let’s fill it out by setting the following:
 
@@ -163,10 +71,9 @@ Since we are going to deal with some yaml files, let's switch to a different typ
       * Project: `default`
       * Sync Policy: `Automatic`
    * On the "SOURCE" box
-      * Repository URL: `https://rhoai-mlops.github.io/mlops-helmcharts/`
-      * Select `Helm` from the right drop down menu
-      * Chart: `minio`
-      * Version: `0.0.7`
+      * Repository URL: `https://github.com/rhoai-mlops/mlops-helmcharts.git`
+      * Select `Git` from the right drop down menu
+      * Path: `charts/minio`
    * On the "DESTINATION" box
       * Cluster URL: `https://kubernetes.default.svc`
       * Namespace: `<USER_NAME>-mlops`
@@ -189,7 +96,7 @@ Since we are going to deal with some yaml files, let's switch to a different typ
   echo https://$(oc get route/minio-ui -n <USER_NAME>-mlops --template='{{.spec.host}}')
   ```
 
-🪄🪄 Magic! You’ve now deployed Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
+🪄🪄 Magic! You not have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
 
 
 

@@ -55,6 +55,12 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
 5. You should see the two Jukebox application, one for `test` and one for `stage` deployed in Argo CD. 
 
 
-# 🚗 ModelCar and GitOpsifying the Deployment
+# 🚗 Modelcar and GitOpsifying the Deployment
 
-The training pipeline generates a new version of the model, whether it is triggered by a code change or a monitoring alert. As a next step, we need to make sure we deploy the new version automagically (yes, of course if only the new version performs better - hang in there) and we need to be able to provide traceability, immutability, reproducibility and so on.
+TODO: add Modelcar and Kserve explanation there
+
+The training pipeline generates a new version of the model, whether it is triggered by a code change or a monitoring alert. As a next step, we need to make sure we deploy the new version automagically (yes, of course if only the new version performs better - hang in there🤭) and we need to be able to provide traceability, immutability, reproducibility and so on.
+
+If the pipeline is triggered by a git push event, the new model gets short git commit ID as the version. This helps us to track where this model comes from, why it is built. 
+
+At the end of the day, we need to provide this version information to `InferenceService`. When the pipeline successfully creates the model artifacts, it pushes this version info to `mlops-gitops/model-deployment/` repository. Then Argo CD becomes aware that there is a new version and it updates `InferenceService` config on OpenShift, which triggers a rollout deployment. Simples 😅

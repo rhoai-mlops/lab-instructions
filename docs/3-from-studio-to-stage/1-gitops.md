@@ -10,12 +10,12 @@ From Argo CD's website, it is described as a tool that:
     to a specific version of manifests at a Git commit.
 </pre></div>
 
-When something is seen as not matching the required state in Git, an application becomes out of sync. Depending on how you have implemented your GitOps, Argo CD can then resync the changes to apply whatever is in Git immediately or fire a warning to initiate some other workflow. In the world of Continuous Delivery as implemented by ArgoCD, Git is the single source of truth, so we should always apply the changes as seen there.
+When something is seen as not matching the required state in Git, an application becomes out of sync. Depending on how you have implemented your GitOps, Argo CD can then resync the changes to apply whatever is in Git immediately or fire a warning to initiate some other workflow. In the world of Continuous Delivery as implemented by Argo CD, Git is the single source of truth, so we should always apply the changes as seen there.
 
-### Argo CD
-> Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). We can configure Argo CD to take actions based on these differences, such as auto sync the changes from git to the cluster or fire a notification to say things have gone out of whack.
+### Argo CD Applications
+Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). 
 
-Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
+We will use Argo CD to deploy our MLOps toolings and models in a repeatable and reproduceable manner. We will store the definitions in Git, and let Argo CD to apply the definitions. That means, we need to deal with some yaml files :) Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
 
 1. Go to OpenShift AI > `USER_NAME` >  Workbenches and click `Create workbench`
 
@@ -31,15 +31,18 @@ Since we are going to deal with some yaml files, let's switch to a different typ
   
   When it is in running state, Open it and use your credentials to access it.
 
+  ![codeserver-wb.png](./images/codeserver-wb.png)
+
 2. Open a new terminal by hitting the hamburger menu on top left then select `Terminal` > `New Terminal` from the menu.
 
    ![code-server-terminal.png](./images/code-server-terminal.png)
 
-  An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
+3. An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
 
-3. Log in to OpenShift by using your credentials:
+Log in to OpenShift by using your credentials:
 
 ```bash
+  export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
   oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
 ```
 
@@ -64,37 +67,38 @@ Then check if Argo CD pods are alive:
 
 6. Select `Allow selected permissions` for the initial login.
 
-8. You just logged into Argo CD 👏👏👏! Lets deploy a sample application through the UI. In fact, let’s get Argo CD to deploy Minio app you manually deployed previously. On Argo CD - click `CREATE APPLICATION`. You should see see an empty form. Let’s fill it out by setting the following:
-
+8. You just logged into ArgoCD 👏👏👏! Lets deploy a sample application through the UI. It'll be just to give you a taste of Argo CD's magic before we use it for our MLOps reasons. On ArgoCD - click `CREATE APPLICATION`. You should see an empty form. Let's fill it out by setting the following:
    * On the "GENERAL" box
-      * Application Name: `mlops-minio`
+      * Application Name: `todolist`
       * Project: `default`
       * Sync Policy: `Automatic`
    * On the "SOURCE" box
-      * Repository URL: `https://github.com/rhoai-mlops/mlops-helmcharts.git`
-      * Select `Git` from the right drop down menu
-      * Path: `charts/minio`
+      * Repository URL: `https://rht-labs.com/todolist/`
+      * Select `Helm` from the right drop down menu
+      * Chart: `todolist`
+      * Version: `1.1.0`
    * On the "DESTINATION" box
       * Cluster URL: `https://kubernetes.default.svc`
       * Namespace: `<USER_NAME>-mlops`
+   * On the "HELM" box
+      * Values Files: `values.yaml`
 
     Your form should look like this:
+    ![argocd-create-application](images/argocd-create-application.png)
 
-    ![argocd-minio.png](./images/argocd-minio.png)
+9. After you hit create, you’ll see `todolist` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
 
-9. After you hit create, you’ll see `minio` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
-
-  ![argocd-minio-2.png](./images/argocd-minio-2.png)
+  ![argocd-todolist-1.png](./images/argocd-todolist-1.png)
 
 10. If you drill down into the application you will get Argo CD’s amazing view of all of the k8s resources that were generated by the chart.
 
-  ![argocd-minio-3.png](./images/argocd-minio-3.png)
+  ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
 11. You can verify Minio is running and behaving as expected by navigating to the url of the app:
 
-  ```bash
-  echo https://$(oc get route/minio-ui -n <USER_NAME>-mlops --template='{{.spec.host}}')
-  ```
+    ```bash
+    echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')
+    ```
 
 🪄🪄 Magic! You not have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
 

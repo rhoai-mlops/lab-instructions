@@ -1,7 +1,7 @@
 * [Home](/)
 * [1. When the Music Starts](1-when-the-music-starts/README.md)
   * [🚀 Data Science Project](1-when-the-music-starts/1-data-science-project.md)
-  * [✨ Git Setup](1-when-the-music-starts/2-git-setup.md)
+  <!-- * [✨ Git Setup](1-when-the-music-starts/2-git-setup.md) -->
   * [🎶 Object Storage](1-when-the-music-starts/3-minio-object-storage.md)
   * [🪴 Data Science Inner Loop](1-when-the-music-starts/4-inner-data-science-loop.md)
 * [2. In the Rhythm of Data](2-in-the-rhythm-of-data/README.md)
@@ -14,4 +14,3 @@
   * [🧤 Extend App of Apps](3-from-studio-to-stage/3-extend-app-of-apps.md)
   * [🤖 Continuous Training Pipeline](3-from-studio-to-stage/4-continuous-training-pipelines.md)
   * [🏄‍♂️ Model Deployment](3-from-studio-to-stage/5-model-deployment.md)
-  * [🦋 GitOpsify Continuous Deployment](./3-from-studio-to-stage/6-gitopsify-deployment.md)

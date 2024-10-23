@@ -1,10 +1,10 @@
 ## Application of Applications
 
-# Get GitLab Ready for GitOps
+# Get Gitea Ready for GitOps
 
-> In this exercise we'll setup our git project to store our code and configuration. We will then connect Argo CD (our gitOps controller) to this git repository to enable the GitOps workflow.
+> In this exercise we'll connect Argo CD (our gitOps controller) to our git repository to enable the GitOps workflow. We will be storing definitions of toolings and model deployments in `mlops-gitops` repository and make Argo CD aware of that repo.
 
-1. Log into Gitea with your credentials. GitLab URL:
+1. Log into Gitea with your credentials. Gitea URL:
 
     ```bash
     https://<GIT_SERVER>
@@ -17,6 +17,7 @@
 2. Let's go back to terminal and clone the repository.
 
     ```bash
+    cd /opt/app-root/src
     git clone https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
     ```
 
@@ -74,8 +75,9 @@
     git push
     ```
 
+  
   <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - Bootstrap step also provides the necessary rolebindings. That means now the other users in the same team can access <b><USER_NAME></b> environments.
+    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the top of the screen.
   </p>
 
 
@@ -85,8 +87,8 @@
     cat <<EOF | oc apply -n <USER_NAME>-mlops -f -
       apiVersion: v1
       data:
-        password: "$(echo -n <GITLAB_PASSWORD> | base64 -w0)"
-        username: "$(echo -n <GITLAB_USER>| base64 -w0)"
+        password: "$(echo -n <GIT_PASSWORD> | base64 -w0)"
+        username: "$(echo -n <USER_NAME>| base64 -w0)"
       kind: Secret
       type: kubernetes.io/basic-auth
       metadata:
@@ -97,7 +99,7 @@
     EOF
     ```
 
-7. Install the tooling (only bootstrap, and Minio at this stage..). Once the command is run, open the ArgoCD UI to show the resources being created. We’ve just deployed our first AppOfApps!
+7. Install the tooling (only bootstrap, and Minio at this stage..). Once the command is run, open the Argo CD UI to show the resources being created. We’ve just deployed our first AppOfApps!
 
     ```bash
     cd /opt/app-root/src/mlops-gitops

@@ -9,7 +9,9 @@ Now let's check our repositories in Gitea. Spoiler alert: be on the watch out fo
     https://<GIT_SERVER>
     ```
 
-2. Use the same credentials to login
+2. Use the same credentials to login.
+
+3. Verify that there are three repositories waiting for 
 
     <p class="tip">
     ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>

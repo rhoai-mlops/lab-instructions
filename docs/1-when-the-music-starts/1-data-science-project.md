@@ -37,7 +37,16 @@
 
     ![create-a-workbench-4.png](./images/create-a-workbench-4.png)
 
-5. Clone the Git repository that has model source code. Click the Git icon from the top of the left menu and , copy the GitHub link to clone the repository.
+5. There are a couple of Git repositories already set up under your username in Gitea server. You can verify them by logging in Gitea [here](https://<GIT_SERVER>):
+
+    ```bash
+    https://<GIT_SERVER>
+    ```
+6. Use the same credentials to login and verify that you have 3 repositories waiting to be user for the upcoming exercises. Spoiler alert: be on the watch out for GitOps 🦄🔥
+
+  ![gitrepositories.png](./images/gitrepositories.png)
+
+7. Now, we'll start with `Jukebox` repository, the one that has model source code. Go back to your Jupyter Notebook, click the Git icon from the top of the left menu and , copy the GitHub link to clone the repository.
 
     ```bash
     https://<GIT_SERVER>/<USER_NAME>/jukebox.git
@@ -49,4 +58,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-    But first, let's setup our own Git repository and see what type of S3 storage environment we have for experimentation 🫡
+7. Let's go through what type of S3 storage environment we have for experimentation before we start 🫡

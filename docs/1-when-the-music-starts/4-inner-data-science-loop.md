@@ -18,7 +18,7 @@ At the end, we have a working model saved in Minio and we can serve it from Open
 
 ![jupyter_notebook.png](./images/jupyter_notebook.png)
 
-Now it's time to start executing the `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook. Be sure to read all instruction - including th instructions at the end which tell you what follow-on notebooks to execute. You will execute the following notebooks in order:
+Now it's time to start executing the `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook. Be sure to read all the instructions - including the instructions at the end which tell you what follow-on notebooks to execute. You will execute the following notebooks in order:
 
 1. `jukebox/1-data_exploration/1-data_exploration.ipynb`
 2. `jukebox/2-dev_datascience/1-experiment-train.ipynb`

@@ -31,10 +31,10 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
         enabled: true
         source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
         source_ref: main
-        source_path: charts/model-deployment
+        source_path: charts/model-deployment/simple
         values:
-            model_path: models/jukebox
-            model_version: 1
+            name: jukebox
+            version: latest
     ```
 3. Let's get this deployed of course - it's not real unless its in git!
 
@@ -45,7 +45,7 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
     git push 
     ```
 
-4. With the values enabled, and the first application listed in the test environment - let's tell ArgoCD to start picking up changes to these environments. To do this, simply update the helm chart we installed at the beginning of the first exercise:
+4. With the values enabled, and the first application listed in the test environment - let's tell Argo CD to start picking up changes to these environments. To do this, simply update the helm chart we installed at the beginning of the first exercise:
 
     ```bash#test
     cd /opt/app-root/src/mlops-gitops
@@ -54,4 +54,13 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
 
 5. You should see the two Jukebox application, one for `test` and one for `stage` deployed in Argo CD. 
 
-6. As you see the `InferenceService` is having a hard time to start, and it is because there is no model saved in the Minio bucket yet. This time we are not going to do it manually, but we are going to let ✨ _pipeline_ ✨ do it for us.
+
+# 🚗 Modelcar and GitOpsifying the Deployment
+
+TODO: add Modelcar and Kserve explanation there
+
+The training pipeline generates a new version of the model, whether it is triggered by a code change or a monitoring alert. As a next step, we need to make sure we deploy the new version automagically (yes, of course if only the new version performs better - hang in there🤭) and we need to be able to provide traceability, immutability, reproducibility and so on.
+
+If the pipeline is triggered by a git push event, the new model gets short git commit ID as the version. This helps us to track where this model comes from, why it is built. 
+
+At the end of the day, we need to provide this version information to `InferenceService`. When the pipeline successfully creates the model artifacts, it pushes this version info to `mlops-gitops/model-deployment/` repository. Then Argo CD becomes aware that there is a new version and it updates `InferenceService` config on OpenShift, which triggers a rollout deployment. Simples 😅

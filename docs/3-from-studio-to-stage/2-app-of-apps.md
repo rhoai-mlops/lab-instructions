@@ -1,31 +1,27 @@
 ## Application of Applications
 
-# Get GitLab Ready for GitOps
+# Get Gitea Ready for GitOps
 
-> In this exercise we'll setup our git project to store our code and configuration. We will then connect Argo CD (our gitOps controller) to this git repository to enable the GitOps workflow.
+> In this exercise we'll connect Argo CD (our gitOps controller) to our git repository to enable the GitOps workflow. We will be storing definitions of toolings and model deployments in `mlops-gitops` repository and make Argo CD aware of that repo.
 
-1. Log into GitLab with your credentials. GitLab URL:
+1. Log into Gitea with your credentials. Gitea URL:
 
     ```bash
     https://<GIT_SERVER>
     ```
 
-    Lets create the git repository that we are going to use for <span style="color:purple;" >GIT</span>Ops purposes. The `mlops-gitops` will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, hit `New project` button on the right hand side.
+    You will see a `mlops-gitops` repository already created for you. It is the git repository that we are going to use for <span style="color:purple;" >GIT</span>Ops purposes. It will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, let's get started!
 
-    On the new view, use `mlops-gitops` as Project Name, and select **Internal** for Visibility level, then hit Create project. Make sure the project is in the group you created previously and not the username's.
+    ![gitea-mlops-gitops.png](images/gitea-mlops-gitops.png)
 
-    ![gitlab-new-project](images/gitlab-new-project.png)
-
-2. Let's go back to terminal and clone the original repository and then push it to the newly created GitLab repository.
+2. Let's go back to terminal and clone the repository.
 
     ```bash
-    git clone https://github.com/rhoai-mlops/mlops-gitops.git
-    cd mlops-gitops
-    git remote set-url origin https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
-    git push -u origin --all
+    cd /opt/app-root/src
+    git clone https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
     ```
 
-   With our git project created and our configuration pushed to it - let's start our GitOps Journey 🧙‍♀️🦄!
+   With our git project cloned - let's start our GitOps Journey 🧙‍♀️🦄!
 
     <p class="tip">
     ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>
@@ -79,21 +75,20 @@
     git push
     ```
 
+  
   <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - Bootstrap step also provides the necessary rolebindings. That means now the other users in the same team can access <b><USER_NAME></b> environments.
+    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the top of the screen.
   </p>
 
 
-6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in the next lab we'll add the secret as code and store it encrypted in Git. In your terminal
-
-    Add the Secret to the cluster:
+6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in an upcoming section we'll tackle the secret as code and store it encrypted in Git. In your terminal create the Secret in your environment:
 
     ```bash
     cat <<EOF | oc apply -n <USER_NAME>-mlops -f -
       apiVersion: v1
       data:
-        password: "$(echo -n <GITLAB_PASSWORD> | base64 -w0)"
-        username: "$(echo -n <GITLAB_USER>| base64 -w0)"
+        password: "$(echo -n <GIT_PASSWORD> | base64 -w0)"
+        username: "$(echo -n <USER_NAME>| base64 -w0)"
       kind: Secret
       type: kubernetes.io/basic-auth
       metadata:
@@ -104,7 +99,7 @@
     EOF
     ```
 
-7. Install the tooling (only bootstrap, and Minio at this stage..). Once the command is run, open the ArgoCD UI to show the resources being created. We’ve just deployed our first AppOfApps!
+7. Install the tooling (only bootstrap, and Minio at this stage..). Once the command is run, open the Argo CD UI to show the resources being created. We’ve just deployed our first AppOfApps!
 
     ```bash
     cd /opt/app-root/src/mlops-gitops

@@ -1,4 +1,4 @@
-# Exercise 2 - From Studio to Stage
+# Exercise 3 - From Studio to Stage
 > Introduction to MLOps: a set of practices that automate and simplify machine learning workflows and deployments. 
 
 ## 👨‍🍳 Exercise Intro

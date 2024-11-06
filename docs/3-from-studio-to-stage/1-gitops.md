@@ -94,7 +94,7 @@ Then check if Argo CD pods are alive:
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
-11. You can verify Minio is running and behaving as expected by navigating to the url of the app:
+11. You can verify the little ToDoList Application is running and behaving as expected by navigating to the url of the app:
 
     ```bash
     echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')

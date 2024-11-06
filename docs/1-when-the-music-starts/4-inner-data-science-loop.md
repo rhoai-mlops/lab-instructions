@@ -4,11 +4,11 @@ As in traditional software development world, here the inner loop represents the
 
 This inner loop is essential in data science because it allows for continuous improvement and optimization of machine learning models. The principal stages we usually see in building ML models are as below:
 
-- Data Preparation: Gathering, cleaning, and transforming data into a suitable format for model training.
-- Model Development: Selecting and implementing appropriate machine learning algorithms.
-- Model Training: Feeding the prepared data into the model and adjusting its parameters to learn patterns and relationships.
-- Model Evaluation: Assessing the model's performance using metrics like accuracy, precision, recall, and F1-score.
-- Model Refinement: Iterating on the previous steps to improve the model's accuracy and generalization capabilities.
+- **Data Preparation**: Gathering, cleaning, and transforming data into a suitable format for model training.
+- **Model Development**: Selecting and implementing appropriate machine learning algorithms.
+- **Model Training**: Feeding the prepared data into the model and adjusting its parameters to learn patterns and relationships.
+- **Model Evaluation**: Assessing the model's performance using metrics like accuracy, precision, recall, and F1-score.
+- **Model Refinement**: Iterating on the previous steps to improve the model's accuracy and generalization capabilities.
 
 Let's get some experience on these stages by following the steps in the notebooks we cloned to our workbench. It all starts with getting familiar with the dataset at hand, so we will start with `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook.
 
@@ -29,7 +29,7 @@ Once you have executed the last notebook, you should have a model saved in the `
 ![model_in_bucket.png](./images/model_in_bucket.png)
 
 
-### Model Serving
+## Model Serving
 
 Now that we have our model artifacts saved in the bucket, we can deploy it in our data science project and serve it from a container. The beauty of OpenShift AI, and the underlying KServe technology, we don't have to worry about the containerization of the model. All we have to do is select the right runtime for our model and point where to model is. Let's give it a try:
 

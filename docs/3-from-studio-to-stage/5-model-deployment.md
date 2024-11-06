@@ -4,7 +4,7 @@ We deployed our `jukebox` model in experiment environment manually, but for the 
 
 # Deploying Jukebox 
 
-1. In your code server IDE, open `mlops-gitops/values.yaml` file and **swap** `enabled: false` to `enabled: true` as shown below for each of the app-of-pb definitions:
+1. In your code server IDE, open `mlops-gitops/values.yaml` file and **swap** `enabled: false` to `enabled: true` as shown below for each environment definitions:
 
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">

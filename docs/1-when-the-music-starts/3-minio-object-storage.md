@@ -23,7 +23,7 @@ Object storage provides a flexible and scalable way to store large amounts of un
 
 ![minio-ui.png](./images/minio-ui.png)
 
-The `models` bucket is where we will store our models, and the `pipelines` bucket is needed to store data science pipeline artifacts.
+The `models` bucket is where we will store our models, and the `pipeline` bucket is needed to store data science pipeline artifacts.
 
 5. If you go back to OpenShift AI UI, you'll also see that two `Data Connections` are already created for you. The `Data connections` are the objects that store Minio configuration and bucket information. They are actually OpenShift secrets, defined in your data science project with the correct annotations to be visible on this UI. You can see the details by clicking the three dots on the right hand side > `Edit data connection`  Data connections also help us to expose the bucket information into our notebooks so that we can use these information without hardcode them into our code.
 

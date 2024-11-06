@@ -6,7 +6,7 @@ In this exercise, we will utilize OpenShift's monitoring stack to collect metric
 
 ## 🖼️ Big Picture
 
-![big-picture-pipeline.jpg](./images/big-picture-pipeline.jpg)
+![big-picture-monitoring.jpg](./images/big-picture-monitoring.jpg)
 
 ## 🔮 Learning Outcomes
 

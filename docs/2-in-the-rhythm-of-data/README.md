@@ -16,5 +16,5 @@ In this exercise, we'll be starting with Elyra pipelines to automate the previou
 - [ ] Execute pipeline from Notebooks
 
 ## 🔨 Tools used in this exercise
-* Elyra
-* KfP Pipelines
+* <span style="color:blue;">[Elyra](https://elyra.readthedocs.io/en/latest/getting_started/overview.html)</span> - Provides a Pipeline Visual Editor for building AI pipelines from notebooks, Python scripts and R scripts
+* <span style="color:blue;">[Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/overview/)</span> -  A platform for building and deploying portable and scalable machine learning (ML) workflows using containers.

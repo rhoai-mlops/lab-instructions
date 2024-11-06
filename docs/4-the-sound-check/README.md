@@ -17,8 +17,7 @@ In this exercise, we will utilize OpenShift's monitoring stack to collect metric
 - [ ] Can create search index in OpenShift Logging Stack
 
 ## 🔨 Tools used in this exercise
-* Prometheus
-* Grafana
-* TrustyAI
-* Loki
-* OpenShift Pipelines
+* <span style="color:blue;">[Prometheus](https://prometheus.io/)</span> - Stores our metrics and used for alerting
+* <span style="color:blue;">[Grafana](https://grafana.com/)</span> - Used to visualize our metrics
+* <span style="color:blue;">[Loki](https://grafana.com/oss/loki/)</span> - Scalable, highly available, multi-tenant log aggregation system
+* <span style="color:blue;">[TrustAI](https://trustyai-explainability.github.io/trustyai-site/main/main.html)</span> - AI explanability tool

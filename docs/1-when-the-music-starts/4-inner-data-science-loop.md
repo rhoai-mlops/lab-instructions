@@ -29,11 +29,24 @@ Once you have executed the last notebook, you should have a model saved in the `
 ![model_in_bucket.png](./images/model_in_bucket.png)
 
 
+## Model Registry
+You can view your registered models on OpenShift AI UI and able to deploy the model from there. 
+
+1. Go to `Model Registry` and make sure you are in the right Data Science Project.
+
+![model-registry-1.png](./images/model-registry-1.png)
+
+2. Click on `jukebox` and list the versions available. For now, we only have `0.0.1` version.
+
+![model-registry-2.png](./images/model-registry-2.png)
+
+You can see information like where the model is stored, version, details about model and so on. Right now we don't have much informtion as we are still in the discovey phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model and so on. Basically we will treat Model Registry as our canonical data source. But for now, let's go and deploy the model and verify that it works inside the container and able to return us some prediction 🎶
+
 ## Model Serving
 
-Now that we have our model artifacts saved in the bucket, we can deploy it in our data science project and serve it from a container. The beauty of OpenShift AI, and the underlying KServe technology, we don't have to worry about the containerization of the model. All we have to do is select the right runtime for our model and point where to model is. Let's give it a try:
+Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, and the underlying KServe technology, is that we don't have to worry about the containerization of the model. All we have to do is select the right runtime for our model and point where to model is. Let's give it a try:
 
-1. Go to your data science project > Models > Select Single-Model Serving Platform by clicking Deploy Model.
+1. Go to your data science project > `Models` > Select `Single-Model Serving Platform` by clicking `Deploy Model`.
 
 ![single-model-serving.png](./images/single-model-serving.png)
 
@@ -55,7 +68,7 @@ Now that we have our model artifacts saved in the bucket, we can deploy it in ou
 
 ![jukebox.png](./images/jukebox.png)
 
-3. It will take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from Minio bucket, copies to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model!
+3. It might take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from the bucket, copies it to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model!
 
 ![jukebox-deployed.png](./images/jukebox-deployed.png)
 

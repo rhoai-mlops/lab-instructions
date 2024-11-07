@@ -10,6 +10,20 @@ While Elyra was great for quick experimentation, KfP offers the robustness we ne
 
     ![kfp.png](./images/kfp.png)
 
+2. Update the pipeline definition with the cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholder. Make sure you save the file 👻
+
+    ```bash
+        metadata = {
+        "hyperparameters": {
+            "epochs": 2
+        },
+        "model_name": "jukebox",
+        "version": "0.0.2",
+        "cluster_domain": "CLUSTER_DOMAIN", # 👈 add your cluster domain here
+        "model_storage_pvc": "jukebox-model-pvc"
+    }
+    ```
+
 2. As we mentioned, we are not supposed to trigger this pipeline manually but just to test the functionality and view the output, let's run it by clicking ▶️ on the file `prod_train_save_pipeline.py`
 
     ![kfp-run.png](./images/kfp-run.png)

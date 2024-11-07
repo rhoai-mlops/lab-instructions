@@ -10,6 +10,14 @@ While Elyra was great for quick experimentation, KfP offers the robustness we ne
 
     ![kfp.png](./images/kfp.png)
 
+2. Update the pipeline definition with your username and cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholders with your information. Make sure you save the file 👻
+
+    ```bash
+    # Set environment variables for AUTHOR_NAME and CLUSTER_DOMAIN
+    kubernetes.use_env_variable(register_model_task, 'AUTHOR_NAME', '<USER_NAME>')
+    kubernetes.use_env_variable(register_model_task, 'CLUSTER_DOMAIN', '<CLUSTER_DOMAIN>')
+    ```
+
 2. As we mentioned, we are not supposed to trigger this pipeline manually but just to test the functionality and view the output, let's run it by clicking ▶️ on the file `prod_train_save_pipeline.py`
 
     ![kfp-run.png](./images/kfp-run.png)

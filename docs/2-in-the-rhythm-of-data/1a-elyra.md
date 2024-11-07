@@ -6,33 +6,32 @@ We will also leverage the notebooks we used in the previous exercises to create 
 
 1. Go back to your Workbench, and open up the file `jukebox/2-dev_datascience/4-train_save_model.pipeline`. Notice that is has the `*.pipeline` extension, this is how Elyra saves the pipeline definition. 
 
-You'll see two notebooks connected with a line. First one builds the model and the second one saves it to `models` bucket. The line indicated that the second one only runs if the first one is succesful. These notebooks are the ones we went through int he previous exercise.
+You'll see two notebooks connected with a line. First one builds the model and the second one saves it to `models` bucket. The line indicated that the second one only runs if the first one is succesful. These notebooks are the ones we went through in the previous exercise.
 
- Let's add a third one to report the result.
+ Let's add a third one to report results.
 
 ![elyra.png](./images/elyra.png)
 
-2. Open up the `2-dev_datascience` folder,  click on an empty space in the left pane (File Browser) and select New Notebook, Keep the Kernel selection as it is and click `Select`. It creates `Untitled.ipynb`. 
+2. While you are in the folder `2-dev_datascience`, on the left menu (File Browser), right click on an empty space and select New Notebook, keep the kernel selection as it is and click `Select`. It creates `Untitled.ipynb`. 
 
-3. Copy the below code block:
+3. Copy the below code block and paste it to the newly created Notebook:
 
     ```python
     print("Pipeline has finished successfully! Yayy!! ✨")
     ```
 
-..and hit Save! (or CTRL+S 😅)
+..and hit Save! (or CTRL+S 😅) and rename it something like `4-reporting.ipynb`
 
 ![elyra-2.png](./images/elyra-2.png)
 
-3. If you want to be a good citizen, you can right click on `Untitled.ipynb` and rename it something like `4-reporting.ipynb`
 
-Then drag that Notebook and drop it into `4-train_save_model.pipeline` file. Connect the `2-save_model.ipynb` and your new `4-reporting.ipynb`. This will make the reporting run after saving the model. Lastly hit save to store the changes.
+4. Then drag that Notebook and drop it into `4-train_save_model.pipeline` file. Connect the `2-save_model.ipynb` and your new `4-reporting.ipynb`. This will make the reporting run after saving the model. Lastly hit save to store the changes.
 
 
 ![elyra-3.png](./images/drag-drop-elyra.gif)
 
 
-4. Let's run the pipeline! Hit `Run Pipeline` and click `OK` It might take some time to initiate the pipeline.
+5. Let's run the pipeline! Hit `Run Pipeline` and click `OK` It might take some time to initiate the pipeline.
 
 ![elyra-4.png](./images/elyra-4.png)
 

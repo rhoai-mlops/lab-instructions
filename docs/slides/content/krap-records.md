@@ -23,7 +23,7 @@ So they decided to form a team! 💪
 
 
 
-#### 🎶 JukeboxAI 🎶
+#### 🎶 Jukebox 🎶
 Our mission is to create a world where music thrives through data-driven insights and open collaboration. 
 
 We embark on a journey to develop an ML model that could analyze vast amounts of music data, identify trends, and predict market preferences.

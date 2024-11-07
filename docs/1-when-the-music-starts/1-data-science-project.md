@@ -17,7 +17,7 @@
 
     - Image selection: `Standard Data Science`
 
-    - Version selection: `2024.2`
+    - Version selection: `2024.1`
 
     - Container size: `Small`
     - Cluster storage: Create new persistent storage with size `20 GB`. 

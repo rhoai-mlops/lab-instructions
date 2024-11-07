@@ -44,6 +44,9 @@ Now that we have our model artifacts saved in the bucket, we can deploy it in ou
 - Model framework: `onnx -1`
 - Model server replicas: `1`
 - Compute resources per replica: `Small`
+- Model route:
+    -  Select `Make deployed models available through an external route`
+    -  Uncheck the `Token authentication` for now
 - Model location: 
     -  Select from existing data connection and pick `models`
     - Path: `models/jukebox`
@@ -52,7 +55,7 @@ Now that we have our model artifacts saved in the bucket, we can deploy it in ou
 
 ![jukebox.png](./images/jukebox.png)
 
-3. It will take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from Minio bucket, copies to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model! You will need to click on ```Internal Service``` link to get the endpoint URL.
+3. It will take some time (cause in the background, OpenShift AI pulls the runtime image, downloads your model from Minio bucket, copies to the right folder and starts the runtime), but eventually you'll get an endpoint that enable you to interract with the model!
 
 ![jukebox-deployed.png](./images/jukebox-deployed.png)
 

@@ -14,17 +14,16 @@ While Elyra was great for quick experimentation, KfP offers the robustness we ne
 
     ![kfp-run.png](./images/kfp-run.png)
 
-    You need to see an output like this:
+    You need to see an output like this in `Console Output`:
 
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-yaml">
-        Connecting to Data Science Pipelines: https://ds-pipeline-dspa.<USER_NAME>>.svc:8443
+    ```bash
+        Connecting to Data Science Pipelines: https://ds-pipeline-dspa.<USER_NAME>.svc:8443
         /opt/app-root/lib64/python3.11/site-packages/kfp/dsl/component_decorator.py:121: FutureWarning: The default base_image used by the @dsl.component decorator will switch from 'python:3.8' to 'python:3.9' on Oct 1, 2024. To ensure your existing components work with versions of the KFP SDK released after that date, you should provide an explicit base_image argument and ensure your component works as intended on Python 3.9.
         return component_factory.create_component_from_func(
         /opt/app-root/lib64/python3.11/site-packages/kfp/client/client.py:159: FutureWarning: This client only works with Kubeflow Pipeline v2.0.0-beta.2 and later versions.
         warnings.warn(
         <IPython.core.display.HTML object><IPython.core.display.HTML object>
-    </code></pre></div>
+    ```
 
 
 3. Go to OpenShift AI UI. Select `Experiments` from the left menu and go to `Experiments and runs`. You'll see there is one run with the status `Running`. Click to see the details of the pipeline run.

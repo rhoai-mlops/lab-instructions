@@ -28,7 +28,7 @@ Open up `mlops-gitops/toolings/values.yaml` and add the following piece of yaml.
     source_ref: "main"
     values:
       USER_NAME: <USER_NAME>
-      git_server: <GIT_SERVER>
+      cluster_domain: <CLUSTER_DOMAIN>
 ```
 
 4. Again, this is GITOPS - so in order to affect change, we now need to commit things! Let's get the configuration into git, before telling Argo CD to sync the changes for us.

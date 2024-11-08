@@ -10,10 +10,12 @@ These two were already installed in your dev environment. Now we need to bring t
       # KubeFlow Model Registry
       - name: model-registry
         enabled: true
-        source: https://github.com/kubeflow/model-registry/
-        source_path: manifests/kustomize/overlays/db
-        source_ref: v0.2.7-alpha
-        kustomize: true
+        source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
+        source_path: charts/model-registry
+        source_ref: "main"
+        values:
+          name: <USER_NAME>
+          cluster_domain: <CLUSTER_DOMAIN>
     ```
 
 2. And deploy Data Science Pipeline Application by copying the yaml to `mlops-gitops/toolings/values.yaml`

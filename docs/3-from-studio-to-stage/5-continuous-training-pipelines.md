@@ -1,6 +1,6 @@
 # Continuous Training Pipeline
 
-In this exercise, we are going to use OpenShift Pipelines (Tekton) to trigger our Kubeflow Pipeline automatically when there is a push happens in Jukebox repository and deploy the model that Kubeflow Pipeline generates into a test environment.
+In this exercise, we’ll set up OpenShift Pipelines (Tekton) to automatically trigger a Kubeflow Pipeline whenever there’s a push to the `jukebox` repository. The Kubeflow Pipeline will train a model, and once the model is ready, we’ll deploy it into a test environment for validation. To ensure traceability, the pipeline will update the model version information in the `mlops-gitops` repository, enabling Argo CD to handle the deployment update.
 
 TODO: add a diagram here.
 
@@ -15,7 +15,7 @@ TODO: add a diagram here.
 
 After cloning, from the left Explorer menu, go to `mlops-helmcharts/charts/pipelines` folder, see that we are calling KfP pipeline (that we ran manually in the previous chapter) from `templates/tasks/execute-ds-pipeline.yaml`. 
 
-3. We need to apply this Tekton pipeline definition into our mlops environment. This will give us a webhook we can use to trigger it, we need to put that webhook as a trigger in our `Jukebox` repository. Because we want to trigger the pipeline when there is a change in the model source code repository. (also for other stuff as well but no spoiler now 🤭)
+3. We need to apply this Tekton pipeline definition to our <USER_NAME>-mlops environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
 
 Open up `mlops-gitops/toolings/values.yaml` and add the following piece of yaml.
 
@@ -46,13 +46,13 @@ If you check from Argo CD, you'll see that the pipeline was popped up there alre
 
 _Note: If you are seeing PVCs are still in Progressing status on Argo CD, it is because the OpenShift cluster is waiting for the first consumer, a.k.a. the first pipeline run, to create the Persistent Volumes. The sync status will be green after the first run._
 
-5. Now, let's take the webhook and add it to the Jukebox repository. Run the below command and copy the webhook:
+5. Now, let's take the webhook and add it to the Jukebox repository. Run the below command and copy the webhook URL:
 
 ```bash
     echo https://$(oc -n <USER_NAME>-mlops get route el-ct-listener --template='{{ .spec.host }}')
 ```
 
-6. Once you have the URL, over on Gitea go to `jukebox` repository > `Settings` > `Webhook` , choose `Gitea` to add the webhook:
+6. Once you have the URL, in Gitea go to `jukebox` repository > `Settings` > `Webhook` , choose `Gitea` to add the webhook:
 
 ![add-webhook.png](./images/add-webhook.png)
 
@@ -61,7 +61,7 @@ You can test the webhook by clicking the URL, and then click `Test Delivery`:
 ![test-webhook-1.png](./images/test-webhook-1.png)
 ![test-webhook-2.png](./images/test-webhook-2.png)
 
-7. This test delivery acts like a commit to Jukebox repository and it triggers the pipeline! You can observe the pipline running from OpenShift's `PipelineRuns` view as well as OpenShift AI's, yes, `Data Science Pipeline > Runs` view :D 
+7. This test delivery acts like a commit to Jukebox repository and actually it triggers the pipeline! You can observe the pipeline running from OpenShift's `PipelineRuns` view as well as on OpenShift AI's, yes, `Data Science Pipeline > Runs` view 🙈 
 
 Go to OpenShift UI > Pipelines > PipelineRuns and click the colorful bar to see the logs.
 
@@ -73,10 +73,10 @@ or you can use this link:
   https://console-openshift-console.<CLUSTER_DOMAIN>/pipelines/ns/<USER_NAME>-mlops/pipeline-runs
 ```
 
-Then go to the OpenShift AI UI > Experiments and Runs and click the current run to see the details.
+Then go to the OpenShift AI UI >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
 
 ![openshift-ai-pipeline.png](./images/openshift-ai-pipeline.png)
 
-The pipeline will build the model and save it in the S3 and Kubeflow Registry, just like we manually did in the Data Science innerloop!
+The pipeline will build the model, containerize it and save the information on Kubeflow Registry, like we manually did in the Data Science inner loop!
 
-This pipeline will take a little bit time to run if it is running for the first time. In the meantime, we can prepare the environment for the model deployment ✨ via GitOps ✨
+This pipeline will take a bit of time to complete the first time. However, for subsequent runs, we’ll leverage Kubeflow Pipeline’s caching feature, which reuses the results of previous steps when inputs haven’t changed. This reduces processing time and speeds up the pipeline considerably 🧚‍♂️

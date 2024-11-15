@@ -14,7 +14,7 @@ The box on the top of the page allows you to load the docs with variables used b
  then just put `apps.hivec.sandbox1243.opentlc.com` in the box to generate the correct address for the exercises.
 * For the git server, you could use your preferred and accessible Git server (GitHub, GitLab, ...). The instructor could provide you one.
 For example if the git server lives at <code class="language-yaml">https://gitea.apps.hivec.sandbox1243.opentlc.com/</code>, then just
-put `gitlab-ce.apps.hivec.sandbox1243.opentlc.com`in the box to generate the correct address for the exercises.
+put `gitea.apps.hivec.sandbox1243.opentlc.com`in the box to generate the correct address for the exercises.
 
 ## 🦆 Conventions
 When running through the exercise, we're tried to call out where things need replacing. The key ones are anything inside an `<>` should be replaced. For example, if your team is called `biscuits` then in the instructions if you see `\<USER_NAME\>` this should be replaced with `biscuits` like so:

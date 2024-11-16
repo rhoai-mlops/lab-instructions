@@ -14,54 +14,44 @@ Once the model artifact and its versioning info are created, the pipeline pushes
 
 # Deploying Jukebox 
 
-1. In your code server IDE, open `mlops-gitops/values.yaml` file and **swap** `enabled: false` to `enabled: true` as shown below for each environment definitions:
+1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two seperate AppSet definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep AppSet definition separate so that it'll be easy to take the prod definition into another place later on :)
 
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-yaml">
-        # Test App of Apps for Models
-        - name: model-deployments
-          enabled: true
-          source_path: "."
-          helm_values:
-            - test/values.yaml
-        # Production App of Apps for Models
-        - name: model-deployments
-          enabled: true
-          source_path: "."
-          helm_values:
-            - prod/values.yaml
-    </code></pre></div>
+Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definition just like before. Open up the `appset-test.yaml` and `appset-prod.yaml` files and replace the values. For the lazy ones we also have the commands:
 
-2. Let's add `jukebox` model definition under `model-deployments/test/values.yaml` and `model-deployments/prod/values.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration to it from the `values` section. 
+  ```bash
+      sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
+      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
+      sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
+      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
+  ```
+
+
+2. Let's add `jukebox` model definition under `model-deployments/test/jukebox/config.yaml` and `model-deployments/prod/jukebox/config.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration such as image version. 
 
     ```yaml
-      # Jukebox
-      jukebox:
-        name: jukebox
-        enabled: true
-        source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
-        source_ref: main
-        source_path: charts/model-deployment/simple
-        values:
-            name: jukebox
-            version: latest
+    chart_name: model-deployment/simple
+    name: jukebox
+    version: latest
+    image_repository: quay.io
+    image_namespace: rhoai
     ```
 3. Let's get this deployed of course - it's not real unless its in git!
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
     git add .
-    git commit -m  "🐰 ADD - app-of-apps and jukebox to test 🐰"
+    git commit -m  "🐰 ADD - appsets and jukebox to deploy 🐰"
     git push 
     ```
 
-4. With the values enabled, and the first application listed in the test environment - let's tell Argo CD to start picking up changes to these environments. To do this, simply update the helm chart we installed at the beginning of this exercise:
+4. With the `jukebox` values stored in Git, now let's tell Argo CD to start picking up changes to these environments. To do this, simply we need to create ApplicationSets:
 
     ```bash
-    cd /opt/app-root/src/mlops-gitops
-    helm upgrade --install argoapps --namespace <USER_NAME>-mlops .
+    oc apply -f /opt/app-root/src/mlops-gitops/appset-test.yaml -n <USER_NAME>-mlops
+    oc apply -f /opt/app-root/src/mlops-gitops/appset-prod.yaml -n <USER_NAME>-mlops
     ```
 
 5. You should see the two Jukebox application, one for `test` and one for `prod` deployed in Argo CD. 
 
 
+TODO: add screenshots

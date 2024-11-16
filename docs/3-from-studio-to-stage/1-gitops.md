@@ -23,7 +23,7 @@ We will use Argo CD to deploy our MLOps toolings and models in a repeatable and 
 
     For Notebook Image: 
 
-    - Image selection: `ml500-code-server`
+    - Image selection: `code-server`
 
     - Deployment size: `Small`
 

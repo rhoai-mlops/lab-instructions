@@ -28,7 +28,7 @@ _You can generate some traffic by running some querries from the Jukebox UI 🎶
       # Grafana
       - name: grafana
         enabled: true
-        source: https://gitea-gitea.apps.cluster-75vtz.75vtz.sandbox1169.opentlc.com/user1/mlops-helmcharts.git
+        source: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts.git
         source_path: charts/grafana
         source_ref: "main"
     ```

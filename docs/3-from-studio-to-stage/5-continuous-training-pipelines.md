@@ -2,7 +2,6 @@
 
 In this exercise, we’ll set up OpenShift Pipelines (Tekton) to automatically trigger a Kubeflow Pipeline whenever there’s a push to the `jukebox` repository. The Kubeflow Pipeline will train a model, and once the model is ready, we’ll deploy it into a test environment for validation. To ensure traceability, the pipeline will update the model version information in the `mlops-gitops` repository, enabling Argo CD to handle the deployment update.
 
-TODO: add a diagram here.
 
 ## Deploy Continuous Training Pipeline
 
@@ -15,21 +14,24 @@ TODO: add a diagram here.
 
 After cloning, from the left Explorer menu, go to `mlops-helmcharts/charts/pipelines` folder, see that we are calling KfP pipeline (that we ran manually in the previous chapter) from `templates/tasks/execute-ds-pipeline.yaml`. 
 
+TODO: add a diagram here.
+
 3. We need to apply this Tekton pipeline definition to our <USER_NAME>-mlops environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
 
-Open up `mlops-gitops/toolings/values.yaml` and add the following piece of yaml.
+Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` file under this newly created folder. Or simply run the below commands:
 
-```yaml
-  # CT Pipeline
-  - name: pipelines
-    enabled: true
-    source: https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
-    source_path: charts/pipelines
-    source_ref: "main"
-    values:
-      USER_NAME: <USER_NAME>
-      cluster_domain: <CLUSTER_DOMAIN>
+```bash
+    mkdir /opt/app-root/src/mlops-gitops/toolings/ct-pipeline
+    touch /opt/app-root/src/mlops-gitops/toolings/ct-pipeline/config.yaml
 ```
+
+2. Open up the `ct-pipeline/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information, you know the drill by now:
+
+    ```yaml
+    chart_name: pipelines
+    USER_NAME: <USER_NAME>
+    cluster_domain: <CLUSTER_DOMAIN>
+    ```
 
 4. Again, this is GITOPS - so in order to affect change, we now need to commit things! Let's get the configuration into git, before telling Argo CD to sync the changes for us.
 

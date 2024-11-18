@@ -15,7 +15,7 @@ When something is seen as not matching the required state in Git, an application
 ### Argo CD Applications
 Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). 
 
-We will use Argo CD to deploy our MLOps toolings and models in a repeatable and reproduceable manner. We will store the definitions in Git, and let Argo CD to apply the definitions. That means, we need to deal with some yaml files :) Since we are going to deal with some yaml files, let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲)
+We will use Argo CD to deploy our MLOps toolings and models in a repeatable and reproduceable manner. We will store the definitions in Git, and let Argo CD to apply the definitions. That means, we need to deal with some yaml files :) Let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲) and create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project.
 
 1. Go to OpenShift AI > `USER_NAME` >  Workbenches and click `Create workbench`
 

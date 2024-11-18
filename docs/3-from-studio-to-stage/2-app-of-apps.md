@@ -27,14 +27,17 @@
     ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>
     </p>
 
-3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. Let's get right into it - in the your IDE, open the `appset-toolings.yaml` file. Update `CLUSTER_DOMAIN` and `USER_NAME` placeholders with your values. Alternatively you can run the below command to do the changes automatically.
+3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. Let's get right into it - in the your IDE, open the `appset-toolings.yaml` file. Update `CLUSTER_DOMAIN` and `USER_NAME` placeholders with your values. Then do the same thing for `toolings/bootstrap/config.yaml` file. Alternatively you can run the below commands to do the changes automatically.
 
     ```bash
       sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-toolings.yaml
       sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-toolings.yaml
+      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/toolings/bootstrap/config.yaml
     ```
 
-4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the Minio definition in Git. Because as we said, this is GitOps, definitions have to be stored in ✨Git✨. All we need to do is to create the ApplicationSet object, and then Argo CD will take care of the rest.
+4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
+
+  All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 
     ```bash
       oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
@@ -44,6 +47,8 @@
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git config --global user.email "mlops@wizard.com"
+    git config --global user.name "MLOps Wizard"
     git add .
     git commit -m  "🦆 ADD - ApplicationSet definition 🦆"
     git push
@@ -51,7 +56,7 @@
 
   
   <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the top of the screen.
+    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
   </p>
 
 
@@ -75,7 +80,7 @@
 
 7. Now check the Argo CD to see if ApplicationSet was able to see the subfolders under `toolings` and deploy the applications for us!
 
-    ![argocd-bootrstrap-tooling](./images/argocd-bootstrap-tooling.png)
+    ![argocd-bootstrap-tooling](./images/argocd-bootstrap-tooling.png)
 
 8. As Argo CD sync's the resources we can see them in the cluster as well:
 

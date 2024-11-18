@@ -27,57 +27,36 @@
     ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>
     </p>
 
-3. This `mlops-gitops` repository is actually just another Helm Chart with a pretty neat pattern built in to create App of Apps in Argo CD. Let's get right into it - in the your IDE, Open the `values.yaml` file in the root of the project. Update it to reference the git repo you just created and your team name. This values file is the default ones for the chart and will be applied to all of the instances of this chart we create. The Chart has Argo CD Application definition as a template, just like the one we manually created in the previous exercise when we deployed Minio in the UI of Argo CD.
+3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. Let's get right into it - in the your IDE, open the `appset-toolings.yaml` file. Update `CLUSTER_DOMAIN` and `USER_NAME` placeholders with your values. Then do the same thing for `toolings/bootstrap/config.yaml` file. Alternatively you can run the below commands to do the changes automatically.
 
-    ```yaml
-    source: "https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git"
-    team: <USER_NAME>
+    ```bash
+      sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-toolings.yaml
+      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-toolings.yaml
+      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/toolings/bootstrap/config.yaml
     ```
 
-4. The `values.yaml` file refers to the `toolings/values.yaml` which is where we store all the definitions of things we'll need for our countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with two objects. One for boostrapping the cluster with some namespaces and permissions. And another one is Minio, so that we actually have the Minio definition in Git. Because as we said, this is GitOps, definitions have to be stored in ✨Git✨. Update your `toolings/values.yaml` by changing your `\<USER_NAME\>` in the bootstrap section so it looks like this:
+4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
 
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-yaml">
-        applications:
-        # Bootstrap Project
-        - name: bootstrap
-          enabled: true
-          source: https://redhat-cop.github.io/helm-charts
-          chart_name: bootstrap-project
-          source_ref: "1.0.1"
-          values:
-            serviceaccounts: ""
-            # student is the GROUP NAME in IDM
-            bindings: &binds
-              - name: student
-                kind: Group
-                role: admin
-            namespaces:
-              - name: <USER_NAME>-mlops
-                bindings: *binds
-                operatorgroup: true
-              - name: <USER_NAME>-test
-                bindings: *binds
-                operatorgroup: true
-              - name: <USER_NAME>-stage
-                bindings: *binds
-                operatorgroup: true
-    </code></pre></div>
+  All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 
+    ```bash
+      oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
+    ```
 
-
-5. This is GITOPS - so in order to affect change, we now need to commit things! Let's get the configuration into git, before telling Argo CD to sync the changes for us.
+5. This is GITOPS - we now need to commit things! Let's get the configuration into git 👇
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git config --global user.email "mlops@wizard.com"
+    git config --global user.name "MLOps Wizard"
     git add .
-    git commit -m  "🦆 ADD - correct project names 🦆"
+    git commit -m  "🦆 ADD - ApplicationSet definition 🦆"
     git push
     ```
 
   
   <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the top of the screen.
+    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
   </p>
 
 
@@ -99,16 +78,11 @@
     EOF
     ```
 
-7. Install the tooling (only bootstrap, and Minio at this stage..). Once the command is run, open the Argo CD UI to show the resources being created. We’ve just deployed our first AppOfApps!
+7. Now check the Argo CD to see if ApplicationSet was able to see the subfolders under `toolings` and deploy the applications for us!
 
-    ```bash
-    cd /opt/app-root/src/mlops-gitops
-    helm upgrade --install argoapps --namespace <USER_NAME>-mlops .
-    ```
+    ![argocd-bootstrap-tooling](./images/argocd-bootstrap-tooling.png)
 
-    ![argocd-bootrstrap-tooling](./images/argocd-bootstrap-tooling.png)
-
-8. As Argo CD sync's the resources we can see them in the cluster:
+8. As Argo CD sync's the resources we can see them in the cluster as well:
 
     ```bash
     oc get projects | grep <USER_NAME>
@@ -118,4 +92,4 @@
     oc get pods -n <USER_NAME>-mlops
     ```
 
-🪄🪄 Magic! You've now deployed an app of apps to scaffold our tooling and projects in a repeatable and auditable way (via git!). Next up, we'll prepare our model deployment definitions. 🪄🪄
+🪄🪄 Magic! You've now deployed an ApplicationSet to scaffold our tooling and projects in a repeatable and auditable way (via git!). Now, let's see how we can extend the toolings with just git push! 🪄🪄

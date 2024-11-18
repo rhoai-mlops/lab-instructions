@@ -35,15 +35,7 @@
       sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/toolings/bootstrap/config.yaml
     ```
 
-4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
-
-  All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
-
-    ```bash
-      oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
-    ```
-
-5. This is GITOPS - we now need to commit things! Let's get the configuration into git 👇
+5. This is GITOPS - first we need to commit things! Let's get the configuration into git 👇
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
@@ -59,6 +51,13 @@
     ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
   </p>
 
+4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out countinuous training pipelines. The definitions for things like Minio, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
+
+  All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
+
+    ```bash
+      oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
+    ```
 
 6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in an upcoming section we'll tackle the secret as code and store it encrypted in Git. In your terminal create the Secret in your environment:
 

@@ -33,7 +33,7 @@ Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definit
     name: jukebox
     version: latest
     image_repository: quay.io
-    image_namespace: rhoai
+    image_namespace: rhoai-mlops
     ```
 3. Let's get this deployed of course - it's not real unless its in git!
 

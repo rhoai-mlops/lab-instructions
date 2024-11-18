@@ -4,6 +4,21 @@ Kubeflow Pipelines (KfP) is a platform designed for building and deploying porta
 
 While Elyra was great for quick experimentation, KfP offers the robustness we need for running pipelines continuously. With KfP, we can have better logging, error handling, retry logic, and other production-level features. Essentially, this will become our production-grade training pipeline. And it will be automatically triggered based on source code updates, the arrival of new data, or alerts signaling unusual model behavior. (spoiler, spoiler🤭🤭)
 
+The pipeline steps look like this:  
+![pipeline-steps.png](./images/pipeline-steps.png)
+
+1. First we gather some data that we would like to train our model on.
+2. Then we both validate and preprocess the data. They are done in parallell but if the validation step fails, the pipeline will stop.  
+The pre-processing step makes sure that everything is converted to numbers and that our data is normalized, just like we did in the inner loop.
+3. Once we have our data ready, we can train the model.
+4. After the model is trained, we will evaluate the model to make sure its performance is good enough.  
+We also convert the model to ONNX at the same time, as that's the format we will go with for serving the model.
+5. After we have the ONNX model, we make sure that the ONNX model performs the same as the original Keras model.
+6. And finally, we can save the model by storing it somewhere our model server can reach it. 🎉
+
+
+Now that you know what the pipeline is supposed to do, let's go ahead and run it! 🏃‍♂️
+
 1. You can find the pipeline definition in the `3-prod_datascience` folder.
 
     If you explore the files in this folder, you'll notice that they largely mirror the steps we previously executed in our notebooks. However, these steps have been broken down into individual functions and organized into separate files to improve modularity. This makes the pipeline easier to update and maintain over time.

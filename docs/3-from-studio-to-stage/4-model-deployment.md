@@ -68,20 +68,16 @@ Let's go ahead and get our UI deployed! 📺
 PROD:
 
     ```yaml
-    chart_name: jukebox-ui
-    environment: prod
-    name: <USER_NAME>
-    cluster_domain: <CLUSTER_DOMAIN>
+    model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
+    input_node: input
     model_name: jukebox
     ```
 
     TEST:
 
     ```yaml
-    chart_name: jukebox-ui
-    environment: test
-    name: <USER_NAME>
-    cluster_domain: <CLUSTER_DOMAIN>
+    model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    input_node: input
     model_name: jukebox
     ```
 

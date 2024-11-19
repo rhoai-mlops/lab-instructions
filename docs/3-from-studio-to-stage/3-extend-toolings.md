@@ -1,4 +1,4 @@
-# Extend Application of Applications
+# Extend Toolings with GitOps
 
 We need to add two more application to our MLOps toolings in order to run our continous training pipeline successfully; KubeFlow Registry & Data Science Pipelines Application (DSPA).
 

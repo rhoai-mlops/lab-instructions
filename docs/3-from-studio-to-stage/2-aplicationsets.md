@@ -1,4 +1,4 @@
-## Application of Applications
+## ApplicationSets
 
 # Get Gitea Ready for GitOps
 

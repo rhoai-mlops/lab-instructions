@@ -59,7 +59,8 @@
       oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
     ```
 
-6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in an upcoming section we'll tackle the secret as code and store it encrypted in Git. In your terminal create the Secret in your environment:
+6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in an upcoming section we'll tackle the secret as code and store it encrypted in Git.  
+In your terminal create the Secret in your environment (Note: don't forget to replace `<GIT_PASSWORD>` with your password):
 
     ```bash
     cat <<EOF | oc apply -n <USER_NAME>-mlops -f -
@@ -90,5 +91,10 @@
     ```bash
     oc get pods -n <USER_NAME>-mlops
     ```
+
+You should see something like this if everything went well:  
+![argocd-created-projects](./images/argocd-created-projects.png)
+
+![deployed-apps-pods](./images/deployed-apps-pods.png)
 
 🪄🪄 Magic! You've now deployed an ApplicationSet to scaffold our tooling and projects in a repeatable and auditable way (via git!). Now, let's see how we can extend the toolings with just git push! 🪄🪄

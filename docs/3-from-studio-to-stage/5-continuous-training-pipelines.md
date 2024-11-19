@@ -12,11 +12,12 @@ In this exercise, we’ll set up OpenShift Pipelines (Tekton) to automatically t
     git clone https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
 ```
 
-After cloning, from the left Explorer menu, go to `mlops-helmcharts/charts/pipelines` folder, see that we are calling KfP pipeline (that we ran manually in the previous chapter) from `templates/tasks/execute-ds-pipeline.yaml`. 
+After cloning, from the left Explorer menu, go to `mlops-helmcharts/charts/pipelines` folder, see that we are calling KfP pipeline (that we ran manually in the previous chapter) from `templates/tasks/execute-ds-pipeline.yaml`.  
+We can also see a few other steps that we are going to want to execute:
 
-TODO: add a diagram here.
+![tekton-pipeline-overview.png](./images/tekton-pipeline-overview.png)
 
-3. We need to apply this Tekton pipeline definition to our <USER_NAME>-mlops environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
+2. We need to apply this Tekton pipeline definition to our <USER_NAME>-mlops environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
 
 Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` file under this newly created folder. Or simply run the below commands:
 
@@ -25,7 +26,7 @@ Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` fil
     touch /opt/app-root/src/mlops-gitops/toolings/ct-pipeline/config.yaml
 ```
 
-2. Open up the `ct-pipeline/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information, you know the drill by now:
+3. Open up the `ct-pipeline/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information, you know the drill by now:
 
     ```yaml
     chart_name: pipelines
@@ -75,7 +76,7 @@ or you can use this link:
   https://console-openshift-console.<CLUSTER_DOMAIN>/pipelines/ns/<USER_NAME>-mlops/pipeline-runs
 ```
 
-Then go to the OpenShift AI UI >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
+As soon as the kubeflow pipeline has been triggered, you can go to the OpenShift AI UI >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
 
 ![openshift-ai-pipeline.png](./images/openshift-ai-pipeline.png)
 

@@ -14,7 +14,7 @@ These two were already installed in your dev environment. Now we need to bring t
 2. Open up the `model-registry/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information about where Argo CD can find the helm chart about model registry, and the values we'd like to provide to this helm chart.
 
     ```yaml
-  chart_name: model-registry
+  chart_path: charts/model-registry
   name: <USER_NAME>
   cluster_domain: <CLUSTER_DOMAIN>
     ```
@@ -30,7 +30,7 @@ These two were already installed in your dev environment. Now we need to bring t
 4. Open up the `dspa/config.yaml` file and paste the below yaml file. `config.yaml` for the same reasons. For Data Science Pipeline Application, we do not have to provide any specific value so it'll be a short config file.
 
     ```yaml
-  chart_name: dspa
+  chart_path: charts/dspa
     ```
 
 5. Before we push our changes - we would like to sync our changes AS SOON AS updates hit the git repo! But Argo CD has a cycle time of about 3ish mins by default - this is too slow for us. However we can make Argo CD sync our changes instantly. For that, let’s add a webhook to connect Argo CD to our GitOps repository. Get ArgoCD URL with following:

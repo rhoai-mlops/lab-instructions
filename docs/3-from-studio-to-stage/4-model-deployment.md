@@ -68,7 +68,7 @@ Let's go ahead and get our UI deployed! 📺
 PROD:
 
     ```yaml
-    repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
+    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
     input_node: input
@@ -78,7 +78,7 @@ PROD:
     TEST:
 
     ```yaml
-    repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
+    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     input_node: input

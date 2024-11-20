@@ -30,7 +30,7 @@ Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definit
 2. Let's add `jukebox` model definition under `model-deployments/test/jukebox/config.yaml` and `model-deployments/prod/jukebox/config.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration such as image version.  
 
     ```yaml
-    chart_name: model-deployment/simple
+    chart_path: charts/model-deployment/simple
     name: jukebox
     version: latest
     image_repository: quay.io
@@ -68,7 +68,8 @@ Let's go ahead and get our UI deployed! 📺
 PROD:
 
     ```yaml
-    chart_name: jukebox-ui
+    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
+    chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
     input_node: input
     model_name: jukebox
@@ -77,7 +78,8 @@ PROD:
     TEST:
 
     ```yaml
-    chart_name: jukebox-ui
+    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
+    chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     input_node: input
     model_name: jukebox

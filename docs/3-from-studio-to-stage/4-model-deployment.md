@@ -13,7 +13,7 @@ When the pipeline detects a git push event, it tags the model version with the g
 
 Once the model artifact and its versioning info are created, the pipeline pushes this update to the `mlops-gitops/model-deployment/` repository. Argo CD then recognizes this change, updating the `InferenceService` configuration in OpenShift. This triggers an automated rollout of the new model version, seamlessly integrating it into production.
 
-# Deploying Jukebox 
+## Deploying Jukebox
 
 1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two seperate AppSet definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep AppSet definition separate so that it'll be easy to take the prod definition into another place later on :)
 
@@ -27,7 +27,7 @@ Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definit
   ```
 
 
-2. Let's add `jukebox` model definition under `model-deployments/test/jukebox/config.yaml` and `model-deployments/prod/jukebox/config.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration such as image version. 
+2. Let's add `jukebox` model definition under `model-deployments/test/jukebox/config.yaml` and `model-deployments/prod/jukebox/config.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration such as image version.  
 
     ```yaml
     chart_name: model-deployment/simple
@@ -54,3 +54,50 @@ Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definit
 
 5. You should see the two Jukebox application, one for `test` and one for `prod` deployed in Argo CD. 
 ![argocd-jukebox-deployed](./images/argocd-jukebox-deployed.png)
+
+6. You can also go to RHOAI, select Model Serving in the left menu and then select one of the two projects to see the deployed models from OpenShift AI's Dashboard, just like we did in the inner loop.
+![rhoai-deployed-models](./images/rhoai-deployed-models.png)
+
+## Using the Jukebox UI
+
+As you can see from the ArgoCD UI we have also created applications for an UI for the jukebox model, both in test and prod. However, if you were to look inside them you will see that they are empty.  
+
+Let's go ahead and get our UI deployed! 📺
+
+1. Similar to with the jukebox model, we will update the currently empty `model-deployments/test/jukebox-ui/config.yaml` and `model-deployments/prod/jukebox-ui/config.yaml` with the following:  
+PROD:
+
+    ```yaml
+    chart_name: jukebox-ui
+    model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
+    input_node: input
+    model_name: jukebox
+    ```
+
+    TEST:
+
+    ```yaml
+    chart_name: jukebox-ui
+    model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    input_node: input
+    model_name: jukebox
+    ```
+
+2. Then just push it to git and see it update in ArgoCD 🧙‍♂️
+
+    ```bash
+    cd /opt/app-root/src/mlops-gitops
+    git add .
+    git commit -m  "🐰 UPDATE - jukebox-ui configs for deployment 🐰"
+    git push 
+    ```
+
+3. Now with our fresh new UI deployed, we can take a look at it by going to this route:
+
+    ```bash
+        https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    ```
+
+4. Try to predict a new location! 🗺️
+
+![jukebox-ui](./images/jukebox-ui.png)

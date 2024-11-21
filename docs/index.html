@@ -121,9 +121,11 @@
             const userName = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
             const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
             const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
+            const password = 'thisisthepassword';
             return content.replaceAll('<USER_NAME>', userName)
                     .replaceAll('<CLUSTER_DOMAIN>', clusterDomain)
-                    .replaceAll('<GIT_SERVER>', gitServer);
+                    .replaceAll('<GIT_SERVER>', gitServer)
+                    .replaceAll('<GIT_PASSWORD>', password);
           });
 
 

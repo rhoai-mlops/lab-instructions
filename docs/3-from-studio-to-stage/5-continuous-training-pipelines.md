@@ -7,10 +7,10 @@ In this exercise, we’ll set up OpenShift Pipelines (Tekton) to automatically t
 
 1. First, let's clone the Git repository that stores the Tekton pipeline definition. 
 
-```bash
+    ```bash
     cd /opt/app-root/src
     git clone https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
-```
+    ```
 
 After cloning, from the left Explorer menu, go to `mlops-helmcharts/charts/pipelines` folder, see that we are calling KfP pipeline (that we ran manually in the previous chapter) from `templates/tasks/execute-ds-pipeline.yaml`.  
 We can also see a few other steps that we are going to want to execute:
@@ -22,8 +22,8 @@ We can also see a few other steps that we are going to want to execute:
 Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` file under this newly created folder. Or simply run the below commands:
 
 ```bash
-    mkdir /opt/app-root/src/mlops-gitops/toolings/ct-pipeline
-    touch /opt/app-root/src/mlops-gitops/toolings/ct-pipeline/config.yaml
+mkdir /opt/app-root/src/mlops-gitops/toolings/ct-pipeline
+touch /opt/app-root/src/mlops-gitops/toolings/ct-pipeline/config.yaml
 ```
 
 3. Open up the `ct-pipeline/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information, you know the drill by now:

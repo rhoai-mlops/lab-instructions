@@ -36,6 +36,7 @@ Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definit
     image_repository: quay.io
     image_namespace: rhoai-mlops
     ```
+    
 3. Let's get this deployed of course - it's not real unless its in git!
 
     ```bash
@@ -65,7 +66,8 @@ As you can see from the ArgoCD UI we have also created applications for an UI fo
 Let's go ahead and get our UI deployed! 📺
 
 1. Similar to with the jukebox model, we will update the currently empty `model-deployments/test/jukebox-ui/config.yaml` and `model-deployments/prod/jukebox-ui/config.yaml` with the following:  
-PROD:
+
+    * PROD:
 
     ```yaml
     repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
@@ -75,7 +77,7 @@ PROD:
     model_name: jukebox
     ```
 
-    TEST:
+    * TEST:
 
     ```yaml
     repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
@@ -97,7 +99,7 @@ PROD:
 3. Now with our fresh new UI deployed, we can take a look at it by going to this route:
 
     ```bash
-        https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
     ```
 
 4. Try to predict a new location! 🗺️

@@ -29,7 +29,7 @@ Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` fil
 3. Open up the `ct-pipeline/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information, you know the drill by now:
 
     ```yaml
-    chart_name: pipelines
+    chart_path: charts/pipelines
     USER_NAME: <USER_NAME>
     cluster_domain: <CLUSTER_DOMAIN>
     ```

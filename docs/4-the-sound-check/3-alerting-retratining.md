@@ -17,9 +17,9 @@
             rules:
             - alert: jukebox-datadrift-alert
             annotations:
-                message: 'jukebox meanshift p-value has dropped below 0.05 for dense_input-8, 
+                message: 'jukebox meanshift p-value has dropped below 0.05 for danceability, 
                           indicating a drift in data over the last 5000 samples compared to the training data.'
-            expr: trustyai_meanshift{namespace="{{ .Release.Namespace }}", subcategory="dense_input-8"}<0.05
+            expr: trustyai_meanshift{namespace="{{ .Release.Namespace }}", subcategory="danceability"}<0.05
             for: 10m
             labels:
                 severity: "critical"

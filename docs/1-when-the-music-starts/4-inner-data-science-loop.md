@@ -21,13 +21,12 @@ At the end, we have a working model saved in Minio and we can serve it from Open
 Now it's time to start executing the `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook. Be sure to read all the instructions - including the instructions at the end which tell you what follow-on notebooks to execute. You will execute the following notebooks in order:
 
 1. `jukebox/1-data_exploration/1-data_exploration.ipynb`
-2. `jukebox/2-dev_datascience/1-experiment-train.ipynb`
-3. `jukebox/2-dev_datascience/2-save_model.ipynb`
+2. `jukebox/2_dev_datascience/1-experiment-train.ipynb`
+3. `jukebox/2_dev_datascience/2-save_model.ipynb`
 
-Once you have executed the last notebook, you should have a model saved in the `models` bucket in Minio, now come back here to follow the next steps 😁
+Once you have executed the last notebook, you should have a model saved in the `models` bucket in MinIO, now come back here to follow the next steps 😁
 
 ![model_in_bucket.png](./images/model_in_bucket.png)
-
 
 ## Model Registry
 You can view your registered models in OpenShift AI UI and able to deploy the model from there. 
@@ -40,13 +39,13 @@ You can view your registered models in OpenShift AI UI and able to deploy the mo
 
 ![model-registry-2.png](./images/model-registry-2.png)
 
-You can see information like where the model is stored, version, details about model and so on. Right now we don't have much informtion as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model and so on. Basically we will treat Model Registry as our canonical metadata source. But for now, let's go and deploy the model and verify that it works inside a container and able to return us some prediction 🎶
+You can see information like where the model is stored, version, details about model and so on. Right now we don't have much information as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model and so on. Basically we will treat Model Registry as our canonical metadata source. But for now, let's go and deploy the model and verify that it works inside a container and able to return us some prediction 🎶
 
 ## Model Serving
 
 Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, and the underlying KServe technology, is that we don't have to worry about the containerization of the model. All we have to do is select the right runtime for our model and point where the model is. Let's give it a try:
 
-1. Go to your data science project > `Models` > Select `Single-Model Serving Platform` by clicking `Deploy Model`.
+1. Go to your Data Science project > `Models` > Select `Single-Model Serving Platform` by clicking `Deploy Model`.
 
 ![single-model-serving.png](./images/single-model-serving.png)
 
@@ -54,7 +53,7 @@ Now that we have our model artifacts saved in a bucket, we can deploy it in our 
 
 - Model name: `jukebox`
 - Serving runtime: `OpenVino Model Server`
-- Model framework: `onnx -1`
+- Model framework: `onnx - 1`
 - Model server replicas: `1`
 - Compute resources per replica: `Small`
 - Model route:

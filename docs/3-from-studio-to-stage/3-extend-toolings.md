@@ -38,7 +38,7 @@ These two were already installed in your dev environment. Now we need to bring t
     ```bash
     echo https://$(oc get route argocd-server --template='{{ .spec.host }}'/api/webhook  -n <USER_NAME>-mlops)
     ```
-    > NOTE: This is the webhook url to connect to ArgoCD to our GitOps repository, doesn't meant to be opened in your browser :D  
+    > NOTE: This is the webhook url is used to connect ArgoCD to our GitOps repository, it's not meant to be opened in your browser :D  
 
 6. Go to Gitea > `mlops-gitops` repository > Settings from top left. From the Settings page, click Webhooks and add a new Webhook as Gitea type.
 

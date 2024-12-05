@@ -53,7 +53,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
   </p>
 
-4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for out continuous training pipelines. The definitions for things like MinIO, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
+4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for our continuous training pipelines. The definitions for things like MinIO, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
 
   All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 

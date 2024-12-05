@@ -54,11 +54,10 @@ Most machine learning models are highly sensitive to the distribution of the dat
 2. Go to OpenShift UI in Developer view > Observe > Metrics and run the below query to visualize the metrics:
 
     ```bash
-    trustyai_meanshift{subcategory=~"danceability|loudness"}
+    trustyai_meanshift{subcategory=~"input-2|input-3"}
     ```
 
-TODO: update the subcategory name with the right mapping.
-
+    If you remember from the `1-trustyai_setup.ipynb` Notebook, `input-2` is mapped to `danceability`, and `input-3` is mapped to `energy`. 
 
 ## Configure TrustyAI for Model Bias
 

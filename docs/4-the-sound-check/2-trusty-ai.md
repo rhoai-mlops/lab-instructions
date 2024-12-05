@@ -116,8 +116,6 @@ We might want to see operational and model performance related metrics in the sa
 
     ```yaml
     chart_path: charts/alerting
-    name: jukebox
-    cluster_domain: <CLUSTER_DOMAIN>
     include_trusty: true  # 👈 add this
     ```
 
@@ -137,6 +135,7 @@ We might want to see operational and model performance related metrics in the sa
     echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
     ```
 
-Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
+    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
 
-TODO: add screenshots
+    ![grafana-with-trusty.png](./images/grafana-with-trusty.png)
+

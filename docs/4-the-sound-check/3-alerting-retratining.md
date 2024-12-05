@@ -41,6 +41,7 @@
     ```yaml
     chart_path: charts/alerting
     name: jukebox
+    user: <USER_NAME>
     cluster_domain: <CLUSTER_DOMAIN>
     ```
 
@@ -88,16 +89,18 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     ```yaml
     chart_path: charts/alerting
     name: jukebox
+    user: <USER_NAME>
     cluster_domain: <CLUSTER_DOMAIN>
     alert_manager: true # 👈 add this
     ```
 
-2. The trigger of an Alertmanager is very different from a trigger of Git repository. They send different type of payloads and different information to the webhook. Therefore we should also make some changes on our training pipeline. Open up `mlops-gitops/toolings/ct-pipeline/config.yaml` file and update it:
+2. The trigger of an Alertmanager is very different from a trigger of Git repository. They send different types of payloads and different information to the webhook. Therefore we should also make some changes on our training pipeline. Open up `mlops-gitops/toolings/ct-pipeline/config.yaml` file and update it:
 
     ```yaml
     chart_path: charts/pipelines
     USER_NAME: <USER_NAME>
     cluster_domain: <CLUSTER_DOMAIN>
+    git_server: <GIT_SERVER> # 👈 add this
     alert_trigger: true # 👈 add this
     ```
 
@@ -110,6 +113,10 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     git push
     ```
 
-3. Verify the pipeline is triggered
+3. Verify an alerting pipeline is triggered by going to OpenShift UI > `<USER_NAME>-mlops`> Pipelines
 
-TODO: add screenshots
+    ![alert-pipeline.png](./images/alert-pipeline.png)
+
+    and a new version is registered in the Model Registry due to data drift.
+
+    ![alert-model-registry.png](./images/alert-model-registry.png)

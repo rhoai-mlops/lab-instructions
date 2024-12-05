@@ -49,7 +49,7 @@
 7. Now, we'll start with `Jukebox` repository, the one that has model source code. Go back to your Jupyter Notebook, click the Git icon from the top of the left menu and , copy the GitHub link to clone the repository.
 
     ```bash
-    https://<GIT_SERVER><USER_NAME>/jukebox.git
+    https://<GIT_SERVER>/<USER_NAME>/jukebox.git
     ```
 
     ![notebook-clone-repo.png](./images/notebook-clone-repo.png)

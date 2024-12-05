@@ -2,7 +2,7 @@
 
 We need to add two more application to our MLOps toolings in order to run our continous training pipeline successfully; KubeFlow Registry & Data Science Pipelines Application (DSPA).
 
-These two were already installed in your dev environment. Now we need to bring them in with GitOps.
+These two were already installed in your dev environment. Now we need to bring them in with GitOps. Go to your `code-server` terminal. 
 
 1. In `mlops-gitops` repository, create `model-registry` folder under `toolings`. And then create a file called `config.yaml` under `model-registry` folder. Or simply run the below commands:
 
@@ -38,14 +38,15 @@ These two were already installed in your dev environment. Now we need to bring t
     ```bash
     echo https://$(oc get route argocd-server --template='{{ .spec.host }}'/api/webhook  -n <USER_NAME>-mlops)
     ```
+    > NOTE: This is the webhook url is used to connect ArgoCD to our GitOps repository, it's not meant to be opened in your browser :D  
+
 6. Go to Gitea > `mlops-gitops` repository > Settings from top left. From the Settings page, click Webhooks and add a new Webhook as Gitea type.
 
 ![gitea-argocd-webhook.png](./images/gitea-argocd-webhook.png)
 
-7. Copy the Argo CD URL you get from the previous command as `Target URL` and hit Add Webhook.
+7. Copy the Argo CD URL you get from the previous command as `Target URL` and hit `Add Webhook`.
 
 ![gitea-argocd-webhook-2.png](./images/gitea-argocd-webhook-2.png)
-
 
 8. And now, let's push the changes to our GitOps repository.
 

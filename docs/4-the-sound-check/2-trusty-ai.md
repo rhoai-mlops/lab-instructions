@@ -54,11 +54,10 @@ Most machine learning models are highly sensitive to the distribution of the dat
 2. Go to OpenShift UI in Developer view > Observe > Metrics and run the below query to visualize the metrics:
 
     ```bash
-    trustyai_meanshift{subcategory=~"danceability|loudness"}
+    trustyai_meanshift{subcategory=~"input-2|input-3"}
     ```
 
-TODO: update the subcategory name with the right mapping.
-
+    If you remember from the `1-trustyai_setup.ipynb` Notebook, `input-2` is mapped to `danceability`, and `input-3` is mapped to `energy`. 
 
 ## Configure TrustyAI for Model Bias
 
@@ -117,8 +116,6 @@ We might want to see operational and model performance related metrics in the sa
 
     ```yaml
     chart_path: charts/alerting
-    name: jukebox
-    cluster_domain: <CLUSTER_DOMAIN>
     include_trusty: true  # 👈 add this
     ```
 
@@ -138,6 +135,7 @@ We might want to see operational and model performance related metrics in the sa
     echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
     ```
 
-Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
+    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
 
-TODO: add screenshots
+    ![grafana-with-trusty.png](./images/grafana-with-trusty.png)
+

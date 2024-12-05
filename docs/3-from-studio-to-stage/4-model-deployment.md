@@ -65,14 +65,15 @@ As you can see from the ArgoCD UI we have also created applications for an UI fo
 Let's go ahead and get our UI deployed! 📺
 
 1. Similar to with the jukebox model, we will update the currently empty `model-deployments/test/jukebox-ui/config.yaml` and `model-deployments/prod/jukebox-ui/config.yaml` with the following:  
-PROD:
+
+    PROD:
 
     ```yaml
     repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
-    input_node: input
     model_name: jukebox
+    image: quay.io/rhoai-mlops/jukebox-ui:1.0
     ```
 
     TEST:
@@ -81,8 +82,8 @@ PROD:
     repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
-    input_node: input
     model_name: jukebox
+    image: quay.io/rhoai-mlops/jukebox-ui:1.0
     ```
 
 2. Then just push it to git and see it update in ArgoCD 🧙‍♂️
@@ -90,7 +91,7 @@ PROD:
     ```bash
     cd /opt/app-root/src/mlops-gitops
     git add .
-    git commit -m  "🐰 UPDATE - jukebox-ui configs for deployment 🐰"
+    git commit -m  "📺 UPDATE - jukebox-ui configs for deployment 📺"
     git push 
     ```
 

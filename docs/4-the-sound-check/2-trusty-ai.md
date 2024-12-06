@@ -115,7 +115,7 @@ We might want to see operational and model performance related metrics in the sa
 1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard.yaml). Open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
 
     ```yaml
-    chart_path: charts/alerting
+    chart_path: charts/grafana
     include_trusty: true  # 👈 add this
     ```
 

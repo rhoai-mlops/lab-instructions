@@ -15,7 +15,7 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
     touch /opt/app-root/src/mlops-gitops/model-deployments/prod/trustyai/config.yaml
     ```
 
-2. Open up both `trustyai/config.yaml` file and paste the below line to let Argo CD know which chart we want to deploy.
+2. Open up both `test/trustyai/config.yaml` and `prod/trustyai/config.yaml` files and paste the below line to let Argo CD know which chart we want to deploy.
 
     ```yaml
     chart_path: charts/trustyai

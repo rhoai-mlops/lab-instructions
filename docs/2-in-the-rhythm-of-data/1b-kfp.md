@@ -24,7 +24,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![kfp.png](./images/kfp.png)
 
-2. Update the pipeline definition with the cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholder. Make sure you save the file 👻
+2. Update the pipeline definition with the cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholder (somewhere around line 125). Make sure you save the file 👻
 
     ```bash
         metadata = {
@@ -42,7 +42,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![kfp-run.png](./images/kfp-run.png)
 
-    You need to see an output like this in `Console Output`:
+    You need to see an output like this in `Console Output`. It means that your pipeline was started successfully 🐍
 
     ```bash
         Connecting to Data Science Pipelines: https://ds-pipeline-dspa.<USER_NAME>.svc:8443
@@ -67,6 +67,6 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![experiments-2.png](./images/experiments-2.png)
 
-    Feel free to spend some time in this view to explore more! 
+    Take some time to explore this view and familiarize yourself with its features. The pipeline might take a while to finish on its first run, but you don’t need to wait for it to complete. Feel free to move on to the next steps!
 
-4. Next step is to prepare the environment for MLOps practices 🙌
+4. The next step is to set up the MLOps environment, enabling this pipeline to run automatically and supporting many other MLOps practices 🙌.

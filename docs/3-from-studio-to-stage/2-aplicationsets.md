@@ -2,7 +2,7 @@
 
 # Get Gitea Ready for GitOps
 
-> In this exercise we'll connect Argo CD (our gitOps controller) to our git repository to enable the GitOps workflow. We will be storing definitions of toolings and model deployments in `mlops-gitops` repository and make Argo CD aware of that repo.
+> In this exercise we'll connect Argo CD (our GitOps controller) to our Git repository to enable the GitOps workflow. We will be storing definitions of toolings and model deployments in `mlops-gitops` repository and make Argo CD aware of that repo.
 
 Gitea is a lightweight, self-hosted Git server that allows teams to manage repositories, track issues, and collaborate on code efficiently. It is open-source, easy to deploy, and supports various version control operations. Gitea serves as our central repository in this workshop where your `mlops-gitops` configurations will reside for seamless integration with Argo CD.
 
@@ -29,7 +29,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>
     </p>
 
-3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. Let's get right into it - in the your IDE, open the `appset-toolings.yaml` file. Update `CLUSTER_DOMAIN` and `USER_NAME` placeholders with your values. Then do the same thing for `toolings/bootstrap/config.yaml` file. Alternatively you can run the below commands to do the changes automatically.
+3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. Let's get right into it - in the your IDE, open the `mlops-gitops/appset-toolings.yaml` file. Update `CLUSTER_DOMAIN` and `USER_NAME` placeholders with your values. Then do the same thing for `toolings/bootstrap/config.yaml` file. Alternatively you can run the below commands to do the changes automatically.
 
     ```bash
       sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-toolings.yaml
@@ -42,7 +42,8 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     ```bash
     cd /opt/app-root/src/mlops-gitops
     git config --global user.email "mlops@wizard.com"
-    git config --global user.name "MLOps Wizard"
+    git config --global user.name "user11"
+    git config --global credential.helper 'cache --timeout=172800'
     git add .
     git commit -m  "🦆 ADD - ApplicationSet definition 🦆"
     git push
@@ -53,7 +54,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
   </p>
 
-4. This `appset-toolings.yaml` file refers to the `toolings` folder which is where we store all the definitions of things we'll need for our continuous training pipelines. The definitions for things like MinIO, Tekton pipeline, Feast etc will all live in here eventually, but let's start small with only two objects for now. Under the `toolings` folder, you'll notice two subfolder. One is `bootstap` for boostrapping the cluster with some namespaces and permissions. And another one is `minio`, so that we actually have the storage and environment definitions in Git. Because as we said, this is GitOps, our desired state has to be stored in ✨Git✨. 
+4. This `appset-toolings.yaml` file refers to the `toolings` folder which contains all the definitions needed for our continuous training pipelines, such as MinIO, Tekton pipeline, Feast and more. For now, we’ll start small with only two applications. Within the `toolings` folder, you'll find two subfolders: one named `bootstrap`, which handles bootstrapping the cluster with necessary namespaces and permissions, and another named `minio`, which defines our storage environment. This setup means that we’re storing both the storage and environment definitions in Git. As we’ve discussed, this is GitOps, so our desired state must be stored in ✨Git✨. 
 
   All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 
@@ -61,26 +62,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
       oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
     ```
 
-6. In order for Argo CD to sync the changes from our git repository, we need to provide access to it. We'll deploy a secret to cluster, for now *not done as code* but in an upcoming section we'll tackle the secret as code and store it encrypted in Git.  
-In your terminal create the Secret in your environment (Note: don't forget to replace `<GIT_PASSWORD>` with your password):
-
-    ```bash
-    cat <<EOF | oc apply -n <USER_NAME>-mlops -f -
-      apiVersion: v1
-      data:
-        password: "$(echo -n <GIT_PASSWORD> | base64 -w0)"
-        username: "$(echo -n <USER_NAME>| base64 -w0)"
-      kind: Secret
-      type: kubernetes.io/basic-auth
-      metadata:
-        annotations:
-          tekton.dev/git-0: https://<GIT_SERVER>
-          sealedsecrets.bitnami.com/managed: "true"
-        name: git-auth
-    EOF
-    ```
-
-7. Now check the Argo CD to see if ApplicationSet was able to see the subfolders under `toolings` and deploy the applications for us!
+6. Now check the Argo CD to see if ApplicationSet was able to see the subfolders under `toolings` and deploy the applications for us!
 
     ![argocd-bootstrap-tooling](./images/argocd-bootstrap-tooling.png)
 

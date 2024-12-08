@@ -1,23 +1,16 @@
 ## 🐙 ArgoCD - GitOps Controller 
-GitOps can be seen as a developer-centric approach to Ops. It teaches developers good practices around taking ownership of code once it leaves their machines and the approach to deploying and monitoring this code once it’s running.
+Let’s start with GitOps! GitOps is important in MLOps because it provides a consistent, automated way to manage machine learning workflows and model deployments, ensuring that everything is versioned, traceable, and reproducible. By using Git as the single source of truth, teams can easily track changes, manage configurations, and ensure that models and applications are always deployed in the correct state.
 
-From Argo CD's website, it is described as a tool that:
-
-<div class="highlight" style="background: #f7f7f7">
-<pre>
-    automates the deployment of the desired application states in the specified target
-    environments. Application deployments can track updates to branches, tags, or be pinned
-    to a specific version of manifests at a Git commit.
-</pre></div>
-
-When something is seen as not matching the required state in Git, an application becomes out of sync. Depending on how you have implemented your GitOps, Argo CD can then resync the changes to apply whatever is in Git immediately or fire a warning to initiate some other workflow. In the world of Continuous Delivery as implemented by Argo CD, Git is the single source of truth, so we should always apply the changes as seen there.
+To put GitOps into action, we’ll use Argo CD as our GitOps engine.
 
 ### Argo CD Applications
 Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). 
 
-We will use Argo CD to deploy our MLOps toolings and models in a repeatable and reproduceable manner. We will store the definitions in Git, and let Argo CD to apply the definitions. That means, we need to deal with some yaml files :) Let's switch to a different type of workbench: `code-server` (let's be honest, Jupyter Notebook is not the best when it comes to yaml and commandline utilities🥲) and create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project.
+In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models in a repeatable and reproducible manner. By storing configuration definitions in Git, Argo CD will automatically apply those definitions, making the deployment process more efficient and consistent. This means we’ll be working with YAML files—so it’s time to switch to a different workbench: `code-server`. Let’s be honest, Jupyter Notebooks aren’t the best when it comes to working with YAML files and command-line utilities🥲. 
 
-1. Go to OpenShift AI > `USER_NAME` >  Workbenches and click `Create workbench`
+Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project and get started!
+
+1. Go to OpenShift AI > Data Science Projects > `USER_NAME` >  Workbenches and click `Create workbench`
 
   Select a name you want, could be something like `mlops-gitops` 
 
@@ -37,16 +30,18 @@ We will use Argo CD to deploy our MLOps toolings and models in a repeatable and 
 
    ![code-server-terminal.png](./images/code-server-terminal.png)
 
+   If you're prompted asking whether you trust the authors, go ahead and select Yes :)
+
 3. An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
 
-Log in to OpenShift by using your credentials:
+  Log in to OpenShift using your credentials (remember to replace <PASSWORD> with your actual password).
 
-```bash
-  export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
-  oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
-```
+  ```bash
+    export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
+    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
+  ```
 
-Then check if Argo CD pods are alive:
+  Then check if Argo CD pods are alive:
 
   ```bash
   oc get pods -n <USER_NAME>-mlops
@@ -67,7 +62,7 @@ Then check if Argo CD pods are alive:
 
 6. Select `Allow selected permissions` for the initial login.
 
-8. You just logged into ArgoCD 👏👏👏! Lets deploy a sample application through the UI. It'll be just to give you a taste of Argo CD's magic before we use it for our MLOps reasons. On ArgoCD - click `CREATE APPLICATION`. You should see an empty form. Let's fill it out by setting the following:
+8. You just logged into Argo CD 👏👏👏! Lets deploy a sample application through the UI. It'll be just to give you a taste of Argo CD's magic before we use it for our MLOps reasons. On Argo CD - click `CREATE APPLICATION`. You should see an empty form. Let's fill it out by setting the following:
    * On the "GENERAL" box
       * Application Name: `todolist`
       * Project: `default`
@@ -90,7 +85,7 @@ Then check if Argo CD pods are alive:
 
   ![argocd-todolist-1.png](./images/argocd-todolist-1.png)
 
-10. If you drill down into the application you will get Argo CD’s amazing view of all of the k8s resources that were generated by the chart.
+10. If you drill down into the application you will get Argo CD’s amazing view of all of the k8s resources that were generated. These resources are defined in the Helm chart you selected.
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
@@ -100,7 +95,7 @@ Then check if Argo CD pods are alive:
     echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')
     ```
 
-🪄🪄 Magic! You not have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
+🪄🪄 Magic! You now have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
 
 
 

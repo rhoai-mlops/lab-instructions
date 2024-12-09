@@ -45,7 +45,11 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
 
 ## Configure TrustyAI for Data Drift
 
-Most machine learning models are highly sensitive to the distribution of the data they receive; that is, how the individual values of various features in inbound data compare to the range of values seen during training. Often, models will perform poorly on data that looks distributionally different than the data it was trained on. The analog here is studying for an exam; you'll likely perform well if the exam material matches what you studied, and you likely won't do particularly well if it doesn't match. A difference between the training data (the material you studied) and the real-world data received during deployment (the exam material) is called data drift.
+Most machine learning models are highly sensitive to the distribution of the data they receive; that is, how the individual values of various features in inbound data compare to the range of values seen during training. Often, models will perform poorly on data that looks distributionally different than the data it was trained on. 
+
+Imagine you're a songwriter trying to create hits based on your knowledge of what’s popular in each country. You studied past hit songs in each country (your training data) and wrote songs you believe would appeal to those audiences. Now, suppose you release a song, but during this time, one country suddenly shifts its preferences to a different genre, like moving from pop to electronic dance music. This unexpected shift (data drift) makes your song less likely to succeed there, not because it's poorly made, but because your information about that country’s preferences is outdated.
+
+Data drift in this context is like trying to write a hit song based on old trends while the music scene evolves faster than you anticipated. 
 
 1. Let's go back to Jupyter Notebook workbench in `<USER_NAME>` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. When the setup is done, we will introduce a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. 
 

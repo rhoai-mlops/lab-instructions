@@ -1,10 +1,10 @@
 # Extend Toolings with GitOps
 
-We need to add two more application to our MLOps toolings in order to run our continous training pipeline successfully; KubeFlow Registry & Data Science Pipelines Application (DSPA).
+To successfully run our continuous training pipeline, we need to add two more applications to our MLOps toolset: KubeFlow Registry and the Data Science Pipelines Application (DSPA).
 
 These two were already installed in your dev environment. Now we need to bring them in with GitOps. Go to your `code-server` terminal. 
 
-1. In `mlops-gitops` repository, create `model-registry` folder under `toolings`. And then create a file called `config.yaml` under `model-registry` folder. Or simply run the below commands:
+1. In the `mlops-gitops` repository, create a folder named `model-registry` under the `toolings` directory. Then, create a file called `config.yaml` inside the `model-registry` folder. Or simply run the below commands:
 
     ```bash
     mkdir /opt/app-root/src/mlops-gitops/toolings/model-registry
@@ -33,14 +33,14 @@ These two were already installed in your dev environment. Now we need to bring t
   chart_path: charts/dspa
     ```
 
-5. Before we push our changes - we would like to sync our changes AS SOON AS updates hit the git repo! But Argo CD has a cycle time of about 3ish mins by default - this is too slow for us. However we can make Argo CD sync our changes instantly. For that, let’s add a webhook to connect Argo CD to our GitOps repository. Get ArgoCD URL with following:
+5. Before we push our changes - we would like to sync our changes AS SOON AS updates hit the git repo! But Argo CD has a cycle time of about 3ish mins by default - this is too slow for us. However we can make Argo CD sync our changes instantly. For that, let’s add a webhook to connect Argo CD to our GitOps repository. Get Argo CD URL with following:
 
     ```bash
     echo https://$(oc get route argocd-server --template='{{ .spec.host }}'/api/webhook  -n <USER_NAME>-mlops)
     ```
-    > NOTE: This is the webhook url is used to connect ArgoCD to our GitOps repository, it's not meant to be opened in your browser :D  
+    > NOTE: This is the webhook url is used to connect Argo CD to our GitOps repository, it's not meant to be opened in your browser :)
 
-6. Go to Gitea > `mlops-gitops` repository > Settings from top left. From the Settings page, click Webhooks and add a new Webhook as Gitea type.
+6. Go to Gitea > `mlops-gitops` repository > `Settings` from top left. From the `Settings` page, click `Webhooks` and add a new Webhook as `Gitea` type.
 
 ![gitea-argocd-webhook.png](./images/gitea-argocd-webhook.png)
 

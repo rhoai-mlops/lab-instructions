@@ -54,9 +54,9 @@
     git push
     ```
 
-5. Let's go to OpenShift UI and view the alert we just created. 
+5. Let's go to OpenShift UI in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. 
 
-TODO: add screenshot
+    ![alert-1.png](./images/alert-1.png)
 
 
 ### Trigger Retraining Pipeline based on Alerts

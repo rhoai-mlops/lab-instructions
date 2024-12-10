@@ -10,7 +10,7 @@ In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models
 
 Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project and get started!
 
-1. Go to OpenShift AI > Data Science Projects > `USER_NAME` >  Workbenches and click `Create workbench`
+1. Go to OpenShift AI > Data Science Projects > <USER_NAME> >  Workbenches and click `Create workbench`
 
   Select a name you want, could be something like `mlops-gitops` 
 

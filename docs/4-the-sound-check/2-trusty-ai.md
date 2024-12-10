@@ -58,10 +58,11 @@ Data drift in this context is like trying to write a hit song based on old trend
 2. Go to OpenShift UI in Developer view > Observe > Metrics and run the below query to visualize the metrics:
 
     ```bash
-    trustyai_meanshift{subcategory=~"input-2|input-3"}
+    trustyai_meanshift{subcategory=~"danceability|acousticness"}
     ```
 
-    If you remember from the `1-trustyai_setup.ipynb` Notebook, `input-2` is mapped to `danceability`, and `input-3` is mapped to `energy`. 
+    ![trusty-meanshift-metrics.png](./images/trusty-meanshift-metrics.png)
+
 
 ## Configure TrustyAI for Model Bias
 
@@ -91,7 +92,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
     ![bias-monitoring-3.png](./images/bias-monitoring-3.png)
 
-4. Alternatively, if you create a new cell and add this into your notebook `jukebox/4-metrics/1-trustyai_setup.ipynb` , run the cell, you'll get the same result.
+    Alternatively, if you create a new cell and add this into your notebook `jukebox/4-metrics/1-trustyai_setup.ipynb` , run the cell, you'll get the same result.
 
     ```python
     # Get bias for a specific field-couple
@@ -116,7 +117,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
 We might want to see operational and model performance related metrics in the same dashboard. For that, we can extend our previous Grafana dashboard and have a good overview of how the model is doing.
 
-1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard.yaml). Open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
+1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard-ml.yaml). In your code-server editor, open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
 
     ```yaml
     chart_path: charts/grafana
@@ -127,6 +128,7 @@ We might want to see operational and model performance related metrics in the sa
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🔦 TrustyAI metrics visualization added 🏡"
     git push
@@ -139,7 +141,7 @@ We might want to see operational and model performance related metrics in the sa
     echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
     ```
 
-    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
+    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
     ![grafana-with-trusty.png](./images/grafana-with-trusty.png)
 

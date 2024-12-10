@@ -20,6 +20,6 @@
   * [🔔 Alerting & Retraining](4-the-sound-check/3-alerting-retratining.md)
   * [🪵 Logging](4-the-sound-check/4-logging.md)
   * [✨ Explanability](4-the-sound-check/5-explanability.md)
-<!-- * [5. The Data Tracks](5-the-data-tracks/README.md)
+* [5. The Data Tracks](5-the-data-tracks/README.md)
   * [🍇 Data Versioning](5-the-data-tracks/1-data-versioning.md)
-  * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-pipeline.md) -->
+  <!-- * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-pipeline.md) -->

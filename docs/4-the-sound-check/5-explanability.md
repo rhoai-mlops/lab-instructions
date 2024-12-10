@@ -2,9 +2,9 @@
 
 In the earlier section, we used TrustyAI to detect drift and bias, and set up monitoring for those. TrustyAI also provides tools for a variety of responsible AI workflows, such as local and global model explanations. 
 
-The decision made by Jukebox model is 
-
- The decisions made by such "black box" systems are often opaque; that is, so complex as to be functionally impossible to understand. 
+To get some idea of why we get a specific output, we can apply different methods such as counterfactual analysis and SHAP values.
+Counterfactual analysis will tell us what values we would have to input to get a different, desired, answer than the one we got.
+SHAP values will tell us what input features likely had the biggest contribution to making the output what it is
 
 1. Create a workbench with TrustyAI image - v3.9
 add models data connection

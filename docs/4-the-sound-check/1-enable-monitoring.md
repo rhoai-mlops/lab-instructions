@@ -2,7 +2,7 @@
 
 > OpenShift’s has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift UI for consuming cluster metrics. 
 
-1. Let's view some out of the box dashboards. Go to OpenShift AI UI > `<USER_NAME>-test` > Model Serving view and click on `jukebox` model.
+1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Model Serving view and click on `jukebox` model.
 
     ![test-model-serving.png](./images/test-model-serving.png)
 
@@ -11,7 +11,7 @@
     ![model-metrics-dashboard.png](./images/model-metrics-dashboard.png)
 
 
-2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the OpenShift UI, go to Observe, it should show basic health indicators just like OpenShift AI UI. 
+2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift UI` > `Developer view` go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
 
     ![model-metrics-dashboard-2.png](./images/model-metrics-dashboard-2.png)
 
@@ -70,7 +70,9 @@
 Use `Log in with OpenShift` to login and display the dashboards. As we define the dashboards as code, all the changes you make here will be temporary, they won't persist. True GitOps 👻
 
 
-4. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`
+4. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+
+    _Note: it might take some time to sync the dashboard configuration. Just refresh the page if you cannot see it in the first try._
 
     ![grafana-dashboard-1.png](./images/grafana-dashboard-1.png)
     
@@ -79,4 +81,4 @@ Use `Log in with OpenShift` to login and display the dashboards. As we define th
 
 
 
-5. There are some dashboards that are not being populated yet and it is because we haven't enabled yet another exciting tool; TrustyAI. 
+Now let's move to another exciting tool; TrustyAI 🔦🏡

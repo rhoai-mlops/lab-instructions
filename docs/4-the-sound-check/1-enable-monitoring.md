@@ -52,6 +52,8 @@
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git config --global credential.helper 'cache --timeout=172800'
+    git pull
     git add .
     git commit -m "📈 Grafana added 📈"
     git push

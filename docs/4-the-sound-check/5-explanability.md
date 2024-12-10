@@ -2,7 +2,9 @@
 
 In the earlier section, we used TrustyAI to detect drift and bias, and set up monitoring for those. TrustyAI also provides tools for a variety of responsible AI workflows, such as local and global model explanations. These help us to understand why we get a specific output for a given input. 
 
-We can apply different methods such as counterfactual analysis and SHAP values to get such insights. Counterfactual analysis will tell us what values we would have to input to get a different, desired, answer than the one we got.
+We can apply different methods such as counterfactual analysis and SHAP values to get such insights. 
+
+Counterfactual analysis will tell us what values we would have to input to get a different, desired, answer than the one we got.
 
 SHAP (SHapley Additive exPlanations) values will tell us what input features likely had the biggest contribution to making the output what it is. 
 

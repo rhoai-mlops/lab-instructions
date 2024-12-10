@@ -20,7 +20,7 @@
     - Version selection: `2024.2`
 
     - Container size: `Small`
-    - Cluster storage: Create new persistent storage with size `20 GB`. 
+    - Cluster storage: `Create new persistent storage` with size `20 GB`. 
     
     - Check `Use a data connection` and choose the second option `Use existing data connection`
     

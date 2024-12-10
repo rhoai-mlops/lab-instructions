@@ -18,11 +18,11 @@ The `models` bucket is where we will store our models, and the `pipeline` bucket
 
 2. If you go back to OpenShift AI UI, you'll also see that two `Data Connections` are already created for you. The `Data connections` are the objects that store MinIO configuration and bucket information. They are actually OpenShift secrets, defined in your Data Science project with the special annotations to be visible on this UI. You can see the details by clicking the three dots on the right hand side > `Edit data connection`.
 
-Data connections also help us to expose the bucket information to our notebooks so that we can use these information without hardcode them into our code.
+Data connections also help us to expose bucket information to our notebooks, allowing us to use this information without hardcoding it into our code.
 
 ![data-connections.png](./images/data-connections.png)
 
-You selected `models` data connection while creating the workbench as we will interract with this bucket during our experimentation phase.
+You selected `models` data connection while creating the workbench as we will interact with this bucket during our experimentation phase.
 
 
  🪄🪄🪄 Now that we have the essential tools to start our journey, let's dive into our dataset! 🪄🪄🪄

@@ -33,6 +33,8 @@ Let's get started.
     https://<GIT_SERVER>/<USER_NAME>/jukebox.git
   ```
 
+3. First we need to rerun the training so that we get the artifacts in our new workbench (this will not be needed in an incoming update, but we need it for now). Go to the `jukebox/2-dev_datascience/1-experiment_train.ipynb.ipynb` notebook and run through it.  
+
 3. Go to the `jukebox/4-metrics/3-counterfactuals.ipynb` notebook and follow the instructions to see what input we would need to get some desired output.
 
 4. After that, open up the next notebook `jukebox/4-metrics/4-SHAP.ipynb` to be able to explain the output of our Jukebox model :) 

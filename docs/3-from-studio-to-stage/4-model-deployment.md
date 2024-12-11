@@ -14,7 +14,7 @@ Once the model artifact and its versioning information are created, the pipeline
 
 ## Deploying Jukebox
 
-1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two seperate AppSet definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep AppSet definition separate so that it'll be easy to take the prod definition into another place later on :)
+1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two separated AppSet definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep AppSet definition separate so that it'll be easy to take the prod definition into another place later on :)
 
     Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definition just like before. Open up the `mlops-gitops/appset-test.yaml` and `mlops-gitops/appset-prod.yaml` files and replace the values. For the lazy ones we also have the commands:
 

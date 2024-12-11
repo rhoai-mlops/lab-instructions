@@ -19,14 +19,16 @@ Once the model artifact and its versioning information are created, the pipeline
     Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definition just like before. Open up the `mlops-gitops/appset-test.yaml` and `mlops-gitops/appset-prod.yaml` files and replace the values. For the lazy ones we also have the commands:
 
   ```bash
-      sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
-      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
-      sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
-      sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
+    sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
+    sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
+    sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
+    sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/appset-prod.yaml
   ```
 
 
-2. Let's add `jukebox` model definition under `mlops-gitops/model-deployments/test/jukebox/config.yaml` and `mlops-gitops/model-deployments/prod/jukebox/config.yaml` files as follow. This will take a model deployment helm-chart from a generic helm chart repository and apply the additional configuration such as image version.  
+2. Let's add `jukebox` model definition. We created two files since we have two different environments; `test` and `prod`. So we have two files to update. Update both `model-deployments/test/jukebox/config.yaml` and `model-deployments/prod/jukebox/config.yaml` files as follow. 
+
+    This will take a model deployment helm-chart from our helm chart repository and apply the additional configuration such as image version.  
 
     ```yaml
     chart_path: charts/model-deployment/simple

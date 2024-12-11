@@ -43,4 +43,4 @@ Hit Save! (or CTRL+S) and if you like, rename the Notebook to something like `4-
 
 ![elyra-6.png](./images/elyra-6.png)
 
-As you experienced, Elyra is pretty straightforward and easy to set up! It is great to start with, however when we need more complex pipelines, it's better to transition to a tool like KfP that has more advanced features. 
+As you experienced, Elyra is pretty straightforward and easy to set up! It is great to start with, however when we need more complex pipelines, it's better to transition to a tool like KFP that has more advanced features. 

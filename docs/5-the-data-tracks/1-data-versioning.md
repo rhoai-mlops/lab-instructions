@@ -24,7 +24,7 @@ Let's start by moving some data into the bucket.
 
     ![data-pipeline.png](./images/data-pipeline.png)
 
-    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USEr-NAME>` project.
+    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USER-NAME>` project.
 
     ![etl-pipeline.png](./images/etl-pipeline.png)
 

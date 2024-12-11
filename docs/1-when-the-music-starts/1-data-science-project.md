@@ -1,6 +1,6 @@
 ## Data Science Project
 
-1. Login to OpenShift AI. The link and the credentials will be provided by your instructor. You'll see there are already two `Data Science Projects` created for you. 
+1. Login to [OpenShift AI](https://rhods-dashboard-redhat-ods-applications.<CLUSTER_DOMAIN>). The link and the credentials will be provided by your instructor. You'll see there are already two `Data Science Projects` created for you. 
 
 ![datascienceproject.png](./images/datascienceproject.png)
 
@@ -46,7 +46,7 @@
 
   ![gitrepositories.png](./images/gitrepositories.png)
 
-7. Now, we'll start with `Jukebox` repository, the one that has model source code. Go back to your Jupyter Notebook, click the Git icon from the top of the left menu and , copy the GitHub link to clone the repository.
+7. Now, we'll start with `Jukebox` repository, the one that has model source code. Go back to your Jupyter Notebook, click the Git icon from the top of the left menu and, copy the GitHub link to clone the repository.
 
     ```bash
     https://<GIT_SERVER>/<USER_NAME>/jukebox.git

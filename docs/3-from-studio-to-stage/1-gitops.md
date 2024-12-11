@@ -10,15 +10,13 @@ In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models
 
 Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project and get started!
 
-1. Go to OpenShift AI > Data Science Projects > <USER_NAME> >  Workbenches and click `Create workbench`
+1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>` >  `Workbenches` and click `Create workbench`
 
   Select a name you want, could be something like `mlops-gitops` 
 
     For Notebook Image: 
 
     - Image selection: `code-server`
-
-    - Deployment size: `Small`
 
     Leave the rest default and hit `Create`.
   
@@ -62,14 +60,14 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
 6. Select `Allow selected permissions` for the initial login.
 
-8. You just logged into Argo CD 👏👏👏! Lets deploy a sample application through the UI. It'll be just to give you a taste of Argo CD's magic before we use it for our MLOps reasons. On Argo CD - click `CREATE APPLICATION`. You should see an empty form. Let's fill it out by setting the following:
+7. You just logged into Argo CD 👏👏👏! Lets deploy a sample application through the UI. It'll be just to give you a taste of Argo CD's magic before we use it for our MLOps reasons. On Argo CD - click `CREATE APPLICATION`. You should see an empty form. Let's fill it out by setting the following:
    * On the "GENERAL" box
       * Application Name: `todolist`
-      * Project: `default`
+      * Project Name: `default`
       * Sync Policy: `Automatic`
    * On the "SOURCE" box
       * Repository URL: `https://rht-labs.com/todolist/`
-      * Select `Helm` from the right drop down menu
+      * Select `Helm` from the right GIT/HELM drop down menu
       * Chart: `todolist`
       * Version: `1.1.0`
    * On the "DESTINATION" box
@@ -81,15 +79,15 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
     Your form should look like this:
     ![argocd-create-application](images/argocd-create-application.png)
 
-9. After you hit create, you’ll see `todolist` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
+8. After you hit create, you’ll see `todolist` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
 
   ![argocd-todolist-1.png](./images/argocd-todolist-1.png)
 
-10. If you drill down into the application you will get Argo CD’s amazing view of all of the k8s resources that were generated. These resources are defined in the Helm chart you selected.
+9. If you drill down into the application you will get Argo CD’s amazing view of all of the k8s resources that were generated. These resources are defined in the Helm chart you selected.
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
-11. You can verify the little ToDoList Application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
+10. You can verify the little ToDoList Application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
 
     ```bash
     echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')

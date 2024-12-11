@@ -41,7 +41,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
-    git config --global user.email "mlops@wizard.com"
+    git config --global user.email "<USER_NAME>@mlops-wizard.com"
     git config --global user.name "<USER_NAME>"
     git config --global credential.helper 'cache --timeout=172800'
     git add .

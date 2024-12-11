@@ -12,7 +12,7 @@ In this exercise, we'll be starting with Elyra pipelines to automate the previou
 ## 🔮 Learning Outcomes
 
 - [ ] Create a Elyra Pipeline
-- [ ] Get familiar with KfP and Data Science Pipelines
+- [ ] Get familiar with KFP and Data Science Pipelines
 - [ ] Execute pipelines from Workbench
 
 ## 🔨 Tools used in this exercise

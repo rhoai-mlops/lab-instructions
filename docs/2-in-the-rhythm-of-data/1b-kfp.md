@@ -1,8 +1,8 @@
-## Kubeflow Pipelines (KfP)
+## Kubeflow Pipelines (KFP)
 
-Kubeflow Pipelines (KfP) is a platform designed for building and deploying portable, scalable machine learning pipelines using containers (and no, it's not related to Kung Fu Panda 🐼). KfP provides advanced capabilities such as versioning, metadata tracking, and resource management, which enable teams to monitor and optimize their pipelines efficiently—features that we currently lack in Elyra.
+Kubeflow Pipelines (KFP) is a platform designed for building and deploying portable, scalable machine learning pipelines using containers (and no, it's not related to Kung Fu Panda 🐼). KFP provides advanced capabilities such as versioning, metadata tracking, and resource management, which enable teams to monitor and optimize their pipelines efficiently—features that we currently lack in Elyra.
 
-While Elyra was great for quick experimentation, KfP offers the robustness we need for running pipelines continuously. With KfP, we can have better logging, error handling, retry logic, and other production-level features. Essentially, this will become our production-grade training pipeline. And it will be automatically triggered based on source code updates, the arrival of new data, or alerts signaling unusual model behavior. (spoiler, spoiler🤭🤭)
+While Elyra was great for quick experimentation, KFP offers the robustness we need for running pipelines continuously. With KFP, we can have better logging, error handling, retry logic, and other production-level features. Essentially, this will become our production-grade training pipeline. And it will be automatically triggered based on source code updates, the arrival of new data, or alerts signaling unusual model behavior. (spoiler, spoiler🤭🤭)
 
 The pipeline steps look like this:  
 ![pipeline-steps.png](./images/pipeline-steps.png)

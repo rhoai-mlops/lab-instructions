@@ -24,6 +24,10 @@ Let's get started.
 
   - Cluster storage: Create new persistent storage with size `20 GB`. 
 
+  - Check `Use a data connection` and choose the second option `Use existing data connection`
+    
+    From the dropdown menu, select `models`
+
   Leave the rest as it is and hit `Create workbench`.
 
 
@@ -33,11 +37,11 @@ Let's get started.
     https://<GIT_SERVER>/<USER_NAME>/jukebox.git
   ```
 
-3. First we need to rerun the training so that we get the artifacts in our new workbench (this will not be needed in an incoming update, but we need it for now). Go to the `jukebox/2-dev_datascience/1-experiment_train.ipynb.ipynb` notebook and run through it.  
+3. Start by going to `jukebox/4-metrics/3-download-artifacts.ipynb` notebook and follow the instructions to download some artifacts from our training pipeline run that we need for the other notebooks. This way we will do explainability analysis on the model we trained and pushed to production.
 
-4. Go to the `jukebox/4-metrics/3-counterfactuals.ipynb` notebook and follow the instructions to see what input we would need to get some desired output.
+4. Then go to the `jukebox/4-metrics/4-counterfactuals.ipynb` notebook and follow the instructions to see what input we would need to get some desired output.
 
-5. After that, open up the next notebook `jukebox/4-metrics/4-SHAP.ipynb` to be able to explain the output of our Jukebox model :) 
+5. After that, open up the next notebook `jukebox/4-metrics/5-SHAP.ipynb` to be able to explain the output of our Jukebox model :) 
 
 
 

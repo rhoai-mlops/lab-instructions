@@ -18,7 +18,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![tekton-pipeline-overview.png](./images/tekton-pipeline-overview.png)
 
-2. We need to apply this Tekton pipeline definition to our <USER_NAME>-mlops environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
+2. We need to apply this Tekton pipeline definition to our `<USER_NAME>-mlops` environment. This will provide us with a webhook URL, which we’ll add as a trigger in our `Jukebox` repository. This setup will ensure that our pipeline runs whenever there’s a change in the model source code (and maybe for other updates too, but let’s keep that a surprise for now 🤭).
 
     Create `ct-pipeline` folder under `mlops-gitops/toolings/` and `config.yaml` file under this newly created folder. Or simply run the below commands.
     `ct` here stands for Continuous Training :)
@@ -51,13 +51,15 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     _Note: If you are seeing PVCs are still in Progressing status on Argo CD, it is because the OpenShift cluster is waiting for the first consumer, a.k.a. the first pipeline run, to create the Persistent Volumes. The sync status will be green after the first run._
 
+    ![pvc-progressing.png](./images/pvc-progressing.png)
+
 5. Now, let's take the webhook and add it to the Jukebox repository. Run the below command and copy the webhook URL:
 
     ```bash
-        echo https://$(oc -n <USER_NAME>-mlops get route el-ct-listener --template='{{ .spec.host }}')
+    echo https://$(oc -n <USER_NAME>-mlops get route el-ct-listener --template='{{ .spec.host }}')
     ```
 
-6. Once you have the URL, in Gitea go to `jukebox` repository > `Settings` > `Webhook` , choose `Gitea` to add the webhook:
+6. Once you have the URL, in Gitea go to `jukebox` repository > `Settings` > `Webhooks` , choose `Gitea` to add the webhook:
 
     ![add-webhook.png](./images/add-webhook.png)
 
@@ -68,7 +70,9 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
 7. This test delivery acts as a commit to the Jukebox repository, which in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift UI `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
 
-    First, go to `OpenShift UI` > `Pipelines` > `PipelineRuns `and click the `colorful bar` to see the logs.
+    First, go to `OpenShift UI` > `Pipelines` > `PipelineRuns` and click the `colorful bar` to see the logs.
+
+    Make sure you are in `<USER_NAME>-mlops` project.
 
     ![openshift-pipeline.png](./images/openshift-pipeline.png)
 

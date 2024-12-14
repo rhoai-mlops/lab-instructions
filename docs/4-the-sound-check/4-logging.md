@@ -17,7 +17,7 @@
     ![openshift-logging-2.png](./images/openshift-logging-2.png)
 
 
-3. Container logs are ephemeral, so once they die you’d loose them unless they’re aggregated and stored somewhere. Let’s generate some messages and query them from the UI. Connect to UI pod via rsh and generate logs.
+3. Container logs are ephemeral, meaning once the container stops, the logs are lost unless they are aggregated and stored elsewhere. Let’s generate some messages and query them from the UI. Connect to UI pod via rsh and generate logs.
 
     ```bash
     oc project <USER_NAME>-test

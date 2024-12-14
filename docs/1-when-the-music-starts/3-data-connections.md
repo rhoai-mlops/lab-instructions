@@ -16,9 +16,9 @@ MinIO UI: [https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>](https://minio-ui-<USER
 
 The `models` bucket is where we will store our models, and the `pipeline` bucket is to store Data Science pipeline artifacts.
 
-2. If you go back to OpenShift AI UI, you'll also see that four `Data Connections` are already created for you. The `Data connections` are the objects that store MinIO configuration and bucket information. They are actually OpenShift secrets, defined in your Data Science project with the special annotations to be visible on this UI. You can see the details by clicking the three dots on the right hand side > `Edit data connection`.
+2. If you return to the OpenShift AI UI, under `Data Science Projects` > `<USER_NAME>`, there is section called `Data connections`. There you’ll notice four `Data Connections` have already been created for you. These data connections are objects that store MinIO configuration and bucket information. You can view their details by clicking the three dots on the right-hand side and selecting `Edit data connection`.
 
-Data connections also help us to expose bucket information to our notebooks, allowing us to use this information without hardcoding it into our code.
+Data connections also help us to expose bucket information as environment variables to our notebooks, allowing us to use this information without hardcoding it into our code.
 
 ![data-connections.png](./images/data-connections.png)
 

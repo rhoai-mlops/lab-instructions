@@ -67,8 +67,7 @@
 
     ```
 
-Use `Log in with OpenShift` to login and display the dashboards. As we define the dashboards as code, all the changes you make here will be temporary, they won't persist. True GitOps 👻
-
+    Use your OpenShift credentials and click `Allow selected permissions` to log in.
 
 4. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
@@ -76,8 +75,11 @@ Use `Log in with OpenShift` to login and display the dashboards. As we define th
 
     ![grafana-dashboard-1.png](./images/grafana-dashboard-1.png)
     
+    You'll see a dashboard like this:
 
     ![grafana-dashboard-2.png](./images/grafana-dashboard-2.png)
+
+    Since the dashboards are defined as code, any changes you make here will be temporary and will not persist—true GitOps in action!👻
 
 
 

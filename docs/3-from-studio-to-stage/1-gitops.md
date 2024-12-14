@@ -24,11 +24,11 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
   ![codeserver-wb.png](./images/codeserver-wb.png)
 
+  If you're prompted to confirm whether you trust the authors, go ahead and select 'Yes' :) After all, we know you trust us… right? 💚
+
 2. Open a new terminal by hitting the hamburger menu on top left then select `Terminal` > `New Terminal` from the menu.
 
    ![code-server-terminal.png](./images/code-server-terminal.png)
-
-   If you're prompted asking whether you trust the authors, go ahead and select Yes :)
 
 3. An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
 
@@ -87,12 +87,14 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
-10. You can verify the little ToDoList Application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
+10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
 
     ```bash
     echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')
     ```
 
+  _You can CMD/CTRL + click on the URL to open it in a new browser tab._
+  
 🪄🪄 Magic! You now have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
 
 

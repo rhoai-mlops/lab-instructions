@@ -42,11 +42,11 @@
     ```bash
     https://<GIT_SERVER>
     ```
-6. Use the same credentials to login and verify that you have 3 repositories waiting to be user for the upcoming exercises. Spoiler alert: be on the watch out for GitOps 🦄🔥
+6. Use the same credentials to login and verify that you have 4 repositories waiting to be user for the upcoming exercises. Spoiler alert: be on the watch out for GitOps 🦄🔥
 
   ![gitrepositories.png](./images/gitrepositories.png)
 
-7. Now, we'll start with `Jukebox` repository, the one that has model source code. Go back to your Jupyter Notebook, click the Git icon from the top of the left menu and, copy the GitHub link to clone the repository.
+7. Now, we'll begin by cloning the `Jukebox` repository, which contains the model source code. Go back to your Jupyter Notebook, click the Git icon, and copy the GitHub link to **clone** the repository.
 
     ```bash
     https://<GIT_SERVER>/<USER_NAME>/jukebox.git
@@ -54,8 +54,8 @@
 
     ![notebook-clone-repo.png](./images/notebook-clone-repo.png)
 
-    And now, your working environment is ready to get your hands dirty with some data!💥💪
+    After cloning the repository, you should see the `jukebox` folder in the left-hand panel.
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-7. Let's go through what type of S3 storage environment we have for experimentation before we start 🫡
+8. Before we begin, let’s review the type of S3 storage environment available for our experimentation. 🫡

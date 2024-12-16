@@ -6,7 +6,7 @@ Object storage provides a flexible and scalable way to store large amounts of un
 
 > MinIO is one of the most popular object storage out there. It is tailored for cloud-native setups so it is fairly quick to spin up an instance for experimentations. It is also compatible with Amazon S3 API, accessible via a RESTful HTTP API, making integration with cloud-native applications and automation pretty straightforward.
 
-1. For simplicity, a MinIO instance is already installed in your dev environment for you. You can access MinIO via UI and check that there are already four buckets created for you. Below is the link to your MinIO instance. Go to URL and use `minio` as username, `minio123` as password.
+1. For simplicity, a MinIO instance is already installed in your dev environment for you. You can access MinIO via UI and check that there are already four buckets created for you. Below is the link to your MinIO instance. Go to URL and use `<USER_NAME>` as username, `<PASSWORD>` as password.
 
 
 MinIO UI: [https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>](https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>)

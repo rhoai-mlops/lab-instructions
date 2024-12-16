@@ -58,7 +58,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![experiments.png](./images/experiments.png)
 
-    You'll be able to get many details such as,
+    You'll be able to get many details such as:
 
     - the relationship between the steps
     - the output of each step

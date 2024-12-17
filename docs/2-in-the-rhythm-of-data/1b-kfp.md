@@ -13,7 +13,7 @@ The pre-processing step makes sure that everything is converted to numbers and t
 3. Once we have our data ready, we can train the model.
 4. After the model is trained, we will evaluate the model to make sure its performance is good enough.  
 We also convert the model to ONNX at the same time, as that's the format we will go with for serving the model.
-5. After we have the ONNX model, we make sure that the ONNX model performs the same as the original Keras model.
+5. After obtaining the ONNX model, we ensure that it performs the same as the original Keras model by running the test data through the ONNX model.
 6. And finally, we can save the model by storing it somewhere our model server can reach it. 🎉
 
 Now that you know what the pipeline is supposed to do, let's go ahead and run it! 🏃‍♂️
@@ -58,7 +58,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![experiments.png](./images/experiments.png)
 
-    You'll be able to get many details such as;
+    You'll be able to get many details such as:
 
     - the relationship between the steps
     - the output of each step

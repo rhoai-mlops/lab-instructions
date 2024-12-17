@@ -40,7 +40,7 @@ These two were already installed in your dev environment. Now we need to bring t
     ```
     > NOTE: This is the webhook url is used to connect Argo CD to our GitOps repository, it's not meant to be opened in your browser :)
 
-6. Go to Gitea > `mlops-gitops` repository > `Settings` from top left. From the `Settings` page, click `Webhooks` and add a new Webhook as `Gitea` type.
+6. Go to Gitea > `mlops-gitops` repository > `Settings` from top right. From the `Settings` page, click `Webhooks` and add a new Webhook as `Gitea` type.
 
 ![gitea-argocd-webhook.png](./images/gitea-argocd-webhook.png)
 

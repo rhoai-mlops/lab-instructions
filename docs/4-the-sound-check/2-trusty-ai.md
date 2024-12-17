@@ -6,7 +6,7 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
 
 ## Install TrustyAI
 
-1. TrustyAI requires to run next to the models we want to observe. Create a `trustyai` folder under `model-deployments/test` and `model-deployments/prod` as we want to monitor both. 
+1. TrustyAI needs to run in the same environment (namespace) as the models. Create a `trustyai` folder under `model-deployments/test` and `model-deployments/prod` as we want to monitor both. 
 
     ```bash
     mkdir /opt/app-root/src/mlops-gitops/model-deployments/test/trustyai
@@ -55,7 +55,7 @@ Data drift in this context is like trying to write a hit song based on old trend
 
     After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
 
-2. Go to OpenShift UI in Developer view > Observe > Metrics and run the below query to visualize the metrics:
+2. Go to `OpenShift UI` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
     trustyai_meanshift{subcategory=~"danceability|acousticness"}
@@ -70,7 +70,7 @@ Ensuring that your models are fair and unbiased is a crucial part of establishin
 
 In our case, we will take a feature of our data (`is_explicit`) and see if the model is biased towards a given country (let's say `France`) when the songs are explicit. 
 
-1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to OpenShift AI > Model Serving > `jukebox` and click `Model bias`, then hit `Configure`.
+1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to `OpenShift AI Dashboard` > `Model Serving`. Select `<USER_NAME>-test` project. Go to  `jukebox` and click `Model bias`, then hit `Configure`.
 
     ![bias-monitoring.png](./images/bias-monitoring.png)
 
@@ -83,16 +83,18 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
     - Unpriviliged value: `0.0`
     - Output: `output-13`
     - Output value: `0.5`
-    - Violation threshold: `0,1`
+    - Violation threshold: `0.1`
     - Metric batch size: `1000`
 
     ![bias-monitoring-2.png](./images/bias-monitoring-2.png)
 
-3. It should generate a graph like this one:
+3. Click `View Metrics`. It should generate a graph like this one:
 
     ![bias-monitoring-3.png](./images/bias-monitoring-3.png)
 
-    Alternatively, if you create a new cell and add this into your notebook `jukebox/4-metrics/1-trustyai_setup.ipynb` , run the cell, you'll get the same result.
+    Alternatively, you can create a new cell in notebook `jukebox/4-metrics/1-trustyai_setup.ipynb`, add the following code, and run the cell to achieve the same result. 
+    
+    If you’ve already completed this in the UI, there’s no need to run it. This is provided as an alternative option to python lovers :)
 
     ```python
     # Get bias for a specific field-couple
@@ -104,7 +106,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
         "protectedAttribute": "is_explicit",
         "privilegedAttribute": 1.0,
         "unprivilegedAttribute": 0.0,
-        "outcomeName": "outcome-13",
+        "outcomeName": "output-13",
         "favorableOutcome": 0.5,
         "batchSize": 1000
     }

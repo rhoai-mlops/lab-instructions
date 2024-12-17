@@ -2,7 +2,7 @@
 
 ### Configure Alerts
 
-In OpenShift's monitoring stack, we have Alert Manager that we can use to trigger alerts if some metrics are below or above in certain tresholds. For example, we just configured TrustyAI for data drift detection so naturally we would like to be notified when the data starts drifting. In order to do that we need to create a `PrometheusRule`.
+In OpenShift's monitoring stack, we have Alert Manager that we can use to trigger alerts if some metrics are below or above in certain thresholds. For example, we just configured TrustyAI for data drift detection so naturally we would like to be notified when the data starts drifting. In order to do that we need to create a `PrometheusRule`.
 
 1. Create a `alerting` folder under `model-deployments/test` and `model-deployments/prod` as we want to monitor both. 
 
@@ -13,7 +13,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
     touch /opt/app-root/src/mlops-gitops/model-deployments/prod/alerting/config.yaml
     ```
 
-2. Open up the `alerting/config.yaml` file and paste the below line to both to let Argo CD know which chart we want to deploy.
+2. Paste the code snippet below into **both** `test/alerting/config.yaml` and `prod/alerting/config.yaml` files to inform Argo CD about the chart we want to deploy.
 
     ```yaml
     chart_path: charts/alerting
@@ -119,6 +119,6 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
 
     ![alert-pipeline.png](./images/alert-pipeline.png)
 
-    and a new version is registered in the Model Registry due to data drift.
+    Once the pipeline finishes executing, you'll see a new version registered in the Model Registry due to data drift.
 
     ![alert-model-registry.png](./images/alert-model-registry.png)

@@ -3,7 +3,7 @@
 
 ## 👨‍🍳 Exercise Intro
 
-In this exercise, we will walk through a `Data Science Project`, get familiar with the required toolings for experiment we set out to do and create workbench & set up Git repository.
+In this exercise, we will walk through a `Data Science Project`, familiarize ourselves with the necessary tools for the experiment we aim to carry out, create a workbench, and set up a Git repository.
 
 ## 🖼️ Big Picture
 

@@ -14,9 +14,9 @@ Once the model artifact and its versioning information are created, the pipeline
 
 ## Deploying Jukebox
 
-1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two separated AppSet definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep AppSet definition separate so that it'll be easy to take the prod definition into another place later on :)
+1. Just like we did with our toolings, we need to generate `ApplicationSet` definition for our model deployment. We will have two separated `ApplicationSet` definition; one is for `test` and one is for `prod` environment. For the enablement simplicity reasons, we keep them in the same repository. However in the real life, you may also like to take prod definitions into another repository where you only make changes via Pull Requests with a protected `main` branch. We keep `ApplicationSet` definition separate so that it'll be easy to take the prod definition into another place later on :)
 
-    Let's update the AppSet definition with `CLUSTER_DOMAIN` and `USER_NAME` definition just like before. Open up the `mlops-gitops/appset-test.yaml` and `mlops-gitops/appset-prod.yaml` files and replace the values. For the lazy ones we also have the commands:
+    Let's update the `ApplicationSet` definition with `CLUSTER_DOMAIN` and `USER_NAME` definition just like before. Open up the `mlops-gitops/appset-test.yaml` and `mlops-gitops/appset-prod.yaml` files and replace the values. For the lazy ones we also have the commands:
 
   ```bash
     sed -i -e 's/CLUSTER_DOMAIN/<CLUSTER_DOMAIN>/g' /opt/app-root/src/mlops-gitops/appset-test.yaml
@@ -42,7 +42,7 @@ Once the model artifact and its versioning information are created, the pipeline
     ```bash
     cd /opt/app-root/src/mlops-gitops
     git add .
-    git commit -m  "🐰 ADD - appsets and jukebox to deploy 🐰"
+    git commit -m  "🐰 ADD - ApplicationSets and jukebox to deploy 🐰"
     git push 
     ```
 
@@ -69,22 +69,22 @@ Let's go ahead and get our UI deployed! 📺
 
 1. Similar to with the jukebox model, we will update the currently empty `model-deployments/test/jukebox-ui/config.yaml` and `model-deployments/prod/jukebox-ui/config.yaml` with the following:  
 
-    PROD:
-
-    ```yaml
-    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
-    chart_path: chart
-    model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
-    model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:1.0
-    ```
-
     TEST:
 
     ```yaml
     repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    model_name: jukebox
+    image: quay.io/rhoai-mlops/jukebox-ui:1.0
+    ```
+
+    PROD:
+
+    ```yaml
+    repo_url: https://<GIT_SERVER>/<USER_NAME>/jukebox-ui
+    chart_path: chart
+    model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
     model_name: jukebox
     image: quay.io/rhoai-mlops/jukebox-ui:1.0
     ```
@@ -109,6 +109,6 @@ Let's go ahead and get our UI deployed! 📺
         https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
     ```
 
-4. Play around with the sliders and try to predict a new location! 🗺️
+4. Play around with the sliders and try to predict a new location! 🗺️ You can also switch to dark mode like all the cool kids do! 😎
 
 ![jukebox-ui](./images/jukebox-ui.png)

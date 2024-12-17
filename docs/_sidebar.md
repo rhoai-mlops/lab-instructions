@@ -1,4 +1,4 @@
-* [Home](/)
+* [Intro](/)
 * [1. When the Music Starts](1-when-the-music-starts/README.md)
   * [🚀 Data Science Project](1-when-the-music-starts/1-data-science-project.md)
   <!-- * [✨ Git Setup](1-when-the-music-starts/2-git-setup.md) -->
@@ -22,4 +22,4 @@
   * [✨ Explanability](4-the-sound-check/5-explanability.md)
 * [5. The Data Tracks](5-the-data-tracks/README.md)
   * [🍇 Data Versioning](5-the-data-tracks/1-data-versioning.md)
-  <!-- * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-pipeline.md) -->
+  * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-pipeline.md)

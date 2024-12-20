@@ -1,10 +1,12 @@
 ## ML500 Tech Exercise Repo
 
 The repo holds the content for the ML500 MLOps Enablement
+
 🎸🥁🎶 [Top Spotify Songs in 73 Countries](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/code) 🎸🥁🎶
 
 `docs` - contains the student and teacher guides for the technical exercises as well as the classroom
-activities. The `slides/content` are written in markdown and automatically published to the site when pushed to main.
+activities. 
+The `slides/content` are written in markdown and automatically published to the site when pushed to main.
 
 ### 🏃‍♀️ Running the docs & slides site locally
 

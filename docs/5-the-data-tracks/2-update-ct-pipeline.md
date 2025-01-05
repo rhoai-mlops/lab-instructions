@@ -142,7 +142,7 @@
 
     ![view-scheduled-runs.png](./images/view-scheduled-runs.png)
 
-6. But let's not wait for it to run. Just liek we scheduled, we can also create an ad-hoc run. Got back to `Data Science Pipelines` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
+6. But let's not wait for it to run. Just like we scheduled, we can also create an ad-hoc run. Got back to `Data Science Pipelines` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
 
     ![create-run.png](./images/create-run.png)
 

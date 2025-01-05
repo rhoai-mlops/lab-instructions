@@ -44,10 +44,10 @@ This inner loop is essential in data science because it allows for continuous im
     ![model_in_bucket.png](./images/model_in_bucket.png)
 
 
-Before we deploy and test the model, let's get familiar with Model Registry UI!
+Before we deploy and test the model, let's get familiar with Model Registry!
 
 ## Model Registry
-You can view your registered models in OpenShift AI UI and able to deploy the model from there. 
+You can view your registered models in OpenShift AI Dashboard and able to deploy the model from there. 
 
 1. Go to `Model Registry` and make sure you are in the right Data Science Project.
 
@@ -57,37 +57,40 @@ You can view your registered models in OpenShift AI UI and able to deploy the mo
 
 ![model-registry-2.png](./images/model-registry-2.png)
 
-You can see information like where the model is stored, version, details about model and so on. Right now we don't have much information as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model and so on. Basically we will treat Model Registry as our ✨canonical✨ metadata source. But for now, let's go and deploy the model and verify that it works inside a container and able to return us some prediction.
+You can see information like where the model is stored, version, details about model and so on. Right now we don't have much information as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model. Basically we will treat Model Registry as our ✨canonical✨ metadata source. But for now, let's go and deploy the model and verify that it works inside a container and able to return us some prediction.
 
 ## Model Serving
 
 Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, along with the underlying KServe technology, is that we don’t have to worry about the containerization of the model or the runtime. It abstracts away these complexities. All we have to do is select the right runtime for our model and point where the model is. 
 Let's give it a try:
 
-1. Go to your Data Science project > `Models` > Select `Single-Model Serving Platform` by clicking `Deploy Model`.
+1. Go to your Data Science project > `<USER_NAME>` > `Models` > Select `Single-Model Serving Platform`. Then `Deploy 
 
     ![single-model-serving.png](./images/single-model-serving.png)
+
+    ![single-model-serving-2.png](./images/single-model-serving-2.png)
 
 2. Fill out the form by the following information:
 
 - Model deployment name: `jukebox`
 - Serving runtime: `OpenVino Model Server`
-- Model framework: `onnx - 1`
+- Model framework (name - version): `onnx - 1`
 - Model server replicas: `1`
-- Compute resources per replica: `Small`
+- Model server size: `Small`
 - Model route:
     -  Select `Make deployed models available through an external route`
-    -  Uncheck the `Require token authentication` for now
-- Model location: 
-    -  Select from existing data connection and pick `models`
+    -  **Uncheck** `Require token authentication` for now
+- Source model location:
+    - Select `models` from existing connection list
     - Path: `models/jukebox`
 
     ..and hit `Deploy`
 
     ![jukebox.png](./images/jukebox.png)
+    ![jukebox-2.png](./images/jukebox-2.png)
 
-3. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!
+2. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!
 
     ![jukebox-deployed.png](./images/jukebox-deployed.png)
 
-4. Copy the external URL and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶
+3. Copy the external URL and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶

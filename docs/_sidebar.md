@@ -22,3 +22,8 @@
 * [5. The Data Tracks](5-the-data-tracks/README.md)
   * [🍇 Data Versioning](5-the-data-tracks/1-data-versioning.md)
   * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-ct-pipeline.md)
+<!-- * [6. The Headliner](6-the-headliners/README.md)
+  * [🐿️ A/B Deployments](6-the-headliner/1-a-b-deployments.md)
+  * [👻 Dark Launching](6-the-headliner/2-dark-launches.md)
+* [7. The Openning Act]()
+* [8. The Backstage]() -->

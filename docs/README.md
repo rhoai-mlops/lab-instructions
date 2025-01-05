@@ -2,7 +2,7 @@
 
 
 ## Slide Decks
-Slide decks are now published along side the tech exercise. The raw Markdown files for each of the tech exercise is in the same monorepo used by learners and facilitators. To add a new slide deck or update any existing ones, simply navigate to `docs/slides/content` and edit and existing file or create a new `.md` file. This will auto generate the slide deck once published. You can view or edit the for testing by running the docsify server. See the github repo for more information
+Slide decks are published along side the exercise instructions. To add a new slide deck or update any existing ones, simply navigate to `docs/slides/content` and edit and existing file or create a new `.md` file. This will auto generate the slide deck once published. You can view or edit the for testing by running the docsify server. See the github repo for more information
 
 👨‍🏫 👉 [The Published Slides Live Here](https://rhoai-mlops.github.io/lab-instructions/slides/) 👈 🧑‍💻
 

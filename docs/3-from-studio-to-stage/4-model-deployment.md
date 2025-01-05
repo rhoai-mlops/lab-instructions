@@ -57,13 +57,13 @@ Once the model artifact and its versioning information are created, the pipeline
 
     ![argocd-jukebox-deployed](./images/argocd-jukebox-deployed.png)
 
-6. You can also go to OpenShift AI UI, select `Model Serving` in the left menu and then select one of the two projects to see the deployed models, just like we did in the inner loop.
+6. You can also go to OpenShift AI Dashboard, select `Model Serving` in the left menu and then select one of the two projects to see the deployed models, just like we did in the inner loop.
 
     ![rhoai-deployed-models](./images/rhoai-deployed-models.png)
 
 ## Using the Jukebox UI
 
-As you can see from the Argo CD UI we have also created applications for a UI for the Jukebox model, both in test and prod. However, if you were to look inside them you will see that they are empty.  
+As you can see from the Argo CD we have also created applications for a UI for the Jukebox model, both in test and prod. However, if you were to look inside them you will see that they are empty.  
 
 Let's go ahead and get our UI deployed! 📺
 
@@ -103,12 +103,12 @@ Let's go ahead and get our UI deployed! 📺
     ```bash
     oc get po -l app.kubernetes.io/name=jukebox-ui -n <USER_NAME>-test
     ```
-3. Now with our fresh new UI deployed, we can take a look at it by going to this route:
+4. Now with our fresh new UI deployed, we can take a look at it by going to this route:
 
     ```bash
         https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
     ```
 
-4. Play around with the sliders and try to predict a new location! 🗺️ You can also switch to dark mode like all the cool kids do! 😎
+5. Play around with the sliders and try to predict a new location! 🗺️ You can also switch to dark mode like all the cool kids do! 😎
 
 ![jukebox-ui](./images/jukebox-ui.png)

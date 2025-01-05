@@ -9,22 +9,27 @@
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 
 
-3. Let's create a notebook. Click `Create a Workbench`. OpenShift AI UI is pretty intiutive, isn't it? :)
+3. Let's create a notebook. Click `Create a Workbench`. OpenShift AI Dashboard is pretty intiutive, isn't it? :)
 
    Select a name you want, could be something like `<USER_NAME>-hitmusic-wb` 🎺
 
-    For Notebook Image: 
+    **Notebook Image:** 
 
     - Image selection: `Standard Data Science`
-
     - Version selection: `2024.2`
-
+  
+    **Deployment size**
     - Container size: `Small`
-    - Cluster storage: `Create new persistent storage` with size `20 GB`. 
-    
-    - Check `Use a data connection` and choose the second option `Use existing data connection`
-    
-      From the dropdown menu, select `models`
+
+    **Environment variables**
+    - No need to add one at the moment.
+
+    **Cluster storage**
+    - `Create new persistent storage` with size `20 GB`. 
+
+    **Connections**
+    - Select `Attach existing connections`
+      From the dropdown menu, select `models` and click `Attach`
        
 
     And finally, hit `Create workbench`.
@@ -33,7 +38,7 @@
 
     ![create-a-workbench.png](./images/create-a-workbench.png)
 
-   It will redirect you to the Jupyter Notebook UI. You need to use your credentials again to log in. If you see the below screen, click `Allow selected permissions`. That will redirect you to your Jupyter Notebook.
+   It will open up the Jupyter Notebook UI. You need to use your credentials again to log in. If you see the below screen, click `Allow selected permissions`. That will redirect you to your Jupyter Notebook.
 
     ![create-a-workbench-4.png](./images/create-a-workbench-4.png)
 
@@ -49,7 +54,7 @@
 7. Now, we'll begin by cloning the `Jukebox` repository, which contains the model source code. Go back to your Jupyter Notebook, click the Git icon, and copy the GitHub link to **clone** the repository.
 
     ```bash
-    https://<GIT_SERVER>/<USER_NAME>/jukebox.git
+    https://<USER_NAME>:<PASSWORD>@<GIT_SERVER>/<USER_NAME>/jukebox.git
     ```
 
     ![notebook-clone-repo.png](./images/notebook-clone-repo.png)
@@ -58,4 +63,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-8. Before we begin, let’s review the type of S3 storage environment available for our experimentation. 🫡
+8. Before we begin, let’s review the storage environment available for our experimentation. 🫡

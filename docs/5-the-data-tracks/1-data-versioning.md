@@ -18,13 +18,15 @@ Let's start by moving some data into the bucket.
 
 1. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>` > `Workbenches` and connect to your first Jupyter notebook workbench.
 
-    Open up `jukebox/5-data-versioning/1-data_pipeline_url_to_s3.py` file. This pipeline will move the data we currently have in GitHub over to our S3 bucket `data`. Later on we will also let the pipeline automatically version our data, but for now we just need to get some data.
+    Open up `jukebox/5-data-versioning/1-data_pipeline_url_to_s3.py` file. This pipeline will move the song properties data we currently have in GitHub over to our S3 bucket `data`. 
+    
+    Later on we will also let the pipeline automatically version our data, but for now we just need to get some data.
 
     Click ▶️ on Run button to start the pipeline.
 
     ![data-pipeline.png](./images/data-pipeline.png)
 
-    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USER-NAME>` project.
+    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USER_NAME>` project.
 
     ![etl-pipeline.png](./images/etl-pipeline.png)
 
@@ -43,4 +45,4 @@ With the data now stored in an S3 bucket, let’s explore how to use DVC to trac
 
 3. Next, let's simulate a data change and create a new version. Open and execute the notebook at `jukebox/5-data-versioning/3-dvc-s3-see-change.ipynb` to introduce changes to the dataset and update the version.
 
-Now let's see what this look like in the outer loop ⛷️
+When you are done, we'll continue to see what this look like in the outer loop ⛷️

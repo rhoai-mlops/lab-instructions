@@ -9,7 +9,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ```bash
     cd /opt/app-root/src
-    git clone https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
+    git clone https://<USER_NAME>:<PASSWORD>@<GIT_SERVER>/<USER_NAME>/mlops-helmcharts.git
     ```
 
     After cloning the repository, go to the `mlops-helmcharts/charts/pipelines` folder from the left Explorer menu. Inside, you’ll see that we are calling the Kubeflow Pipeline (the one we ran manually in the previous chapter) from the `templates/tasks/execute-ds-pipeline.yaml` file.
@@ -86,7 +86,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![pipeline-running-state.png](./images/pipeline-running-state.png)
 
-    As soon as the Kubeflow pipeline has been triggered, you can go to the `OpenShift AI UI` >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
+    As soon as the Kubeflow pipeline has been triggered, you can go to the `OpenShift AI Dashboard` >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
 
     ![openshift-ai-pipeline.png](./images/openshift-ai-pipeline.png)
 

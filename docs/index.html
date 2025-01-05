@@ -16,6 +16,11 @@
       </div>
 
       <div class="user-inputs">
+        <label for="pass">Password</label><br/>
+        <input type="text" id="pass" name="password" placeholder="Your password">
+      </div>
+
+      <div class="user-inputs">
         <label for="cdomain">Cluster Domain</label><br/>
         <input type="text" id="cdomain" name="clusterdomain" placeholder="Your cluster domain..">
       </div>
@@ -35,11 +40,13 @@
     
   <script>
     document.getElementById("uname").value = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '';
+    document.getElementById("pass").value = localStorage.getItem('PASSWORD') ? localStorage.getItem('PASSWORD') : '';
     document.getElementById("cdomain").value = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '';
     document.getElementById("gitserver").value = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '';
 
     function setNamesInStorage () {
       let uname = document.getElementById('uname').value.toLowerCase();
+      let pass = document.getElementById('pass').value;
       let cdomain = (document.getElementById('cdomain').value.toLowerCase().indexOf('https://') > -1) 
                     ? document.getElementById('cdomain').value.toLowerCase().substring(8) 
                     : document.getElementById('cdomain').value.toLowerCase();
@@ -52,13 +59,18 @@
         alert('Please enter a username');
         return;
       }
+      if (pass == '') {        
+        alert('Please enter your password');
+        return;
+      }
       if (cdomain == '') {        
         alert('Please enter a cluster domain');
         return;
       }
 
-      console.info('INFO - setting user, cluster and git to :', uname, cdomain, gitserver);
+      console.info('INFO - setting user, cluster and git to :', uname, pass, cdomain, gitserver);
       localStorage.setItem('USER_NAME', uname);
+      localStorage.setItem('PASSWORD', pass);
       localStorage.setItem('CLUSTER_DOMAIN', cdomain);
       // gitserver is not nullable
       if (gitserver !== '') {
@@ -73,9 +85,11 @@
     function clearStorage () {
       console.info('INFO - clearing user and cluster');
       localStorage.removeItem('USER_NAME');
+      localStorage.removeItem('PASSWORD');
       localStorage.removeItem('CLUSTER_DOMAIN');
       localStorage.removeItem('GIT_SERVER');
       document.getElementById('uname').value = '';
+      document.getElementById('pass').value = '';
       document.getElementById('cdomain').value = '';
       document.getElementById('gitserver').value = '';
       location.reload();
@@ -119,9 +133,11 @@
 
             // Invoked each time before parsing the Markdown file.
             const userName = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
+            const passWord = localStorage.getItem('PASSWORD') ? localStorage.getItem('PASSWORD') : '<PASSWORD>';
             const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
             const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
             return content.replaceAll('<USER_NAME>', userName)
+                    .replaceAll('<PASSWORD>', passWord)
                     .replaceAll('<CLUSTER_DOMAIN>', clusterDomain)
                     .replaceAll('<GIT_SERVER>', gitServer);
           });
@@ -170,7 +186,7 @@
       border: 2px solid #F5606D;
     }
     .user-name-form {
-      margin-left: 0%;
+      margin-left: 7%;
       background-color: #f3f3f3;
       padding-left: 20%;
       padding-right: 20%;
@@ -227,7 +243,7 @@
       --base-font-family: "RedHatText",Overpass,"Open Sans",Helvetica,Arial,sans-serif;
       --theme-color: #CC0000;
       --content-max-width: 75em;
-      --sidebar-width: 22rem;
+      --sidebar-width: 19rem;
       --sidebar-nav-pagelink-background-image             : ;
       --sidebar-nav-pagelink-background-image--active     : ;
       --sidebar-nav-pagelink-background-image--collapse   : ;

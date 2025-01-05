@@ -1,9 +1,9 @@
 # Exercise 1 - When the Music Starts
-> Get familiar with OpenShift AI, set up the development environment
+> Let's start experimenting!
 
 ## 👨‍🍳 Exercise Intro
 
-In this exercise, we will walk through a `Data Science Project`, familiarize ourselves with the necessary tools for the experiment we aim to carry out, create a workbench, and set up a Git repository.
+In this exercise, we will walk through a `Data Science Project` and familiarize ourselves with the necessary tools for the model we aim to build; we will create a workbench, explore the dataset and start experimenting.
 
 ## 🖼️ Big Picture
 
@@ -12,7 +12,7 @@ In this exercise, we will walk through a `Data Science Project`, familiarize our
 ## 🔮 Learning Outcomes
 
 - Get familiar with OpenShift AI and its components
-- Set up the environment to start experimenting
+- Set up a workbench and start experimenting
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[Jupyter Notebook](https://jupyter.org/)</span> - A web-based interactive development environment for notebooks, code, and data 

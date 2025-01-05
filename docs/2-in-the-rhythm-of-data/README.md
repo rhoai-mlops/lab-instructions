@@ -1,9 +1,9 @@
 # Exercise 2 - In the Rhythm of Data
-> Create pipelines with Elyra Pipelines and Kubeflow Pipelines SDK (KfP)
+> Create training pipelines with Elyra Pipelines and Kubeflow Pipelines SDK (KFP)
 
 ## 👨‍🍳 Exercise Intro
 
-In this exercise, we'll be starting with Elyra pipelines to automate the previous steps and then transitioning to Kubeflow Pipelines (KfP) for productionizing the automation.
+In this exercise, we'll be starting with Elyra pipelines to automate the previous steps and then transitioning to Kubeflow Pipelines (KFP) for productionizing the automation.
 
 ## 🖼️ Big Picture
 
@@ -11,7 +11,7 @@ In this exercise, we'll be starting with Elyra pipelines to automate the previou
 
 ## 🔮 Learning Outcomes
 
-- [ ] Create a Elyra Pipeline
+- [ ] Create an Elyra Pipeline
 - [ ] Get familiar with KFP and Data Science Pipelines
 - [ ] Execute pipelines from Workbench
 

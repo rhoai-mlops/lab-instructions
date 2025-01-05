@@ -12,7 +12,7 @@ In this exercise we will create our MLOps environment where the continuous train
 
 - [ ] Get familiar with MLOps concept
 - [ ] Deploy the necessary toolings to build & deploy models automatically
-- [ ] Understand traceability
+- [ ] Understand tracking important metadata
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[OpenShift GitOps](https://argoproj.github.io/argo-cd/)</span> - A controller which continuously monitors application and compare the current state against the desired state

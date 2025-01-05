@@ -170,5 +170,7 @@
 
     Now apart from code change and alerts, the pipeline gets triggered when there is fresh data!
 
-1.  Check Model Registry, you have dvc config there as well as which version of the data was used 
+8.  Check Model Registry, you now have dvc config there as well as which version of the data was used to build this version of the Machine Learning model.
+
+    ![dvc-model-registry.png](./images/dvc-model-registry.png)
 

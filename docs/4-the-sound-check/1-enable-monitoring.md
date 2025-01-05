@@ -52,14 +52,13 @@
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
-    git config --global credential.helper 'cache --timeout=172800'
     git pull
     git add .
     git commit -m "📈 Grafana added 📈"
     git push
     ```
 
-3. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana and view the predefined dashboards for Jukebox;
+4. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana by clicking [here](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>) and view the predefined dashboards for Jukebox. alternatively, you can use the run the below command in your code-server workbench terminal:
 
     ```bash
     # get the route and open it in your browser
@@ -69,7 +68,7 @@
 
     Use your OpenShift credentials and click `Allow selected permissions` to log in.
 
-4. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
     _Note: it might take some time to sync the dashboard configuration. Just refresh the page if you cannot see it in the first try._
 
@@ -80,7 +79,6 @@
     ![grafana-dashboard-2.png](./images/grafana-dashboard-2.png)
 
     Since the dashboards are defined as code, any changes you make here will be temporary and will not persist—true GitOps in action!👻
-
 
 
 Now let's move to another exciting tool; TrustyAI 🔦🏡

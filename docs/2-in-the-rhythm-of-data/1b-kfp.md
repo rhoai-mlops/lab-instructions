@@ -24,7 +24,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     ![kfp.png](./images/kfp.png)
 
-2. Update the pipeline definition with the cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholder (somewhere around line 125). Make sure you save the file 👻
+2. Update the pipeline definition with the cluster domain as you did in the inner loop for Model Registry URL. Go to `jukebox/3-prod_datascience/prod_train_save_pipeline.py` and find the below line to replace the placeholder (somewhere around line 120). Make sure you save the file 👻
 
     ```bash
         metadata = {
@@ -54,7 +54,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
     ```
 
 
-3. Go to OpenShift AI UI. Select `Experiments` from the left menu and go to `Experiments and runs`. You'll see there is one run with the status `Running`. Click to see the details of the pipeline run.
+3. Go to OpenShift AI Dashboard. Select `Experiments` from the left menu and go to `Experiments and runs`. You'll see there is one run with the status `Running`. Click to see the details of the pipeline run.
 
     ![experiments.png](./images/experiments.png)
 
@@ -69,4 +69,4 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
 
     Take some time to explore this view and familiarize yourself with its features. The pipeline might take a while to finish on its first run, but you don’t need to wait for it to complete. Feel free to move on to the next steps!
 
-4. The next step is to set up the MLOps environment, enabling this pipeline to run automatically and supporting many other MLOps practices 🙌.
+4. The next step is to set up the MLOps environment, enabling this pipeline to run automatically and supporting many other MLOps practices. This is where our MLOps adventure starts! 🙌

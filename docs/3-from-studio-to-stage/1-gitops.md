@@ -12,7 +12,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
 1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>` >  `Workbenches` and click `Create workbench`
 
-  Select a name you want, could be something like `mlops-gitops` 
+  Select a name you want, could be something like `<USER_NAME>-mlops-gitops` 
 
     For Notebook Image: 
 
@@ -48,7 +48,9 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
   ![argocd-running.png](./images/argocd-running.png)
 
 
-4. When all the pods are up and running, we can login to the UI of ArgoCD. Get the route and open it in a new browser tab.
+4. When all the pods are up and running, we can login to the UI of ArgoCD by clicking [here](https://argocd-server-<USER_NAME>-mlops.<CLUSTER_DOMAIN>). 
+   
+   Alternatively, you can get the URL by running the below command and open it in a new browser tab.
 
   ```bash
   echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-mlops)

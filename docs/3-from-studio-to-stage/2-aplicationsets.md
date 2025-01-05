@@ -20,14 +20,10 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ```bash
     cd /opt/app-root/src
-    git clone https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
+    git clone https://<USER_NAME>:<PASSWORD>@<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
     ```
 
    With our git project cloned - let's start our GitOps Journey 🧙‍♀️🦄!
-
-    <p class="tip">
-    ⛷️ <b>TIP</b> ⛷️ - If your credentials are cached incorrectly, you can try clearing the cache using: <strong>git credential-cache exit</strong>
-    </p>
 
 3. This `mlops-gitops` repository holds Argo CD `ApplicationSet` definitions to create any application we define here. An `ApplicationSet` is a resource that enables dynamic creation and management of multiple Argo CD applications. We have three `ApplicationSet` definitions: one for tooling, one for the test environment, and one for the production environment.
 
@@ -45,18 +41,12 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     cd /opt/app-root/src/mlops-gitops
     git config --global user.email "<USER_NAME>@mlops-wizard.com"
     git config --global user.name "<USER_NAME>"
-    git config --global credential.helper 'cache --timeout=172800'
     git add .
     git commit -m  "🦆 ADD - ApplicationSet definition 🦆"
     git push
     ```
 
-  
-  <p class="warn">
-    ⛷️ <b>NOTE</b> ⛷️ - It may wait for you to enter your credentials on the screen.
-  </p>
-
-4. This `appset-toolings.yaml` file refers to the `toolings` folder which contains all the definitions needed for our continuous training pipelines, such as MinIO, Tekton pipeline, Feast and more. For now, we’ll start small with only two applications. Within the `toolings` folder, you'll find two subfolders: one named `bootstrap`, which handles bootstrapping the cluster with necessary namespaces and permissions, and another named `minio`, which defines our storage environment. This setup means that we’re storing both the storage and environment definitions in Git. As we’ve discussed, this is GitOps, so our desired state must be stored in ✨Git✨. 
+6. This `appset-toolings.yaml` file refers to the `toolings` folder which contains all the definitions needed for our continuous training pipelines, such as MinIO, Tekton pipeline, Feast and more. For now, we’ll start small with only two applications. Within the `toolings` folder, you'll find two subfolders: one named `bootstrap`, which handles bootstrapping the cluster with necessary namespaces and permissions, and another named `minio`, which defines our storage environment. This setup means that we’re storing both the storage and environment definitions in Git. As we’ve discussed, this is GitOps, so our desired state must be stored in ✨Git✨. 
 
   All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 

@@ -23,7 +23,11 @@
   * [🍇 Data Versioning](5-the-data-tracks/1-data-versioning.md)
   * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-ct-pipeline.md)
 <!-- * [6. The Headliner](6-the-headliners/README.md)
-  * [🐿️ A/B Deployments](6-the-headliner/1-a-b-deployments.md)
-  * [👻 Dark Launching](6-the-headliner/2-dark-launches.md)
-* [7. The Openning Act]()
-* [8. The Backstage]() -->
+  * [🥓 Pre & Post Processing](./6-the-headliner/1-pre-post-processing.md)
+  * [💸 Autoscaling](6-the-headliner/2-autoscaling.md)
+  * [🐿️ Advanced Deployments](6-the-headliner/3-a-b-deployments.md)
+  * [👻 Dark Launching](6-the-headliner/4-dark-launches.md)
+* [7. The Feature Playlist](7-the-feature-playlist/README.md)
+  * [🪐 Feast](7-the-feature-playlist/1-feature-store.md)
+* [8. The Supporting Act]()
+* [9. The Backstage]() -->

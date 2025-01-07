@@ -8,7 +8,7 @@
 
 
 ## 🔮 Learning Outcomes
-- [ ] Can shift traffic gradually between two different versions with A/B deployment method
+- [ ] Can shift traffic gradually between two different versions with canary deployment method
 - [ ] Can deploy the champion model to production
 - [ ] Can mirror the traffic to monitor the new version under live requests
 

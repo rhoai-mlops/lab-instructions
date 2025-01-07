@@ -1,9 +1,12 @@
 ## Update Continuous Training Pipeline with Data Versioning
 
+With data versioning in place, we can now enhance our pipeline to utilize the `dvc` version file. By integrating this version file, we can trigger the pipeline whenever the file is updated. This ensures that a new model is automatically built whenever new data becomes available, streamlining the model retraining process and maintaining consistency. 
+
+And we have a bit of groundwork to cover first to set everything up properly.
 
 ### Setup MinIO
 
-1. First, we need to have `data` and `data-cache` buckets in our MLOps environment too. Previously, we were in inner loop, buckets were already there. But in MLOps environment we aim to practice GitOps as much as we can, so we store bucket info as code in Git too. Go back to your `code-server` and update `mlops-gitops/toolings/minio/config.yaml` as below:
+1. We need to have `data` and `data-cache` buckets in our MLOps environment too. Previously, we were in inner loop, buckets were already there. But in MLOps environment we aim to practice GitOps as much as we can, so we store bucket info as code in Git too. Go back to your `code-server` and update `mlops-gitops/toolings/minio/config.yaml` as below:
 
     ```bash
         chart_path: charts/minio
@@ -13,7 +16,6 @@
         - name: data # 👈 add this
         - name: data-cache # 👈 add this
     ```
-
 
 2. Commit the changes to the repo as you’ve done before.
 
@@ -25,22 +27,21 @@
     git push
     ```
 
-
 ### Update CT Pipeline
 
 1. Let's go back to Jupyter Notebook. Now that we got familiar with DVC, we can update our pipeline to stop fetching all the data from GitHub and fetch the song properties data based on the dvc file in `Jukebox` git repository.  For that, we need to comment out the initial `fetch_data()` function and introduce a new one that calls dvc commands.
    
     In your Jupyter Notebook, open `jukebox/3-prod_datascience/prod_train_save_pipeline.py`, and comment out below line by putting **＃** in front of it, or when you are on that line, hit CTRL (Command) + Shift. 
 
-    ```python
-    ...
+    <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
+    <pre><code class="language-python">
     def training_pipeline(hyperparameters: dict, model_name: str, version: str, cluster_domain: str, model_storage_pvc: str, prod_flag: bool):
         ### 🐶 Fetches Data from GitHub
         fetch_task = fetch_data() # 👈 Comment out this one
-    ...
-    ```
+    </code></pre></div>
 
-2. After you comment it out, add the below function right under it. You'll see the `🍇 Fetches data from DVC` comment there. Make sure you save the file!
+
+2. After you comment out `fetch_data()`, paste the below function right under `### 🍇 Fetches data from DVC` comment. And make sure you save the file!
 
     ```python
         ### 🍇 Fetches data from DVC
@@ -73,8 +74,6 @@
             },
         )
     ```
-
-
 
 3. Let's persist the changes in Git. On Jupyter Notebook, in `Launcher`, select `Terminal`:
 

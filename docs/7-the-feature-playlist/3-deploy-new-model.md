@@ -1,3 +1,9 @@
+# Using Feast for inference
+
+Besides using Feast for getting features to train on, we can also use Feast for getting features during inference.  
+This is a great way to make sure that the same features are used in both training and serving.  
+Before we deploy our new model server that uses Feast, let's deploy a Feast Server and UI, to make our feature consumption simpler and allow us to browse the features.  
+
 ## Feast Server and UI
 
 ```bash
@@ -31,11 +37,40 @@ git commit -m  "🎁 ADD - Feast Server and UI 🎁"
 git push
 ```
 
-# New model runtime
+Now run this command to get the route for the Feast UI and open it up:  
+```bash
+echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+```
 
-Now that we train with a feature store, we also want to serve with a feature store.
-We can use KServe transformers before to get features from feast at inference time.
 
-## Go to your notebook and send a request?
+# New model server
 
-# Deploy and try new app
+Now that we train with a feature store, we also want to serve with a feature store.  
+Just like in the previous chapter, we will use KServe transformers to get features from feast at inference time. 
+
+To deploy the new model, we can simply point our test model to the feast transformer. The model it's running will be the same underneath so we can use the one that we just trained.  
+
+Start by pulling the latest changes as the model version will have been updated in the mlops-gitops repo:  
+```bash
+cd /opt/app-root/src/mlops-gitops
+git pull
+```
+
+Then we want update our config file (`mlops-gitops/model-deployments/test/jukebox/config.yaml`) for our test model, which we can do by running these lines: 
+```bash
+sed -i 's|chart_path: charts/model-deployment/simple|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER>-mlops.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+```
+
+And then commit it to git:
+```bash
+cd /opt/app-root/src/mlops-gitops
+git add .
+git commit -m  "🎈 ADD - Use Feast with the served model 🎈"
+git push
+```
+
+
+# Deploy and try new frontend app

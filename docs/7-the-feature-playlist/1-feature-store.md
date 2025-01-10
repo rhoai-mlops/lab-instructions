@@ -11,7 +11,7 @@ Small map over feast components:
 3. Online store
 In this case the Registry and Online store will be stored in the same database.
 
-# Setup Feast
+# Setup and use Feast
 Go throgh the inner loop to set up feast in the dev environment
 
 Instructions:

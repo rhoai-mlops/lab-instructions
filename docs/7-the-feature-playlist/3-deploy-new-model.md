@@ -64,6 +64,9 @@ sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-dep
 sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
 ```
 
+Here we simply point out where the feature server is, what feature service to use, and what entity id name.
+
+
 And then commit it to git:
 ```bash
 cd /opt/app-root/src/mlops-gitops
@@ -74,3 +77,29 @@ git push
 
 
 # Deploy and try new frontend app
+
+Now let's try it out!  
+To update the UI in the test namespace, you can modify the config file by running this:
+```bash
+sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.0|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.0|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+```
+
+And then commit it to git:
+```bash
+cd /opt/app-root/src/mlops-gitops
+git add .
+git commit -m  "🧪 ADD - Updated test UI 🧪"
+git push
+```
+
+Now go to the UI, here is the URL if you have lost it since last time:  
+```bash
+https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
+```
+
+Instead of just predicting based on random features, we can now go to the Search button in the top right:  
+![UI-search.png](./images/UI-search.png)
+
+Then search for a popular song (`Gimme! Gimme! Gimme!` from ABBA for example) and select it.  
+Our pre-processing will look up the latest feature values for the song in our online database and use them to predict the location.  
+This way we can have an up-to-date store of important features that we can fetch at any point.

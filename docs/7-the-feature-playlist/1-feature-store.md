@@ -1,6 +1,8 @@
 # What is a Feature Store?
 A feature store is a central place where teams can manage, store, and access the data features needed for training and serving models. It ensures that features are consistent, up-to-date, and easily reusable across different projects, as well as making sure that they look the same in both training and serving.
 
+We will be using it here for...  
+But it can also be used for applications such as getting the number of trips a postman did last week to predict package throughput.  
 
 # How does Feast work?
 Feast is a framework that registers and keeps track of features.

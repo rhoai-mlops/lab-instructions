@@ -91,13 +91,31 @@ To enable this:
 
 # Apply and Materialize in our pipelines
 
-We don't want to manually apply new feature changes and materialize our data, so we will add steps in our pipelines to make sure this is done automatically.
+We don't want to manually apply new feature changes and materialize our data, so we will add steps in our pipelines to make sure this is done automatically.  
 
 ## Automatically apply new changes
 
 To apply new changes to our feature store, we can add a step to our Continous Training pipeline to see if there has been any change to our features before we start training.  
 
+1. Go to `mlops-gitops/toolings/ct-pipeline/config.yaml` and update it:
 
+    ```yaml
+    chart_path: charts/pipelines
+    USER_NAME: <USER_NAME>
+    cluster_domain: <CLUSTER_DOMAIN>
+    git_server: <GIT_SERVER>
+    alert_trigger: true
+    apply_feature_changes: true # 👈 add this
+    ```
+
+2. Commit the changes to the repo:
+
+    ```bash
+    cd /opt/app-root/src/mlops-gitops
+    git add .
+    git commit -m "✅ Features automatically applied ✅"
+    git push
+    ```
 
 ## Automatically materialize new data
 

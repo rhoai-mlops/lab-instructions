@@ -18,11 +18,13 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
 
   <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
   <pre><code class="language-bash">
-  NAME      URL                                                                          READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION       AGE
-  jukebox   https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>   True           100                              jukebox-predictor-00003   2d2h
-    </code></pre></div>
+    NAME      URL                                                                          READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION       AGE
+    jukebox   https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>   True           100                              jukebox-predictor-00003   2d2h
+    </code></pre>
+    </div>
 
-    What this output tells you that the 100% of the traffic is going to the LATEST version.
+  What this output tells you that the 100% of the traffic is going to the LATEST version.
+
 
 1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.
 

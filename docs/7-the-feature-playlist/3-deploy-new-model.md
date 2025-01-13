@@ -102,4 +102,9 @@ Instead of just predicting based on random features, we can now go to the Search
 
 Then search for a popular song (`Gimme! Gimme! Gimme!` from ABBA for example) and select it.  
 Our pre-processing will look up the latest feature values for the song in our online database and use them to predict the location.  
-This way we can have an up-to-date store of important features that we can fetch at any point.
+This way we can have an up-to-date store of important features that we can fetch at any point.  
+
+# Change the features
+
+Let's now see one of the powers of a feature store, we will change the features and it will automatically change both what we train and what we serve with.  
+To do this, simply go into the feature service defintion and remove...

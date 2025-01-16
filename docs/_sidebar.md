@@ -26,7 +26,7 @@
   * [🥓 Pre & Post Processing](./6-the-headliner/1-pre-post-processing.md)
   * [💸 Autoscaling](6-the-headliner/2-autoscaling.md)
   * [🐿️ Advanced Deployments](6-the-headliner/3-advanced-deployments.md)
-  * [👻 Dark Launching](6-the-headliner/4-dark-launches.md)
+  * [👻 Dark Launches](6-the-headliner/4-dark-launches.md)
 <!-- * [7. The Feature Playlist](7-the-feature-playlist/README.md)
   * [🪐 Feast](7-the-feature-playlist/1-feature-store.md)
 * [8. The Supporting Acts]()

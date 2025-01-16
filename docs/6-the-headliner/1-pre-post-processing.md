@@ -17,7 +17,15 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
 2. We need to update the model deployment to use this transformers whenever it receives a request. That means a change in the helm-chart template for `InferenceService`. You can see the changes [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/templates/inferenceservice.yaml#L49-L63).
 
-    Let's update GitOps configuration for using this helm chart. Go to your code-server workbench and open up `mlops-gitops/model-deployments/test/jukebox/config.yaml` and add update `chart_path`:
+    Actually, before we make any update, let's do a `git pull` on our GitOps repository to pull all the changes have been done automagically by the pipeline.
+
+    ```bash
+    cd /opt/app-root/src/mlops-gitops
+    git config pull.rebase false
+    git pull
+    ```
+
+    Now let's update GitOps configuration for using this helm chart. Go to your code-server workbench and open up `mlops-gitops/model-deployments/test/jukebox/config.yaml` and add update `chart_path`:
 
     ```yaml
     ---
@@ -40,7 +48,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     chart_path: chart
     model_endpoint: https://jukebox-user1-test.apps.cluster-65vzq.65vzq.sandbox2605.opentlc.com
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.0 # 👈 update this
+    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.3 # 👈 update this
     ```
 
     And the same thing for **prod**. Open up `mlops-gitops/model-deployments/prod/jukebox-ui/config.yaml` and add update `image` as above.

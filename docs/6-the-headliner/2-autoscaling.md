@@ -10,7 +10,7 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17
+    version: 4562a17c17 # this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     autoscaling: true # 👈 add this
@@ -42,7 +42,7 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     git push
     ```
     
-3. Let's test the autoscaling with generating some load. Go to your Jupyter Notebook workbench and open `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`
+3. Let's test the autoscaling with generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.
 
 4. Go to OpenShift AI > <USER_NAME>-test project > Workloads > Pods and observe that a new pod is coming up.
 

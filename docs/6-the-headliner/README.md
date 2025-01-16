@@ -6,6 +6,7 @@
 
 ## 🖼️ Big Picture
 
+![big-picture-advanced-deployment.jpg](./images/big-picture-advanced-deployment.jpg)
 
 ## 🔮 Learning Outcomes
 - [ ] Can shift traffic gradually between two different versions with canary deployment method

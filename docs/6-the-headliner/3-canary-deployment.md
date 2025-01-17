@@ -91,10 +91,14 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
    </code></pre></div>
 
 
-4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook and open `jukebox/6-advanced_deployments/2-canary_testing.ipynb`
+4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can again rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook and run `jukebox/6-advanced_deployments/2-canary_testing.ipynb`.
 
-5. After you start generating the traffic, let's go to [Grafana](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/) you previously deployed.
+5. To verify that requests are hitting both models and splitting at an 80% to 20% ratio, you can check the metrics. Open the `OpenShift Dashboard` and switch to the `Developer` view. Navigate to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below to filter and group the number of requests by pods. The resulting values should approximate an 80%-20% split. 
+
+  Run the following query and review the output:
 
   ```bash
-  https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/
+  sum(rate(ovms_requests_success[5m])) by (pod) 
   ```
+
+  ![canary-metrics.png](./images/canary-metrics.png)

@@ -1,11 +1,12 @@
 # Exercise 6 - The Headliner
->  Advance deployment patterns
+>  Techniques to enhance the reliability and scalability of machine learning systems. 
 
 ## 👨‍🍳 Exercise Intro
-
+In this exercise, we'll cover pre- and post-processing for data and predictions, explore autoscaling to handle loads, and introduce advanced deployment patterns like canary and blue-green deployments to ensure safe and seamless model rollouts.
 
 ## 🖼️ Big Picture
 
+![big-picture-advanced-deployment.jpg](./images/big-picture-advanced-deployment.jpg)
 
 ## 🔮 Learning Outcomes
 - [ ] Can shift traffic gradually between two different versions with canary deployment method

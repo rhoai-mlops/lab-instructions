@@ -91,70 +91,14 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
    </code></pre></div>
 
 
-4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook and open `jukebox/6-advanced_deployments/2-canary_testing.ipynb`
+4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can again rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook and run `jukebox/6-advanced_deployments/2-canary_testing.ipynb`.
 
-5. After you start generating the traffic, let's go to [Grafana](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/) you previously deployed.
+5. To verify that requests are hitting both models and splitting at an 80% to 20% ratio, you can check the metrics. Open the `OpenShift Dashboard` and switch to the `Developer` view. Navigate to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below to filter and group the number of requests by pods. The resulting values should approximate an 80%-20% split. 
+
+  Run the following query and review the output:
 
   ```bash
-  https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/
+  sum(rate(ovms_requests_success[5m])) by (pod) 
   ```
 
-
-## Blue/Green Deployments
-
-Blue/Green deployments are straightforward: you switch all traffic from one environment to another in a single step. This approach is ideal if you prioritize simplicity and prefer to avoid managing traffic splits, as required in Canary or A/B deployments. It is better suited for deployments where you need a clean cutover without prolonged monitoring periods.
-
-Canary or A/B deployments are typically used for experiments to measure the effectiveness of different models based on user interactions. If your goal is not to experiment but to replace the old model with a new one in a controlled way, Blue-Green is a better fit.
-
-However, from an implementation point of view, for KServe, it's just shifting the 100% of thetraffic to the new revision of the model. Because KServe keeps each revision definition to provide you an easy rollback options. 
-
-1. If you update `trafficPercent` value as `100`, all the traffic will go to the latest version. Update `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.
-
-    ```bash
-    ---
-    chart_path: charts/model-deployment/music-transformer
-    name: jukebox
-    version: 4562a17c17
-    image_repository: image-registry.openshift-image-registry.svc:5000
-    image_namespace: <USER_NAME>-test
-    autoscaling: true
-    canary:
-      trafficPercent: 100 # 👈 update this
-    ```
-
-2. Let's push the change.
-
-    ```bash
-    cd /opt/app-root/src/mlops-gitops
-    git pull
-    git add .
-    git commit -m  "🐳 UPDATE - blue green deployment 🍏"
-    git push
-    ```
-
-3. If you want to rollback to the previous version, update `trafficPercent` value as `0`.
-
-    ```bash
-    ---
-    chart_path: charts/model-deployment/music-transformer
-    name: jukebox
-    version: 4562a17c17
-    image_repository: image-registry.openshift-image-registry.svc:5000
-    image_namespace: <USER_NAME>-test
-    autoscaling: true
-    canary:
-      trafficPercent: 0 # 👈 update this
-    ```
-
-
-4. And push the change.
-
-    ```bash
-    cd /opt/app-root/src/mlops-gitops
-    git pull
-    git add .
-    git commit -m  "🍏 UPDATE - blue green deployment 🐳"
-    git push
-    ```
-
-5. Oberve that either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive.
+  ![canary-metrics.png](./images/canary-metrics.png)

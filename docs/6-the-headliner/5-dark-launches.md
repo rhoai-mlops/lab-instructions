@@ -10,4 +10,4 @@ This technique allows teams to:
 - Gather insights from real-world data to improve the model further.
 - Ensure a smooth, risk-free transition when the new model is ready for production.
 
-Dark launches rely on [Istio Traffic Mirroring](https://istio.io/latest/docs/tasks/traffic-management/mirroring/) capability the hood. Currently, this is not supported with KServe but it is being worked on by the community. If this is something you are interested in, you can subscribe to [this GitHub Issue](https://github.com/kserve/kserve/issues/2240) to get the updates.
+Dark launches rely on [Istio Traffic Mirroring](https://istio.io/latest/docs/tasks/traffic-management/mirroring/) capability under the hood. Currently, this is not supported with KServe but it is being worked on by the community. If this is something you are interested in, you can subscribe to [this GitHub Issue](https://github.com/kserve/kserve/issues/2240) to get the updates.

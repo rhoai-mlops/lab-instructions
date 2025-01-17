@@ -15,7 +15,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
 1. The transformer itself works as sidecar container within the model deployment. Let's first see what it looks like. The Python code that is responsible for pre- and post-processing can be found in [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/music_transformer/music_transformer.py) in file `mlops-helmcharts/charts/model-deployment/music-transformer/music_transformer/music_transformer.py` alongside with a [Containerfile](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/Containerfile) to build the transformer image.
 
-2. We need to update the model deployment to use this transformers whenever it receives a request. That means a change in the helm-chart template for `InferenceService`. You can see the changes [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/templates/inferenceservice.yaml#L49-L63).
+2. We need to update the model deployment to use this transformer whenever it receives a request. That means a change in the helm-chart template for `InferenceService`. You can see the changes [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/templates/inferenceservice.yaml#L49-L63).
 
     Actually, before we make any update, let's do a `git pull` on our GitOps repository to pull all the changes have been done automagically by the pipeline.
 

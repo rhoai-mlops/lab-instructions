@@ -81,7 +81,7 @@ git push
 Now let's try it out!  
 To update the UI in the test namespace, you can modify the config file by running this:
 ```bash
-sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.0|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.0|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.0|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.1|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
 ```
 
 And then commit it to git:

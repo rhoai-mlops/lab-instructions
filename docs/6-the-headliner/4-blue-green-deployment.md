@@ -82,10 +82,9 @@ However, from an implementation point of view, for KServe, it's pretty similar w
 
 5. Oberve that only the previous version now receives the traffic bu running the `locust` command and checking the metrics:
 
-
-  ```bash
-  oc get isvc jukebox -n <USER_NAME>-test
-  ```
+    ```bash
+    oc get isvc jukebox -n <USER_NAME>-test
+    ```
 
     <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
     <pre><code class="language-bash">                                                                                                  
@@ -94,9 +93,9 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     </code></pre>
     </div>
 
-  ```bash
-  sum(rate(ovms_requests_success[5m])) by (pod) 
-  ```
+    ```bash
+    sum(rate(ovms_requests_success[5m])) by (pod) 
+    ```
 
   ![greenblue-metrics.png](./images/greenblue-metrics.png)
 

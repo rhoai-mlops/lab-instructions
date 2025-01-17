@@ -44,7 +44,7 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     
 3. Let's test the autoscaling with generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.
 
-4. Go to OpenShift AI > <USER_NAME>-test project > Workloads > Pods and observe that a new pod is coming up.
+4. Go to `OpenShift Dashboard` in Administrator view > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.
 
     ![autoscaling-1.png](./images/autoscaling-1.png)
 

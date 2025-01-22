@@ -1,5 +1,6 @@
 # Exercise 8 - The Supporting Acts
->  Automated testing, security gates
+>  Continuous Delivery needs rapid and reliable feedback. Investing in continuous testing is a worthwhile activity.
+
 
 ## 👨‍🍳 Exercise Intro
 
@@ -8,7 +9,15 @@
 
 
 ## 🔮 Learning Outcomes
-- [ ] 
+- [ ] Can add security gates to pipeline
+- [ ] Can add testing gates to pipeline
+- [ ] Can add static code analysis gates to pipeline
+- [ ] Can add image signing to the pipeline
+- [ ] Can generate and store SBOMs
 
 ## 🔨 Tools used in this exercise
-* 
+ * <span style="color:blue;">[Sonarqube](https://www.sonarqube.org/)</span> - Add static code analysis to the pipelines.
+* Code Linting - <span style="color:blue;">[black](https://github.com/psf/black)</span> , <span style="color:blue;">[flake8](https://flake8.pycqa.org/en/latest/)</span> , <span style="color:blue;">[pylint](https://pypi.org/project/pylint/)</span>  - Static code linter
+* Kube Linting - <span style="color:blue;">[kube-linter](https://docs.kubelinter.io/#/)</span> , <span style="color:blue;">[helm lint](https://helm.sh/docs/helm/helm_lint/)</span>  Validate K8s YAMLs against best practices.
+* Image Security - <span style="color:blue;">[Stackrox](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes)</span> - Finding vulnerabilities inside the images and hosts with StackRox
+* <span style="color:blue;">[modelscan](https://github.com/protectai/modelscan)</span> - scans models to determine if they contain unsafe code

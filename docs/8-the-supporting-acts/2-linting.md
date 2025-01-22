@@ -137,3 +137,34 @@ We can also use `helm lint` to examine a chart for possible issues. If helm lint
 We’re adding a new Task to our Tekton pipeline to perform linting before triggering the data science pipeline. This ensures that we catch any issues with code or deployment files early on, saving time and resources by avoiding unnecessary training runs when the code doesn’t meet required standards.
 
 1. Open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `linting: true` flag to introduce [linting task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/linting.yaml).
+
+    ```yaml
+    chart_path: charts/pipelines
+    USER_NAME: <USER_NAME>
+    cluster_domain: <CLUSTER_DOMAIN>
+    git_server: <GIT_SERVER> 
+    alert_trigger: true 
+    linting: true # 👈 add this
+    ```
+
+2. Commit the changes to the repo:
+
+    ```bash
+    git pull
+    cd /opt/app-root/src/mlops-gitops
+    git add .
+    git commit -m "☀️ linting task is added ☀️"
+    git push
+    ```
+
+3. Kick off a pipeline with an empty commit to see the changes on the pipeline:
+
+    ```bash
+    cd /opt/app-root/src/jukebox
+    git commit --allow-empty -m "🩴 trigger pipeline for linting 🩴"
+    git push
+    ```
+
+4. Go to OpenShift UI > Pipelines in `<USER_NAME>-mlops` namespace > verify that the task is included in the new Pipeline run.
+
+

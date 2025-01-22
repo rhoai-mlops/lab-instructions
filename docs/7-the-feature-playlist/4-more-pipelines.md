@@ -8,7 +8,7 @@ Whenever we get new datapoints into our system, we want to make sure that our on
 Because of that, we will materialize all incoming data, and we will do it in an incremental fasion so only the new data gets materialized (based on a timestamp).  
 To do this, we can simply modify our ETL pipeline to include a materialization step after the data has been uploaded to S3.  
 
-1. Go to the UI and search for Gimme! Gimme! Gimme! by Abba. Nothing should show up as we haven't yet added that song to our online feature store.
+1. Go to the UI and search for [Some Song]. Nothing should show up as we haven't yet added that song to our online feature store.
     ![search-in-ui.png](./images/search-in-ui.png)
 2. Go to your Jupyter Notebook, open up `jukebox/7-feature_store/5-data_pipeline_with_materialize.py` and press the Run button.
     ![run-etl-pipeline.png](./images/run-etl-pipeline.png)
@@ -16,7 +16,7 @@ To do this, we can simply modify our ETL pipeline to include a materialization s
 4. In your OpenShift AI console, go to Pipelines and navigate to your <USER_NAME>-mlops project. In here we will import the downloaded pipeline file by creating a new version for our current ETL pipeline.
     ![import-new-version.png](./images/import-new-version.png)
 5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately.
-6. Go back to the UI and search for `` (the ID for Gimme! Gimme! Gimme!) and press Search. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
+6. Go back to the UI and search for `` (the ID for [Some Song]) and press Search. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
     ![song-id-prediction.png](./images/song-id-prediction.png)
 
 ## Automatically apply new changes

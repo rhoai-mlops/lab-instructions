@@ -1,4 +1,4 @@
-# Exercise 6 - The Feature Playlist
+# Exercise 7 - The Feature Playlist
 >  Feature Store
 
 ## 👨‍🍳 Exercise Intro

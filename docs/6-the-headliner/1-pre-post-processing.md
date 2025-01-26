@@ -44,9 +44,9 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
     ```yaml
     ---
-    repo_url: https://gitea-gitea.apps.cluster-65vzq.65vzq.sandbox2605.opentlc.com/user1/jukebox-ui
+    repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
     chart_path: chart
-    model_endpoint: https://jukebox-user1-test.apps.cluster-65vzq.65vzq.sandbox2605.opentlc.com
+    model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
     model_name: jukebox
     image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.3 # 👈 update this
     ```

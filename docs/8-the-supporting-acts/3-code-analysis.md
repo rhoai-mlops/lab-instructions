@@ -38,7 +38,7 @@
     echo https://$(oc get route sonarqube --template='{{ .spec.host }}' -n <USER_NAME>-ci-cd)
     ```
 
-5. Now that we have SonarQube, let's extend out pipeline to perform static code analysis chech. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis: true` flag to introduce [the task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/static-code-analysis.yaml).
+5. Now that we have SonarQube, let's extend our pipeline to perform static code analysis chech. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis: true` flag to introduce [the task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/static-code-analysis.yaml).
 
     ```yaml
     chart_path: charts/pipelines

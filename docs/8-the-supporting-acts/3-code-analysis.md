@@ -26,6 +26,8 @@
         - https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/3.1.0/sonar-dependency-check-plugin-3.1.0.jar
     ```
 
+    _Yup, we are aware that it is not sensible to store credentials as plaintext here but we haven't discussed Secret Management with GitOps, so hang in there!🫣_
+
 3. Push the changes and let Argo CD to deploy SonarQube:
 
     ```bash

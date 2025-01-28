@@ -16,7 +16,10 @@
     ```yaml
     repo_url: https://github.com/redhat-cop/helm-charts.git
     chart_path: charts/sonarqube
-    initContainers: true
+    account:
+      username: admin
+      password: admin123
+      currentAdminPassword: admin
     plugins:
       install:
         - https://github.com/checkstyle/sonar-checkstyle/releases/download/10.9.3/checkstyle-sonar-plugin-10.9.3.jar
@@ -27,15 +30,25 @@
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m  "🦇 ADD - sonarqube 🦇"
     git push 
     ```
 
-4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `admin123`):
+4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `admin123`).
+
+    _It may take a few minutes to configure SonarQube._
 
     ```bash
-    echo https://$(oc get route sonarqube --template='{{ .spec.host }}' -n <USER_NAME>-ci-cd)
+    echo https://$(oc get route sonarqube --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+    ```
+
+    _And in case you logged out from the cluster, use below commands to login again._
+
+    ```bash
+    export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
+    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
     ```
 
 5. Now that we have SonarQube, let's extend out pipeline to perform static code analysis chech. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis: true` flag to introduce [the task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/static-code-analysis.yaml).
@@ -68,8 +81,11 @@
     git push
     ```
 
-8. Go to OpenShift UI > Pipelines in `<USER_NAME>-mlops` namespace > verify that the task is included in the new Pipeline run.
+8. Go to OpenShift Console > Pipelines in `<USER_NAME>-mlops` namespace > verify that the task is included in the new Pipeline run.
 
+    ![sonarqube-task.png](./images/sonarqube-task.png)
+
+    ![sonarqube-task-success.png](./images/sonarqube-task-success.png)
 
 9. When static ode analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
 

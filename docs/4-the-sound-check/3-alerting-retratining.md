@@ -55,7 +55,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
     git push
     ```
 
-5. Let's go to OpenShift UI in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. 
+5. Let's go to OpenShift Console in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. 
 
     ![alert-1.png](./images/alert-1.png)
 
@@ -115,7 +115,7 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     git push
     ```
 
-4. Verify an alerting pipeline is triggered by going to `OpenShift UI` > `<USER_NAME>-mlops`> `Pipelines`
+4. Verify an alerting pipeline is triggered by going to `OpenShift Console` > `<USER_NAME>-mlops`> `Pipelines`
 
     ![alert-pipeline.png](./images/alert-pipeline.png)
 

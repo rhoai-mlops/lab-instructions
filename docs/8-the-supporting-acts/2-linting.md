@@ -150,12 +150,16 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
 2. Commit the changes to the repo:
 
     ```bash
-    git pull
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "☀️ linting task is added ☀️"
     git push
     ```
+
+    Go to OpenShift Console > Pipelines in `<USER_NAME>-mlops` namespace to verify that the `linting` task is included in the  Pipeline now:
+
+    ![linting-task.png](./images/linting-task.png)
 
 3. Kick off a pipeline with an empty commit to see the changes on the pipeline:
 
@@ -165,6 +169,31 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
     git push
     ```
 
-4. Go to OpenShift UI > Pipelines in `<USER_NAME>-mlops` namespace > verify that the task is included in the new Pipeline run.
+4. Watch `Pipeline Run` to fail with he same mistake you saw previously. 
+
+    ![linting-fail.png](./images/linting-fail.png)
+
+5. Let's fix the errors and make the pipeline pass linting step. Go back to the terminal on your code-server workbenc and run the following commands:
+   
+    ```bash
+    cd /opt/app-root/src/jukebox/3-prod_datascience
+    black .
+    ```
+
+6. After `black` fixes the formatting, let's push the changes and kick off a new pipeline:
+
+    ```bash
+    cd /opt/app-root/src/jukebox
+    git add .
+    git commit -m "🪄 black format fixes 🪄"
+    git push
+    ```
+
+7. Observe the pipeline passes the `linting` step this time 🥳
+
+    ![linting-success.png](./images/linting-success.png)
+
+
+
 
 

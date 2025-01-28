@@ -55,7 +55,7 @@ Data drift in this context is like trying to write a hit song based on old trend
 
     After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
 
-2. Go to `OpenShift UI` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
+2. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
     trustyai_meanshift{subcategory=~"danceability|acousticness"}

@@ -163,7 +163,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     DVC files were pushed by the data pipeline, which means Continuous Training Pipeline must have been triggered. Let's check the OpenShift pipeline.
 
-    Go to OpenShift UI > Pipelines > `ct-pipeline`
+    Go to OpenShift Console > Pipelines > `ct-pipeline`
 
     ![pipeline-run-dvc.png](./images/pipeline-run-dvc.png)
 

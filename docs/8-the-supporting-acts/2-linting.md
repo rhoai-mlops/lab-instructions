@@ -142,6 +142,7 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
     cluster_domain: <CLUSTER_DOMAIN>
     git_server: <GIT_SERVER> 
     alert_trigger: true 
+    unit_tests: true
     linting: true # 👈 add this
     ```
 

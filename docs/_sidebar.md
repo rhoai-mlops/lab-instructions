@@ -28,7 +28,10 @@
   * [🦜 Canary Deployments](6-the-headliner/3-canary-deployment.md)
   * [🐳🍏 Blue Green Deployments](6-the-headliner/4-blue-green-deployment.md)
   * [👻 Dark Launches](6-the-headliner/5-dark-launches.md)
-<!-- * [7. The Feature Playlist](7-the-feature-playlist/README.md)
+* [7. The Feature Playlist](7-the-feature-playlist/README.md)
   * [🪐 Feast](7-the-feature-playlist/1-feature-store.md)
-* [8. The Supporting Acts]()
+  * [🎒 Outer Loop Features](./7-the-feature-playlist/2-outer-loop-features.md)
+  * [🫕 Feast for Inference](./7-the-feature-playlist/3-deploy-new-model.md)
+  * [♻️ Materialize](./7-the-feature-playlist/4-more-pipelines.md)
+<!-- * [8. The Supporting Acts]()
 * [9. The Backstage]() -->

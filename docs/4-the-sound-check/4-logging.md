@@ -36,7 +36,7 @@
     exit
     ```
 
-4. Back on OpenShift UI > Observe > Logs. We can filter and find these messages with another query:
+4. Back on OpenShift Console > Observe > Logs. We can filter and find these messages with another query:
 
     ```bash
     { log_type="application", kubernetes_pod_name=~"jukebox-ui.*", kubernetes_namespace_name="<USER_NAME>-test" } |= `🦄🦄🦄🦄` | json

@@ -68,9 +68,9 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
     ![test-webhook-1.png](./images/test-webhook-1.png)
     ![test-webhook-2.png](./images/test-webhook-2.png)
 
-7. This test delivery acts as a commit to the Jukebox repository, which in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift UI `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
+7. This test delivery acts as a commit to the Jukebox repository, which in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
 
-    First, go to `OpenShift UI` > `Pipelines` > `PipelineRuns` and click the `colorful bar` to see the logs.
+    First, go to `OpenShift Console` > `Pipelines` > `PipelineRuns` and click the `colorful bar` to see the logs.
 
     Make sure you are in `<USER_NAME>-mlops` project.
 

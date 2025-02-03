@@ -32,6 +32,9 @@
   * [🪐 Feast](7-the-feature-playlist/1-feature-store.md)
   * [🎒 Outer Loop Features](./7-the-feature-playlist/2-outer-loop-features.md)
   * [🫕 Feast for Inference](./7-the-feature-playlist/3-deploy-new-model.md)
-  * [♻️ Materialize](./7-the-feature-playlist/4-more-pipelines.md)
-<!-- * [8. The Supporting Acts]()
-* [9. The Backstage]() -->
+  * [🫶 More Pipelines](./7-the-feature-playlist/4-more-pipelines.md)
+* [8. The Supporting Acts](8-the-supporting-acts/README.md)
+  * [☀️ Testing](./8-the-supporting-acts/1-unit-testing.md)
+  * [🍫 Linting](./8-the-supporting-acts/2-linting.md)
+  * [✈️ Code Analysis](./8-the-supporting-acts/3-code-analysis.md)
+<!-- * [9. The Backstage]() -->

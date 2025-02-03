@@ -11,8 +11,6 @@ Let's use one of them manually before adding to the pipeline:
 1. Go to your code server workbench and on the terminal run the below code.
 
     ```bash
-    cd /opt/app-root/src/
-    git clone https://<USER_NAME>:<PASSWORD>@gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git
     cd /opt/app-root/src/jukebox/3-prod_datascience
     pip install black
     black . --check --diff

@@ -106,7 +106,7 @@ Let's go ahead and get our UI deployed! 📺
 4. Now with our fresh new UI deployed, we can take a look at it by going to this route:
 
     ```bash
-        https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
+    https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
     ```
 
 5. Play around with the sliders and try to predict a new location! 🗺️ You can also switch to dark mode like all the cool kids do! 😎

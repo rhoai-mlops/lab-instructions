@@ -34,7 +34,7 @@ Let’s dive in!
 
 Now, let’s integrate Feast into our training pipeline! This will allow us to request specific features directly from Feast to train our models. By doing this, we’ll switch from fetching data via DVC to retrieving features from Feast for our training process. Let’s make it happen!  
 
-<!-- ## ADD THAT DIAGRAM HERE ## -->
+![feast-dvc-diagram.png](./images/feast-dvc-diagram.png)
 
 To set this up:  
 

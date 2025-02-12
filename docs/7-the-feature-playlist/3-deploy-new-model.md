@@ -160,13 +160,13 @@ The model server now expects a song (rather than individual song features) as in
     chart_path: chart
     model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:feast-1.1 # 👈 update this
+    image: quay.io/rhoai-mlops/jukebox-ui:feast-1.3 # 👈 update this
     ```
 
   Alternatively, (for the lazy ones ;)) you can run this command in the terminal:
 
   ```bash
-  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.1|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.3|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
   ```
 
 2. Let's commit it to git:

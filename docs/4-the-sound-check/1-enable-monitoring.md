@@ -70,7 +70,7 @@
 
 5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
-    _Note: it might take some time to sync the dashboard configuration. Just refresh the page if you cannot see it in the first try._
+    _Note: it might take some time to sync the dashboard configuration. Just do a hard refresh of the page if you cannot see it in the first try._
 
     ![grafana-dashboard-1.png](./images/grafana-dashboard-1.png)
     

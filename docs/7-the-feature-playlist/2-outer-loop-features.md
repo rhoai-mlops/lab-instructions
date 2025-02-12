@@ -25,6 +25,7 @@ Let’s dive in!
    
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m  "🍕 ADD - Feast Database 🍕"
     git push
@@ -32,9 +33,15 @@ Let’s dive in!
 
 ## Utilizing Feast in Our Training Pipeline
 
-Now, let’s integrate Feast into our training pipeline! This will allow us to request specific features directly from Feast to train our models. By doing this, we’ll switch from fetching data via DVC to retrieving features from Feast for our training process. Let’s make it happen!  
+Now, let’s integrate Feast into our training pipeline! This will allow us to request specific features directly from Feast to train our models.
+
+A full flow with Feast and DVC both included would look like this:
 
 ![feast-dvc-diagram.png](./images/feast-dvc-diagram.png)
+
+DVC tracks and versions our data, but Feast is what fetches the data so that we can create, manage, and use feature definitions.
+
+By doing this, we’ll switch from fetching data via DVC to retrieving features from Feast for our training process. Let’s make it happen!  
 
 To set this up:  
 
@@ -108,6 +115,7 @@ To set this up:
 
     ```bash
     cd /opt/app-root/src/jukebox/
+    git pull
     git add 3-prod_datascience/prod_train_save_pipeline.py
     git commit -m "🛍️ fetch data via Feast 🛍️"
     git push

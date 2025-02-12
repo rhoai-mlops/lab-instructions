@@ -4,7 +4,7 @@ In addition to retrieving features for training, Feast can also be used to fetch
 
 Before deploying the new model server that integrates Feast, let’s first set up a **Feast Server** and **Feast UI**.  
 
-The Feast Server will act as the interface for feature retrieval, while the UI provides better visibility into the features being used, overall making feature consumption simpler and more transparent.  
+The Feast Server will act as the interface for feature retrieval, while the UI provides better visibility into the features being used, overall making feature consumption simpler and more transparent. This is the same Feast UI that we saw during the Feast inner loop, now we are just deploying it in our MLOps namespace so we get a UI for our production features as well.  
 
 Let’s get everything deployed!  
 
@@ -74,6 +74,7 @@ Let’s get everything deployed!
  
   ```bash
   cd /opt/app-root/src/mlops-gitops
+  git pull
   git add .
   git commit -m  "🎁 ADD - Feast Server and UI 🎁"
   git push
@@ -105,16 +106,35 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
 2. Then we want update our config file (`mlops-gitops/model-deployments/test/jukebox/config.yaml`) for our test model, which we can do by running these lines: 
    
   ```bash
-  sed -i 's|chart_path: charts/model-deployment/simple|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+  sed -i 's|chart_path: charts/model-deployment/music-transformer|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-mlops.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   ```
 
-  Here we simply point out where the feature server is, what feature service to use, and what entity id name.
+  You should end up with something like this:
 
-  TODO: more explanation please.
+  <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
+  <pre><code class="language-yaml">
+  chart_path: charts/model-deployment/music-transformer-with-feast # 👈 Updated
+  name: jukebox
+  version: 68b0c7cf1b
+  image_repository: image-registry.openshift-image-registry.svc:5000
+  image_namespace: user1-test
+  autoscaling: true
+  canary:
+    trafficPercent:
+  feast_server_url: http://feast-server-feast-feature-server.user1-mlops.svc.cluster.local:80 # 👈 New stuff
+  feature_service: serving_fs # 👈 New stuff
+  entity_id_name: spotify_id # 👈 New stuff
+  </code></pre></div>
 
+
+  We change the model server to use a new transformer where we fetch online features from Feast as a pre-processing step. With this, the input to the model will simply be an ID rather than a list of values. In this flow, it's important that all data goes through Feast so that the online store always have the latest songs we want to run through our model.  
+  We are also pointing out the Feast feature server endpoint so we can send requests to it for the online features.  
+  Finally we have also added:
+  - The specific Feature Service we want to use. Remember, the Feature Service groups a bunch of features together and returns them all at once to us
+  - And the Entity ID. This just says what ID we will use to fetch the feature values, in our case it's the spotify ID of whatever song we want to get properties for.
 
 3. And then commit it to git:
 
@@ -146,7 +166,7 @@ The model server now expects a song (rather than individual song features) as in
   Alternatively, (for the lazy ones ;)) you can run this command in the terminal:
 
   ```bash
-  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.0|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.1|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.1|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
   ```
 
 2. Let's commit it to git:

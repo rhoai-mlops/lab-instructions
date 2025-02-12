@@ -9,12 +9,12 @@ And we have a bit of groundwork to cover first to set everything up properly.
 1. We need to have `data` and `data-cache` buckets in our MLOps environment too. Previously, we were in inner loop, buckets were already there. But in MLOps environment we aim to practice GitOps as much as we can, so we store bucket info as code in Git too. Go back to your `code-server` and update `mlops-gitops/toolings/minio/config.yaml` as below:
 
     ```bash
-        chart_path: charts/minio
-        buckets:
-        - name: pipeline
-        - name: models
-        - name: data # 👈 add this
-        - name: data-cache # 👈 add this
+    chart_path: charts/minio
+    buckets:
+    - name: pipeline
+    - name: models
+    - name: data # 👈 add this
+    - name: data-cache # 👈 add this
     ```
 
 2. Commit the changes to the repo as you’ve done before.
@@ -95,9 +95,9 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
 1. In your Jupyter Notebook, open up `5-data-versioning/4-data_pipeline_with_dvc_versioning.py` file and run this by clicking ▶️ button.
 
-    This time, instad of triggering a pipeline, it created a YAML file. If you open up folder `5-data-versioning/` , refresh it by hitting Refresh button, you should see `song-properties-etl.yaml`
+    This time, instad of triggering a pipeline, it created a YAML file containing the pipeline spec. If are in `5-data-versioning/` and refresh it by hitting Refresh button, you should see `song-properties-etl.yaml`
 
-    Let's download this file and store locally. 
+    Let's download this file locally. 
 
     ![data-pipeline-download.gif](./images/data-pipeline-download.gif)
 

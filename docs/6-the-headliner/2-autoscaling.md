@@ -42,12 +42,14 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     git push
     ```
     
-3. Let's test the autoscaling by generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.
+3. Wait for the model to be redeployed, you can keep track of the pods like before: `oc get po -n user3-test -w` (Ctrl+C to cancel out of it).
 
-4. Go to `OpenShift Dashboard` in Administrator view > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.
+4. Let's test the autoscaling by generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.
+
+5. Go to `OpenShift Dashboard` in Administrator view > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.
 
     ![autoscaling-1.png](./images/autoscaling-1.png)
 
-5. Since this is *auto*scaling, the extra resources will be automatically removed once they are no longer needed—that is, when there are no concurrent requests. After a short while, you'll notice that the same pod will begin terminating.
+6. Since this is *auto*scaling, the extra resources will be automatically removed once they are no longer needed—that is, when there are no concurrent requests. After a short while, you'll notice that the same pod will begin terminating.
 
     ![autoscaling-2.png](./images/autoscaling-2.png)

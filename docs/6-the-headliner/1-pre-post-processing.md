@@ -81,7 +81,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>/
     ```
 
-   Now, the values makes much more sense (we hope 🤭)
+   Now, the values and countries makes much more sense (we hope 🤭)
 
     ![jukebox-ui.png](./images/jukebox-ui.png)
 

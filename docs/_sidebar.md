@@ -38,4 +38,5 @@
   * [☀️ Testing](./8-the-supporting-acts/1-unit-testing.md)
   * [🍫 Linting](./8-the-supporting-acts/2-linting.md)
   * [✈️ Code Analysis](./8-the-supporting-acts/3-code-analysis.md)
+  * [🛟 Model Security](./8-the-supporting-acts/4-model-security.md)
 <!-- * [9. The Backstage]() -->

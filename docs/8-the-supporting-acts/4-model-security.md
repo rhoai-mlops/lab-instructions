@@ -45,7 +45,7 @@ To defend against these, we can scan the model for insecurities before we use it
     ```
 
     Your pipeline should now look like this:  
-    TODO: IMAGE
+    ![model-scan-task.png](./images/model-scan-task.png)
 
 3. Create an empty commit to trigger the pipeline and perform scan:
     ```bash

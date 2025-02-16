@@ -45,7 +45,7 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     </code></pre>
     </div>
 
-1. Let's check the same approach to verify that we only send traffic to the latest (green) version. Again, go back to Jupyter Notebook and run `jukebox/6-advanced_deployments/2-canary_testing.ipynb`. Then, in `OpenShift Dashboard`, go to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below.
+1. Let's check the same approach to verify that we only send traffic to the latest (green) version. Again, go back to Jupyter Notebook and run `jukebox/6-advanced_deployments/1-test_autoscale.ipynb`. Then, in `OpenShift Dashboard`, go to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below.
 
   You should see the traffic is only being received by the latest revision.
 

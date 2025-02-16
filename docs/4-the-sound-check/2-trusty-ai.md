@@ -77,7 +77,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 2. Fill out the form as below:
 
     - Metric name: `fairness`
-    - Metric type: `SPD`
+    - Metric type: `Statistical Parity Difference (SPD)`
     - Protectied attribute: `is_explicit`
     - Priviliged value: `1.0`
     - Unpriviliged value: `0.0`
@@ -88,7 +88,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
     ![bias-monitoring-2.png](./images/bias-monitoring-2.png)
 
-3. Click `View Metrics`. It should generate a graph like this one:
+3. Click `View Metrics`. You should see a view like this:
 
     ![bias-monitoring-3.png](./images/bias-monitoring-3.png)
 

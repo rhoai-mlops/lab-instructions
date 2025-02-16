@@ -19,6 +19,7 @@
   * [⛵️ TrustyAI](4-the-sound-check/2-trusty-ai.md)
   * [🔔 Alerting & Retraining](4-the-sound-check/3-alerting-retratining.md)
   * [🪵 Logging](4-the-sound-check/4-logging.md)
+  * [🕵️ Explainability](4-the-sound-check/5-explanability.md)
 * [5. The Data Tracks](5-the-data-tracks/README.md)
   * [🍇 Data Versioning](5-the-data-tracks/1-data-versioning.md)
   * [🤖 Update CT Pipeline](./5-the-data-tracks/2-update-ct-pipeline.md)
@@ -37,4 +38,5 @@
   * [☀️ Testing](./8-the-supporting-acts/1-unit-testing.md)
   * [🍫 Linting](./8-the-supporting-acts/2-linting.md)
   * [✈️ Code Analysis](./8-the-supporting-acts/3-code-analysis.md)
+  * [🛟 Model Security](./8-the-supporting-acts/4-model-security.md)
 <!-- * [9. The Backstage]() -->

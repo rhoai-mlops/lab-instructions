@@ -64,7 +64,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
 
 Monitoring and receiving alerts about critical events like data drift or bias are important. However, alerting alone is not enough. To ensure models remain reliable and perform as expected, we need to act swiftly and effectively on these alerts.
 
-When a drift or other anomaly is detected, we can trigger an automated retraining pipeline to address the issue. Let's configure Alert Manager to trigger the pipeline.
+When a drift or other anomaly is detected, we can trigger an automated retraining pipeline to address the issue, a great strategy if you are able to train on fresh data coming in. Let's configure Alert Manager to trigger the pipeline.
 
 1. Create `Alertmanager Config` that knows the webhook URL of Tekton pipeline. Update `test/alerting/config.yaml` and `prod/alerting/config.yaml` as below to enable this configuration:
 

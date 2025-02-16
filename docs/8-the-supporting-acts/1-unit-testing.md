@@ -12,7 +12,7 @@ We have already set up a unit test for one of the pipeline components, let's try
     git clone https://<USER_NAME>:<PASSWORD>@gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git
     cd /opt/app-root/src/jukebox/3-prod_datascience
     pip install -r tests/requirements.txt
-    PYTHONPATH=$(pwd) pytest tests/test_fetch_data.py 
+    PYTHONPATH=$(pwd) PYTHONDONTWRITEBYTECODE=1 pytest tests/test_fetch_data.py -p no:cacheprovider
     ```
     If you want to take a look at the code, you can find it in `jukebox/3-prod_datascience/tests/test_fetch_data.py`.  
     Here we are testing if the data we load have the expected number and order of columns.  

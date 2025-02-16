@@ -57,8 +57,10 @@ These two were already installed in your dev environment. Now we need to bring t
     git push
     ```
 
-9. Check Argo CD to see the deployed applications :)
+9. Check Argo CD to see the deployed applications :)  
+If you were to go to OpenShift, you would of course also see these tools deployed, specifically in the <USER_NAME>-mlops namespace. Feel free to take a look!
 
 ![model-registry-dspa.png](./images/model-registry-dspa.png)
+
 
 Next stop, setting up Argo CD for model deployments via GitOps!

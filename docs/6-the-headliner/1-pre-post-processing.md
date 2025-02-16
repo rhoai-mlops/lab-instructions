@@ -13,9 +13,11 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
 ### Enable Transformers
 
-1. The transformer itself works as sidecar container within the model deployment. Let's first see what it looks like. The Python code that is responsible for pre- and post-processing can be found in [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/music_transformer/music_transformer.py) in file `mlops-helmcharts/charts/model-deployment/music-transformer/music_transformer/music_transformer.py` alongside with a [Containerfile](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/Containerfile) to build the transformer image.
+1. Start by going to your `code-server` workbench.
 
-2. We need to update the model deployment to use this transformer whenever it receives a request. That means a change in the helm-chart template for `InferenceService`. You can see the changes [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/templates/inferenceservice.yaml#L49-L63).
+2. The transformer itself works as sidecar container within the model deployment. Let's first see what it looks like. The Python code that is responsible for pre- and post-processing can be found in [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/music_transformer/music_transformer.py) in file `mlops-helmcharts/charts/model-deployment/music-transformer/music_transformer/music_transformer.py` alongside with a [Containerfile](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/Containerfile) to build the transformer image.
+
+3. We need to update the model deployment to use this transformer whenever it receives a request. That means a change in the helm-chart template for `InferenceService`. You can see the changes [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/templates/inferenceservice.yaml#L49-L63).
 
     Actually, before we make any update, let's do a `git pull` on our GitOps repository to pull all the changes have been done automagically by the pipeline.
 
@@ -38,7 +40,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
     And do the same thing for **prod** environment. Open up `mlops-gitops/model-deployments/prod/jukebox/config.yaml` and add update `chart_path` as above.
 
-3. Transformers will change the way that we send request and process the model's prediction. That is why we need to make changes on the frontend side and start sending values that are more meaningful to us. To update frontend, same thing again, we need to update our GitOps configuration and point to a new version of `jukebox-ui` image that has the necessary changes. 
+4. Transformers will change the way that we send request and process the model's prediction. That is why we need to make changes on the frontend side and start sending values that are more meaningful to us. To update frontend, same thing again, we need to update our GitOps configuration and point to a new version of `jukebox-ui` image that has the necessary changes. 
 
     Open up `mlops-gitops/model-deployments/test/jukebox-ui/config.yaml` and add update `image`:
 
@@ -48,12 +50,12 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     chart_path: chart
     model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.3 # 👈 update this
+    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5 # 👈 update this
     ```
 
     And the same thing for **prod**. Open up `mlops-gitops/model-deployments/prod/jukebox-ui/config.yaml` and add update `image` as above.
 
-4. Push the changes:
+5. Push the changes:
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
@@ -63,7 +65,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     git push
     ```
 
-5. You can check if the new version of model deployment and frontend are being rolled out with this command:
+6. You can check if the new version of model deployment and frontend are being rolled out with this command:
 
     ```bash
     oc get po -n <USER_NAME>-test -w
@@ -73,13 +75,13 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
     _You must do Control+C to break the ‘watch’ mode._
 
-6. Let's go to [Jukebox UI](https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>/) and observe the changes.
+7. Let's go to [Jukebox UI](https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>/) and observe the changes.
 
     ```bash
     https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>/
     ```
 
-   Now, the values makes much more sense (we hope 🤭)
+   Now, the values and countries makes much more sense (we hope 🤭)
 
     ![jukebox-ui.png](./images/jukebox-ui.png)
 

@@ -4,7 +4,8 @@ Data is often updated or modified, and we need to know which version was used to
 
 Without versioning, it’s hard to debug issues or compare results consistently. It’s like saving drafts of a document so you can go back and see what’s changed or restore an earlier version if needed.
 
-For this, we will use an open source tool called DVC (Data Version Control).
+For this, we will use an open source tool called DVC (Data Version Control).  
+DVC doesn't scale to the larger production use-cases, but it's great for getting started and understanding the concept.
 
 Let's start by looking at Data Versioning using DVC in the inner loop. We will later move on to the outer loop by modifying our pipelines to automatically account for data version.
 
@@ -16,7 +17,7 @@ For this, we will have a S3 bucket that can hold our data, and we will version t
 
 Let's start by moving some data into the bucket.
 
-1. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>` > `Workbenches` and connect to your first Jupyter notebook workbench.
+1. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>` > `Workbenches` and connect to your first Jupyter notebook workbench, the one running `Standard Data Science` Notebook image.
 
     Open up `jukebox/5-data-versioning/1-data_pipeline_url_to_s3.py` file. This pipeline will move the song properties data we currently have in GitHub over to our S3 bucket `data`. 
     
@@ -39,10 +40,12 @@ Let's start by moving some data into the bucket.
 
 With the data now stored in an S3 bucket, let’s explore how to use DVC to track and version your datasets. Follow the steps below using the provided Jupyter notebooks:
 
-1. Open the notebook located at `jukebox/5-data-versioning/2-dvc-s3-track-remote-data.ipynb`. Follow the instructions to initialize the DVC configuration and connect it to your S3 bucket.
+1. Go to your S3 storage interface, you can keep track of how the files are added and changed here as you run commands in the notebooks: https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>
 
-2. After completing the steps in the notebook, you'll notice a DVC file named `song_properties.parquet.dvc` has been created. This file tracks your dataset's metadata and links it to the remote storage.
+2. Open the notebook located at `jukebox/5-data-versioning/2-dvc-s3-track-remote-data.ipynb`. Follow the instructions to initialize the DVC configuration and connect it to your S3 bucket.
 
-3. Next, let's simulate a data change and create a new version. Open and execute the notebook at `jukebox/5-data-versioning/3-dvc-s3-see-change.ipynb` to introduce changes to the dataset and update the version.
+3. After completing the steps in the notebook, you'll notice a DVC file named `song_properties.parquet.dvc` has been created. This file tracks your dataset's metadata and links it to the remote storage.
+
+4. Next, let's simulate a data change and create a new version. Open and execute the notebook at `jukebox/5-data-versioning/3-dvc-s3-see-change.ipynb` to introduce changes to the dataset and update the version.
 
 When you are done, we'll continue to see what this look like in the outer loop ⛷️

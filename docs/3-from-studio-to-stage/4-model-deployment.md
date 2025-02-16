@@ -76,7 +76,7 @@ Let's go ahead and get our UI deployed! 📺
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:simple-1.0
+    image: quay.io/rhoai-mlops/jukebox-ui:simple-1.2
     ```
 
     PROD:
@@ -86,7 +86,7 @@ Let's go ahead and get our UI deployed! 📺
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-prod.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:simple-1.0
+    image: quay.io/rhoai-mlops/jukebox-ui:simple-1.2
     ```
 
 2. Then just push it to git and see it update in ArgoCD 🧙‍♂️

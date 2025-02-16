@@ -16,7 +16,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ![gitea-mlops-gitops.png](images/gitea-mlops-gitops.png)
 
-2. Let's go back to terminal and clone the repository.
+2. Let's go back to the `code-server` terminal and clone the repository.
 
     ```bash
     cd /opt/app-root/src

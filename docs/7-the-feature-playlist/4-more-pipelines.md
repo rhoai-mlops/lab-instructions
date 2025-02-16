@@ -15,22 +15,27 @@ To implement this, we will update our **ETL pipeline** to include a materializat
 With only the most recent data is materialized, we'll reduce unnecessary data load on the system, keep our feature store continuously up-to-date and ready for real-time inference with minimal processing overhead.
 
 
-1. Go to the UI and search for [Some Song]. Nothing should show up as we haven't yet added that song to our online feature store.
+1. Go to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` (this id corresponds to `Live Forever from Oasis`). Nothing should show up as we haven't yet added that song to our online feature store.
    
     ![search-in-ui.png](./images/search-in-ui.png)
 
 2. Go to your `Jupyter Notebook` workbench, open up `jukebox/7-feature_store/5-data_pipeline_with_materialize.py` and press the Run button.
     ![run-etl-pipeline.png](./images/run-etl-pipeline.png)
 
-3. Download the new file it produced.
+3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
    
-4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your <USER_NAME>-mlops project. In here we will import the downloaded pipeline file by creating a new version for our current ETL pipeline.
+4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your <USER_NAME>-mlops project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
+Then upload the `song-properties-etl.yaml` you just downloaded.
    
     ![import-new-version.png](./images/import-new-version.png)
 
-5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately.
+5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately (Actions -> Create Run), use these settings:
+
+    - Name: `data-pipeline-with-feast-adhoc-run`
+    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet`
+    - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
    
-6. Go back to the UI and search for `` (the ID for [Some Song]) and press Search. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
+6. Go back to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` again. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
    
     ![song-id-prediction.png](./images/song-id-prediction.png)
 
@@ -102,15 +107,12 @@ To apply new changes to our feature store, we can add a step to our Continous Tr
 
 5. Now we just need to wait for the Continous Training pipeline to finish.  
    
+    You can keep track of the OpenShift pipeline in the `OpenShift Console` by going to `Pipelines` -> `Pipeline Runs`.  
 
-    To keep track of the Kubeflow training pipeline in OpenShift AI, you can go to `Experiments` -> `Experiment and Runs` -> `training`.  
-
-    💥SCREENSHOT
-
-    You can also keep track of the OpenShift pipeline in the `OpenShift Console` by going to `Pipelines` -> `Pipeline Runs`.  
+    And don't forget that you can see the kubeflow pipeline in OpenShift AI under `Experiments` -> `Experiment and Runs` -> `training`.  
 
     When the OpenShift pipeline has finished, we have a new model deployed ready to be tested.
 
-    💥SCREENSHOT  
+    ![apply-features-ct.png](./images/apply-features-ct.png)
 
-6. Go to the Jukebox UI (https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>) and search for a song, it should still work (and give a different result than before) even though we haven't changed the UI at all, Feast takes care of the feature change 👏👏
+6. Go to the Jukebox UI (https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>) and search for a song, it will still work (and give a different result than before) even though we haven't changed the UI at all, Feast takes care of the feature change 👏👏

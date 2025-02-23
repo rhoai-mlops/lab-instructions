@@ -14,6 +14,7 @@
   * [🧤 Extend Toolings](3-from-studio-to-stage/3-extend-toolings.md)
   * [🏄‍♂️ Model Deployment](3-from-studio-to-stage/4-model-deployment.md)
   * [🤖 Continuous Training Pipeline](3-from-studio-to-stage/5-continuous-training-pipelines.md)
+  * [🍒 Post Deployment Pipeline](./3-from-studio-to-stage/6-post-deployment-pipeline.md)
 * [4. The Sound Check](4-the-sound-check/README.md)
   * [🔭 Enable Monitoring](4-the-sound-check/1-enable-monitoring.md)
   * [⛵️ TrustyAI](4-the-sound-check/2-trusty-ai.md)

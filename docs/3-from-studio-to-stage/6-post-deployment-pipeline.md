@@ -16,6 +16,8 @@ The Model Registry serves as our source of truth, tracking which model versions 
 
 ## Installing the Post-Deployment Pipeline
 
+![tekton-post-deployment-pipeline.jpg](./images/tekton-post-deployment-pipeline.jpg)
+
 1. Create a new folder under `toolings` named `post-deployment-pipeline` and add a `config.yaml` file. You can do this manually or run:
 
     ```bash

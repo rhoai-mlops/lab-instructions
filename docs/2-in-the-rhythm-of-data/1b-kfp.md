@@ -34,7 +34,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
         "model_name": "jukebox",
         "version": "0.0.2",
         "cluster_domain": "<CLUSTER_DOMAIN>", # 👈 add your cluster domain here
-        "model_storage_pvc": "jukebox-model-pvc"
+        "model_storage_pvc": "jukebox-model-pvc",
         "prod_flag": False
     }
     ```

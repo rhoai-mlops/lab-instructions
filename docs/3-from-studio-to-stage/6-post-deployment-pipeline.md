@@ -1,12 +1,12 @@
 # Post-Deployment Pipeline
 
-Once the test environment is deployed and validated, that we ensure the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
+Once the test environment is deployed and validated, and we have ensure the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
 
-A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this awaiting approval:
+A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this, but don't accept it yet! ⚠️ We need to add another pipeline before merging the PR.
 
 ![prod-pr-1.png](./images/prod-pr-1.png)
 
-Once you approve the PR, the new version will begin rolling out to the `<USER_NAME>-prod` environment. After this, we need to update the Model Registry metadata. Currently, the registry reflects the test environment:
+If you were to approve the PR, a new model version will begin rolling out to the `<USER_NAME>-prod` environment. After this, the Model Registry metadata needs to be updated. Currently, the registry reflects the test environment:
 
 ![mr-test.png](./images/mr-test.png)
 

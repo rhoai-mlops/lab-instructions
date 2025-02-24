@@ -37,6 +37,7 @@ The Model Registry serves as our source of truth, tracking which model versions 
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🪑 ADD - Post deployment pipeline 🪑"
     git push

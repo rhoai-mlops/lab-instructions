@@ -1,6 +1,6 @@
 # Post-Deployment Pipeline
 
-Once the test environment is deployed and validated, that we ensure the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
+Once the test environment is deployed and validated, and we have ensure the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
 
 A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this awaiting approval:
 

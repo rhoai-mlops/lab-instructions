@@ -24,7 +24,7 @@ Let's get started.
 
   - Cluster storage: Create new persistent storage with size `20 GB`. 
 
-  - Check `Use a data connection` and choose the second option `Use existing data connection`
+  - For Connections, choose `Attach existing connections`
     
     From the dropdown menu, select `models`
 

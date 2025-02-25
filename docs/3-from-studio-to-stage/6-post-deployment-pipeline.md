@@ -56,7 +56,7 @@ The Model Registry serves as our source of truth, tracking which model versions 
 4. Next, get the webhook URL by running:
 
     ```bash
-    echo https://$(oc -n <USER_NAME>-mlops get route el-post-deploy-listener --template='{{ .spec.host }}')
+    echo https://$(oc -n <USER_NAME>-mlops get route el-post-prod-deploy-listener --template='{{ .spec.host }}')
     ```
 
 5. Copy the generated URL and add it as a webhook in Gitea:

@@ -18,7 +18,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
     - Image selection: `code-server`
 
-    Leave the rest default and hit `Create`.
+    Leave the rest as the default and hit `Create workbench`.
   
   When it is in running state, Open it and use your credentials to access it.
 

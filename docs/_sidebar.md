@@ -7,7 +7,7 @@
 * [2. In the Rhythm of Data](2-in-the-rhythm-of-data/README.md)
   * [🪄 Training Pipeline](2-in-the-rhythm-of-data/1-training-pipeline.md)
     * [☘️ Elyra](2-in-the-rhythm-of-data/1a-elyra.md)
-    * [🤸 KfP](2-in-the-rhythm-of-data/1b-kfp.md)
+    * [🤸 KFP](2-in-the-rhythm-of-data/1b-kfp.md)
 * [3. From Studio to Stage](3-from-studio-to-stage/README.md)
   * [🦄 GitOps](3-from-studio-to-stage/1-gitops.md)
   * [🔥 ApplicationSets](3-from-studio-to-stage/2-aplicationsets.md)

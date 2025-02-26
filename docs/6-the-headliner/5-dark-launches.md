@@ -1,6 +1,6 @@
 # Dark Launches
 
-A dark launch refers to the practice of deploying a new model or feature in production, but making it invisible or inactive for users. It’s a safe way to test and validate new changes at scale, without exposing them to end-users.
+A dark launch refers to the practice of deploying a new model or feature in production, but making it invisible or inactive for users. A copy of live traffic directed to the old model, is directed to the new model, providing a safe way to test and validate new changes at scale, without exposing them to end-users.
 
 For machine learning systems, dark launches provide an opportunity to test new models in real-world conditions, monitor their performance, and compare them against the existing model. By routing traffic to both the old and new models without affecting the user experience, teams can ensure that the new model meets expectations before it goes live.
 

@@ -28,12 +28,13 @@
 
     ![query-metrics.png](./images/query-metrics.png)
 
+    _Note: Ignore the "Access restricted" warning, as is just cosmetic error and doesn't affect the metric query._
 
 ### Deploy Grafana
 
 > Let's create some more dashboards with specific information about our model!
 
-1. We can deploy a Grafana instance in our `mlops` environment. Yet another tooling to support the end to end journey of Jukebox Therefore we need to install it through `mlops-gitops/toolings/`
+1. We can deploy a Grafana instance in our `mlops` environment. Yet another tooling to support the end to end journey of Jukebox. Therefore we need to install it through `mlops-gitops/toolings/`
 
     Create `grafana` folder under `toolings`. And then create a file called `config.yaml` under `grafana` folder. Or simply run the below commands:
 

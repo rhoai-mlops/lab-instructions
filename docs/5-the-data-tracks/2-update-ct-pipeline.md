@@ -135,7 +135,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
 
-    ..and hit `Creates schedule`.
+    ..and hit `Create schedule`.
 
 5. You can see this scheduled runs under `Experiments` > `Experiment and runs` > `Default` > Schedules`
 

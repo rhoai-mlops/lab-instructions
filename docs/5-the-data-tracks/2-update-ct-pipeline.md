@@ -137,7 +137,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ..and hit `Creates schedule`.
 
-5. You can see this scheduled runs under `Experiments` > `Experiment and runs` > `Default` > Schedules`
+5. You can see this scheduled runs under `Experiments` > `Experiment and runs` > `Default` > `Schedules`
 
     ![view-scheduled-runs.png](./images/view-scheduled-runs.png)
 

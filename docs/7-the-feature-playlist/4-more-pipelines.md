@@ -32,9 +32,9 @@ Then upload the `song-properties-etl.yaml` you just downloaded.
 5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately (Actions -> Create Run), use these settings:
 
     - Name: `data-pipeline-with-feast-adhoc-run`
-    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet`
     - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
-   
+    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet`
+
 6. Go back to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` again. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
    
     ![song-id-prediction.png](./images/song-id-prediction.png)

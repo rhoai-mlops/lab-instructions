@@ -86,7 +86,7 @@ Let’s get everything deployed!
   echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
   ```
 
- ![feast-ui](./images/feast-ui.png)
+ ![feast-ui.png](./images/feast-ui.png)
 
 ## Deploying the New Model Server  
 

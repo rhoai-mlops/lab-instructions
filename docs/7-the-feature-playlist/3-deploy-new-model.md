@@ -86,7 +86,7 @@ Let’s get everything deployed!
   echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
   ```
 
- ‼️ Add screenshots
+ ![feast-ui.png](./images/feast-ui.png)
 
 ## Deploying the New Model Server  
 
@@ -191,7 +191,7 @@ The model server now expects a song (rather than individual song features) as in
 
 5. Search for a popular song (`Gimme! Gimme! Gimme!` from ABBA for example) and select it.
 
-💥add screenshot
+![search-song-prediction.png](./images/search-song-prediction.png)
 
 Our pre-processing will look up the latest feature values for the song in our online database and use them to predict the location.  
 

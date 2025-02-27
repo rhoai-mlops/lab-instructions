@@ -123,4 +123,4 @@ To set this up:
 
 6. Since this is a push in `Jukebox` repository, this should trigger a pipeline. This time, pipeline will be using Feast, and you can verify this by checking the logs of `fetch-data` task.
 
-TODO: add screenshot
+   ![fetch-data-from-feast-pipeline.png](./images/fetch-data-from-feast-pipeline.png)

@@ -34,6 +34,7 @@ To do that, we can simply add it to our training pipeline, which will be ran at 
     cluster_domain: <CLUSTER_DOMAIN>
     git_server: <GIT_SERVER> 
     alert_trigger: true 
+    apply_feature_changes: true
     unit_tests: true # 👈 add this
     ```
 

@@ -158,7 +158,7 @@ The model server now expects a song (rather than individual song features) as in
     ---
     repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
     chart_path: chart
-    model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
+    model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     model_name: jukebox
     image: quay.io/rhoai-mlops/jukebox-ui:feast-1.3 # 👈 update this
     ```

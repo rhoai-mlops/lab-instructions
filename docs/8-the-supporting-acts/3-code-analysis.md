@@ -61,6 +61,7 @@
     cluster_domain: <CLUSTER_DOMAIN>
     git_server: <GIT_SERVER> 
     alert_trigger: true 
+    apply_feature_changes: true
     unit_tests: true
     linting: true 
     static_code_analysis: true # 👈 add this

@@ -23,23 +23,31 @@ This inner loop is essential in data science because it allows for continuous im
     2. Click the ▶️ button on the top bar or press Shift+Enter.
     3. The cell will run, and its output will appear directly below it. This action also moves the cursor to the next cell for smooth progression.
 
-2. Now it's time to start executing the `jukebox/1-data_exploration/1-data_exploration.ipynb` notebook. Please execute the cells sequentially, one at a time, and be sure to read all the instructions - including the instructions at the end which tell you what follow-on notebooks to execute. 
+> When you execute a cell, you'll see a `[*]` at the beginning of the cell, indicating that it's running. Once the execution is complete, the brackets will display a number, such as `[21]`, which represents the order in which the cell was executed.
+
+1. Now it's time to start running the notebooks! Our goal is to build a model that predicts which countries might like a song based on its characteristics, such as danceability or acousticness.
 
     You will execute the following notebooks in order:
 
-    1. `jukebox/1-data_exploration/1-data_exploration.ipynb`
-    2. `jukebox/2_dev_datascience/1-experiment-train.ipynb`
-    3. `jukebox/2_dev_datascience/2-save_model.ipynb`
+    1. `jukebox/1-data_exploration/1-data_exploration.ipynb`: Analyze the datasets we have 
+    2. `jukebox/2_dev_datascience/1-experiment-train.ipynb`: Build the model  
+    3. `jukebox/2_dev_datascience/2-save_model.ipynb`: Store the trained model   
 
-    Once you've executed the last notebook, you should have a model uploaded to the `models` bucket in MinIO. Then, return here to continue with the next steps! 😁
+    Some instructions before you start:
+    - Execute the cells **sequentially, one at a time**.  
+    - **Read all instructions carefully**, including those at the end of each notebook, which guide you to the next step.  
 
-    ....
+    Once you've completed the last notebook, your model should be uploaded to the `models` bucket in MinIO. Then, return here to continue with the next steps! 😁 
 
-    ...
+    OK, Let's start with the first one: `jukebox/1-data_exploration/1-data_exploration.ipynb` 🏃💨
+
+    **....**
+
+    **...**
 
     ![one-eternity-later-sponge-bo](./images/one-eternity-later-sponge-bob.png)
 
-3. Welcome back! 👋 You should now have a trained model saved in MinIO, ready to be served using OpenShift AI.
+2. Welcome back! 👋 You should now have a trained model saved in MinIO, ready to be served using OpenShift AI.
 
     ![model_in_bucket.png](./images/model_in_bucket.png)
 
@@ -61,30 +69,28 @@ You can see information like where the model is stored, version, details about m
 
 ## Model Serving
 
-Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, along with the underlying KServe technology, is that we don’t have to worry about the containerization of the model or the runtime. It abstracts away these complexities. All we have to do is select the right runtime for our model and point where the model is. 
+Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, along with the underlying KServe technology, is that we don’t have to worry about the containerization of the model or the runtime. It abstracts away these complexities. All we have to do is select the right runtime for our model and point where the model is.
+
 Let's give it a try:
 
-1. Go to your Data Science project > `<USER_NAME>` > `Models` > Select `Single-Model Serving Platform`. Then `Deploy 
+1. Go to Model Registry and find the model you just registered. Click `Actions` > `Deploy`.
+   
+    ![deploy-from-registry.png](./images/deploy-from-registry.png)
 
-    ![single-model-serving.png](./images/single-model-serving.png)
 
-    ![single-model-serving-2.png](./images/single-model-serving-2.png)
+2. Select `<USER_NAME>` as your target project to deploy the model.
 
-2. Fill out the form by the following information:
+    ![deploy-from-registry-2.png](./images/deploy-from-registry-2.png)
+
+3. Update the form with the following information:
 
 - Model deployment name: `jukebox`
 - Serving runtime: `OpenVino Model Server`
 - Model framework (name - version): `onnx - 1`
 - Model server replicas: `1`
 - Model server size: `Small`
-- Model route:
-    -  Select `Make deployed models available through an external route`
-    -  **Uncheck** `Require token authentication` for now
-- Source model location:
-    - Select `models` from existing connection list
-    - Path: `models/jukebox`
 
-    ..and hit `Deploy`
+    ..leave the rest as it is and hit `Deploy`
 
     ![jukebox.png](./images/jukebox.png)
     ![jukebox-2.png](./images/jukebox-2.png)
@@ -93,4 +99,6 @@ Let's give it a try:
 
     ![jukebox-deployed.png](./images/jukebox-deployed.png)
 
-3. Copy the external URL and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶
+2. Copy the **External URL** and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶
+
+    ![jukebox-deployed-2.png](./images/jukebox-deployed-2.png)

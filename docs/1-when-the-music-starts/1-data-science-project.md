@@ -63,4 +63,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-8. Before we begin, let’s review the storage environment available for our experimentation. 🫡
+8. Before we getting hands on and start experimenting, let’s learn about the storage environment available for us in the next chapter. 🫡

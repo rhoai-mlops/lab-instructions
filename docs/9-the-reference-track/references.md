@@ -6,7 +6,7 @@ You will also find a glossary in case there are any words you are unsure of.
 
 ## References
 - [ai-on-openshift](https://ai-on-openshift.io/) - A great resource for deploying and managing AI applications on OpenShift, often using Red Hat's AI suite.
-- [ai-on-openshift/gitops](https://ai-on-openshift.io/odh-rhoai/gitops/) - How to create OpenShift AI resources through kubernetes yaml files.
+- [ai-on-openshift/gitops](https://ai-on-openshift.io/odh-rhoai/gitops/) - How to create OpenShift AI resources through Kubernetes yaml files.
 - [Data Science Tutorial](https://www.w3schools.com/datascience/default.asp) - Code and guides for how you can use Python for Data Science with executable examples.
 - [How Neural Networks Work Playlist](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - A fantastic video guide that covers the basics of Neural Networks.
 - [Tensorflow Playgrounds](https://playground.tensorflow.org/) - Tensorflow Plagrounds lets you play around with different settings and data for a small neural network to get a better understanding how it works.

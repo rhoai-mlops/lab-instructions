@@ -38,7 +38,7 @@ You will also find a glossary in case there are any words you are unsure of.
 - **Inference** - Using a trained model to make predictions.
 - **Model Pipeline** - A workflow that automates training, evaluation, and deployment.
 - **Kubeflow** - A tool for managing ML workflows on Kubernetes.
-- **ArgoCD** - A GitOps tool for automating deployments.
+- **Argo CD** - A GitOps tool for automating deployments.
 - **Model Registry** - A system to store and manage different versions of models.
 - **Canary Deployment** - Releasing a new model to a small group before full rollout.
 - **Shadow Deployment** - Running a new model in parallel without affecting users.

@@ -78,7 +78,7 @@ Let's give it a try:
     ![deploy-from-registry.png](./images/deploy-from-registry.png)
 
 
-2. Select `<USER_NAME>` as your target project to deploy the model.
+2. Select `<USER_NAME>-jukebox` as your target project to deploy the model.
 
     ![deploy-from-registry-2.png](./images/deploy-from-registry-2.png)
 

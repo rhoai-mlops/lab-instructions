@@ -38,12 +38,12 @@
     git push 
     ```
 
-4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `admin123`).
+4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `admin123`).
 
     _It may take a few minutes to configure SonarQube._
 
     ```bash
-    echo https://$(oc get route sonarqube --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+    echo https://$(oc get route sonarqube --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
     ```
 
     _And in case you logged out from the cluster, use below commands to login again._
@@ -85,13 +85,13 @@
     git push
     ```
 
-8. Go to OpenShift Console > Pipelines in `<USER_NAME>-mlops` namespace > verify that the task is included in the new Pipeline run.
+8. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the new Pipeline run.
 
     ![sonarqube-task.png](./images/sonarqube-task.png)
 
     ![sonarqube-task-success.png](./images/sonarqube-task-success.png)
 
-9. When static ode analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
+9. When static ode analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
 
     ![sonarqube-1.png](./images/sonarqube-1.png)
 

@@ -7,7 +7,7 @@ Now, let’s set up Feast for use in the **outer loop** of our workflow. We’ll
 
 Let’s dive in!  
 
-1. We will start by creating a Feast database in `<USER_NAME>-mlops` namespace. Let's transition to `code-server` workbench and create `feast-database` folder under `mlops-gitops/toolings`.
+1. We will start by creating a Feast database in `<USER_NAME>-toolings` namespace. Let's transition to `code-server` workbench and create `feast-database` folder under `mlops-gitops/toolings`.
 
     ```bash
     mkdir /opt/app-root/src/mlops-gitops/toolings/feast-database

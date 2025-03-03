@@ -101,7 +101,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ![data-pipeline-download.gif](./images/data-pipeline-download.gif)
 
-2. In OpenShift AI Dashboard, go to `Data Science Pipelines` > `<USER_NAME>-mlops`, click `Import pipeline`. 
+2. In OpenShift AI Dashboard, go to `Data Science Pipelines` > `<USER_NAME>-toolings`, click `Import pipeline`. 
 
     ![import-pipeline-1.png](./images/import-pipeline-1.png)
 

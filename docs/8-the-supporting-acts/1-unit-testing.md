@@ -48,7 +48,7 @@ To do that, we can simply add it to our training pipeline, which will be ran at 
     git push
     ```
 
-    If you go to the OpenShift Console > Pipelines in `<USER_NAME>-mlops` namespace, you should now see a task called `unit-tests` in your pipeline:
+    If you go to the OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace, you should now see a task called `unit-tests` in your pipeline:
 
     ![unit-test-task.png](./images/unit-test-task.png)
 

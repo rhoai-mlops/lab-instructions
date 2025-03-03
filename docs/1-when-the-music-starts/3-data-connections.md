@@ -9,7 +9,7 @@ Object storage provides a flexible and scalable way to store large amounts of un
 1. For simplicity, a MinIO instance is already installed in your dev environment for you. You can access MinIO via UI and check that there are already four buckets created for you. Below is the link to your MinIO instance. You can use the same credentials; `<USER_NAME>` as username, `<PASSWORD>` as password.
 
 
-MinIO UI: [https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>](https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>)
+MinIO UI: [https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>](https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>)
 
 
 ![minio-ui.png](./images/minio-ui.png)
@@ -18,7 +18,7 @@ The `models` bucket is where we will store our models, and the `pipeline` bucket
 
 ## Data Connections
 
-1. If you return to the OpenShift AI Dashboard, under `Data Science Projects` > `<USER_NAME>`, there is section called `Connections`. There you’ll notice four `Connections` have already been created for you. These connections are objects that store MinIO endpoint and bucket information. You can view their details by clicking the three dots on the right-hand side and selecting `Edit data connection`.
+1. If you return to the OpenShift AI Dashboard, under `Data Science Projects` > `<USER_NAME>-jukebox`, there is section called `Connections`. There you’ll notice four `Connections` have already been created for you. These connections are objects that store MinIO endpoint and bucket information. You can view their details by clicking the three dots on the right-hand side and selecting `Edit data connection`.
 
 > Connections also help us to expose bucket information as environment variables to our workbenches, allowing us to use such information without hardcoding them into our code.
 

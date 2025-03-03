@@ -49,8 +49,8 @@ Once the model artifact and its versioning information are created, the pipeline
 4. With the `jukebox` values stored in Git, now let's tell Argo CD to start picking up changes to these environments. To do this, simply we need to create ApplicationSets:
 
     ```bash
-    oc apply -f /opt/app-root/src/mlops-gitops/appset-test.yaml -n <USER_NAME>-mlops
-    oc apply -f /opt/app-root/src/mlops-gitops/appset-prod.yaml -n <USER_NAME>-mlops
+    oc apply -f /opt/app-root/src/mlops-gitops/appset-test.yaml -n <USER_NAME>-toolings
+    oc apply -f /opt/app-root/src/mlops-gitops/appset-prod.yaml -n <USER_NAME>-toolings
     ```
 
 5. You should see the two Jukebox application, one for `test` and one for `prod` deployed in Argo CD. 

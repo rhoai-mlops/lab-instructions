@@ -157,7 +157,7 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
     git push
     ```
 
-    Go to OpenShift Console > Pipelines in `<USER_NAME>-mlops` namespace to verify that the `linting` task is included in the  Pipeline now:
+    Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace to verify that the `linting` task is included in the  Pipeline now:
 
     ![linting-task.png](./images/linting-task.png)
 

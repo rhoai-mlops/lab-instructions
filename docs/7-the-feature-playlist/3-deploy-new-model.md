@@ -80,10 +80,10 @@ Let’s get everything deployed!
   git push
   ```
 
-6. After Argo CD sync the changes, you can run this command to get the route for the Feast UI, or simply click [here](https://feast-ui-<USER_NAME>-mlops.<CLUSTER_DOMAIN>) :)  
+6. After Argo CD sync the changes, you can run this command to get the route for the Feast UI, or simply click [here](https://feast-ui-<USER_NAME>-toolings.<CLUSTER_DOMAIN>) :)  
 
   ```bash
-  echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+  echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
   ```
 
  ![feast-ui.png](./images/feast-ui.png)
@@ -107,7 +107,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
    
   ```bash
   sed -i 's|chart_path: charts/model-deployment/music-transformer|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
-  sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-mlops.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+  sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   ```

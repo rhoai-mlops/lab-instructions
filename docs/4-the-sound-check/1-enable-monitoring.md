@@ -63,7 +63,7 @@
 
     ```bash
     # get the route and open it in your browser
-    echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+    echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
 
     ```
 

@@ -23,6 +23,7 @@ You will also find a glossary in case there are any words you are unsure of.
 - [DVC](https://dvc.org/doc)
 - [ModelScan](https://github.com/protectai/modelscan)
 - [KServe](https://kserve.github.io/website/master/modelserving/control_plane/)
+    - [OpenVINO](https://docs.openvino.ai/2025/index.html)
 - [Feast](https://docs.feast.dev/)
 
 ## Glossary

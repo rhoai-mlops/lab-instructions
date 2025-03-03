@@ -26,23 +26,25 @@ You will also find a glossary in case there are any words you are unsure of.
 - [Feast](https://docs.feast.dev/)
 
 ## Glossary
-- **MLOps** - The process of managing machine learning models in production.
-- **ETL (Extract, Transform, Load)** - A process to collect, clean, and store data.
+- **MLOps** - The practices, culture, and tools that aim to reliably and efficiently build, deploy and maintain AI models in production.
+- **ETL (Extract, Transform, Load)** - A process to collect (extract), clean/wrangle (transform), and store (load) data.
 - **EDA (Exploratory Data Analysis)** - Analyzing data to understand patterns and issues.
-- **Feature Store** - A centralized system to manage and serve machine learning features.
+- **Data Feature** - Individual, measurable, properties of data used in a model (e.g., age, temperature, transaction amount).
+- **Feature Store** - A centralized system to manage and serve data features.
 - **Feature Engineering** - Creating and modifying data features to improve models.
-- **Data Pipeline** - An automated workflow for processing and moving data.
-- **Neural Network** - A machine learning model inspired by the human brain.
-- **Hyperparameter Tuning** - Adjusting model settings to improve performance.
+- **Neural Network** - A machine learning model built of multiple layers of "neurons", allowing it to handle great complexity.
+- **Hyperparameter Tuning** - Adjusting general model settings, such as number of layers or learning rate, to improve performance.
+- **Pipeline** - A sequence of automated steps which we can use to process data, train, and deploy models.
 - **Training** - Teaching a machine learning model using data.
 - **Inference** - Using a trained model to make predictions.
-- **Model Pipeline** - A workflow that automates training, evaluation, and deployment.
-- **Kubeflow** - A tool for managing ML workflows on Kubernetes.
+- **Kubeflow** - A library of tools for managing ML workflows on Kubernetes.
 - **Argo CD** - A GitOps tool for automating deployments.
-- **Model Registry** - A system to store and manage different versions of models.
+- **Model Registry** - A system to keep track of and manage different versions of models.
 - **Canary Deployment** - Releasing a new model to a small group before full rollout.
 - **Shadow Deployment** - Running a new model in parallel without affecting users.
-- **Model Drift** - A decrease in model accuracy due to changing data.
+- **Data Drift** - The data we are making predictions on starts looking significantly different than the data we trained on.
 - **Bias Detection** - Identifying unfair or unintended biases in models.
-- **SHAP (Shapley Additive Explanations)** - A method to explain model predictions.
-- **Counterfactuals** - Showing "what-if" scenarios to explain predictions.
+- **SHAP (Shapley Additive Explanations)** - A method to explain model predictions by telling you how much each feature contributed to the prediction.
+- **Counterfactuals** - Testing a variety of "what-if" changes to the input to see if any of them can change the output/prediction in a desired way.
+
+## Diagrams

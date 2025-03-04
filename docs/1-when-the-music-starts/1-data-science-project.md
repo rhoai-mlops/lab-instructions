@@ -4,7 +4,7 @@
 
 ![datascienceproject.png](./images/datascienceproject.png)
 
-2. Click on the <USER_NAME>-jukebox project. This project will be the place where we start experimenting, train and deploy our model.
+2. Click on the <USER_NAME>-jukebox project. This project will be the place where we start experimenting, training and deploying our model.
 
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 

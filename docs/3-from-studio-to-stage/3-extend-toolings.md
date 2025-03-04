@@ -36,7 +36,7 @@ These two were already installed in your dev environment. Now we need to bring t
 5. Before we push our changes - we would like to sync our changes AS SOON AS updates hit the git repo! But Argo CD has a cycle time of about 3ish mins by default - this is too slow for us. However we can make Argo CD sync our changes instantly. For that, let’s add a webhook to connect Argo CD to our GitOps repository. Get Argo CD URL with following:
 
     ```bash
-    echo https://$(oc get route argocd-server --template='{{ .spec.host }}'/api/webhook  -n <USER_NAME>-mlops)
+    echo https://$(oc get route argocd-server --template='{{ .spec.host }}'/api/webhook  -n <USER_NAME>-toolings)
     ```
     > NOTE: This is the webhook url is used to connect Argo CD to our GitOps repository, it's not meant to be opened in your browser :)
 
@@ -58,7 +58,7 @@ These two were already installed in your dev environment. Now we need to bring t
     ```
 
 9. Check Argo CD to see the deployed applications :)  
-If you were to go to OpenShift, you would of course also see these tools deployed, specifically in the <USER_NAME>-mlops namespace. Feel free to take a look!
+If you were to go to OpenShift, you would of course also see these tools deployed, specifically in the `<USER_NAME>-toolings` namespace. Feel free to take a look!
 
 ![model-registry-dspa.png](./images/model-registry-dspa.png)
 

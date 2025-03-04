@@ -46,7 +46,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
     You need to see an output like this in `Console Output`. It means that your pipeline was started successfully 🐍
 
     ```bash
-        Connecting to Data Science Pipelines: https://ds-pipeline-dspa.<USER_NAME>.svc:8443
+        Connecting to Data Science Pipelines: https://ds-pipeline-dspa.<USER_NAME>-jukebox.svc:8443
         /opt/app-root/lib64/python3.11/site-packages/kfp/dsl/component_decorator.py:121: FutureWarning: The default base_image used by the @dsl.component decorator will switch from 'python:3.8' to 'python:3.9' on Oct 1, 2024. To ensure your existing components work with versions of the KFP SDK released after that date, you should provide an explicit base_image argument and ensure your component works as intended on Python 3.9.
         return component_factory.create_component_from_func(
         /opt/app-root/lib64/python3.11/site-packages/kfp/client/client.py:159: FutureWarning: This client only works with Kubeflow Pipeline v2.0.0-beta.2 and later versions.

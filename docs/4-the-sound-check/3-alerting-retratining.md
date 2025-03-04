@@ -115,7 +115,7 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     git push
     ```
 
-4. Verify an alerting pipeline is triggered by going to `OpenShift Console` > `<USER_NAME>-mlops`> `Pipelines`
+4. Verify an alerting pipeline is triggered by going to `OpenShift Console` > `<USER_NAME>-toolings`> `Pipelines`
 
     ![alert-pipeline.png](./images/alert-pipeline.png)
 

@@ -24,7 +24,7 @@ With only the most recent data is materialized, we'll reduce unnecessary data lo
 
 3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
    
-4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your <USER_NAME>-mlops project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
+4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
 Then upload the `song-properties-etl.yaml` you just downloaded.
    
     ![import-new-version.png](./images/import-new-version.png)

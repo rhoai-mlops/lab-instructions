@@ -51,7 +51,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
   All we need to do is create the ApplicationSet object, and then Argo CD will take care of the rest.
 
     ```bash
-      oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-mlops
+      oc apply -f /opt/app-root/src/mlops-gitops/appset-toolings.yaml -n <USER_NAME>-toolings
     ```
 
 6. Now check the Argo CD to see if ApplicationSet was able to see the subfolders under `toolings` and deploy the applications for us!
@@ -68,10 +68,10 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
   ![argocd-created-projects](./images/argocd-created-projects.png)
 
-  You can also check the pods running in your `<USER_NAME>-mlops` namespace:
+  You can also check the pods running in your `<USER_NAME>-toolings` namespace:
 
   ```bash
-  oc get pods -n <USER_NAME>-mlops
+  oc get pods -n <USER_NAME>-toolings
   ```
 
   You also should see something like this if everything went well:

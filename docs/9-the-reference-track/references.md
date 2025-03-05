@@ -13,22 +13,7 @@ You will also find a glossary in case there are any words you are unsure of.
 - [Made With ML](https://madewithml.com/) - A extensive guide on ML and its lifecycle.
 - [Google MLOps Blog](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) - Blog on the different stages of MLOps maturity, how you can transition between them and what you can see included in each stage.
 - [Cookie Cutter Project Structure](https://cookiecutter-data-science.drivendata.org/) - A tool to initialize a data science project with a good project structure.
-
-## Docs for tools used
-### AI tools
-- [OpenShift AI](https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2-latest)
-- [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)
-    - [Kubeflow Pipelines SDK](https://kubeflow-pipelines.readthedocs.io/en/sdk-2.12.0/)
-    - [Kubeflow Pipelines Kubernetes SDK](https://kfp-kubernetes.readthedocs.io/en/kfp-kubernetes-1.4.0/)
-- [TrustyAI](https://github.com/trustyai-explainability)
-- [DVC](https://dvc.org/doc)
-- [ModelScan](https://github.com/protectai/modelscan)
-- [KServe](https://kserve.github.io/website/master/modelserving/control_plane/)
-    - [OpenVINO](https://docs.openvino.ai/2025/index.html)
-- [Feast](https://docs.feast.dev/)
-### GitOps/DevOps tools
-- [PyTest](https://docs.pytest.org/en/stable/)
-- 
+- [CNN Explainer](https://poloclub.github.io/cnn-explainer/) - Understand how a Convolutional Neural Network (a type of network that specializes on images among other things) work.
 
 ## Glossary
 - **MLOps** - The practices, culture, and tools that aim to reliably and efficiently build, deploy and maintain AI models in production.
@@ -51,3 +36,28 @@ You will also find a glossary in case there are any words you are unsure of.
 - **Bias Detection** - Identifying unfair or unintended biases in models.
 - **SHAP (Shapley Additive Explanations)** - A method to explain model predictions by telling you how much each feature contributed to the prediction.
 - **Counterfactuals** - Testing a variety of "what-if" changes to the input to see if any of them can change the output/prediction in a desired way.
+
+## Docs for tools used
+### AI tools
+- [OpenShift AI](https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2-latest)
+- [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)
+    - [Kubeflow Pipelines SDK](https://kubeflow-pipelines.readthedocs.io/en/sdk-2.12.0/)
+    - [Kubeflow Pipelines Kubernetes SDK](https://kfp-kubernetes.readthedocs.io/en/kfp-kubernetes-1.4.0/)
+- [TrustyAI](https://github.com/trustyai-explainability)
+- [DVC](https://dvc.org/doc)
+- [ModelScan](https://github.com/protectai/modelscan)
+- [KServe](https://kserve.github.io/website/master/modelserving/control_plane/)
+    - [OpenVINO](https://docs.openvino.ai/2025/index.html)
+- [Feast](https://docs.feast.dev/)
+### GitOps/DevOps tools
+- [Argo CD](https://argo-cd.readthedocs.io/en/stable/)
+- [Tekton](https://tekton.dev/)
+- [PyTest](https://docs.pytest.org/en/stable/)
+- Linting
+    - [Black](https://black.readthedocs.io/en/stable/)
+    - [Flake8](https://flake8.pycqa.org/en/latest/)
+    - [KubeLinter](https://docs.kubelinter.io/#/)
+    - [Helm Lint](https://helm.sh/docs/helm/helm_lint/)
+- [Sonarqube](https://docs.sonarsource.com/sonarqube-server/latest/)
+- [Gitea](https://docs.gitea.com/)
+- [Grafana](https://grafana.com/docs/grafana/latest/)

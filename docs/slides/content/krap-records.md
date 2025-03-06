@@ -9,11 +9,11 @@ ML500 <!-- {.element: class="title-color"} -->
 
 
 
-<!-- .slide: data-background-size="contain" data-background-image="images/krap-records/story-2.png", class="white-style" -->
+<!-- .slide: data-background-size="contain" data-background-image="images/krap-records/krap-record-story-2.png", class="white-style" -->
 
 
 
-<!-- .slide: data-background-size="contain" data-background-image="images/krap-records/story-3.png", class="white-style" -->
+<!-- .slide: data-background-size="contain" data-background-image="images/krap-records/krap-record-story-3.png", class="white-style" -->
 
 
 

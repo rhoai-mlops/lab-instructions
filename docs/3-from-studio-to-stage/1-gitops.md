@@ -12,7 +12,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
 1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
 
-  Select a name you want, could be something like `<USER_NAME>-mlops--toolings` 
+  Select a name you want, could be something like `<USER_NAME>-mlops-toolings` 
 
     For Notebook Image: 
 

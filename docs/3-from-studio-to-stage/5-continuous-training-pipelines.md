@@ -79,7 +79,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
     or you can use this link:
 
     ```bash
-    https://console-openshift-console.<CLUSTER_DOMAIN>/pipelines/ns/<USER_NAME>-mlops/pipeline-runs
+    https://console-openshift-console.<CLUSTER_DOMAIN>/pipelines/ns/<USER_NAME>-toolings/pipeline-runs
     ```
 
     In the Tekton Pipeline run logs, you’ll notice that the Kubeflow Pipelines are triggered in the second step.

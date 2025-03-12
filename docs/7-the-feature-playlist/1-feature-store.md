@@ -34,6 +34,9 @@ Let’s begin by exploring how to use Feast in the inner loop:
 1. Navigate back to your Jupyter Notebook workbench and open the folder `7-feature_store`.  
 2. Inside this folder, locate the `feature_repo` directory. This is where the feature definitions are stored. Open the `features.py` file to review the features we’ve defined.  
 3. Next, open the notebook `1-setup_feast.ipynb` located in the `7-feature_store` folder and execute the cells step-by-step. Then continue with `2-test_load_historitcal_features.ipynb` and `3-test_load_online_features.ipynb`. This will set up Feast and demonstrate how it works in the inner loop.  
-4. You can also see the features you define in the Feast UI we have set up for the development environment (you will get to deploy it yourself later 💪): [https://feast-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>](https://feast-ui-<USER_NAME>.<CLUSTER_DOMAIN>)
+4. After you go through the notebooks, you can check the features you define in the Feast UI we have set up for the development environment (you will get to deploy it yourself later 💪): [https://feast-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>](https://feast-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>). For example, if you go to `Feature Service` and click `serving_fs`, you'll see the feature definitions we store.
+
+  ![feast-ui-innterloop.png](./images/feast-ui-innterloop.png)
+
 5. Once you’ve seen how Feast is used for inner loop tasks like feature exploration and training, we’ll move on to its role in the **outer loop**.  
 

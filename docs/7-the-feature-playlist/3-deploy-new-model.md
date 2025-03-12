@@ -184,7 +184,7 @@ The model server now expects a song (rather than individual song features) as in
   https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>
   ```
 
-4. Instead of just predicting based on random features, we can now go to the Search button in the top right:
+4. Instead of just predicting based on random features, we can now go to the **Search** button in the top right:
 
 ![UI-search.png](./images/UI-search.png)
 

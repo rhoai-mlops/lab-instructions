@@ -89,13 +89,16 @@ Let's give it a try:
 - Model framework (name - version): `onnx - 1`
 - Model server replicas: `1`
 - Model server size: `Small`
+- Model route:
+  -  Select `Make deployed models available through an external route`
+  -  **Uncheck** Require token authentication for now
 
     ..leave the rest as it is and hit `Deploy`
 
     ![jukebox.png](./images/jukebox.png)
     ![jukebox-2.png](./images/jukebox-2.png)
 
-2. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!
+1. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!
 
     ![jukebox-deployed.png](./images/jukebox-deployed.png)
 

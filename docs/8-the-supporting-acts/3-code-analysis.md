@@ -17,8 +17,8 @@
     repo_url: https://github.com/redhat-cop/helm-charts.git
     chart_path: charts/sonarqube
     account:
-      username: admin
-      password: admin123
+      username: <USER_NAME>
+      password: <PASSWORD>
       currentAdminPassword: admin
     plugins:
       install:

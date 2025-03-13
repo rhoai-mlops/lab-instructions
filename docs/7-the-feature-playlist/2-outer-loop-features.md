@@ -91,7 +91,7 @@ To set this up:
    
     ```python
         ### 🛍️ Fetch Data from Feast
-        fetch_task = fetch_data_from_feast()
+        fetch_task = fetch_data_from_feast(version=version)
         kubernetes.use_secret_as_env(
             fetch_task,
             secret_name='aws-connection-data',

@@ -56,3 +56,6 @@ To defend against these, we can scan the model for insecurities before we use it
     ```
 
 
+4. You should see an output like this 🎉
+
+    ![model-scan-output.png](./images/model-scan-output.png)

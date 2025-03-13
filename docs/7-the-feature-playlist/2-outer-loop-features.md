@@ -7,7 +7,7 @@ Now, let’s set up Feast for use in the **outer loop** of our workflow. We’ll
 
 Let’s dive in!  
 
-1. We will start by creating a Feast database in `<USER_NAME>-mlops` namespace. Let's transition to `code-server` workbench and create `feast-database` folder under `mlops-gitops/toolings`.
+1. We will start by creating a Feast database in `<USER_NAME>-toolings` namespace. Let's transition to `code-server` workbench and create `feast-database` folder under `mlops-gitops/toolings`.
 
     ```bash
     mkdir /opt/app-root/src/mlops-gitops/toolings/feast-database
@@ -91,7 +91,7 @@ To set this up:
    
     ```python
         ### 🛍️ Fetch Data from Feast
-        fetch_task = fetch_data_from_feast()
+        fetch_task = fetch_data_from_feast(version=version)
         kubernetes.use_secret_as_env(
             fetch_task,
             secret_name='aws-connection-data',

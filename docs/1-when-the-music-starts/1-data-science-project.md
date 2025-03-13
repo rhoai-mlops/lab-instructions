@@ -4,7 +4,7 @@
 
 ![datascienceproject.png](./images/datascienceproject.png)
 
-2. Click on the <USER_NAME> project. This project will be the place where we create our Jupyter Notebook environment, train our model and deploy our model.
+2. Click on the <USER_NAME>-jukebox project. This project will be the place where we start experimenting, training and deploying our model.
 
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 
@@ -63,4 +63,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-8. Before we begin, let’s review the storage environment available for our experimentation. 🫡
+8. Before we get hands on and start experimenting, let’s learn about the storage environment available for us in the next chapter. 🫡

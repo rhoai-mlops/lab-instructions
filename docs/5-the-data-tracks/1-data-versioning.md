@@ -17,7 +17,7 @@ For this, we will have a S3 bucket that can hold our data, and we will version t
 
 Let's start by moving some data into the bucket.
 
-1. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>` > `Workbenches` and connect to your first Jupyter notebook workbench, the one running `Standard Data Science` Notebook image.
+1. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>-jukebox` > `Workbenches` and connect to your first Jupyter notebook workbench, the one running `Standard Data Science` Notebook image.
 
     Open up `jukebox/5-data-versioning/1-data_pipeline_url_to_s3.py` file. This pipeline will move the song properties data we currently have in GitHub over to our S3 bucket `data`. 
     
@@ -27,7 +27,7 @@ Let's start by moving some data into the bucket.
 
     ![data-pipeline.png](./images/data-pipeline.png)
 
-    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USER_NAME>` project.
+    This will trigger the pipeline that you can view on `OpenShift AI Dashboard` > `Experiments and runs` in your `<USER_NAME>-jukebox` project.
 
     ![etl-pipeline.png](./images/etl-pipeline.png)
 
@@ -40,7 +40,7 @@ Let's start by moving some data into the bucket.
 
 With the data now stored in an S3 bucket, let’s explore how to use DVC to track and version your datasets. Follow the steps below using the provided Jupyter notebooks:
 
-1. Go to your S3 storage interface, you can keep track of how the files are added and changed here as you run commands in the notebooks: https://minio-ui-<USER_NAME>.<CLUSTER_DOMAIN>
+1. Go to your S3 storage interface, you can keep track of how the files are added and changed here as you run commands in the notebooks: https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>
 
 2. Open the notebook located at `jukebox/5-data-versioning/2-dvc-s3-track-remote-data.ipynb`. Follow the instructions to initialize the DVC configuration and connect it to your S3 bucket.
 

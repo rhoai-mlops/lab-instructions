@@ -8,11 +8,11 @@ Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenS
 
 In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models in a repeatable and reproducible manner. By storing configuration definitions in Git, Argo CD will automatically apply those definitions, making the deployment process more efficient and consistent. This means we’ll be working with YAML files—so it’s time to switch to a different workbench: `code-server`. Let’s be honest, Jupyter Notebooks aren’t the best when it comes to working with YAML files and command-line utilities🥲. 
 
-Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>` project and get started!
+Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>-jukebox` project and get started!
 
-1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>` >  `Workbenches` and click `Create workbench`
+1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
 
-  Select a name you want, could be something like `<USER_NAME>-mlops-gitops` 
+  Select a name you want, could be something like `<USER_NAME>-mlops-toolings` 
 
     For Notebook Image: 
 
@@ -30,7 +30,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
    ![code-server-terminal.png](./images/code-server-terminal.png)
 
-3. An Argo CD instance is already installed to your `<USER_NAME>-mlops` environment. Let's verify that it is running and login to Argo CD UI.
+3. An Argo CD instance is already installed to your `<USER_NAME>-toolings` environment. Let's verify that it is running and login to Argo CD UI.
 
   Log in to OpenShift using your credentials (remember to replace <PASSWORD> with your actual password).
 
@@ -42,18 +42,18 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
   Then check if Argo CD pods are alive:
 
   ```bash
-  oc get pods -n <USER_NAME>-mlops
+  oc get pods -n <USER_NAME>-toolings
   ```
 
   ![argocd-running.png](./images/argocd-running.png)
 
 
-4. When all the pods are up and running, we can login to the UI of ArgoCD by clicking [here](https://argocd-server-<USER_NAME>-mlops.<CLUSTER_DOMAIN>). 
+4. When all the pods are up and running, we can login to the UI of ArgoCD by clicking [here](https://argocd-server-<USER_NAME>-toolings.<CLUSTER_DOMAIN>). 
    
    Alternatively, you can get the URL by running the below command and open it in a new browser tab.
 
   ```bash
-  echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+  echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
   ```
 
 5. Login to Argo CD by clicking `Log in via OpenShift` and use the OpenShift credentials provided.
@@ -74,14 +74,14 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
       * Version: `1.1.0`
    * On the "DESTINATION" box
       * Cluster URL: `https://kubernetes.default.svc`
-      * Namespace: `<USER_NAME>-mlops`
+      * Namespace: `<USER_NAME>-toolings`
    * On the "HELM" box
       * Values Files: `values.yaml`
 
     Your form should look like this:
     ![argocd-create-application](images/argocd-create-application.png)
 
-8. After you hit create, you’ll see `todolist` application is created and should start deploying in your `<USER_NAME>-mlops` namespace.
+8. After you hit create, you’ll see `todolist` application is created and should start deploying in your `<USER_NAME>-toolings` namespace.
 
   ![argocd-todolist-1.png](./images/argocd-todolist-1.png)
 
@@ -92,7 +92,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
 
     ```bash
-    echo https://$(oc get route/todolist -n <USER_NAME>-mlops --template='{{.spec.host}}')
+    echo https://$(oc get route/todolist -n <USER_NAME>-toolings --template='{{.spec.host}}')
     ```
 
   _You can CMD/CTRL + click on the URL to open it in a new browser tab._

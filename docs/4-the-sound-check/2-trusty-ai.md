@@ -25,12 +25,13 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🔦🏡 TrustyAI added 🔦🏡"
     git push
     ```
 
-4. Check if the TrustyAI is deployed in your test and prod environment. Go to `Model Serving` , click on `jukebox` and observe there is a new tab called `Model bias` now.
+4. Check if the TrustyAI is deployed in your `test` and `prod` environment. Go to `Model Serving` , click on `jukebox` and observe there is a new tab called `Model bias` now.
 
     ![trustyai-model-bias.png](./images/trustyai-model-bias.png)
 
@@ -140,7 +141,7 @@ We might want to see operational and model performance related metrics in the sa
 
     ```bash
     # get the route and open it in your browser
-    echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-mlops)
+    echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
     ```
 
     Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.

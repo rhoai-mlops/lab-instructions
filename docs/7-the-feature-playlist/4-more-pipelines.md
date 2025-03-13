@@ -24,7 +24,7 @@ With only the most recent data is materialized, we'll reduce unnecessary data lo
 
 3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
    
-4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your <USER_NAME>-mlops project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
+4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
 Then upload the `song-properties-etl.yaml` you just downloaded.
    
     ![import-new-version.png](./images/import-new-version.png)
@@ -34,6 +34,8 @@ Then upload the `song-properties-etl.yaml` you just downloaded.
     - Name: `data-pipeline-with-feast-adhoc-run`
     - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
     - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet`
+
+    ![run-etl-pipeline-2.png](./images/run-etl-pipeline-2.png)
 
 6. Go back to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` again. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
    
@@ -58,6 +60,7 @@ To apply new changes to our feature store, we can add a step to our Continous Tr
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "✅ Features automatically applied ✅"
     git push
@@ -65,7 +68,7 @@ To apply new changes to our feature store, we can add a step to our Continous Tr
 
 3. To try it out, we can remove one feature and make sure that everything from training to inference with the UI still works.
      
-    Go to your `Jupyter Notebook` and navigate to `jukebox/7-feature_store/feature_repo/feature_service.py`. Here we can remove line 14 (the feature `loudness`) as we saw in the data exploration how it was highly correlated with another feature (`energy`) so we don't need both:
+    Go to your `Jupyter Notebook` and navigate to `jukebox/7-feature_store/feature_repo/feature_service.py`. Here we can remove line 14 (the feature `loudness`) as we saw in the data exploration how it was highly correlated with another feature (`energy`) so we don't need both. Make sure you hit save after make the change!
 
     ```python
     from feast import FeatureService
@@ -115,4 +118,4 @@ To apply new changes to our feature store, we can add a step to our Continous Tr
 
     ![apply-features-ct.png](./images/apply-features-ct.png)
 
-6. Go to the Jukebox UI (https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>) and search for a song, it will still work (and give a different result than before) even though we haven't changed the UI at all, Feast takes care of the feature change 👏👏
+6. Go to the Jukebox UI (https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>) and **search** for a song, it will still work (and give a different result than before) even though we haven't changed the UI at all, Feast takes care of the feature change 👏👏

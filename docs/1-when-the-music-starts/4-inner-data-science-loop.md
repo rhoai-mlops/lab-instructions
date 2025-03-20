@@ -98,7 +98,8 @@ Let's give it a try:
     ![jukebox.png](./images/jukebox.png)
     ![jukebox-2.png](./images/jukebox-2.png)
 
-1. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!
+1. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!  
+You can also try refreshing the page if it's taking too long.
 
     ![jukebox-deployed.png](./images/jukebox-deployed.png)
 

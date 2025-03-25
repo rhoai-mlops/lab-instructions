@@ -179,7 +179,7 @@ The model server now expects a song (rather than individual song features) as in
   git push
   ```
 
-3. After Argo CD sync the changes, go to the UI, here is the URL if you have lost it since last time:  
+3. After Argo CD sync the changes, go to the UI, here is the URL if you have lost it since last time. If you have the site open, just refresh the page to ensure you have the latest code changes:  
   
   ```bash
   https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>

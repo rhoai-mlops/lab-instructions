@@ -42,4 +42,5 @@
   * [✈️ Code Analysis](./8-the-supporting-acts/3-code-analysis.md)
   * [🛟 Model Security](./8-the-supporting-acts/4-model-security.md)
   * [🕵️‍♂️ Sealed Secrets](./8-the-supporting-acts/5-sealed-secrets.md)
+  * [⛰️ Image Security](./8-the-supporting-acts/6-image-security.md)
 <!-- * [9. The Backstage]() -->

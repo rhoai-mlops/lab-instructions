@@ -36,6 +36,7 @@
   * [🫕 Feast for Inference](./7-the-feature-playlist/3-deploy-new-model.md)
   * [🫶 More Pipelines](./7-the-feature-playlist/4-more-pipelines.md)
 * [8. The Supporting Acts](8-the-supporting-acts/README.md)
+  * [🦋 New Image](./8-the-supporting-acts/0-prestep.md)
   * [☀️ Testing](./8-the-supporting-acts/1-unit-testing.md)
   * [🍫 Linting](./8-the-supporting-acts/2-linting.md)
   * [✈️ Code Analysis](./8-the-supporting-acts/3-code-analysis.md)

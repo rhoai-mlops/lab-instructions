@@ -95,13 +95,13 @@ KubeLinter is an open source tool that analyzes Kubernetes YAML files and Helm c
     It reports this:
     <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
     <pre><code class="language-bash">
+    /opt/app-root/src/jukebox-ui/chart/templates/deployment.yaml: (object: <no namespace>/jukebox-ui apps/v1, Kind=Deployment) The container "jukebox-ui" is using an invalid container image, "quay.io/rhoai-mlops/jukebox-ui:latest". Please use images that are not blocked by the `BlockList` criteria : [".*:(latest)$" "^[^:]*$" "(.*/[^:]+)$"] (check: latest-tag, remediation: Use a container image with a specific tag other than latest.)
     /opt/app-root/src/jukebox-ui/chart/templates/deployment.yaml: (object: <no namespace>/jukebox-ui apps/v1, Kind=Deployment) container "jukebox-ui" does not have a read-only root file system (check: no-read-only-root-fs, remediation: Set readOnlyRootFilesystem to true in the container securityContext.)
-
-    Error: found 1 lint errors
+    Error: found 2 lint errors
     </code></pre>
     </div>
 
-    _..which is luckily not a problem for OpenShift users because OpenShift by default mounts the container's root filesystem as read-only, so we don't have to specify this in our deployments 🎉_
+    _The first error, we address it by pointing tags others than `latest` in our GitOps repository. And the second one is luckily not a problem for OpenShift users because OpenShift by default mounts the container's root filesystem as read-only, so we don't have to specify this in our deployments 🎉_
 
     If you would like to extend kube-linter checks of the common Kubernetes objects or extend the checks to Custom Resources such as `InferenceService`, please look at [product documentation](https://docs.kubelinter.io/#/configuring-kubelinter?id=run-custom-checks).
 

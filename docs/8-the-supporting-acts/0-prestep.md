@@ -1,4 +1,4 @@
-## New Workbench image
+## New Workbench Image
 
 In the upcoming exercises, we will use several command-line utilities (CLIs)* to perform security-related tasks locally before integrating them into our pipeline. These CLIs are not included in the default workbench images that come with OpenShift AI. To address this, we built a custom workbench image!
 

@@ -17,7 +17,6 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     version: 4562a17c17
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
-    autoscaling: true
     canary:
       trafficPercent: 100 # 👈 update this
     ```
@@ -64,7 +63,6 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     version: 4562a17c17
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
-    autoscaling: true
     canary:
       trafficPercent: 0 # 👈 update this
     ```

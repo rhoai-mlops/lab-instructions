@@ -40,7 +40,7 @@ Let's start by moving some data into the bucket.
 
 With the data now stored in an S3 bucket, let’s explore how to use DVC to track and version your datasets. Follow the steps below using the provided Jupyter notebooks:
 
-1. Go to your S3 storage interface, you can keep track of how the files are added and changed here as you run commands in the notebooks: https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>
+1. Go to your S3 storage interface, you can keep track of how the files are added and changed here as you run commands in the notebooks, specifically in the `data` and `data-cache` buckets: https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>
 
 2. Open the notebook located at `jukebox/5-data-versioning/2-dvc-s3-track-remote-data.ipynb`. Follow the instructions to initialize the DVC configuration and connect it to your S3 bucket.
 

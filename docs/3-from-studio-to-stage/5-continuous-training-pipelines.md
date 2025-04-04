@@ -93,3 +93,9 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
     The pipeline will build the model, containerize it, deploy it, and save the information to the Kubeflow Registry, just like we did manually in the Data Science inner loop!!
 
     The first run of this pipeline will take some time to complete. However, for subsequent runs, we’ll leverage Kubeflow Pipeline’s caching feature, which reuses results from previous steps when inputs haven’t changed. This significantly reduces processing time and speeds up the pipeline 🧚‍♂️🧚‍♂️
+
+8. After the pipeline has finished it should look something like this:
+
+    ![pipeline-done.png](./images/pipeline-done.png)
+
+    And you should have a new model deployed in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏

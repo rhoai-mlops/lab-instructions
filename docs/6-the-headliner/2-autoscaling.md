@@ -44,7 +44,8 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     
 3. Wait for the model to be redeployed, you can keep track of the pods like before: `oc get po -n <USER_NAME>-test -w` (Ctrl+C to cancel out of it).
 
-4. Let's test the autoscaling by generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.
+4. Let's test the autoscaling by generating some load. Go to your Jupyter Notebook workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb`.  
+When entering the inference endpoint, make sure to enter the one for your model served in `<USER_NAME>-test`.
 
 5. Go to `OpenShift Dashboard` in Administrator view > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.
 

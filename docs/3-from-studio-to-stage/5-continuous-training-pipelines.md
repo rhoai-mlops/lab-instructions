@@ -98,5 +98,5 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![pipeline-done.png](./images/pipeline-done.png)
 
-    And you should have a new model deployed in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏   
+    And you should have a new model deployed in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏 More about the PR in the next section.  
     ⚠️ Don't accept the PR yet ⚠️

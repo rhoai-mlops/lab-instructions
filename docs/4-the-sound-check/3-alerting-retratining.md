@@ -92,7 +92,7 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
         - name: default
             webhookConfigs:
             - url: >-
-                https://el-ct-listener-<USER_NAME>-mlops.<CLUSTER_DOMAIN>/
+                https://el-ct-listener-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/
     </code></pre></div>
 
 

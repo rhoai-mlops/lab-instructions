@@ -11,14 +11,14 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
 
     ```bash
     # get web url
-    echo https://$(oc -n stackrox get route central --template='{{ .spec.host }}')
+    echo https://$(oc -n rhacs-operator get route central --template='{{ .spec.host }}')
     ```
 
     Using the **admin** username:
 
     ```bash
     # get password to go with the "admin" username:
-    echo $(oc -n stackrox get secret central-htpasswd -o go-template='{{index .data "password" | base64decode}}')
+    echo $(oc -n rhacs-operator get secret central-htpasswd -o go-template='{{index .data "password" | base64decode}}')
     ```
 
     ![images/acs-dashboard.png](images/acs-dashboard.png)

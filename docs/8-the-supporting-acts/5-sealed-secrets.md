@@ -14,7 +14,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     cat << EOF > /tmp/sonarqube-auth.yaml
     apiVersion: v1
     data:
-      username: "$(echo -n <USER_NAME> | base64 -w0)"
+      username: "$(echo -n admin | base64 -w0)"
       password: "$(echo -n <PASSWORD> | base64 -w0)"
       currentAdminPassword: "$(echo -n admin | base64 -w0)"
     kind: Secret
@@ -23,7 +23,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     EOF
     ```
 
-2. Use `kubeseal` command line to seal the secret definition. This will encrypt it using a certificate stored in the controller running inside the cluster. This has already been deployed for you as only one instance can exist per cluster.
+3. Use `kubeseal` command line to seal the secret definition. This will encrypt it using a certificate stored in the controller running inside the cluster. This has already been deployed for you as only one instance can exist per cluster.
 
     <p class="warn">
         ⛷️ <b>NOTE</b> ⛷️ - If you get an error "Error: cannot get sealed secret service: Unauthorized" from running the Kubeseal command, just re-login to OpenShift and run the command again. 
@@ -31,7 +31,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
 
     ```bash
     export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
-    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u user1 -p thisisthepassword
+    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p thisisthepassword
 
     ```
 
@@ -43,7 +43,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     -o yaml
     ```
 
-3. Verify that the secret is sealed:
+4. Verify that the secret is sealed:
 
     ```bash
     cat /tmp/sealed-sonarqube-auth.yaml
@@ -67,7 +67,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     ...
     </code></pre></div>
 
-4. We want to grab the results of this sealing activity, in particular the `encryptedData` so we can add it to git. We have already written a <span style="color:blue;">[helper helm chart](https://github.com/redhat-cop/helm-charts/tree/master/charts/helper-sealed-secrets)</span> that can be used to add sealed secrets to our cluster in a repeatable way. We'll provide the `encryptedData` values to this chart in the next step.
+5. We want to grab the results of this sealing activity, in particular the `encryptedData` so we can add it to git. We have already written a <span style="color:blue;">[helper helm chart](https://github.com/redhat-cop/helm-charts/tree/master/charts/helper-sealed-secrets)</span> that can be used to add sealed secrets to our cluster in a repeatable way. We'll provide the `encryptedData` values to this chart in the next step.
 
     ```bash
     cat /tmp/sealed-sonarqube-auth.yaml| grep -E 'username|password|currentAdminPassword'
@@ -88,7 +88,9 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     touch /opt/app-root/src/mlops-gitops/toolings/sealed-secrets/config.yaml
     ```
 
-5. Open up the `sealed-secrets/config.yaml` file and paste the below yaml to `config.yaml`. We have already written a <span style="color:blue;">[helper helm chart](https://github.com/redhat-cop/helm-charts/tree/master/charts/helper-sealed-secrets)</span> that can be used to add sealed secrets to our cluster in a repeatable way. We'll provide the `encryptedData` values to this chart in the next step. First, copy below:
+5. Open up the `sealed-secrets/config.yaml` file and paste the below yaml to `config.yaml`. We have already written a <span style="color:blue;">[helper helm chart](https://github.com/redhat-cop/helm-charts/tree/master/charts/helper-sealed-secrets)</span> that can be used to add sealed secrets to our cluster in a repeatable way. We'll provide the `encryptedData` values to this chart in the next step. 
+
+    First, copy below:
 
     ```yaml
     repo_url: https://github.com/redhat-cop/helm-charts.git
@@ -100,6 +102,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     ```yaml
     repo_url: https://github.com/redhat-cop/helm-charts.git
     chart_path: charts/helper-sealed-secrets
+    # ⬇️ extend by adding sealed secrets below
     secrets:
       # Additional secrets will be added to this list when necessary
       - name: sonarqube-auth
@@ -134,9 +137,9 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     ```
 
 
-8. 🪄 🪄 Log in to ArgoCD - you should now see the SealedSecret chart in ArgoCD UI. It is unsealed as a regular k8s secret 🪄 🪄
+8. 🪄 🪄 Log in to Argo CD - you should now see the Sealed Secret application in Argo CD UI. It is unsealed as a regular k8s secret 🪄 🪄
 
-    If you drill into the `SealedSecret` on Argo CD's UI - you should see the `sonarqube-auth` secret has synced automatically:
+    If you drill into the `SealedSecret` -  you can verify that the `sonarqube-auth` secret has synced automatically:
 
     ![argocd-sonar-auth-synced.png](images/argocd-sonar-auth-synced.png)
 

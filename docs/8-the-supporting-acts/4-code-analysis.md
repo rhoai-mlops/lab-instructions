@@ -16,6 +16,7 @@
     ```yaml
     repo_url: https://github.com/redhat-cop/helm-charts.git
     chart_path: charts/sonarqube
+    fullnameOverride: sonarqube
     account:
       username: admin
       password: <PASSWORD>
@@ -91,7 +92,7 @@
 
     ![sonarqube-task-success.png](./images/sonarqube-task-success.png)
 
-9. When static ode analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
+9. When static code analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
 
     ![sonarqube-1.png](./images/sonarqube-1.png)
 

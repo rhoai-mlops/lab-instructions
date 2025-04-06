@@ -43,6 +43,6 @@
   * [🕵️‍♂️ Sealed Secrets](8-the-supporting-acts/5-sealed-secrets.md)
   * [🛟 Model Security](8-the-supporting-acts/6-model-security.md)
   * [⛰️ Image Security](8-the-supporting-acts/7-image-security.md)
-  * [💣 SBOMs](8-the-supporting-acts/8-sboms.md)
-  * [ⓒ Signing](8-the-supporting-acts/9-signing.md)
+  * [ⓒ Signing](8-the-supporting-acts/8-signing.md)
+  * [💣 SBOMs](8-the-supporting-acts/9-sboms.md)
 <!-- * [9. The Backstage]() -->

@@ -10,43 +10,10 @@ In this exercise, we'll use [Syft](https://github.com/anchore/syft) to generate 
 ## Before starting, generate your keys
 
 
-1. Generate a keypair to use for signing images. It expects you to enter a password for private key. Feel free to select anything you like :)
+1. Let's try and see what is an SBOM:
 
     ```bash
-    cd /tmp
-    cosign generate-key-pair k8s://<USER_NAME>-toolings/<USER_NAME>-cosign 
-    ```
-
-    You should get an output like this:
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-bash">
-    $ cosign generate-key-pair k8s://<USER_NAME>-toolings/<USER_NAME>-cosign
-    Enter password for private key:
-    Enter again:
-    Successfully created secret cosign in namespace <USER_NAME>-toolings
-    Public key written to cosign.pub
-    </code></pre></div>
-
-    You just generated two keys (one private key, one public key). Private key is used to sign the images and it is automatically saved as a secret in your `toolings` namespace alongside the password you choose. Public key is used to verify the signed images. You can share your public key for people to verify your images but private one should not be shared or at least sealed before storing publicly.
-
-    <p class="tip">
-    🐌 THIS IS NOT GITOPS - The generated private key is stored in a Kubernetes secret in you <USER_NAME>-toolings project. We'll leave it as an exercise to the reader to extract and store this as a Sealed Secret instead! 🐎
-    </p>
-
-    <p class="tip">
-    😱 If `cosign` command returns error, that means you logged out of the cluster so please run the below command and then run the cosign command again.
-    </p>
-
-    ```bash
-    export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
-    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
-    ```
-
-    
-2. Let's try and see what is an SBOM:
-
-    ```bash
-    syft quay.io/petbattle/jukebox:latest
+    syft quay.io/rhoai-mlops/jukebox:latest
     ```
     You should get a long list output like this one:
     <div class="highlight" style="background: #f7f7f7">
@@ -100,6 +67,7 @@ _This step makes more sense when you use an external image registry and share im
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    image_signing: true
     generate_sboms: true # 👈 add this
     ```
 
@@ -109,7 +77,7 @@ _This step makes more sense when you use an external image registry and share im
     git pull
     cd /opt/app-root/src/mlops-gitops
     git add .
-    git commit -m "🦤 ADD - generate SBOMs step"
+    git commit -m "🦤 ADD - generate SBOMs step 🦤"
     git push
     ```
 

@@ -11,13 +11,14 @@
     touch /opt/app-root/src/mlops-gitops/toolings/sonarqube/config.yaml
     ```
 
-2. Open up the `sonarqube/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information about where Argo CD can find the helm chart of SonarQube, and the values we'd like to provide to this helm chart.
+2. Open up the `sonarqube/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information about where Argo CD can find the helm chart of SonarQube, and the values we'd like to provide to this helm chart. 
 
     ```yaml
     repo_url: https://github.com/redhat-cop/helm-charts.git
     chart_path: charts/sonarqube
+    fullnameOverride: sonarqube
     account:
-      username: <USER_NAME>
+      username: admin
       password: <PASSWORD>
       currentAdminPassword: admin
     plugins:
@@ -26,7 +27,7 @@
         - https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/3.1.0/sonar-dependency-check-plugin-3.1.0.jar
     ```
 
-    _Yup, we are aware that it is not sensible to store credentials as plaintext here but we haven't discussed Secret Management with GitOps, so hang in there!🫣_
+    _Yup, we'd like to update the default admin password of SonarQube AND we are aware that it is not sensible to store credentials as plaintext here but we haven't discussed Secret Management with GitOps, so hang in there!🫣_
 
 3. Push the changes and let Argo CD to deploy SonarQube:
 
@@ -38,7 +39,7 @@
     git push 
     ```
 
-4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `admin123`).
+4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `<PASSWORD>`).
 
     _It may take a few minutes to configure SonarQube._
 
@@ -91,7 +92,7 @@
 
     ![sonarqube-task-success.png](./images/sonarqube-task-success.png)
 
-9. When static ode analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
+9. When static code analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
 
     ![sonarqube-1.png](./images/sonarqube-1.png)
 

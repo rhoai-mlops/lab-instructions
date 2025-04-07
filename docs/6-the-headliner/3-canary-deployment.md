@@ -26,7 +26,8 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
   What this output tells you that the 100% of the traffic is going to the LATEST version.
 
 
-1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.
+1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.  
+⚠️Note that we REMOVE the autoscaling line, this is to make the metrics a bit easier to interpret⚠️
 
     ```bash
     ---
@@ -35,7 +36,6 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
     version: 4562a17c17
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
-    autoscaling: true
     canary:  # 👈 add this
       trafficPercent: 20 # 👈 add this
     ```

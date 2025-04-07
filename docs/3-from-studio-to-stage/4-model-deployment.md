@@ -112,3 +112,9 @@ Let's go ahead and get our UI deployed! 📺
 5. Play around with the sliders and try to predict a new location! 🗺️ You can also switch to dark mode like all the cool kids do! 😎
 
 ![jukebox-ui](./images/jukebox-ui.png)
+
+
+6. 🤓 Stats for nerds ⌗ if you're really curious to see the API request and response, sent from the UI to our model, you can inspect it in the Dev Tools. Open up the Developer Tools (CMD + OPTION + i on 🍎) on chrome by hitting the three dots > More Tools > Developer Tools. Hit the Network tab and ensure the red button for recording is on. Back on the UI if you hit the `predict` button again, you should see the network tab fill with the HTTP request info for you to explore
+
+
+![dev-tools](./images/dev-tools.png)

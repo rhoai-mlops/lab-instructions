@@ -160,13 +160,14 @@ The model server now expects a song (rather than individual song features) as in
     chart_path: chart
     model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:feast-1.3 # 👈 update this
+    image: quay.io/rhoai-mlops/jukebox-ui:feast-1.4 # 👈 update this
+    search_as_default: true # 🧸 add this
     ```
 
   Alternatively, (for the lazy ones ;)) you can run this command in the terminal:
 
   ```bash
-  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.3|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+  sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.4|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
   ```
 
 2. Let's commit it to git:
@@ -178,7 +179,7 @@ The model server now expects a song (rather than individual song features) as in
   git push
   ```
 
-3. After Argo CD sync the changes, go to the UI, here is the URL if you have lost it since last time:  
+3. After Argo CD sync the changes, go to the UI, here is the URL if you have lost it since last time. If you have the site open, just refresh the page to ensure you have the latest code changes:  
   
   ```bash
   https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>

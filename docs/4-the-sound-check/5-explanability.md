@@ -34,7 +34,7 @@ Let's get started.
 2. Open up the workbench when it is ready and clone Jukebox again.
 
   ```bash
-    https://<GIT_SERVER>/<USER_NAME>/jukebox.git
+    https://<USER_NAME>:<PASSWORD>@<GIT_SERVER>/<USER_NAME>/jukebox.git
   ```
 
 3. Start by going to `jukebox/4-metrics/3-download-artifacts.ipynb` notebook and follow the instructions to download some artifacts from our training pipeline run that we need for the other notebooks. This way we will do explainability analysis on the model we trained and pushed to production.

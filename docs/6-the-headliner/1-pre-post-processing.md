@@ -50,7 +50,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     chart_path: chart
     model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
     model_name: jukebox
-    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.5 # 👈 update this
+    image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6 # 👈 update this
     ```
 
     And the same thing for **prod**. Open up `mlops-gitops/model-deployments/prod/jukebox-ui/config.yaml` and add update `image` as above.

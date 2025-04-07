@@ -53,6 +53,7 @@ _This step makes more sense when you use an external image registry and share im
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    image_scan: true
     image_signing: true # 👈 add this
     ```
 
@@ -65,18 +66,17 @@ _This step makes more sense when you use an external image registry and share im
     git commit -m "🐦‍⬛ ADD - image signing step 🐦‍⬛"
     git push
     ```
+6. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the Pipeline.
 
-6. Kick off a pipeline with an empty commit to see the changes on the pipeline:
+    ![image-signing-pipeline.png](./images/image-signing-pipeline.png)
+
+7. Kick off a pipeline with an empty commit to see the changes on the pipeline:
 
     ```bash
     cd /opt/app-root/src/jukebox
     git commit --allow-empty -m "🐒 trigger pipeline for image signing 🐒"
     git push
     ```
-
-7. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the new Pipeline run.
-
-    ![image-signing.png](./images/image-signing.png)
 
 8. After the task successfully finish, in the `Administrator` view, go to `OpenShift UI` > `Builds` > `ImageStreams` and select `jukebox`. You'll see a tag ending with `.sig` which shows you that this image is signed. 
 
@@ -93,12 +93,11 @@ _This step makes more sense when you use an external image registry and share im
 
     The output should be like:
 
-    <div class="highlight" style="background: #f7f7f7">
-    <pre><code class="language-bash">
+     ```bash
     Verification for default-route-openshift-image-registry.<CLUSTER_DOMAIN>/<USER_NAME>-test/jukebox:c6575637d8 --
     The following checks were performed on each of these signatures:
       - The cosign claims were validated
       - The signatures were verified against the specified public key
       - Any certificates were verified against the Fulcio roots.
     {"critical":{"identity":{"docker-reference":"default-route-openshift-image-registry.<CLUSTER_DOMAIN>/<USER_NAME>-test/jukebox"},"image":{"docker-manifest-digest":"sha256:1545e1d2cf0afe5df99fe5f1d39eef8429a2018c3734dd3bdfcac5a068189e39"},"type":"cosign container image signature"},"optional":null}
-    </code></pre></div>
+    ```

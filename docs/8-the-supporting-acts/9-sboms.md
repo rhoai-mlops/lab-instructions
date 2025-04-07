@@ -67,6 +67,7 @@ _This step makes more sense when you use an external image registry and share im
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    image_scan: true
     image_signing: true
     generate_sboms: true # 👈 add this
     ```
@@ -80,18 +81,17 @@ _This step makes more sense when you use an external image registry and share im
     git commit -m "🦤 ADD - generate SBOMs step 🦤"
     git push
     ```
+6. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the Pipeline.
 
-6. Kick off a pipeline with an empty commit to see the changes on the pipeline:
+    ![sboms.png](./images/sboms.png)
+
+7. Kick off a pipeline with an empty commit to see the changes on the pipeline:
 
     ```bash
     cd /opt/app-root/src/jukebox
     git commit --allow-empty -m "🦖 trigger pipeline for SBOM generation 🦖"
     git push
     ```
-
-7. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the new Pipeline run.
-
-    ![sboms.png](./images/sboms.png)
 
 8. After the task successfully finish, go to `OpenShift UI` > `Builds` > `ImageStreams` and `jukebox`. You'll see a tag ending with `.sbom` and `.att` which shows you that an attestation for the SBOM predicate attached. With this, the SBOM is signed (and therefore tamper-proof) as it is within an attestation, and consumers can validate its authenticity.
 

@@ -34,7 +34,7 @@ Now we’ll take the notebooks from the previous exercises and use Elyra to turn
 
     ![elyra-4.png](./images/elyra-4.png)
 
-6. When it is triggered succesfully, you'll get the below output. Click `Run Details` to follow the steps and see the pipeline outputs. It will take you to OpenShift AI's Pipeline view.
+6. When it is triggered successfully, you'll get the below output. Click `Run Details` to follow the steps and see the pipeline outputs. It will take you to OpenShift AI's Pipeline view.
 
     ![elyra-5.png](./images/elyra-5.png)
 

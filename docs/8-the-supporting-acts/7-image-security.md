@@ -10,32 +10,25 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
 1. Connect to the ACS WebUI:
 
     ```bash
-    # get web url
-    echo https://$(oc -n rhacs-operator get route central --template='{{ .spec.host }}')
+    https://central-rhacs-operator.<CLUSTER_DOMAIN>
     ```
 
-    Using the **admin** username:
-
-    ```bash
-    # get password to go with the "admin" username:
-    echo $(oc -n rhacs-operator get secret central-htpasswd -o go-template='{{index .data "password" | base64decode}}')
-    ```
-
-    ![images/acs-dashboard.png](images/acs-dashboard.png)
-    ![images/acs-compliance-graphs.png](images/acs-compliance-graphs.png)
+    Using youe credentials to log in.
+    ![acs-login.png](./images/acs-login.png)
+    ![acs-dashboard.png](images/acs-dashboard.png)
 
 2. An API Token was created for us as part of the install configuration. We can retrieve it using:
 
     Export the token as environment variable:
 
     ```bash
-    export ROX_API_TOKEN=$(oc -n stackrox get secret rox-api-token-ml500 -o go-template='{{index .data "token" | base64decode}}')
+    export ROX_API_TOKEN=$(oc -n <USER_NAME>-toolings get secret rox-api-token-ml500 -o go-template='{{index .data "token" | base64decode}}')
     ```
 
     Export the StackRox endpoint:
 
     ```bash
-    export ROX_ENDPOINT=central-stackrox.<CLUSTER_DOMAIN>
+    export ROX_ENDPOINT=central-rhacs-operator.<CLUSTER_DOMAIN>
     ```
 
 3. Verify the token by running **roxctl**
@@ -84,8 +77,8 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
 
     ```yaml
         - name: rox-auth
-            type: kubernetes.io/basic-auth
-            data:
+          type: kubernetes.io/basic-auth
+          data:
             username: AgAj3JQj+EP23pnzu...
             password: AgAtnYz8U0AqIIaqYrj...
     ```

@@ -8,10 +8,10 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
 
 1. The observant among you have noticed that in the previous exercise we created a secret for SonarQube and added it to Git just like that...😳 Lets start by fixing this and sealing our SonarQube credentials so they can be safely checked in to the repository. (yeah we know, git commit history, but we are trying to make a point here, so please 🤣)
 
-    First, we'll create the secret in a tmp directory. 
+    First, we'll create the secret in a tmp directory. So go to youe code-server and run below piece of code in terminal. 
 
     ```bash
-    cat << EOF > /tmp/sonarqube-auth.yaml
+    cat << EOF > /tmp/sonarqube.yaml
     apiVersion: v1
     data:
       username: "$(echo -n admin | base64 -w0)"
@@ -36,7 +36,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     ```
 
     ```bash
-    kubeseal < /tmp/sonarqube-auth.yaml > /tmp/sealed-sonarqube-auth.yaml \
+    kubeseal < /tmp/sonarqube.yaml > /tmp/sealed-sonarqube.yaml \
     -n <USER_NAME>-toolings \
     --controller-namespace sealed-secrets \
     --controller-name sealed-secrets \
@@ -46,7 +46,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
 4. Verify that the secret is sealed:
 
     ```bash
-    cat /tmp/sealed-sonarqube-auth.yaml
+    cat /tmp/sealed-sonarqube.yaml
     ```
 
     We should now see the secret is sealed, so it is safe for us to store in our repository. It should look something a bit like this, but with longer password and username output.
@@ -70,7 +70,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
 5. We want to grab the results of this sealing activity, in particular the `encryptedData` so we can add it to git. We have already written a <span style="color:blue;">[helper helm chart](https://github.com/redhat-cop/helm-charts/tree/master/charts/helper-sealed-secrets)</span> that can be used to add sealed secrets to our cluster in a repeatable way. We'll provide the `encryptedData` values to this chart in the next step.
 
     ```bash
-    cat /tmp/sealed-sonarqube-auth.yaml| grep -E 'username|password|currentAdminPassword'
+    cat /tmp/sealed-sonarqube.yaml| grep -E 'username|password|currentAdminPassword'
     ```
 
     <div class="highlight" style="background: #f7f7f7">

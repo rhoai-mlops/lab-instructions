@@ -9,7 +9,7 @@
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 
 
-3. Let's create a notebook. Click `Create a Workbench`. OpenShift AI Dashboard is pretty intiutive, isn't it? :)
+3. Let's create a notebook. Click `Create a Workbench`. OpenShift AI Dashboard is pretty intuitive, isn't it? :)
 
    Select a name you want, could be something like `<USER_NAME>-hitmusic-wb` 🎺
 

@@ -185,7 +185,7 @@ Now we can use ACS to help move security **LEFT** in our continous training pipe
 
     ![image-scan-pipeline.png](./images/image-scan-pipeline.png)
 
-5. Alternatively, you can also see a report in ACS UI by clicking [here](https://central-rhacs-operator.<CLUSTER_DOMAIN>/main/vulnerabilities/all-images?entityTab=Image&vulnerabilityState=OBSERVED&observedCveMode=WITH_CVES&sortOption[field]=Image%20scan%20time&sortOption[direction]=desc&s[SEVERITY][0]=Critical&s[SEVERITY][1]=Important&s[FIXABLE][0]=Fixable&s[Image][0]=jukebox). If you order by `Scan time`, you can  drill down the latest image scan and get more details about the scan result.
+5. Alternatively, you can also see a report in ACS UI by clicking [here](https://central-rhacs-operator.<CLUSTER_DOMAIN>/main/vulnerabilities/all-images?entityTab=Image&vulnerabilityState=OBSERVED&observedCveMode=WITH_CVES&sortOption[field]=Image%20scan%20time&sortOption[direction]=desc&s[SEVERITY][0]=Critical&s[SEVERITY][1]=Important&s[FIXABLE][0]=Fixable&s[Image][0]=<USER_NAME>-test/jukebox). If you order by `Scan time`, you can  drill down the latest image scan and get more details about the scan result.
 
     ![image-scan-acs.png](./images/image-scan-acs.png)
 

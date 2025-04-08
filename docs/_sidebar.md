@@ -45,6 +45,6 @@
   * [⛰️ Image Security](8-the-supporting-acts/7-image-security.md)
   * [ⓒ Signing](8-the-supporting-acts/8-signing.md)
   * [💣 SBOMs](8-the-supporting-acts/9-sboms.md)
-* [9. The Refence Track](9-the-reference-track/README.md)
+* [9. The Reference Track](9-the-reference-track/README.md)
   * [📖 References](9-the-reference-track/references.md)
 <!-- * [9. The Backstage]() -->

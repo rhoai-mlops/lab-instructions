@@ -11,7 +11,7 @@ These two were already installed in your dev environment. Now we need to bring t
     touch /opt/app-root/src/mlops-gitops/toolings/model-registry/config.yaml
     ```
 
-2. Open up the `model-registry/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information about where Argo CD can find the helm chart about model registry, and the values we'd like to provide to this helm chart.
+2. Open up the `toolings/model-registry/config.yaml` file and paste the below yaml to `config.yaml`. It contains the information about where Argo CD can find the helm chart about model registry, and the values we'd like to provide to this helm chart.
 
     ```yaml
   chart_path: charts/model-registry

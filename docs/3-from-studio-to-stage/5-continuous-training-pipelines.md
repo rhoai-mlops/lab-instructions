@@ -98,5 +98,9 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![pipeline-done.png](./images/pipeline-done.png)
 
-    And you should have a new model deployed in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏 More about the PR in the next section.  
+    And you can view the metadata added to your model from the pipeline by navigating to your Model Registry and View Metadata Details `Openshift AI -> <USER_NAME>-model-registry -> user-prod-registry -> jukebox -> <Model Version Link>`.
+
+    ![Model Metadata](./images/model-metadata-info.png)
+
+    And you should have a new deployment with your model in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏 More about the PR in the next section.  
     ⚠️ Don't accept the PR yet ⚠️

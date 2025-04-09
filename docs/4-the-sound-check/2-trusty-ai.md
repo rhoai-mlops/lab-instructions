@@ -79,9 +79,9 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
     - Metric name: `fairness`
     - Metric type: `Statistical Parity Difference (SPD)`
-    - Protectied attribute: `is_explicit`
-    - Priviliged value: `1.0`
-    - Unpriviliged value: `0.0`
+    - Protected attribute: `is_explicit`
+    - Privileged value: `1.0`
+    - Unprivileged value: `0.0`
     - Output: `output-13`
     - Output value: `0.5`
     - Violation threshold: `0.1`

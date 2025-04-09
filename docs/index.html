@@ -48,8 +48,8 @@
       let uname = document.getElementById('uname').value.toLowerCase();
       let pass = document.getElementById('pass').value;
       let cdomain = (document.getElementById('cdomain').value.toLowerCase().indexOf('https://') > -1) 
-                    ? document.getElementById('cdomain').value.toLowerCase().substring(8) 
-                    : document.getElementById('cdomain').value.toLowerCase();
+                    ? document.getElementById('cdomain').value.toLowerCase().substring(8).replace(/[\/,&,?]/g, "")  
+                    : document.getElementById('cdomain').value.toLowerCase().replace(/[\/,&,?]/g, "");
       let gitserver = (document.getElementById('gitserver').value.toLowerCase().indexOf('https://') > -1) 
                     ? document.getElementById('gitserver').value.toLowerCase().substring(8) 
                     : document.getElementById('gitserver').value.toLowerCase();

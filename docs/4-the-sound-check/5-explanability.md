@@ -10,7 +10,7 @@ SHAP (SHapley Additive exPlanations) values will tell us what input features lik
 
 Let's get started.
 
-1. We'll use TrustyAI workbench which already has all the necessary libraries and configuration. It'll just make things easier for us. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>` > `Workbenches` and click `Create a Workbench`.
+1. We'll use TrustyAI workbench which already has all the necessary libraries and configuration. It'll just make things easier for us. Go to `OpenShift AI Dashboard` >  `Data Science Projects` > `<USER_NAME>-jukebox` > `Workbenches` and click `Create a Workbench`.
 
   Select a name you want, could be something like `trustyai-wb` 
 

@@ -18,7 +18,7 @@
     There are multiple dashboards already ready for you to observe your deployed model `jukebox`. Generate some traffic by using the Jukebox UI and check here!
 
 
-3. You can also query Prometheus by using promql query language to get some info about successfull requests to `jukebox` in your test environment. 
+3. You can also query Prometheus by using promql query language to get some info about successful requests to `jukebox` in your test environment. 
 
     Go to  `Metrics` tab and paste the below query and hit `Enter`.
 

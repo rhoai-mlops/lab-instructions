@@ -8,7 +8,7 @@
     ![openshift-logging](./images/openshift-logging.png)
 
 
-2. Let’s filter the information, look for the logs specifically for jukebox apps running in the test nameaspace by adding this to the query bar. Click `Show Query`, paste the below and then hit `Run Query`.
+2. Let’s filter the information, look for the logs specifically for jukebox apps running in the test namespace by adding this to the query bar. Click `Show Query`, paste the below and then hit `Run Query`.
 
     ```bash
     { log_type="application", kubernetes_pod_name=~"jukebox-ui.*", kubernetes_namespace_name="<USER_NAME>-test" }

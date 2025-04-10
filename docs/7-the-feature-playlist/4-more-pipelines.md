@@ -43,7 +43,7 @@ Then upload the `song-properties-etl.yaml` you just downloaded.
 
 ## Automatically Apply New Changes
 
-To apply new changes to our feature store, we can add a step to our Continous Training pipeline to see if there has been any change to our features before we start training.  
+To apply new changes to our feature store, we can add a step to our Continuous Training pipeline to see if there has been any change to our features before we start training.  
 
 1. Go to `mlops-gitops/toolings/ct-pipeline/config.yaml` and update it:
 
@@ -108,11 +108,11 @@ To apply new changes to our feature store, we can add a step to our Continous Tr
     git push
     ```
 
-5. Now we just need to wait for the Continous Training pipeline to finish.  
+5. Now we just need to wait for the Continuous Training pipeline to finish.  
    
     You can keep track of the OpenShift pipeline in the `OpenShift Console` by going to `Pipelines` -> `Pipeline Runs`.  
 
-    And don't forget that you can see the kubeflow pipeline in OpenShift AI under `Experiments` -> `Experiment and Runs` -> `training`.  
+    And don't forget that you can see the Kubeflow pipeline in OpenShift AI under `Experiments` -> `Experiment and Runs` -> `training`.  
 
     When the OpenShift pipeline has finished, we have a new model deployed ready to be tested.
 

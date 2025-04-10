@@ -88,14 +88,14 @@ And we have a bit of groundwork to cover first to set everything up properly.
     git push
     ```
 
-4. This push triggers our training pipeline, however, the pipeline will fail. Any guesses why? Yes! Previously, we actually haven't pushed any dvc config file to `Jukebox` repository, so during the fetch data step, pipeline will fail. But we don't want to commit the dvc files manually everytime there is a change in our data. We want to automate this as well. Therefore, we need to introduce yet another pipeline.
+4. This push triggers our training pipeline, however, the pipeline will fail. Any guesses why? Yes! Previously, we actually haven't pushed any dvc config file to `Jukebox` repository, so during the fetch data step, pipeline will fail. But we don't want to commit the dvc files manually every time there is a change in our data. We want to automate this as well. Therefore, we need to introduce yet another pipeline.
 
 
 ### Data Pipeline with DVC Versioning
 
 1. In your Jupyter Notebook, open up `5-data-versioning/4-data_pipeline_with_dvc_versioning.py` file and run this by clicking ▶️ button.
 
-    This time, instad of triggering a pipeline, it created a YAML file containing the pipeline spec. If are in `5-data-versioning/` and refresh it by hitting Refresh button, you should see `song-properties-etl.yaml`
+    This time, instead of triggering a pipeline, it created a YAML file containing the pipeline spec. If are in `5-data-versioning/` and refresh it by hitting Refresh button, you should see `song-properties-etl.yaml`
 
     Let's download this file locally. 
 

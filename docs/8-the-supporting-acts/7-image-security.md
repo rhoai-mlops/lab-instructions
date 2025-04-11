@@ -140,7 +140,7 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
 
     ![rox-auth.png](./images/rox-auth.png)
 
-Now we can use ACS to help move security **LEFT** in our continous training pipeline. 
+Now we can use ACS to help move security **LEFT** in our continuous training pipeline. 
 
 ## Scan Images
 

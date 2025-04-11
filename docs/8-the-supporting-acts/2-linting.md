@@ -173,7 +173,7 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
 
     ![linting-fail.png](./images/linting-fail.png)
 
-5. Let's fix the errors and make the pipeline pass linting step. Go back to the terminal on your code-server workbenc and run the following commands:
+5. Let's fix the errors and make the pipeline pass linting step. Go back to the terminal on your code-server workbench and run the following commands:
    
     ```bash
     cd /opt/app-root/src/jukebox/3-prod_datascience

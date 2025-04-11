@@ -131,9 +131,17 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     For **Parameters:**
 
-    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/song_properties.parquet`
+    - dataset_url:
 
-    - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
+      ```
+      https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/song_properties.parquet
+      ```
+
+    - repo_url:
+
+      ```
+      https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git
+      ```
 
     ..and hit `Create schedule`.
 
@@ -148,9 +156,17 @@ And we have a bit of groundwork to cover first to set everything up properly.
     Again, the similar information:
 
     - Name: `data-pipeline-with-dvc-adhoc-run`
-    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/song_properties.parquet`
+    - dataset_url:
 
-    - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
+      ```
+      https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/song_properties.parquet
+      ```
+
+    - repo_url:
+
+      ```
+      https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git
+      ```
 
     ..and hit `Create run`. The pipeline will start running immediately.
 

@@ -78,7 +78,8 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     git push
     ```
 
-5. Oberve that only the previous version now receives the traffic by running the `locust` command and checking the metrics:
+5. Observe that only the previous version now receives the traffic bu running the `locust` command and checking the metrics:
+
 
     ```bash
     oc get isvc jukebox -n <USER_NAME>-test

@@ -54,7 +54,33 @@
     oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
     ```
 
-5. Now that we have SonarQube, let's extend our pipeline to perform static code analysis check. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis: true` flag to introduce [the task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/static-code-analysis.yaml).
+5. Before extending the pipeline witn SonarQube, we can run the code quality checks from our IDE. Fist, let's install the `pysonar` library.
+
+    ```bash
+    pip install pysonar-scanner
+    ```
+
+    and trigger a scan:
+
+    ```bash
+    pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.login=admin -Dsonar.password=<PASSWORD>
+    ```
+
+6. When the analysis completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
+
+    ![sonarqube-1.png](./images/sonarqube-1.png)
+
+    Click on `jukebox` project and see the results of the analysis.
+
+    ![sonarqube-2.png](./images/sonarqube-2.png)
+
+    You can drill down on the issues that SonarQube identified.
+
+    ![sonarqube-3.png](./images/sonarqube-3.png)
+
+## Extend Pipeline
+
+1. Now that we saw how SonarQube works, let's extend our pipeline to perform static code analysis check every time. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis: true` flag to introduce [the task](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/tasks/static-code-analysis.yaml).
 
     ```yaml
     chart_path: charts/pipelines
@@ -68,7 +94,7 @@
     static_code_analysis: true # 👈 add this
     ```
 
-6. Commit the changes to the repo:
+2. Commit the changes to the repo:
 
     ```bash
     git pull
@@ -78,7 +104,11 @@
     git push
     ```
 
-7. Kick off a pipeline with an empty commit to see the changes on the pipeline:
+3. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the Pipeline.
+
+    ![sonarqube-task.png](./images/sonarqube-task.png)
+
+4. _Optional_: Now you can make an empty commit to see the changes on the pipeline. However you can also continue to grow it with more exciting toolings! 
 
     ```bash
     cd /opt/app-root/src/jukebox
@@ -86,20 +116,4 @@
     git push
     ```
 
-8. Go to OpenShift Console > Pipelines in `<USER_NAME>-toolings` namespace > verify that the task is included in the new Pipeline run.
-
-    ![sonarqube-task.png](./images/sonarqube-task.png)
-
     ![sonarqube-task-success.png](./images/sonarqube-task-success.png)
-
-9. When static code analysis step completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`
-
-    ![sonarqube-1.png](./images/sonarqube-1.png)
-
-    Click on `jukebox` project and see the results of the analysis.
-
-    ![sonarqube-2.png](./images/sonarqube-2.png)
-
-    You can drill down on the issues that SonarQube identified.
-
-    ![sonarqube-3.png](./images/sonarqube-3.png)

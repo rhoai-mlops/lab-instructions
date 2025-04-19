@@ -23,7 +23,7 @@ We have already set up a unit test for one of the pipeline components, let's try
 
 ## Automatic unit testing
 
-Now that we are able to test our pipeline, let's make sure it gets tested each time we change our code (like good software developers 🧑‍💻).  
+Now that we are able to test our continuous training pipeline, let's make sure it gets tested each time we change our code (like good software developers 🧑‍💻).  
 To do that, we can simply add it to our training pipeline, which will be ran at any code change.  
 
 1. Go to `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `unit_tests: true` to enable automatic testing:
@@ -52,7 +52,7 @@ To do that, we can simply add it to our training pipeline, which will be ran at 
 
     ![unit-test-task.png](./images/unit-test-task.png)
 
-3. Finally, we can start a pipeline run through an empty commit to our jukebox repo to see how it runs:
+3. If you wish, you can start a pipeline run through an empty commit to our Jukebox repo as below, to see that how unit test runs. However let's add some more exciting tests and checks to our pipeline before kick it!
 
     ```bash
     cd /opt/app-root/src/jukebox

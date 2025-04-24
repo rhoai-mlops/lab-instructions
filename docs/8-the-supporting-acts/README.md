@@ -14,12 +14,17 @@ In this exercise, we’ll enhance the reliability and security of our continuous
 - [ ] Can add security gates to pipeline
 - [ ] Can add testing gates to pipeline
 - [ ] Can add static code analysis gates to pipeline
-- [ ] Can add image signing to the pipeline #WIP
-- [ ] Can generate and store SBOMs #WIP
+- [ ] Can store secrets in Git securely
+- [ ] Can scan the modelcar images
+- [ ] Can add image signing to the pipeline
+- [ ] Can generate and store SBOMs
 
 ## 🔨 Tools used in this exercise
  * <span style="color:blue;">[Sonarqube](https://www.sonarqube.org/)</span> - Add static code analysis to the pipelines.
-* Code Linting - <span style="color:blue;">[black](https://github.com/psf/black)</span> , <span style="color:blue;">[flake8](https://flake8.pycqa.org/en/latest/)</span> , <span style="color:blue;">[pylint](https://pypi.org/project/pylint/)</span>  - Static code linter
+* Code Linting - <span style="color:blue;">[black](https://github.com/psf/black)</span> , <span style="color:blue;">[flake8](https://flake8.pycqa.org/en/latest/)</span> , <span style="color:blue;">[pylint](https://pypi.org/project/pylint/)</span>  - Static code linter.
 * Kube Linting - <span style="color:blue;">[kube-linter](https://docs.kubelinter.io/#/)</span> , <span style="color:blue;">[helm lint](https://helm.sh/docs/helm/helm_lint/)</span>  Validate K8s YAMLs against best practices.
 * Image Security - <span style="color:blue;">[Stackrox](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes)</span> - Finding vulnerabilities inside the images and hosts with StackRox
-* ModelScan - <span style="color:blue;">[modelscan](https://github.com/protectai/modelscan)</span> - scans models to determine if they contain unsafe code
+* ModelScan - <span style="color:blue;">[modelscan](https://github.com/protectai/modelscan)</span> - scans models to determine if they contain unsafe code.
+* SealedSecrets - <span style="color:blue;">[sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)</span> - encrypt your Secret into a SealedSecret, which is safe to store.
+* Image Signing - <span style="color:blue;">[sigstore](https://www.sigstore.dev/)</span> - Sign your images with cosign.
+* SBOMs - <span style="color:blue;">[Syft](https://github.com/anchore/syft)</span> - Generate a Software Bill of Materials (SBOM) from container images.

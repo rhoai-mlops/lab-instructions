@@ -48,14 +48,14 @@ To defend against these, we can scan the model for insecurities before we use it
     Your pipeline should now look like this:  
     ![model-scan-task.png](./images/model-scan-task.png)
 
-3. Create an empty commit to trigger the pipeline and perform scan:
+3. _Optional_: Now you can create an empty commit to trigger the pipeline and perform scan. However you can also continue to grow it with more exciting toolings! 
+
     ```bash
     cd /opt/app-root/src/jukebox
     git commit --allow-empty -m "☢️ trigger pipeline for model scanning ☢️"
     git push
     ```
 
-
-4. You should see an output like this 🎉
+    After pipeline run, you would see an output like this 🎉
 
     ![model-scan-output.png](./images/model-scan-output.png)

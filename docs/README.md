@@ -16,10 +16,10 @@ For example if the git server lives at <code class="language-yaml">https://gitea
 put `gitea-gitea.apps.hivec.sandbox1243.opentlc.com`in the box to generate the correct address for the exercises.
 
 ## 🦆 Conventions
-When running through the exercise, we're tried to call out where things need replacing. The key ones are anything inside an `<>` should be replaced. For example, if your team is called `biscuits` then in the instructions if you see `\<USER_NAME\>` this should be replaced with `biscuits` like so:
+When running through the exercise, we're tried to call out where things need replacing. The key ones are anything inside an `<>` should be replaced. For example, if your team is called `biscuits` then in the instructions if you see `<USER_NAME>` this should be replaced with `biscuits` like so:
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-bash">
-    name: <\USER_NAME\>
+    name: &lt;USER_NAME&gt;
     # ^ this becomes
     name: biscuits
     </code></pre></div>

@@ -9,6 +9,16 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 </head>
 <body>
+  <!-- Added Top Navigation with Dropdown -->
+  <div class="top-navigation">
+    <div class="dropdown">
+      <button class="dropbtn">Quick Links</button>
+      <div class="dropdown-content" id="dynamic-links">
+        <!-- Links will be populated dynamically with JavaScript -->
+      </div>
+    </div>
+  </div>
+
   <div class="user-name-form">
       <div class="user-inputs">
         <label for="uname">User Name</label><br/>
@@ -44,6 +54,36 @@
     document.getElementById("cdomain").value = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '';
     document.getElementById("gitserver").value = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '';
 
+    // Populate dropdown links with dynamic values
+    function populateDropdownLinks() {
+      const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
+      const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
+      
+      const linksContainer = document.getElementById('dynamic-links');
+      if (!linksContainer) return;
+      
+      // Clear existing links
+      linksContainer.innerHTML = '';
+      
+      // Add dynamic links
+      const links = [
+        { name: 'Git Server', url: `https://${gitServer}` },
+        { name: 'OpenShift Console', url: `https://console-openshift-console.${clusterDomain}` },
+        { name: 'OpenShift AI Dashboard', url: `https://rhods-dashboard-redhat-ods-applications.${clusterDomain}` }
+      ];
+      
+      links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.textContent = link.name;
+        a.target = '_blank'; // Open in new tab
+        linksContainer.appendChild(a);
+      });
+    }
+
+    // Call once on page load
+    document.addEventListener('DOMContentLoaded', populateDropdownLinks);
+    
     function setNamesInStorage () {
       let uname = document.getElementById('uname').value.toLowerCase();
       let pass = document.getElementById('pass').value;
@@ -80,6 +120,8 @@
         localStorage.setItem('GIT_SERVER', 'gitea-gitea.' + cdomain);
       }
       location.reload();
+      // Re-populate dropdown links with new values
+      populateDropdownLinks();
     }
 
     function clearStorage () {
@@ -93,6 +135,8 @@
       document.getElementById('cdomain').value = '';
       document.getElementById('gitserver').value = '';
       location.reload();
+      // Update dropdown links after clearing storage
+      populateDropdownLinks();
     }
 
     window.$docsify = {
@@ -238,6 +282,47 @@
       flex-shrink: 0;
       height: 100%;
     }
+    /* Dropdown styling */
+    .top-navigation {
+      position: absolute;
+      top: 40px;
+      right: 100px;
+      z-index: 100;
+    }
+    .dropbtn {
+      background-color: #CC0000;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 4px;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color: #a30000;}
+    
     :root {
       --base-font-size: 14px;
       --base-font-family: "RedHatText",Overpass,"Open Sans",Helvetica,Arial,sans-serif;

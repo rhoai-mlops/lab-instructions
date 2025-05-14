@@ -58,6 +58,7 @@
     function populateDropdownLinks() {
       const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
       const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
+      const username = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
       
       const linksContainer = document.getElementById('dynamic-links');
       if (!linksContainer) return;
@@ -69,7 +70,8 @@
       const links = [
         { name: 'Git Server', url: `https://${gitServer}` },
         { name: 'OpenShift Console', url: `https://console-openshift-console.${clusterDomain}` },
-        { name: 'OpenShift AI Dashboard', url: `https://rhods-dashboard-redhat-ods-applications.${clusterDomain}` }
+        { name: 'OpenShift AI Dashboard', url: `https://rhods-dashboard-redhat-ods-applications.${clusterDomain}` },
+        { name: 'ArgoCD', url: `https://argocd-server-${username}-toolings.${clusterDomain}` }
       ];
       
       links.forEach(link => {

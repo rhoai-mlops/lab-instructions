@@ -16,7 +16,7 @@
     **Notebook Image:** 
 
     - Image selection: `Standard Data Science`
-    - Version selection: `2024.2`
+    - Version selection: `2025.1`
   
     **Deployment size**
     - Container size: `Small`
@@ -25,7 +25,7 @@
     - No need to add one at the moment.
 
     **Cluster storage**
-    - `Create new persistent storage` with size `20 GB`. 
+    - Leave it as max 20 GiB.
 
     **Connections**
     - Select `Attach existing connections`
@@ -34,7 +34,7 @@
 
     And finally, hit `Create workbench`.
 
-4. When the status of the new workbench indicates 'Running', click `Open`.
+4. When the status of the new workbench indicates 'Running', click on the name of the workbench to access.
 
     ![create-a-workbench.png](./images/create-a-workbench.png)
 

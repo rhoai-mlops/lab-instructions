@@ -2,7 +2,7 @@
 * [1. When the Music Starts](1-when-the-music-starts/README.md)
   * [🚀 Data Science Project](1-when-the-music-starts/1-data-science-project.md)
   <!-- * [✨ Git Setup](1-when-the-music-starts/2-git-setup.md) -->
-  * [🎶 Data Connections](1-when-the-music-starts/3-data-connections.md)
+  * [🎶 Connections](1-when-the-music-starts/3-connections.md)
   * [🪴 Data Science Inner Loop](1-when-the-music-starts/4-inner-data-science-loop.md)
 * [2. In the Rhythm of Data](2-in-the-rhythm-of-data/README.md)
   * [🪄 Training Pipeline](2-in-the-rhythm-of-data/1-training-pipeline.md)

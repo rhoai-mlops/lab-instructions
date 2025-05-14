@@ -57,7 +57,7 @@ Before we deploy and test the model, let's get familiar with Model Registry!
 ## Model Registry
 You can view your registered models in OpenShift AI Dashboard and able to deploy the model from there. 
 
-1. Go to `Model Registry` and make sure you are in the right Data Science Project.
+1. Go to `Models` > `Model registry` and see that you are viewing `<USER_NAME>-registry`.
 
 ![model-registry-1.png](./images/model-registry-1.png)
 
@@ -73,20 +73,16 @@ Now that we have our model artifacts saved in a bucket, we can deploy it in our 
 
 Let's give it a try:
 
-1. Go to Model Registry and find the model you just registered. Click `Actions` > `Deploy`.
+1. Go to Model Registry and find the model you just registered. Click `Deploy` and select `<USER_NAME>-jukebox` as your target project to deploy the model.
    
     ![deploy-from-registry.png](./images/deploy-from-registry.png)
 
-
-2. Select `<USER_NAME>-jukebox` as your target project to deploy the model.
-
-    ![deploy-from-registry-2.png](./images/deploy-from-registry-2.png)
-
-3. Update the form with the following information:
+2. Update the form with the following information:
 
 - Model deployment name: `jukebox`
 - Serving runtime: `OpenVino Model Server`
 - Model framework (name - version): `onnx - 1`
+- Deployment mode: `Advanced` 
 - Model server replicas: `1`
 - Model server size: `Small`
 - Model route:

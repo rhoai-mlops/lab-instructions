@@ -57,7 +57,7 @@ Once the model artifact and its versioning information are created, the pipeline
 
     ![argocd-jukebox-deployed](./images/argocd-jukebox-deployed.png)
 
-6. You can also go to OpenShift AI Dashboard, select `Model Serving` in the left menu and then select one of the two projects to see the deployed models, just like we did in the inner loop.
+6. You can also go to OpenShift AI Dashboard, under `Models`, select `Model Serving` in the left menu and then select one of the two projects to see the deployed models, just like we did in the inner loop.
 
     ![rhoai-deployed-models](./images/rhoai-deployed-models.png)
 

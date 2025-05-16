@@ -71,7 +71,7 @@ Ensuring that your models are fair and unbiased is a crucial part of establishin
 
 In our case, we will take a feature of our data (`is_explicit`) and see if the model is biased towards a given country (let's say `France`) when the songs are explicit. 
 
-1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to `OpenShift AI Dashboard` > `Model Serving`. Select `<USER_NAME>-test` project. Go to  `jukebox` and click `Model bias`, then hit `Configure`.
+1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to `OpenShift AI Dashboard` > `Models` > `Model deployments`. Select `<USER_NAME>-test` project. Go to  `jukebox` and click `Model bias`, then hit `Configure`.
 
     ![bias-monitoring.png](./images/bias-monitoring.png)
 
@@ -84,7 +84,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
     - Unprivileged value: `0.0`
     - Output: `output-13`
     - Output value: `0.5`
-    - Violation threshold: `0.1`
+    - Violation threshold: `0,1`
     - Metric batch size: `1000`
 
     ![bias-monitoring-2.png](./images/bias-monitoring-2.png)

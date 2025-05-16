@@ -101,7 +101,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ![data-pipeline-download.gif](./images/data-pipeline-download.gif)
 
-2. In OpenShift AI Dashboard, go to `Data Science Pipelines` > `<USER_NAME>-toolings`, click `Import pipeline`. 
+2. In OpenShift AI Dashboard, go to `Data science pipelines` > `Pipelines`, select `<USER_NAME>-toolings` as the project, and click `Import pipeline`. 
 
     ![import-pipeline-1.png](./images/import-pipeline-1.png)
 
@@ -149,7 +149,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ![view-scheduled-runs.png](./images/view-scheduled-runs.png)
 
-6. But let's not wait for it to run. Just like we scheduled, we can also create an ad-hoc run. Got back to `Data Science Pipelines` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
+6. But let's not wait for it to run. Just like we scheduled, we can also create an ad-hoc run. Got back to `Data science pipelines` > `Pipelines` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
 
     ![create-run.png](./images/create-run.png)
 

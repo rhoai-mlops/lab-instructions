@@ -43,7 +43,7 @@ Then upload the `song-properties-etl.yaml` you just downloaded.
 
     ![run-etl-pipeline-2.png](./images/run-etl-pipeline-2.png)
 
-1. Go back to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` again. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
+6. Go back to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` again. You won't get a dropdown since our frontend isn't synched with our online feature store, but we will now get a prediction on the song!
    
     ![song-id-prediction.png](./images/song-id-prediction.png)
 

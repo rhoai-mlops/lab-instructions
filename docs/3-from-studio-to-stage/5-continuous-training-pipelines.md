@@ -98,7 +98,9 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![pipeline-done.png](./images/pipeline-done.png)
 
-    And you can view the metadata added to your model from the pipeline by navigating to your Model Registry and View Metadata Details `Openshift AI -> <USER_NAME>-model-registry -> user-prod-registry -> jukebox -> <Model Version Link>`.
+    And you can view the metadata added to your model from the pipeline by navigating to your Model Registry and View Metadata Details
+    
+    Go to Models -> Model Registry -> **select** <USER_NAME>-prod-registry -> jukebox -> <Model Version Link>.
 
     ![Model Metadata](./images/model-metadata-info.png)
 

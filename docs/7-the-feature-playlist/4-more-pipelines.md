@@ -24,7 +24,7 @@ With only the most recent data is materialized, we'll reduce unnecessary data lo
 
 3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
    
-4. In `OpenShift AI` dashboard, go to `Data Science Pipelines` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
+4. In `OpenShift AI` dashboard, go to `Data science pipelines` > `Pipelines` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
 Then upload the `song-properties-etl.yaml` you just downloaded.
    
     ![import-new-version.png](./images/import-new-version.png)
@@ -32,8 +32,14 @@ Then upload the `song-properties-etl.yaml` you just downloaded.
 5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately (Actions -> Create Run), use these settings:
 
     - Name: `data-pipeline-with-feast-adhoc-run`
-    - repo_url: `https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git`
-    - dataset_url: `https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet`
+    - repo_url:
+    ```
+    https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox.git
+    ```
+    - dataset_url:
+    ```
+    https://github.com/rhoai-mlops/jukebox/raw/refs/heads/main/99-data_prep/fav_new_song_properties.parquet
+    ```
 
     ![run-etl-pipeline-2.png](./images/run-etl-pipeline-2.png)
 

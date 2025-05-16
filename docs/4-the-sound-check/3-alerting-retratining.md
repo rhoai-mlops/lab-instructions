@@ -50,6 +50,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🚨 Alert definition added 🚨"
     git push

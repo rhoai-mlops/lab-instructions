@@ -66,7 +66,7 @@ The Model Registry serves as our source of truth, tracking which model versions 
 
     ![post-deployment-webhook.png](./images/post-deployment-webhook.png)
 
-6. Now, accept an open PR and observe the pipeline starting automatically. Merge the PR by clicking **Create Merge Commit**:
+6. Now, accept the open PR and observe the pipeline starting automatically. Merge the PR by clicking **Create Merge Commit**:
 
     ![prod-pr-2.png](./images/prod-pr-2.png)
 

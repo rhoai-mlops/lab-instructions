@@ -11,13 +11,13 @@ In this exercise, we’ll enhance the reliability and security of our continuous
 ![big-picture-quality-gate.jpg](./images/big-picture-quality-gate.jpg)
 
 ## 🔮 Learning Outcomes
-- [ ] Can add security gates to pipeline
-- [ ] Can add testing gates to pipeline
-- [ ] Can add static code analysis gates to pipeline
-- [ ] Can store secrets in Git securely
-- [ ] Can scan the modelcar images
-- [ ] Can add image signing to the pipeline
-- [ ] Can generate and store SBOMs
+- [ ] Add security gates to pipeline
+- [ ] Add testing gates to pipeline
+- [ ] Add static code analysis gates to pipeline
+- [ ] Store secrets in Git securely
+- [ ] Scan the modelcar images
+- [ ] Add image signing to the pipeline
+- [ ] Generate and store SBOMs
 
 ## 🔨 Tools used in this exercise
  * <span style="color:blue;">[Sonarqube](https://www.sonarqube.org/)</span> - Add static code analysis to the pipelines.

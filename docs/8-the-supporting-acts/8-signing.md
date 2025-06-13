@@ -28,7 +28,7 @@
     </p>
 
     <p class="tip">
-    😱 If `cosign` command returns error, that means you logged out of the cluster so please run the below command and then run the cosign command again.
+    😱 If <i>cosign</i> command returns error, that means you logged out of the cluster so please run the below command and then run the cosign command again.
     </p>
 
     ```bash

@@ -9,9 +9,9 @@ In this exercise, we’ll enhance traceability by introducing versioning for our
 ![big-picture-dvc.jpg](./images/big-picture-dvc.jpg)
 
 ## 🔮 Learning Outcomes
-- [ ] Can use DVC to version the data 
-- [ ] Can schedule a data pipeline
-- [ ] Can update the training pipeline to use versioned data
+- [ ] Use DVC to version the data 
+- [ ] Schedule a data pipeline
+- [ ] Update the training pipeline to use versioned data
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[DVC](https://dvc.org/)</span> - Manage and version data

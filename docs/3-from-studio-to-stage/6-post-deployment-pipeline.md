@@ -1,6 +1,6 @@
 # Post-Deployment Pipeline
 
-Once the test environment is deployed and validated, and we have ensure the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
+Once the test environment is deployed and validated, and we have ensured the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
 
 A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this, but don't accept it yet! ⚠️ We need to add another pipeline before merging the PR.
 
@@ -66,7 +66,7 @@ The Model Registry serves as our source of truth, tracking which model versions 
 
     ![post-deployment-webhook.png](./images/post-deployment-webhook.png)
 
-6. Now, accept an open PR and observe the pipeline starting automatically. Merge the PR by clicking **Create Merge Commit**:
+6. Now, accept the open PR and observe the pipeline starting automatically. Merge the PR by clicking **Create Merge Commit**:
 
     ![prod-pr-2.png](./images/prod-pr-2.png)
 

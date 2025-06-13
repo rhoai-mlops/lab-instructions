@@ -1,6 +1,6 @@
 # Image Signing
 
-> It is important to verify that the container image we deploy to our clusters has not been tampered and comes from a valid source. This is generally achieved by signing the image after building and verifying the signature before deployment. In this exercise, we will user `cosign` for creating, storing and verifying container image signatures.
+> It is important to verify that the container image we deploy to our clusters has not been tampered and comes from a valid source. This is generally achieved by signing the image after building and verifying the signature before deployment. In this exercise, we will use `cosign` for creating, storing and verifying container image signatures.
 
 ## Before starting, generate your keys
 
@@ -28,7 +28,7 @@
     </p>
 
     <p class="tip">
-    😱 If `cosign` command returns error, that means you logged out of the cluster so please run the below command and then run the cosign command again.
+    😱 If <i>cosign</i> command returns error, that means you logged out of the cluster so please run the below command and then run the cosign command again.
     </p>
 
     ```bash

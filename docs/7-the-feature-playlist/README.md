@@ -9,9 +9,9 @@ In this exercise, we'll introduce the Feature Store concept both in the inner lo
 ![big-picture-feast.jpg](./images/big-picture-feast.jpg)
 
 ## 🔮 Learning Outcomes
-- [ ] Can use Feast in the inner loop
-- [ ] Can introduce transformers using Feast in the outer loop
-- [ ] Can automatically keep the features up to date
+- [ ] Use Feast in the inner loop
+- [ ] Introduce transformers using Feast in the outer loop
+- [ ] Automatically keep the features up to date
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[Feast](https://feast.dev/)</span> - A feature store to store and serve features consistently for offline training and online inference.

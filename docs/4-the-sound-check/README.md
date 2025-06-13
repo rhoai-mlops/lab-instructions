@@ -10,10 +10,10 @@ In this exercise, we will utilize OpenShift's monitoring stack to collect metric
 
 ## 🔮 Learning Outcomes
 
-- [ ] Can deploy the necessary toolings to monitor the model and generate alerts
-- [ ] Can query Prometheus to see metrics from the model and TrustyAI
-- [ ] Can install Grafana and create dashboards to visualize the metrics
-- [ ] Can create search index in OpenShift Logging Stack to store logs
+- [ ] Deploy the necessary toolings to monitor the model and generate alerts
+- [ ] Query Prometheus to see metrics from the model and TrustyAI
+- [ ] Install Grafana and create dashboards to visualize the metrics
+- [ ] Create search index in OpenShift Logging Stack to store logs
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[Prometheus](https://prometheus.io/)</span> - Stores our metrics and used for alerting

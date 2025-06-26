@@ -120,11 +120,11 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   name: jukebox
   version: 68b0c7cf1b
   image_repository: image-registry.openshift-image-registry.svc:5000
-  image_namespace: user1-test
+  image_namespace: <USER_NAME>-test
   autoscaling: true
   canary:
     trafficPercent:
-  feast_server_url: http://feast-server-feast-feature-server.user1-mlops.svc.cluster.local:80 # 👈 New stuff
+  feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80 # 👈 New stuff
   feature_service: serving_fs # 👈 New stuff
   entity_id_name: spotify_id # 👈 New stuff
   </code></pre></div>

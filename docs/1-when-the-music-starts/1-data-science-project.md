@@ -37,10 +37,10 @@
 4. When the status of the new workbench indicates 'Running', click on the name of the workbench to access.
 
     ![create-a-workbench.png](./images/create-a-workbench.png)
-
+<!-- 
    It will open up the Jupyter Notebook UI. You need to use your credentials again to log in. If you see the below screen, click `Allow selected permissions`. That will redirect you to your Jupyter Notebook.
 
-    ![create-a-workbench-4.png](./images/create-a-workbench-4.png)
+    ![create-a-workbench-4.png](./images/create-a-workbench-4.png) -->
 
 5. There are a couple of Git repositories already set up under your username in Gitea server. You can verify them by logging in Gitea [here](https://<GIT_SERVER>):
 

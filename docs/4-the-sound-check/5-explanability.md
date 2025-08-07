@@ -18,7 +18,7 @@ Let's get started.
 
   - Image selection: `TrustyAI`
 
-  - Version selection: `2024.2`
+  - Version selection: `2025.1`
 
   - Container size: `Small`
 

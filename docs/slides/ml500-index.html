@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>ML500 - Slides</title>
+		<style>
+			body {
+				font-family: "RedHatText", Overpass, "Open Sans", Helvetica, Arial, sans-serif;
+				background: #f8f9fa;
+				margin: 0;
+				padding: 20px;
+			}
+			.banner {
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			.redhat-logo {
+				width: 135px;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.slides-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 20px;
+				margin-top: 30px;
+			}
+			.slide-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+			.slide-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+				text-decoration: none;
+				color: inherit;
+			}
+			.slide-title {
+				font-size: 1.5em;
+				font-weight: bold;
+				color: #cc0000;
+				margin-bottom: 10px;
+			}
+			.slide-description {
+				color: #666;
+				line-height: 1.5;
+			}
+			.slide-meta {
+				font-size: 0.9em;
+				color: #999;
+				margin-top: 15px;
+				border-top: 1px solid #eee;
+				padding-top: 10px;
+			}
+			h1 {
+				text-align: center;
+				color: #333;
+				margin-bottom: 20px;
+			}
+			.intro-text {
+				text-align: center;
+				color: #666;
+				margin-bottom: 30px;
+				font-size: 1.1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<img class="redhat-logo" src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark--200.png" alt="Red Hat Logo" style="background: #333; padding: 10px; border-radius: 4px;">
+		</div>
+
+		<div class="container">
+			<h1>ML500 - Machine Learning Operations Slides</h1>
+			<p class="intro-text">
+				Interactive presentation slides for the ML500 course. Click on any slide deck below to view the full presentation.
+			</p>
+
+			<div class="slides-grid">
+				<a href="content?name=0-krap" class="slide-card" target="_blank">
+					<div class="slide-title">0. K.R.A.P Records</div>
+					<div class="slide-description">
+						Introduction to our fictional music label K.R.A.P Records and their journey from a traditional music company to an AI-driven organization. Learn about the challenges they faced and how they're embracing machine learning to revolutionize their business.
+					</div>
+					<div class="slide-meta">
+						🎵 Introduction • 26 slides • Setting the stage for ML500
+					</div>
+				</a>
+
+				<!-- Placeholder for future slide decks -->
+				<div class="slide-card" style="opacity: 0.6; cursor: not-allowed;">
+					<div class="slide-title">1. When the Music Starts</div>
+					<div class="slide-description">
+						Coming soon: Introduction to the ML500 journey and getting started with machine learning operations.
+					</div>
+					<div class="slide-meta">
+						🚀 Coming Soon • Getting Started
+					</div>
+				</div>
+
+				<div class="slide-card" style="opacity: 0.6; cursor: not-allowed;">
+					<div class="slide-title">2. In the Rhythm of Data</div>
+					<div class="slide-description">
+						Coming soon: Data processing, feature engineering, and building robust data pipelines.
+					</div>
+					<div class="slide-meta">
+						📊 Coming Soon • Data Operations
+					</div>
+				</div>
+
+				<div class="slide-card" style="opacity: 0.6; cursor: not-allowed;">
+					<div class="slide-title">3. From Studio to Stage</div>
+					<div class="slide-description">
+						Coming soon: Model deployment, CI/CD for ML, and moving from development to production.
+					</div>
+					<div class="slide-meta">
+						🎭 Coming Soon • Deployment
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

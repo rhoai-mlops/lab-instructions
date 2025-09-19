@@ -1,13 +1,13 @@
 <!-- .slide: data-background-image="images/RH_NewBrand_Background.png" -->
 ## 0-K.R.A.P <!-- {.element: class="course-title"} -->
-### ML500 <!-- {.element: class="title-color"} -->
+### AI500 <!-- {.element: class="title-color"} -->
 
 
 
 
 ## K.R.A.P Records
 
-- ML500
+- AI500
 
 
 

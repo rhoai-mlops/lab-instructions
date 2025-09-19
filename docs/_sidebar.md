@@ -1,5 +1,5 @@
 * [Intro](/)
-* [📊 Slides](slides/ml500-index.html ':ignore')
+* [📊 Slides](slides/ai500-index.html ':ignore')
 * [1. When the Music Starts](1-when-the-music-starts/README.md)
   * [🚀 Data Science Project](1-when-the-music-starts/1-data-science-project.md)
   <!-- * [✨ Git Setup](1-when-the-music-starts/2-git-setup.md) -->

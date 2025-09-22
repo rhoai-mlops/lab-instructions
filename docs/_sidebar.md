@@ -48,4 +48,6 @@
   * [💣 SBOMs](8-the-supporting-acts/9-sboms.md)
 * [9. The Reference Track](9-the-reference-track/README.md)
   * [📖 References](9-the-reference-track/references.md)
+* [10. The Backstage](10-the-backstage/README.md)
+  * [Tooling Installation](10-the-backstage/1-tooling-installation.md)
 <!-- * [9. The Backstage]() -->

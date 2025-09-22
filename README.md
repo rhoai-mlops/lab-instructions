@@ -1,6 +1,6 @@
-## ML500 Tech Exercise Repo
+## AI500 Tech Exercise Repo
 
-The repo holds the content for the ML500 MLOps Enablement
+The repo holds the content for the AI500 MLOps Enablement
 
 🎸🥁🎶 [Top Spotify Songs in 73 Countries](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/code) 🎸🥁🎶
 

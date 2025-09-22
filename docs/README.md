@@ -1,9 +1,9 @@
-# 🎸 🎶 MLOps Lab Exercises (ML500)
+# 🎸 🎶 MLOps Lab Exercises (AI500)
 
-<!-- ## Slide Decks
-Slide decks are published along side the exercise instructions. To add a new slide deck or update any existing ones, simply navigate to `docs/slides/content` and edit and existing file or create a new `.md` file. This will auto generate the slide deck once published. You can view or edit the for testing by running the docsify server. See the GitHub repo for more information
+## Slide Decks
+Slide decks are published along side the exercise instructions. To add a new slide deck or update any existing ones, simply navigate to `docs/slides/content` and edit and existing file or create a new `.md` file. This will auto generate the slide deck once published. See the GitHub repo for more information.
 
-👨‍🏫 👉 [The Published Slides Live Here](https://rhoai-mlops.github.io/lab-instructions/slides/) 👈 🧑‍💻 -->
+👨‍🏫 👉 [The Published Slides Live Here](https://rhoai-mlops.github.io/lab-instructions/slides/ai500-index.html) 👈 🧑‍💻
 
 ## 🪄 Customize The Instructions
 The box on the top of the page allows you to load the docs with variables used by your team prefilled. All you have to do is fill in the boxes on the top of the page with your teams name in the box and the domain your cluster is using and hit `save`. This will persist the values in your local storage for the site - so hitting `clear` will reset these for you if you made a mistake.

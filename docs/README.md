@@ -1,7 +1,7 @@
 # 🎸 🎶 MLOps Lab Exercises (AI500)
 
 ## Slide Decks
-Slide decks are published along side the exercise instructions. To add a new slide deck or update any existing ones, simply navigate to `docs/slides/content` and edit and existing file or create a new `.md` file. This will auto generate the slide deck once published. See the GitHub repo for more information.
+Slide decks are published along side the exercise instructions. 
 
 👨‍🏫 👉 [The Published Slides Live Here](https://rhoai-mlops.github.io/lab-instructions/slides/ai500-index.html) 👈 🧑‍💻
 

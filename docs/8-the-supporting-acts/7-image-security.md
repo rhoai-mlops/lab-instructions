@@ -27,8 +27,7 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
     _And in case you logged out from the cluster, use below commands to login again._
 
     ```bash
-    export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
-    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p <PASSWORD>
+    oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p <PASSWORD>
     ```
 
     Export the StackRox endpoint:

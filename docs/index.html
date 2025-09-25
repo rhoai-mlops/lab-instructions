@@ -57,6 +57,7 @@
     // Populate dropdown links with dynamic values
     function populateDropdownLinks() {
       const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
+      const trimmedClusterDomain = clusterDomain.replace(/^apps\./, '');
       const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
       const username = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
       
@@ -181,10 +182,12 @@
             const userName = localStorage.getItem('USER_NAME') ? localStorage.getItem('USER_NAME') : '<USER_NAME>';
             const passWord = localStorage.getItem('PASSWORD') ? localStorage.getItem('PASSWORD') : '<PASSWORD>';
             const clusterDomain = localStorage.getItem('CLUSTER_DOMAIN') ? localStorage.getItem('CLUSTER_DOMAIN') : '<CLUSTER_DOMAIN>';
+            const trimmedClusterDomain = clusterDomain.replace(/^apps\./, '');
             const gitServer = localStorage.getItem('GIT_SERVER') ? localStorage.getItem('GIT_SERVER') : '<GIT_SERVER>';
             return content.replaceAll('<USER_NAME>', userName)
                     .replaceAll('<PASSWORD>', passWord)
                     .replaceAll('<CLUSTER_DOMAIN>', clusterDomain)
+                    .replaceAll('<TRIMMED_CLUSTER_DOMAIN>', trimmedClusterDomain)
                     .replaceAll('<GIT_SERVER>', gitServer);
           });
 

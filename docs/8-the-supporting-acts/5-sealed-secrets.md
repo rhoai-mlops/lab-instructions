@@ -30,8 +30,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     </p>
 
     ```bash
-    export CLUSTER_DOMAIN=<CLUSTER_DOMAIN>
-    oc login --server=https://api.${CLUSTER_DOMAIN##apps.}:6443 -u <USER_NAME> -p thisisthepassword
+    oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p thisisthepassword
 
     ```
 

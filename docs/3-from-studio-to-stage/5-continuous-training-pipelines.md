@@ -63,12 +63,10 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![add-webhook.png](./images/add-webhook.png)
 
-    You can test the webhook by clicking the URL, and then click `Test Delivery`:
+    You can trigger the webhook by creating an empty commit on the Jukebox repository. Just add a new row to the `README.md` file and click on `Commit changes`:
+    ![empty-commit.png](./images/empty-commit.png)
 
-    ![test-webhook-1.png](./images/test-webhook-1.png)
-    ![test-webhook-2.png](./images/test-webhook-2.png)
-
-7. This test delivery acts as a commit to the Jukebox repository, which in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
+8. This commit in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
 
     First, go to `OpenShift Console` > `Pipelines` > `PipelineRuns` and click the `colorful bar` to see the logs.
 
@@ -94,7 +92,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     The first run of this pipeline will take some time to complete. However, for subsequent runs, we’ll leverage Kubeflow Pipeline’s caching feature, which reuses results from previous steps when inputs haven’t changed. This significantly reduces processing time and speeds up the pipeline 🧚‍♂️🧚‍♂️
 
-8. After the pipeline has finished it should look something like this:
+9. After the pipeline has finished it should look something like this:
 
     ![pipeline-done.png](./images/pipeline-done.png)
 

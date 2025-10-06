@@ -73,7 +73,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
     ![jukebox-edit-readme.png](./images/jukebox-edit-readme.png)
     
     Just add a new row to the file and click on `Commit changes`:
-    ![jukebox-empty-commit.png](./images/ejukebox-empty-commit.png)
+    ![jukebox-empty-commit.png](./images/jukebox-empty-commit.png)
 
 8. This commit in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
 

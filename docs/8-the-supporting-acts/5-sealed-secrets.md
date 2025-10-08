@@ -19,7 +19,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
       currentAdminPassword: "$(echo -n admin | base64 -w0)"
     kind: Secret
     metadata:
-      name: sonarqube
+      name: sonarqube-auth
     EOF
     ```
 
@@ -56,7 +56,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     kind: SealedSecret
     metadata:
       creationTimestamp: null
-      name: sonarqube
+      name: sonarqube-auth
       namespace: <USER_NAME>-toolings
     spec:
       encryptedData:
@@ -104,7 +104,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     # ⬇️ extend by adding sealed secrets below
     secrets:
       # Additional secrets will be added to this list when necessary
-      - name: sonarqube
+      - name: sonarqube-auth
         type: Opaque
         data:
           username: AgAj3JQj+EP23pnzu...

@@ -12,7 +12,7 @@ Now, we can seamlessly switch our current workbench to this new image without lo
 1. Under your `<USER_NAME>-jukebox` project's Workbenches, Select `Edit Workbench` for your `code-server` workbench.
     ![codeserver-notebook-1.png](./images/codeserver-notebook-1.png)
 
-2. Go to `Notebook image` > `Image selection `, and select `ml500-custom-image`. Then click `Update workbench`. 
+2. Go to `Notebook image` > `Image selection `, and select `ml500-code-server`. Then click `Update workbench`. 
 
     ![codeserver-notebook-1.png](./images/codeserver-notebook-2.png)
 

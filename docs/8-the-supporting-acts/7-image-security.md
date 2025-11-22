@@ -153,7 +153,9 @@ Now we can use ACS to help move security **LEFT** in our continuous training pip
     alert_trigger: true 
     apply_feature_changes: true
     unit_tests: true
-    linting: true 
+    linting: true
+    static_code_analysis: true
+    model_scanning: true
     image_scan: true # 👈 add this
     ```
 

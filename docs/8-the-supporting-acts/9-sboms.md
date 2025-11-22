@@ -67,6 +67,7 @@ _This step makes more sense when you use an external image registry and share im
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    model_scanning: true
     image_scan: true
     image_signing: true
     generate_sboms: true # 👈 add this

@@ -99,13 +99,12 @@ However, from an implementation point of view, for KServe, it's pretty similar w
 
 6. With blue-green deployment, either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your code-server.
 
-  ```bash
-  oc get po -l component=predictor -n <USER_NAME>-test
-  ```
-    <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
-    <pre><code class="language-bash"> 
+    ```bash
+    oc get po -l component=predictor -n <USER_NAME>-test
+    ```
+    
+    ```bash
     NAME                                                  READY   STATUS    RESTARTS        AGE
     jukebox-predictor-00023-deployment-7469ddd454-jjsww   6/6     Running   1 (8m46s ago)   8m52s
     jukebox-predictor-00024-deployment-7f8f5fbdff-tp8vh   6/6     Running   1 (25m ago)     25m
-    </code></pre>
-    </div>
+    ```

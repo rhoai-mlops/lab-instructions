@@ -33,16 +33,14 @@ However, from an implementation point of view, for KServe, it's pretty similar w
 
 3. Verify that only one version is running now:
 
-  ```bash
-  oc get isvc jukebox -n <USER_NAME>-test
-  ```
+    ```bash
+    oc get isvc jukebox -n <USER_NAME>-test
+    ```
 
-    <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
-    <pre><code class="language-bash">                                                                                                  
+    ```bash                                                                                               
     NAME      URL                                                                          READY   PREV   LATEST   PREVROLLEDOUTREVISION     LATESTREADYREVISION       AGE
     jukebox   https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>   True    0     100       jukebox-predictor-00023   jukebox-predictor-00024   38h
-    </code></pre>
-    </div>
+    ```
 
 1. Let's check the same approach to verify that we only send traffic to the latest (green) version. Again, go back to Jupyter Notebook and run `jukebox/6-advanced_deployments/1-test_autoscale.ipynb`. Then, in `OpenShift Dashboard`, go to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below.
 

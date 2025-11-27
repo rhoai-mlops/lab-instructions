@@ -2,7 +2,7 @@
 
 > OpenShift’s has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
 
-1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model Deployments view and click on `jukebox` model.
+1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model deployments view and click on `jukebox` model.
 
     ![test-model-serving.png](./images/test-model-serving.png)
 

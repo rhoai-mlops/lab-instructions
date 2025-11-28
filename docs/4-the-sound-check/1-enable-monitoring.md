@@ -69,7 +69,7 @@
 
     Use your OpenShift credentials and click `Allow selected permissions` to log in.
 
-5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-toolings Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
     _Note: it might take some time to sync the dashboard configuration. Just do a hard refresh of the page if you cannot see it in the first try._
 

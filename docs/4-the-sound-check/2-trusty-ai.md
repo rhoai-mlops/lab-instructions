@@ -144,7 +144,7 @@ We might want to see operational and model performance related metrics in the sa
     echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
     ```
 
-    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-toolings Dashboards` > `OpenVINO Model Server - Model Metrics - Trustyai`.
 
     ![grafana-with-trusty.png](./images/grafana-with-trusty.png)
 

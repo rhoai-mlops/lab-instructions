@@ -62,6 +62,7 @@
     and trigger a scan:
 
     ```bash
+    cd /opt/app-root/src
     pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.login=admin -Dsonar.password=<PASSWORD>
     ```
 

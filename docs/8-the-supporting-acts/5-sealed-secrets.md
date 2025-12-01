@@ -15,7 +15,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     apiVersion: v1
     data:
       username: "$(echo -n admin | base64 -w0)"
-      password: "$(echo -n <PASSWORD> | base64 -w0)"
+      password: "$(echo -n <PASSWORD>Strong123_ | base64 -w0)"
       currentAdminPassword: "$(echo -n admin | base64 -w0)"
     kind: Secret
     metadata:

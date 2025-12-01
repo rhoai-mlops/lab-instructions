@@ -19,7 +19,7 @@
     fullnameOverride: sonarqube
     account:
       username: admin
-      password: <PASSWORD>
+      password: <PASSWORD>Strong123_
       currentAdminPassword: admin
     plugins:
       install:
@@ -27,7 +27,7 @@
         - https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/3.1.0/sonar-dependency-check-plugin-3.1.0.jar
     ```
 
-    _Yup, we'd like to update the default admin password of SonarQube AND we are aware that it is not sensible to store credentials as plaintext here but we haven't discussed Secret Management with GitOps, so hang in there!🫣_
+    _What a great way to make a password more secure! Just add some 🍬 sweet numbers and 🧂 salty special characters... Yup, we'd like to update the default admin password of SonarQube AND we are aware that it is not sensible to store credentials as plaintext here but we haven't discussed Secret Management with GitOps, so hang in there!🫣_
 
 3. Push the changes and let Argo CD to deploy SonarQube:
 
@@ -39,7 +39,7 @@
     git push 
     ```
 
-4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `<PASSWORD>`).
+4. Connect to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/) to verify if the installation is successful (username `admin` & password `<PASSWORD>Strong123_`).
 
     _It may take a few minutes to configure SonarQube._
 
@@ -59,11 +59,17 @@
     pip install pysonar-scanner
     ```
 
+    grab the API token:
+
+    ```bash
+    SONARQUBE_TOKEN=$(curl -s -u admin:<PASSWORD>Strong123_ -XPOST https://$(oc get route sonarqube --template='{{ .spec.host }}' -n user2-toolings)/api/user_tokens/generate -d "name=scan&type=GLOBAL_ANALYSIS_TOKEN" | jq -r .token )
+    ```
+
     and trigger a scan:
 
     ```bash
     cd /opt/app-root/src
-    pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.login=admin -Dsonar.password=<PASSWORD>
+    pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.token=$SONARQUBE_TOKEN
     ```
 
 6. When the analysis completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`

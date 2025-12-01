@@ -10,7 +10,7 @@ Let’s get everything deployed!
 
 ## Feast Server and UI
 
-1. In `code-server` workbench, create `feast-server` folder under `mlops-gitops/toolings`.
+1. In `<USER_NAME>-mlops-toolings` workbench (code-server), create `feast-server` folder under `mlops-gitops/toolings`.
    
   ```bash
   mkdir /opt/app-root/src/mlops-gitops/toolings/feast-server
@@ -168,6 +168,7 @@ The model server now expects a song (rather than individual song features) as in
 
   ```bash
   sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.4|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+  sed -i '$a search_as_default: true' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
   ```
 
 2. Let's commit it to git:

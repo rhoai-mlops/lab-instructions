@@ -8,7 +8,7 @@ Canary or A/B deployments are typically used for experiments to measure the effe
 
 However, from an implementation point of view, for KServe, it's pretty similar with Canary deployments. It's just shifting the 100% of the traffic to the new revision of the model. Because KServe keeps each revision definition to provide you an easy rollback options. 
 
-1. If you update `trafficPercent` value as `100`, all the traffic will go to the latest version. Update `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.
+1. If you update `trafficPercent` value as `100`, all the traffic will go to the latest version. Update `mlops-gitops/model-deployments/test/jukebox/config.yaml` on `<USER_NAME>-mlops-toolings` workbench (code-server).
 
     ```bash
     ---
@@ -76,12 +76,11 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     git push
     ```
 
-5. Observe that only the previous version now receives the traffic bu running the `locust` command and checking the metrics:
+5. Observe that only the previous version now receives the traffic bu running the `locust` command:
 
-
-    ```bash
-    oc get isvc jukebox -n <USER_NAME>-test
-    ```
+  ```bash
+  oc get isvc jukebox -n <USER_NAME>-test
+  ```
 
     <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
     <pre><code class="language-bash">                                                                                                  
@@ -90,14 +89,16 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     </code></pre>
     </div>
 
-    ```bash
-    sum(rate(ovms_requests_success[5m])) by (pod) 
-    ```
+6. Then, checking the metrics again in `OpenShift Dashboard`, go to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below.
+
+  ```bash
+  sum(rate(ovms_requests_success[5m])) by (pod) 
+  ```
 
   ![greenblue-metrics.png](./images/greenblue-metrics.png)
 
 
-6. With blue-green deployment, either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your code-server.
+7. With blue-green deployment, either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your `<USER_NAME>-mlops-toolings` workbench (code-server).
 
     ```bash
     oc get po -l component=predictor -n <USER_NAME>-test

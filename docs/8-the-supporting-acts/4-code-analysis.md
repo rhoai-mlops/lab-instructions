@@ -59,11 +59,17 @@
     pip install pysonar-scanner
     ```
 
+    grab the API token:
+
+    ```bash
+    SONARQUBE_TOKEN=$(curl -s -u admin:<PASSWORD>Strong123_ -XPOST https://$(oc get route sonarqube --template='{{ .spec.host }}' -n user2-toolings)/api/user_tokens/generate -d "name=scan&type=GLOBAL_ANALYSIS_TOKEN" | jq -r .token )
+    ```
+
     and trigger a scan:
 
     ```bash
     cd /opt/app-root/src
-    pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.login=admin -Dsonar.password=<PASSWORD>Strong123_
+    pysonar-scanner -Dsonar.host.url=http://sonarqube.<USER_NAME>-toolings.svc.cluster.local:9000 -Dsonar.projectKey=jukebox -Dsonar.token=$SONARQUBE_TOKEN
     ```
 
 6. When the analysis completed, go back to [SonarQube UI](https://sonarqube-<USER_NAME>-toolings.<CLUSTER_DOMAIN>/), refresh the page and see that `jukebox` is under  `Projects`

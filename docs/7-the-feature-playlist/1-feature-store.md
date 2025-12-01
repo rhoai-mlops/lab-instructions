@@ -31,7 +31,7 @@ In our case the `Registry` and `Online Store` will be stored in the same databas
 
 Let’s begin by exploring how to use Feast in the inner loop:  
 
-1. Navigate back to your Jupyter Notebook workbench and open the folder `7-feature_store`.  
+1. Navigate back to your Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) and open the folder `7-feature_store`.  
 2. Inside this folder, locate the `feature_repo` directory. This is where the feature definitions are stored. Open the `features.py` file to review the features we’ve defined.  
 3. Next, open the notebook `1-setup_feast.ipynb` located in the `7-feature_store` folder and execute the cells step-by-step. Then continue with `2-test_load_historical_features.ipynb` and `3-test_load_online_features.ipynb`. This will set up Feast and demonstrate how it works in the inner loop.  
 4. After you go through the notebooks, you can check the features you define in the Feast UI we have set up for the development environment (you will get to deploy it yourself later 💪): [https://feast-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>](https://feast-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>). For example, if you go to `Feature Service` and click `serving_fs`, you'll see the feature definitions we store.

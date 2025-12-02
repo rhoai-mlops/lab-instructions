@@ -13,13 +13,13 @@ To defend against these, we can scan the model for insecurities before we use it
 
 ## Explore Model Scanning
 
-1. We'll use an open source too called `modelscan` to scan the model to determine if they contain unsafe code. Let's go to Jupyter Notebook workbench to first get familiar with the tool. Open up the notebook `8-securing_ai/1-modelscan.ipynb` and go through the cells. 
+1. We'll use an open source too called `modelscan` to scan the model to determine if they contain unsafe code. Let's go to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) to first get familiar with the tool. Open up the notebook `8-securing_ai/1-modelscan.ipynb` and go through the cells. 
 
 ## Include Model Scanning in the pipeline
 
 1. Now, let's create a task in our pipeline after the model is created but before generating the `modelcar` artifact. If the model has vulnerability to attack, no need to store it in our OCI registry since we are not going to deploy it.
 
-    In order to do that, we need to update out update. Go over to code-server workbench and add below line to `mlops-gitops/toolings/ct-pipeline/config.yaml`. It will enable a Tekton task to run basically the same commands you just ran in the Notebook:
+    In order to do that, we need to update out update. Go over to `<USER_NAME>-mlops-toolings` workbench (code-server) and add below line to `mlops-gitops/toolings/ct-pipeline/config.yaml`. It will enable a Tekton task to run basically the same commands you just ran in the Notebook:
 
     ```yaml
     chart_path: charts/pipelines

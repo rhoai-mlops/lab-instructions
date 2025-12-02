@@ -59,3 +59,7 @@ To do that, we can simply add it to our training pipeline, which will be ran at 
     git commit --allow-empty -m "🤞 trigger pipeline for unit-testing 🤞"
     git push
     ```
+
+4. Observe the pipeline passes the `unit-tests` step this time 🥳
+
+    ![unit-test-task.png](./images/unit-test-task-completed.png)

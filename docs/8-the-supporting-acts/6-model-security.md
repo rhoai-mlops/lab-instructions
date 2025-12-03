@@ -31,6 +31,7 @@ To defend against these, we can scan the model for insecurities before we use it
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    static_code_analysis_secret: sonarqube-auth
     model_scanning: true # 👈 add this
     ```
 

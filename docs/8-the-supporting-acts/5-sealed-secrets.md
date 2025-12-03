@@ -125,7 +125,22 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
         - https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/3.1.0/sonar-dependency-check-plugin-3.1.0.jar
     ```
 
-7. Git add, commit, push your changes (GITOPS WOOOO 🪄🪄). 
+7. Let's modify our pipeline to perform static code analysis using the secret created by sealed secret. Again, let's open up `mlops-gitops/toolings/ct-pipeline/config.yaml` and add `static_code_analysis_secret: sonarqube-auth` flag to modify the pipeline [trigger](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/pipelines/templates/triggers/gitea-trigger-template.yaml).
+
+    ```yaml
+    chart_path: charts/pipelines
+    USER_NAME: <USER_NAME>
+    cluster_domain: <CLUSTER_DOMAIN>
+    git_server: <GIT_SERVER> 
+    alert_trigger: true 
+    apply_feature_changes: true
+    unit_tests: true
+    linting: true 
+    static_code_analysis: true
+    static_code_analysis_secret: sonarqube-auth # 👈 this is the change
+    ```
+
+8. Git add, commit, push your changes (GITOPS WOOOO 🪄🪄). 
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
@@ -135,8 +150,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     git push 
     ```
 
-
-8. 🪄 🪄 Log in to Argo CD - you should now see the Sealed Secret application in Argo CD UI. It is unsealed as a regular k8s secret 🪄 🪄
+9. 🪄 🪄 Log in to Argo CD - you should now see the Sealed Secret application in Argo CD UI. It is unsealed as a regular k8s secret 🪄 🪄
 
     If you drill into the `SealedSecret` -  you can verify that the `sonarqube` secret has synced automatically:
 

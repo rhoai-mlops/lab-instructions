@@ -155,6 +155,7 @@ Now we can use ACS to help move security **LEFT** in our continuous training pip
     unit_tests: true
     linting: true
     static_code_analysis: true
+    static_code_analysis_secret: sonarqube-auth
     model_scanning: true
     image_scan: true # 👈 add this
     ```

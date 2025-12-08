@@ -59,7 +59,7 @@
     git push
     ```
 
-4. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana by clicking [here](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>) and view the predefined dashboards for Jukebox. Alternatively, you can use the run the below command in your code-server workbench terminal:
+4. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana by clicking [here](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>) and view the predefined dashboards for Jukebox. Alternatively, you can use the run the below command in your `<USER_NAME>-mlops-toolings` workbench (code-server) terminal:
 
     ```bash
     # get the route and open it in your browser

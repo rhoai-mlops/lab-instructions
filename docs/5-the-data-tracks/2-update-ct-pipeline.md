@@ -6,7 +6,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
 ### Setup MinIO
 
-1. We need to have `data` and `data-cache` buckets in our MLOps environment too. Previously, we were in inner loop, buckets were already there. But in MLOps environment we aim to practice GitOps as much as we can, so we store bucket info as code in Git too. Go back to your `code-server` and update `mlops-gitops/toolings/minio/config.yaml` as below:
+1. We need to have `data` and `data-cache` buckets in our MLOps environment too. Previously, we were in inner loop, buckets were already there. But in MLOps environment we aim to practice GitOps as much as we can, so we store bucket info as code in Git too. Go back to your `<USER_NAME>-mlops-toolings` workbench (code-server) and update `mlops-gitops/toolings/minio/config.yaml` as below:
 
     ```bash
     chart_path: charts/minio
@@ -29,9 +29,9 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
 ### Update CT Pipeline
 
-1. Let's go back to Jupyter Notebook. Now that we got familiar with DVC, we can update our pipeline to stop fetching all the data from GitHub and fetch the song properties data based on the dvc file in `Jukebox` git repository.  For that, we need to comment out the initial `fetch_data()` function and introduce a new one that calls dvc commands.
+1. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science). Now that we got familiar with DVC, we can update our pipeline to stop fetching all the data from GitHub and fetch the song properties data based on the dvc file in `Jukebox` git repository.  For that, we need to comment out the initial `fetch_data()` function and introduce a new one that calls dvc commands.
    
-    In your Jupyter Notebook, open `jukebox/3-prod_datascience/prod_train_save_pipeline.py`, and comment out below line by putting **＃** in front of it, or when you are on that line, hit CTRL (Command) + Shift. 
+    In your Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science), open `jukebox/3-prod_datascience/prod_train_save_pipeline.py`, and comment out below line by putting **＃** in front of it, or when you are on that line, hit CTRL (Command) + Shift. 
 
     <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
     <pre><code class="language-python">
@@ -93,7 +93,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
 ### Data Pipeline with DVC Versioning
 
-1. In your Jupyter Notebook, open up `5-data-versioning/4-data_pipeline_with_dvc_versioning.py` file and run this by clicking ▶️ button.
+1. In your Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science), open up `5-data-versioning/4-data_pipeline_with_dvc_versioning.py` file and run this by clicking ▶️ button.
 
     This time, instead of triggering a pipeline, it created a YAML file containing the pipeline spec. If are in `5-data-versioning/` and refresh it by hitting Refresh button, you should see `song-properties-etl.yaml`
 

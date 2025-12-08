@@ -8,7 +8,7 @@ Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenS
 
 In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models in a repeatable and reproducible manner. By storing configuration definitions in Git, Argo CD will automatically apply those definitions, making the deployment process more efficient and consistent. This means we’ll be working with YAML files—so it’s time to switch to a different workbench: `code-server`. Let’s be honest, Jupyter Notebooks aren’t the best when it comes to working with YAML files and command-line utilities🥲. 
 
-Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>-jukebox` project and get started!
+Let’s create a new workbench next to the existing Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in our `<USER_NAME>-jukebox` project and get started!
 
 1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
 
@@ -88,7 +88,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
-10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
+10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `<USER_NAME>-mlops-toolings` workbench (code-server) and run the following command in the terminal:
 
     ```bash
     echo https://$(oc get route/todolist -n <USER_NAME>-toolings --template='{{.spec.host}}')

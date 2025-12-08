@@ -2,7 +2,7 @@
 
 To successfully run our continuous training pipeline, we need to add two more applications to our MLOps toolset: KubeFlow Registry and the Data Science Pipelines Application (DSPA).
 
-These two were already installed in your dev environment. Now we need to bring them in with GitOps. Go to your `code-server` terminal. 
+These two were already installed in your dev environment. Now we need to bring them in with GitOps. Go to your `<USER_NAME>-mlops-toolings` workbench (code-server) terminal. 
 
 1. In the `mlops-gitops` repository, create a folder named `model-registry` under the `toolings` directory. Then, create a file called `config.yaml` inside the `model-registry` folder. Or simply run the below commands:
 

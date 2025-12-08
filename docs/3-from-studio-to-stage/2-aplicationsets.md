@@ -16,7 +16,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ![gitea-mlops-gitops.png](images/gitea-mlops-gitops.png)
 
-2. Let's go back to the `code-server` terminal and clone the repository.
+2. Let's go back to the `<USER_NAME>-mlops-toolings` workbench (code-server) terminal and clone the repository.
 
     ```bash
     cd /opt/app-root/src
@@ -58,7 +58,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ![argocd-bootstrap-tooling](./images/argocd-bootstrap-tooling.png)
 
-8. As Argo CD sync's the resources we can see them in the cluster as well. In the `code-server` run the following:
+8. As Argo CD sync's the resources we can see them in the cluster as well. In the `<USER_NAME>-mlops-toolings` workbench (code-server) run the following:
 
     ```bash
     oc get projects | grep <USER_NAME>

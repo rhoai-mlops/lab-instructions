@@ -2,7 +2,9 @@
 
 Once the test environment is deployed and validated, and we have ensured the new version functions as expected without introducing regressions, we can proceed with deploying to production by accepting the automatically generated pull request (PR).
 
-A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this, but don't accept it yet! ⚠️ We need to add another pipeline before merging the PR.
+A PR is created in the `mlops-gitops` repository targeting `prod/config.yaml`. To review it, navigate to Gitea UI > `mlops-gitops` repository > Pull Requests. You should see something like this, but don't accept it yet! 
+
+> ⚠️ NOT APPROVE THE **PR** AT THIS MOMENT ⚠️  We need to add another pipeline before merging the PR 😉
 
 ![prod-pr-1.png](./images/prod-pr-1.png)
 

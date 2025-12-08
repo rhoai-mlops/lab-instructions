@@ -52,7 +52,7 @@ Imagine you're a songwriter trying to create hits based on your knowledge of wha
 
 Data drift in this context is like trying to write a hit song based on old trends while the music scene evolves faster than you anticipated. 
 
-1. Let's go back to Jupyter Notebook workbench in `<USER_NAME>-jukebox` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. 
+1. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in `<USER_NAME>-jukebox` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. 
 
 Now that the setup is done in `jukebox/4-metrics/1-trustyai_setup.ipynb`, we will introduce now a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. Please go ahead and execute this notebbok! 
 
@@ -122,7 +122,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
 We might want to see operational and model performance related metrics in the same dashboard. For that, we can extend our previous Grafana dashboard and have a good overview of how the model is doing.
 
-1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard-ml.yaml). In your code-server editor, open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
+1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard-ml.yaml). In your `<USER_NAME>-mlops-toolings` workbench (code-server) editor, open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
 
     ```yaml
     chart_path: charts/grafana

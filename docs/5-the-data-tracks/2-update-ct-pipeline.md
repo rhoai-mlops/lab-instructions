@@ -83,6 +83,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ```bash
     cd /opt/app-root/src/jukebox/
+    git pull
     git add 3-prod_datascience/prod_train_save_pipeline.py
     git commit -m "🍇 fetch data via DVC 🍇"
     git push

@@ -109,6 +109,7 @@ To apply new changes to our feature store, we can add a step to our Continuous T
    
     ```bash
     cd /opt/app-root/src/jukebox/
+    git pull
     git add 7-feature_store/feature_repo/feature_service.py
     git commit -m "🎺 Remove feature loudness 🎺"
     git push

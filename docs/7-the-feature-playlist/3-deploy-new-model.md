@@ -123,7 +123,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   image_namespace: <USER_NAME>-test
   autoscaling: true
   canary:
-    trafficPercent:
+    trafficPercent: 0
   feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80 # 👈 New stuff
   feature_service: serving_fs # 👈 New stuff
   entity_id_name: spotify_id # 👈 New stuff

@@ -103,8 +103,8 @@
 2. Commit the changes to the repo:
 
     ```bash
-    git pull
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🧦 ADD - static code analysis step 🧦"
     git push

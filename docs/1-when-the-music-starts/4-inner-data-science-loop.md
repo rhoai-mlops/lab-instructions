@@ -1,6 +1,6 @@
 ## Data Science Inner Loop
 
-As in traditional software development world, here the inner loop represents the iterative process of building, testing, and refining machine learning models.
+As in the traditional software development world, here the inner loop represents the iterative process of building, testing, and refining machine learning models.
 
 This inner loop is essential in data science because it allows for continuous improvement and optimization of machine learning models. The main stages we usually see in building ML models are as below:
 ![inner-loop.png](./images/inner-loop.png)
@@ -45,7 +45,7 @@ This inner loop is essential in data science because it allows for continuous im
 
     **...**
 
-    ![one-eternity-later-sponge-bo](./images/one-eternity-later-sponge-bob.png)
+    ![one-eternity-later-sponge-bob](./images/one-eternity-later-sponge-bob.png)
 
 2. Welcome back! 👋 You should now have a trained model saved in MinIO, ready to be served using OpenShift AI.
 
@@ -55,7 +55,7 @@ This inner loop is essential in data science because it allows for continuous im
 Before we deploy and test the model, let's get familiar with Model Registry!
 
 ## Model Registry
-You can view your registered models in OpenShift AI Dashboard and able to deploy the model from there. 
+You can view your registered models in OpenShift AI Dashboard and be able to deploy the model from there. 
 
 1. Go to `Models` > `Model registry` and see that you are viewing `<USER_NAME>-registry`.
 
@@ -65,11 +65,11 @@ You can view your registered models in OpenShift AI Dashboard and able to deploy
 
 ![model-registry-2.png](./images/model-registry-2.png)
 
-You can see information like where the model is stored, version, details about model and so on. Right now we don't have much information as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model. Basically we will treat Model Registry as our ✨canonical✨ metadata source. But for now, let's go and deploy the model and verify that it works inside a container and able to return us some prediction.
+You can see information like where the model is stored, version, details about model and so on. Right now we don't have much information as we are still in the experimentation phase. Once we are in the outer loop, we will populate more and more metadata about the model such as which training data was used to generate this model, what was the accuracy level of this model, which pipeline run generated the model. Basically, we will treat Model Registry as our ✨canonical✨ metadata source. But for now, let's go and deploy the model and verify that it works inside a container and is able to return some predictions to us.
 
 ## Model Serving
 
-Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, along with the underlying KServe technology, is that we don’t have to worry about the containerization of the model or the runtime. It abstracts away these complexities. All we have to do is select the right runtime for our model and point where the model is.
+Now that we have our model artifacts saved in a bucket, we can deploy it in our data science project. The beauty of OpenShift AI, along with the underlying KServe technology, is that we don't have to worry about the containerization of the model or the runtime. It abstracts away these complexities. All we have to do is select the right runtime for our model and point to where the model is.
 
 Let's give it a try:
 

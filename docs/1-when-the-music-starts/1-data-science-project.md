@@ -47,7 +47,7 @@
     ```bash
     https://<GIT_SERVER>
     ```
-6. Use the same credentials to login and verify that you have 4 repositories waiting to be user for the upcoming exercises. Spoiler alert: be on the watch out for GitOps 🦄🔥
+6. Use the same credentials to log in and verify that you have 4 repositories waiting to be used for the upcoming exercises. Spoiler alert: be on the watch out for GitOps 🦄🔥
 
   ![gitrepositories.png](./images/gitrepositories.png)
 
@@ -63,4 +63,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-8. Before we get hands on and start experimenting, let’s learn about the storage environment available for us in the next chapter. 🫡
+8. Before we get hands-on and start experimenting, let's learn about the storage environment available for us in the next chapter. 🫡

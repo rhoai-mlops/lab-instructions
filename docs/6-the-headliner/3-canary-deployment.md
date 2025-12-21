@@ -23,7 +23,7 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
     </code></pre>
     </div>
 
-  What this output tells you that the 100% of the traffic is going to the LATEST version.
+  What this output tells you is that the 100% of the traffic is going to the LATEST version.
 
 
 1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on `<USER_NAME>-mlops-toolings` workbench (code-server).  
@@ -40,7 +40,7 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
       trafficPercent: 20 # 👈 add this
     ```
 
-    This will update the `InferenceService` by adding the below config, and spin up the previous version of the model as well, to divide the traffix 80% to 20% among them. 
+    This will update the `InferenceService` by adding the below config, and spin up the previous version of the model as well, to divide the traffic 80% to 20% among them. 
 
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">

@@ -1,6 +1,6 @@
 ## Object Storage
 
-Object storage provides a flexible and scalable way to store large amounts of unstructured data efficiently, making it a popular choice for cloud storage, content distribution, and for our usecase as well! We will use object storage to store our datasets and model artifacts.
+Object storage provides a flexible and scalable way to store large amounts of unstructured data efficiently, making it a popular choice for cloud storage, content distribution, and for our use case as well! We will use object storage to store our datasets and model artifacts.
 
 ### Walk through the Object Storage
 
@@ -14,7 +14,7 @@ MinIO UI: [https://minio-ui-<USER_NAME>-jukebox.<CLUSTER_DOMAIN>](https://minio-
 
 ![minio-ui.png](./images/minio-ui.png)
 
-The `models` bucket is where we will store our models, and the `pipeline` bucket is to store Data Science pipeline artifacts. The other two (`data` and `data-cache` will be useful a bit later, be patient :))
+The `models` bucket is where we will store our models, and the `pipeline` bucket is to store Data Science pipeline artifacts. The other two (`data` and `data-cache`) will be useful a bit later, be patient :)
 
 ## Connections
 

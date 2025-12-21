@@ -1,6 +1,6 @@
 ## User Workload Monitoring
 
-> OpenShift’s has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
+> OpenShift has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
 
 1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model deployments view and click on `jukebox` model.
 
@@ -28,7 +28,7 @@
 
     ![query-metrics.png](./images/query-metrics.png)
 
-    _Note: Ignore the "Access restricted" warning, as is just cosmetic error and doesn't affect the metric query._
+    _Note: Ignore the "Access restricted" warning, as it is just a cosmetic error and doesn't affect the metric query._
 
 ### Deploy Grafana
 

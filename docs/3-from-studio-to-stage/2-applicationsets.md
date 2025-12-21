@@ -35,7 +35,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
       sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/toolings/bootstrap/config.yaml
     ```
 
-5. This is GITOPS - first we need to commit things! Let's get the configuration into git 👇
+5. This is GITOPS - First, we need to commit things! Let's get the configuration into git 👇
 
     ```bash
     cd /opt/app-root/src/mlops-gitops

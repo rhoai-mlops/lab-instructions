@@ -48,7 +48,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     ---
     repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
     chart_path: chart
-    model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
+    model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     model_name: jukebox
     image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6 # 👈 update this
     ```

@@ -18,7 +18,7 @@ The `models` bucket is where we will store our models, and the `pipeline` bucket
 
 ## Connections
 
-1. If you return to the OpenShift AI Dashboard, under `Data Science Projects` > `<USER_NAME>-jukebox`, there is section called `Connections`. There you’ll notice four `Connections` have already been created for you. These connections are objects that store MinIO endpoint and bucket information. You can view their details by clicking the three dots on the right-hand side and selecting `Edit`.
+1. If you return to the OpenShift AI Dashboard, under `Data Science Projects` > `<USER_NAME>-jukebox`, there is a section called `Connections`. There you’ll notice four `Connections` have already been created for you. These connections are objects that store MinIO endpoint and bucket information. You can view their details by clicking the three dots on the right-hand side and selecting `Edit`.
 
 > Connections also help us to expose bucket information as environment variables to our workbenches, allowing us to use such information without hardcoding them into our code.
 

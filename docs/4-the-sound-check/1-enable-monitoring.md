@@ -11,7 +11,7 @@
     ![model-metrics-dashboard.png](./images/model-metrics-dashboard.png)
 
 
-2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift Console` > `Developer view` go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
+2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift Console` > `Developer` view go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
 
     ![model-metrics-dashboard-2.png](./images/model-metrics-dashboard-2.png)
 

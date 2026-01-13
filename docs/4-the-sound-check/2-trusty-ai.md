@@ -54,11 +54,9 @@ Data drift in this context is like trying to write a hit song based on old trend
 
 1. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in `<USER_NAME>-jukebox` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. 
 
-Now that the setup is done in `jukebox/4-metrics/1-trustyai_setup.ipynb`, we will introduce now a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. Please go ahead and execute this notebbok! 
+2. Now that the setup is done in `jukebox/4-metrics/1-trustyai_setup.ipynb`, we will introduce now a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. Please go ahead and execute this notebbok! After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
 
-    After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
-
-2. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
+3. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
     trustyai_meanshift{subcategory=~"danceability|acousticness"}

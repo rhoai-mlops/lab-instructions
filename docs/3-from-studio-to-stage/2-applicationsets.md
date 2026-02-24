@@ -12,7 +12,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     https://<GIT_SERVER>
     ```
 
-    You will see a `mlops-gitops` repository already created for you. It is the git repository that we are going to use for <span style="color:purple;" >GIT</span>Ops purposes. It will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, let's get started!
+    You will see a `mlops-gitops` repository already created for you. It is the git repository that we are going to use for <span style="color:purple;"><b>Git</b></span>Ops purposes. It will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, let's get started!
 
     ![gitea-mlops-gitops.png](images/gitea-mlops-gitops.png)
 

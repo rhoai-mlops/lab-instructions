@@ -14,7 +14,7 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     canary:
@@ -58,7 +58,7 @@ However, from an implementation point of view, for KServe, it's pretty similar w
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     canary:
@@ -96,7 +96,6 @@ However, from an implementation point of view, for KServe, it's pretty similar w
   ```
 
   ![greenblue-metrics.png](./images/greenblue-metrics.png)
-
 
 7. With blue-green deployment, either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your `<USER_NAME>-mlops-toolings` workbench (code-server).
 

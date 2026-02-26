@@ -33,7 +33,7 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     canary:  # 👈 add this
@@ -89,7 +89,6 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
         NAME      URL                                                                           READY   PREV   LATEST   PREVROLLEDOUTREVISION     LATESTREADYREVISION       AGE
         jukebox   https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>   True    80     20       jukebox-predictor-00002   jukebox-predictor-00003   25h
    </code></pre></div>
-
 
 4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can again rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) and re-run `jukebox/6-advanced_deployments/1-test_autoscale.ipynb`.
 

@@ -10,7 +10,7 @@ Luckily for us, autoscaling based on the incoming request load is quite easy wit
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17 # this value can be different for you
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     autoscaling: true # 👈 add this

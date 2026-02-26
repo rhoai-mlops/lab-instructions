@@ -33,7 +33,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     ---
     chart_path: charts/model-deployment/music-transformer # 👈 update this
     name: jukebox
-    version: 4562a17c17 # this value can be different for you
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     ```

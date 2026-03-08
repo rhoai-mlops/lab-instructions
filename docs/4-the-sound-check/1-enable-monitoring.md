@@ -20,10 +20,10 @@
 
 3. You can also query Prometheus by using promql query language to get some info about successful requests to `jukebox` in your test environment. 
 
-    Go to  `Metrics` tab and paste the below query and hit `Enter`.
+    While you are in the `<USER_NAME>-test` project, go to  `Metrics` tab and paste the below query and hit `Enter`.
 
     ```bash
-    ovms_requests_success{namespace="<USER_NAME>-test", interface="REST"}
+    ovms_requests_success{interface="REST"}
     ```
 
     ![query-metrics.png](./images/query-metrics.png)

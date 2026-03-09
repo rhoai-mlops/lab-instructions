@@ -55,7 +55,7 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
     ```
 
 
-3. Go to OpenShift AI Dashboard. Select `Experiments` from the left menu and go to `Experiments and runs`. You'll see there is one run with the status `Running`. Click to see the details of the pipeline run.
+3. Go to OpenShift AI Dashboard. From the left menu, under `Develop & train`, and go to `Pipelines` > `Runs`. You'll see there is one run with the status `Running`. Click to see the details of the pipeline run.
 
     ![experiments.png](./images/experiments.png)
 

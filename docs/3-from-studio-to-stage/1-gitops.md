@@ -12,13 +12,13 @@ In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models
 
 Let’s create a new workbench next to the existing Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in our `<USER_NAME>-jukebox` project and get started!
 
-1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
+1. Go to `OpenShift AI` dashboard > `Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
 
   Select a name you want, could be something like `<USER_NAME>-mlops-toolings` 
 
     For Notebook Image: 
 
-    - Image selection: `code-server`
+    - Image selection: `Code Server | Data Science | CPU | Python 3.12`
 
     Leave the rest as the default and hit `Create workbench`.
   

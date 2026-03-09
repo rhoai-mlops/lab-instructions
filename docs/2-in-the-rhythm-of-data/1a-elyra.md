@@ -4,9 +4,9 @@ Elyra is an open-source project that enables data scientists to create complex p
 
 Now we’ll take the notebooks from the previous exercises and use Elyra to turn them into a streamlined pipeline!
 
-1. Go back to your Workbench, and open up the file `jukebox/2-dev_datascience/4-train_save_model.pipeline`. Notice that the file is has `*.pipeline` extension, this is how Elyra saves the pipeline definition. 
+1. Go back to your Workbench, and open up the file `jukebox/2-dev_datascience/4-train_save_model.pipeline`. Notice that the file has a `*.pipeline` extension, this is how Elyra saves the pipeline definition. 
 
-    You'll see two notebooks connected with a line. First one builds the model and the second one saves it to `models` bucket. The line indicated that the second one only runs if the first one is succesful. These notebooks are the ones we went through in the previous exercise.
+    You'll see two notebooks connected with a line. First one builds the model and the second one saves it to `models` bucket. The line indicates that the second one only runs if the first one is successful. These notebooks are the ones we went through in the previous exercise.
 
     ![elyra.png](./images/elyra.png)
 

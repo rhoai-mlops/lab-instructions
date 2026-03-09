@@ -1,6 +1,6 @@
 # TrustyAI
 
-In traditional software, we mostly care about system's operational expectations like latency and throughput, which we have looked at in the previous section. For a machine learning system, we care about both operational metrics and models performance metrics. For that, we have TrustyAI.
+In traditional software, we mostly care about system's operational expectations like latency and throughput, which we have looked at in the previous section. For a machine learning system, we care about both operational metrics and model performance metrics. For that, we have TrustyAI.
 
 TrustyAI is an open source community dedicated to providing a diverse toolkit for responsible AI development and deployment that maintains projects revolving around model explainability, model monitoring, and responsible model serving. We'll use TrustyAI to detect drifts in data and model to make sure model works as expected.
 
@@ -31,7 +31,7 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
     git push
     ```
 
-4. Check if the TrustyAI is deployed in your `test` and `prod` environment. Go to `Model Serving`, `<USER_NAME>-test` namespace and click on `jukebox` and observe there is a new tab called `Model bias` now.
+4. Check if the TrustyAI is deployed in your `test` and `prod` environment. Go to `Model deployments`, `<USER_NAME>-test` namespace and click on `jukebox` and observe there is a new tab called `Model bias` now.
 
     ![trustyai-model-bias.png](./images/trustyai-model-bias.png)
 
@@ -52,11 +52,11 @@ Imagine you're a songwriter trying to create hits based on your knowledge of wha
 
 Data drift in this context is like trying to write a hit song based on old trends while the music scene evolves faster than you anticipated. 
 
-1. Let's go back to Jupyter Notebook workbench in `<USER_NAME>-jukebox` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. When the setup is done, we will introduce a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. 
+1. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in `<USER_NAME>-jukebox` namespace and configure TrustyAI service to check if there is a drift between the data we used to train our model and the data we get in the requests. Likewise, we will also ask TrustyAI to check the output predictions if there is a drift there too. In the Jupyter Notebook workbench, open up `jukebox/4-metrics/1-trustyai_setup.ipynb` and follow up the instructions. 
 
-    After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
+2. Now that the setup is done in `jukebox/4-metrics/1-trustyai_setup.ipynb`, we will introduce now a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. Please go ahead and execute this notebbok! After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
 
-2. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
+3. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
     trustyai_meanshift{subcategory=~"danceability|acousticness"}
@@ -67,7 +67,7 @@ Data drift in this context is like trying to write a hit song based on old trend
 
 ## Configure TrustyAI for Model Bias
 
-Ensuring that your models are fair and unbiased is a crucial part of establishing trust in your models amonst your users. While fairness can be explored during model training, it is only during deployment that your models have exposure to the outside world. It does not matter if your models are unbiased on the training data, if they are dangerously biased over real-world data, and therefore it is absolutely crucial to monitor your models for fairness during real-world deployments.
+Ensuring that your models are fair and unbiased is a crucial part of establishing trust in your models amongst your users. While fairness can be explored during model training, it is only during deployment that your models have exposure to the outside world. It does not matter if your models are unbiased on the training data, if they are dangerously biased over real-world data, and therefore it is absolutely crucial to monitor your models for fairness during real-world deployments.
 
 In our case, we will take a feature of our data (`is_explicit`) and see if the model is biased towards a given country (let's say `France`) when the songs are explicit. 
 
@@ -120,7 +120,7 @@ In our case, we will take a feature of our data (`is_explicit`) and see if the m
 
 We might want to see operational and model performance related metrics in the same dashboard. For that, we can extend our previous Grafana dashboard and have a good overview of how the model is doing.
 
-1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard-ml.yaml). In your code-server editor, open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
+1. We define everything as code, including our dashboards. You can see the JSON definition of the dashboards in Gitea [here](https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/grafana/templates/grafana-dashboard-ml.yaml). In your `<USER_NAME>-mlops-toolings` workbench (code-server) editor, open up `mlops-gitops/toolings/grafana/config.yaml` file and update as below:
 
     ```yaml
     chart_path: charts/grafana
@@ -144,7 +144,7 @@ We might want to see operational and model performance related metrics in the sa
     echo https://$(oc get route jukebox-grafana-route --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
     ```
 
-    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+    Use `Log in with OpenShift` to login and display the dashboards. Go to `Dashboards` > `grafana <USER_NAME>-toolings Dashboards` > `OpenVINO Model Server - Model Metrics - Trustyai`.
 
     ![grafana-with-trusty.png](./images/grafana-with-trusty.png)
 

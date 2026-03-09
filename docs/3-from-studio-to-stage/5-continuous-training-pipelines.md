@@ -107,7 +107,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     And you can view the metadata added to your model from the pipeline by navigating to your Model Registry and View Metadata Details
     
-    Go to Models -> Model Registry -> **select** <USER_NAME>-prod-registry -> jukebox -> <Model Version Link>.
+    Go to `Models` > `Model registry` > select `<USER_NAME>-prod-registry` in the drop-down > `jukebox` > choose your model version.
 
     ![Model Metadata](./images/model-metadata-info.png)
 

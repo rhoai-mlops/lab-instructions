@@ -14,4 +14,4 @@ In this exercise, we'll cover pre- and post-processing for data and predictions,
 - [ ] Mirror the traffic to monitor the new version under live requests
 
 ## 🔨 Tools used in this exercise
-* <span style="color:blue;">[KServe](https://kserve.github.io/website/master/)</span> - A model inference platform on top of OpenShift
+* <span style="color:blue;">[KServe](https://kserve.github.io/website/docs/intro)</span> - A model inference platform on top of OpenShift

@@ -1,8 +1,8 @@
 ## User Workload Monitoring
 
-> OpenShift’s has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
+> OpenShift has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
 
-1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model Serving view and click on `jukebox` model.
+1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model deployments view and click on `jukebox` model.
 
     ![test-model-serving.png](./images/test-model-serving.png)
 
@@ -11,7 +11,7 @@
     ![model-metrics-dashboard.png](./images/model-metrics-dashboard.png)
 
 
-2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift Console` > `Developer view` go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
+2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift Console` > `Developer` view go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
 
     ![model-metrics-dashboard-2.png](./images/model-metrics-dashboard-2.png)
 
@@ -28,7 +28,7 @@
 
     ![query-metrics.png](./images/query-metrics.png)
 
-    _Note: Ignore the "Access restricted" warning, as is just cosmetic error and doesn't affect the metric query._
+    _Note: Ignore the "Access restricted" warning, as it is just a cosmetic error and doesn't affect the metric query._
 
 ### Deploy Grafana
 
@@ -59,7 +59,7 @@
     git push
     ```
 
-4. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana by clicking [here](https://jukebox-grafana-route-<USER_NAME>-mlops.<CLUSTER_DOMAIN>) and view the predefined dashboards for Jukebox. Alternatively, you can use the run the below command in your code-server workbench terminal:
+4. Once this change has been sync’d (you can check this in Argo CD), let’s login to Grafana by clicking [here](https://jukebox-grafana-route-<USER_NAME>-toolings.<CLUSTER_DOMAIN>) and view the predefined dashboards for Jukebox. Alternatively, you can use the run the below command in your `<USER_NAME>-mlops-toolings` workbench (code-server) terminal:
 
     ```bash
     # get the route and open it in your browser
@@ -69,7 +69,7 @@
 
     Use your OpenShift credentials and click `Allow selected permissions` to log in.
 
-5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-mlops Dashboards` > `OpenVINO Model Server - Model Metrics`.
+5. In order to view the dashboards, go to `Dashboards` > `grafana <USER_NAME>-toolings Dashboards` > `OpenVINO Model Server - Model Metrics`.
 
     _Note: it might take some time to sync the dashboard configuration. Just do a hard refresh of the page if you cannot see it in the first try._
 

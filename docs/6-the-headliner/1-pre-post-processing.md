@@ -13,7 +13,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
 
 ### Enable Transformers
 
-1. Start by going to your `code-server` workbench.
+1. Start by going to your `<USER_NAME>-mlops-toolings` workbench (code-server).
 
 2. The transformer itself works as sidecar container within the model deployment. Let's first see what it looks like. The Python code that is responsible for pre- and post-processing can be found in [here](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/music_transformer/music_transformer.py) in file `mlops-helmcharts/charts/model-deployment/music-transformer/music_transformer/music_transformer.py` alongside with a [Containerfile](https://<GIT_SERVER>/<USER_NAME>/mlops-helmcharts/src/branch/main/charts/model-deployment/music-transformer/Containerfile) to build the transformer image.
 
@@ -27,13 +27,13 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     git pull
     ```
 
-    Now let's update GitOps configuration for using this helm chart. Go to your code-server workbench and open up `mlops-gitops/model-deployments/test/jukebox/config.yaml` and add update `chart_path`:
+    Now let's update GitOps configuration for using this helm chart. Go to your `<USER_NAME>-mlops-toolings` workbench (code-server) and open up `mlops-gitops/model-deployments/test/jukebox/config.yaml` and add update `chart_path`:
 
     ```yaml
     ---
     chart_path: charts/model-deployment/music-transformer # 👈 update this
     name: jukebox
-    version: 4562a17c17 # this value can be different for you
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     ```
@@ -48,7 +48,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     ---
     repo_url: https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/jukebox-ui
     chart_path: chart
-    model_endpoint: https://jukebox-user1-test.<CLUSTER_DOMAIN>
+    model_endpoint: https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>
     model_name: jukebox
     image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6 # 👈 update this
     ```
@@ -81,7 +81,7 @@ In this exercise, we will explore how to implement pre- and post-processing usin
     https://jukebox-ui-<USER_NAME>-test.<CLUSTER_DOMAIN>/
     ```
 
-   Now, the values and countries makes much more sense (we hope 🤭)
+   Now, the values and countries make much more sense (we hope 🤭)
 
     ![jukebox-ui.png](./images/jukebox-ui.png)
 

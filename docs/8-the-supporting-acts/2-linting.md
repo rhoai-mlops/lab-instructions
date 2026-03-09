@@ -172,14 +172,14 @@ We’re adding a new Task to our Tekton pipeline to perform linting before trigg
 
     ![linting-fail.png](./images/linting-fail.png)
 
-5. Let's fix the errors and make the pipeline pass linting step. Go back to the terminal on your code-server workbench and run the following commands:
+5. Let's fix the errors and make the pipeline pass linting step. Go back to the terminal on your `<USER_NAME>-mlops-toolings` workbench (code-server) and run the following commands:
    
     ```bash
     cd /opt/app-root/src/jukebox/3-prod_datascience
     black .
     ```
 
-6. After `black` fixes the formatting, let's push the changes and kick off a new pipeline:
+6. If you wish, after `black` fixes the formatting, let's push the changes and kick off a new pipeline:
 
     ```bash
     cd /opt/app-root/src/jukebox

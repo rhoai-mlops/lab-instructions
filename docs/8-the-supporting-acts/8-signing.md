@@ -52,6 +52,8 @@ _This step makes more sense when you use an external image registry and share im
     unit_tests: true
     linting: true 
     static_code_analysis: true
+    static_code_analysis_secret: sonarqube-auth
+    model_scanning: true
     image_scan: true
     image_signing: true # 👈 add this
     ```
@@ -59,8 +61,8 @@ _This step makes more sense when you use an external image registry and share im
 5. Commit the changes to the repo:
 
     ```bash
-    git pull
     cd /opt/app-root/src/mlops-gitops
+    git pull
     git add .
     git commit -m "🐦‍⬛ ADD - image signing step 🐦‍⬛"
     git push

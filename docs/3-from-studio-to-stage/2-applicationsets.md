@@ -12,11 +12,11 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
     https://<GIT_SERVER>
     ```
 
-    You will see a `mlops-gitops` repository already created for you. It is the git repository that we are going to use for <span style="color:purple;" >GIT</span>Ops purposes. It will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, let's get started!
+    You will see a `mlops-gitops` repository already created for you. It is the git repository that we are going to use for <span style="color:purple;"><b>Git</b></span>Ops purposes. It will serve as a mono-repo holding both our tooling configuration and the model deployment definitions. In the real world, you may want to separate these into different repos! Anyways, let's get started!
 
     ![gitea-mlops-gitops.png](images/gitea-mlops-gitops.png)
 
-2. Let's go back to the `code-server` terminal and clone the repository.
+2. Let's go back to the `<USER_NAME>-mlops-toolings` workbench (code-server) terminal and clone the repository.
 
     ```bash
     cd /opt/app-root/src
@@ -35,7 +35,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
       sed -i -e 's/USER_NAME/<USER_NAME>/g' /opt/app-root/src/mlops-gitops/toolings/bootstrap/config.yaml
     ```
 
-5. This is GITOPS - first we need to commit things! Let's get the configuration into git 👇
+5. This is GITOPS - First, we need to commit things! Let's get the configuration into git 👇
 
     ```bash
     cd /opt/app-root/src/mlops-gitops
@@ -58,7 +58,7 @@ Gitea is a lightweight, self-hosted Git server that allows teams to manage repos
 
     ![argocd-bootstrap-tooling](./images/argocd-bootstrap-tooling.png)
 
-8. As Argo CD sync's the resources we can see them in the cluster as well. In the `code-server` run the following:
+8. As Argo CD sync's the resources we can see them in the cluster as well. In the `<USER_NAME>-mlops-toolings` workbench (code-server) run the following:
 
     ```bash
     oc get projects | grep <USER_NAME>

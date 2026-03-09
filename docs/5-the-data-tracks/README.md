@@ -2,7 +2,7 @@
 >  Data versioning is the practice of keeping track of different versions of a dataset as it changes over time.
 
 ## 👨‍🍳 Exercise Intro
-In this exercise, we’ll enhance traceability by introducing versioning for our training data. We’ll build a scheduled ETL pipeline that versions the updated training data and pushes the data version information to the Jukebox repository. This action will automatically trigger the training pipeline to use the newly versioned data for model training.
+In this exercise, we’ll enhance traceability by introducing versioning for our training data. We’ll build a scheduled ETL (Extract, Transform, Load) pipeline that versions the updated training data and pushes the data version information to the Jukebox repository. This action will automatically trigger the training pipeline to use the newly versioned data for model training.
 
 ## 🖼️ Big Picture
 

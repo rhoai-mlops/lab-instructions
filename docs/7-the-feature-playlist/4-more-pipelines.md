@@ -19,7 +19,7 @@ With only the most recent data is materialized, we'll reduce unnecessary data lo
    
     ![search-in-ui.png](./images/search-in-ui.png)
 
-2. Go to your `Jupyter Notebook` workbench, open up `jukebox/7-feature_store/5-data_pipeline_with_materialize.py` and press the Run button.
+2. Go to your Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science), open up `jukebox/7-feature_store/5-data_pipeline_with_materialize.py` and press the Run button.
     ![run-etl-pipeline.png](./images/run-etl-pipeline.png)
 
 3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
@@ -109,6 +109,7 @@ To apply new changes to our feature store, we can add a step to our Continuous T
    
     ```bash
     cd /opt/app-root/src/jukebox/
+    git pull
     git add 7-feature_store/feature_repo/feature_service.py
     git commit -m "🎺 Remove feature loudness 🎺"
     git push

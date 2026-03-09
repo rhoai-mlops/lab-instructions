@@ -1,14 +1,16 @@
 ## 🐙 ArgoCD - GitOps Controller 
+
 Let’s start with GitOps! GitOps is important in MLOps because it provides a consistent, automated way to manage machine learning workflows and model deployments, ensuring that everything is versioned, traceable, and reproducible. By using Git as the single source of truth, teams can easily track changes, manage configurations, and ensure that models and applications are always deployed in the correct state.
 
 To put GitOps into action, we’ll use Argo CD as our GitOps engine.
 
 ### Argo CD Applications
+
 Argo CD is one of the most popular GitOps tools. It keeps the state of our OpenShift applications synchronized with our git repos. It is a controller that reconciles what is stored in our git repo (desired state) against what is live in our cluster (actual state). 
 
 In the context of MLOps, we’ll leverage Argo CD to deploy our tools and models in a repeatable and reproducible manner. By storing configuration definitions in Git, Argo CD will automatically apply those definitions, making the deployment process more efficient and consistent. This means we’ll be working with YAML files—so it’s time to switch to a different workbench: `code-server`. Let’s be honest, Jupyter Notebooks aren’t the best when it comes to working with YAML files and command-line utilities🥲. 
 
-Let’s create a new workbench next to the existing Jupyter Notebook workbench in our `<USER_NAME>-jukebox` project and get started!
+Let’s create a new workbench next to the existing Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) in our `<USER_NAME>-jukebox` project and get started!
 
 1. Go to `OpenShift AI` > `Data Science Projects` > `<USER_NAME>-jukebox` >  `Workbenches` and click `Create workbench`
 
@@ -46,7 +48,6 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
   ![argocd-running.png](./images/argocd-running.png)
 
-
 4. When all the pods are up and running, we can login to the UI of ArgoCD by clicking [here](https://argocd-server-<USER_NAME>-toolings.<CLUSTER_DOMAIN>). 
    
    Alternatively, you can get the URL by running the below command and open it in a new browser tab.
@@ -54,6 +55,11 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
   ```bash
   echo https://$(oc get route argocd-server --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
   ```
+
+  <p class="tip">
+    ⛷️ <b>TIP</b> ⛷️ - Remember the <b>Quick Links</b> in the top right provides the necessary
+    links such as OpenShift console, OpenShift AI Dashboard, Argo CD and others.
+  </p>
 
 5. Login to Argo CD by clicking `Log in via OpenShift` and use the OpenShift credentials provided.
 
@@ -88,7 +94,7 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
 
   ![argocd-todolist-2.png](./images/argocd-todolist-2.png)
 
-10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `code-server` and run the following command in the terminal:
+10. You can verify the little todolist application is running and behaving as expected by navigating to the url of the app. Go back to your `<USER_NAME>-mlops-toolings` workbench (code-server) and run the following command in the terminal:
 
     ```bash
     echo https://$(oc get route/todolist -n <USER_NAME>-toolings --template='{{.spec.host}}')
@@ -97,6 +103,3 @@ Let’s create a new workbench next to the existing Jupyter Notebook workbench i
   _You can CMD/CTRL + click on the URL to open it in a new browser tab._
   
 🪄🪄 Magic! You now have a GitOps controller - Argo CD and got it to manually deploy an application for you. Next up, we’ll make Argo CD do some more GitOps 🪄🪄
-
-
-

@@ -56,7 +56,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
     git push
     ```
 
-5. Let's go to OpenShift Console in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. 
+5. Let's go to OpenShift Console in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. If you are still not seeing a `Firing` state, make sure you executed the drift-introducing notebook in the previous chapter "TrustyAI".
 
     ![alert-1.png](./images/alert-1.png)
 
@@ -67,7 +67,7 @@ Monitoring and receiving alerts about critical events like data drift or bias ar
 
 When a drift or other anomaly is detected, we can trigger an automated retraining pipeline to address the issue, a great strategy if you are able to train on fresh data coming in. Let's configure Alert Manager to trigger the pipeline.
 
-1. Create `Alertmanager Config` that knows the webhook URL of Tekton pipeline. Update `test/alerting/config.yaml` and `prod/alerting/config.yaml` as below to enable this configuration:
+1. Create an `Alertmanager Config` that knows the webhook URL of the Tekton pipeline. Update `test/alerting/config.yaml` and `prod/alerting/config.yaml` as below to enable this configuration:
 
     ```yaml
     chart_path: charts/alerting
@@ -77,7 +77,7 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     alert_manager: true # 👈 add this
     ```
 
-    This is to create an AlertManager config pointing the Tekton pipeline's webhook:
+    This is to create an Alertmanager Config pointing to the Tekton pipeline's webhook:
 
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">

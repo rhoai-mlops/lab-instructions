@@ -31,9 +31,9 @@ Let's start by moving some data into the bucket.
 
     ![etl-pipeline.png](./images/etl-pipeline.png)
 
-    Lets wait for it complete successfully.
+    Let's wait for it to complete successfully.
 
-    ![ett-pipeline-2.png](./images/etl-pipeline-2.png)
+    ![etl-pipeline-2.png](./images/etl-pipeline-2.png)
 
 
 ## Data Versioning

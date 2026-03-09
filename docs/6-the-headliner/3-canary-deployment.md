@@ -8,7 +8,7 @@ Canary deployments, or A/B deployments, generally imply running two versions of 
 
 ![canary-diagram.png](./images/canary-diagram.png)
 
-KServe can distribute the traffic that coming to model endpoint. But how does it do it? KServe holds the information of each version of the models we deploy. By default, it sends 100% traffic to the latest deployed version. See this by running the following command in code-server terminal.
+KServe can distribute the traffic that coming to model endpoint. But how does it do it? KServe holds the information of each version of the models we deploy. By default, it sends 100% traffic to the latest deployed version. See this by running the following command in `<USER_NAME>-mlops-toolings` workbench (code-server) terminal.
 
   ```bash
   oc get isvc jukebox -n <USER_NAME>-test
@@ -23,24 +23,24 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
     </code></pre>
     </div>
 
-  What this output tells you that the 100% of the traffic is going to the LATEST version.
+  What this output tells you is that the 100% of the traffic is going to the LATEST version.
 
 
-1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on code-server workbench.  
+1. Let's enable canary deployment in `InferenceService` for test environment by updating `mlops-gitops/model-deployments/test/jukebox/config.yaml` on `<USER_NAME>-mlops-toolings` workbench (code-server).  
 ⚠️Note that we REMOVE the autoscaling line, this is to make the metrics a bit easier to interpret⚠️
 
     ```bash
     ---
     chart_path: charts/model-deployment/music-transformer
     name: jukebox
-    version: 4562a17c17
+    version: 4562a17c17 # 🚩⚠️ this value can be different for you
     image_repository: image-registry.openshift-image-registry.svc:5000
     image_namespace: <USER_NAME>-test
     canary:  # 👈 add this
       trafficPercent: 20 # 👈 add this
     ```
 
-    This will update the `InferenceService` by adding the below config, and spin up the previous version of the model as well, to divide the traffix 80% to 20% among them. 
+    This will update the `InferenceService` by adding the below config, and spin up the previous version of the model as well, to divide the traffic 80% to 20% among them. 
 
     <div class="highlight" style="background: #f7f7f7">
     <pre><code class="language-yaml">
@@ -90,8 +90,7 @@ KServe can distribute the traffic that coming to model endpoint. But how does it
         jukebox   https://jukebox-<USER_NAME>-test.<CLUSTER_DOMAIN>   True    80     20       jukebox-predictor-00002   jukebox-predictor-00003   25h
    </code></pre></div>
 
-
-4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can again rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook and re-run `jukebox/6-advanced_deployments/1-test_autoscale.ipynb`.
+4. Let's check if we are really able to send 20% of the traffic to the latest version while the rest of the traffic is being handled by the previous version. We can again rely on `locust` to generate some traffic again. Let's go back to Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench (Standard Data Science) and re-run `jukebox/6-advanced_deployments/1-test_autoscale.ipynb`.
 
 5. To verify that requests are hitting both models and splitting at an 80% to 20% ratio, you can check the metrics. Open the `OpenShift Dashboard` and switch to the `Developer` view. Navigate to `Observe` > `Metrics` in `<USER_NAME>-test` namespace. Use the query below to filter and group the number of requests by pods. The resulting values should approximate an 80%-20% split. 
 

@@ -10,7 +10,7 @@ Let’s get everything deployed!
 
 ## Feast Server and UI
 
-1. In `code-server` workbench, create `feast-server` folder under `mlops-gitops/toolings`.
+1. In `<USER_NAME>-mlops-toolings` workbench (code-server), create `feast-server` folder under `mlops-gitops/toolings`.
    
   ```bash
   mkdir /opt/app-root/src/mlops-gitops/toolings/feast-server
@@ -64,8 +64,8 @@ Let’s get everything deployed!
   ```yaml
   chart_path: charts/feast-ui
   feast-feature-server:
-    feature_store_yaml_base64: cHJvamVjdDogbXVzaWMKcHJvdmlkZXI6IGxvY2FsCnJlZ2lzdHJ5OgogICAgcmVnaXN0cnlfdHlwZTogc3FsCiAgICBwYXRoOiBwb3N0Z3Jlc3FsOi8vZmVhc3Q6ZmVhc3RAZmVhc3Q6NTQzMi9mZWFzdAogICAgY2FjaGVfdHRsX3NlY29uZHM6IDYwCiAgICBzcWxhbGNoZW15X2NvbmZpZ19rd2FyZ3M6CiAgICAgICAgZWNobzogZmFsc2UKICAgICAgICBwb29sX3ByZV9waW5nOiB0cnVlCm9ubGluZV9zdG9yZToKICAgIHR5cGU6IHBvc3RncmVzCiAgICBob3N0OiBmZWFzdAogICAgcG9ydDogNTQzMgogICAgZGF0YWJhc2U6IGZlYXN0CiAgICBkYl9zY2hlbWE6IGZlYXN0CiAgICB1c2VyOiBmZWFzdAogICAgcGFzc3dvcmQ6IGZlYXN0Cm9mZmxpbmVfc3RvcmU6CiAgICB0eXBlOiBmaWxlCmVudGl0eV9rZXlfc2VyaWFsaXphdGlvbl92ZXJzaW9uOiAyCg==
-    feast_mode: ui
+      feature_store_yaml_base64: cHJvamVjdDogbXVzaWMKcHJvdmlkZXI6IGxvY2FsCnJlZ2lzdHJ5OgogICAgcmVnaXN0cnlfdHlwZTogc3FsCiAgICBwYXRoOiBwb3N0Z3Jlc3FsOi8vZmVhc3Q6ZmVhc3RAZmVhc3Q6NTQzMi9mZWFzdAogICAgY2FjaGVfdHRsX3NlY29uZHM6IDYwCiAgICBzcWxhbGNoZW15X2NvbmZpZ19rd2FyZ3M6CiAgICAgICAgZWNobzogZmFsc2UKICAgICAgICBwb29sX3ByZV9waW5nOiB0cnVlCm9ubGluZV9zdG9yZToKICAgIHR5cGU6IHBvc3RncmVzCiAgICBob3N0OiBmZWFzdAogICAgcG9ydDogNTQzMgogICAgZGF0YWJhc2U6IGZlYXN0CiAgICBkYl9zY2hlbWE6IGZlYXN0CiAgICB1c2VyOiBmZWFzdAogICAgcGFzc3dvcmQ6IGZlYXN0Cm9mZmxpbmVfc3RvcmU6CiAgICB0eXBlOiBmaWxlCmVudGl0eV9rZXlfc2VyaWFsaXphdGlvbl92ZXJzaW9uOiAyCg==
+      feast_mode: ui
   ```
 
   It has the exact same config, pointing to PostgreSQL to visualize the features stored in the registry.
@@ -123,7 +123,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   image_namespace: <USER_NAME>-test
   autoscaling: true
   canary:
-    trafficPercent:
+    trafficPercent: 0
   feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80 # 👈 New stuff
   feature_service: serving_fs # 👈 New stuff
   entity_id_name: spotify_id # 👈 New stuff
@@ -168,6 +168,7 @@ The model server now expects a song (rather than individual song features) as in
 
   ```bash
   sed -i 's|image: quay.io/rhoai-mlops/jukebox-ui:transformer-1.6|image: quay.io/rhoai-mlops/jukebox-ui:feast-1.4|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
+  sed -i '$a search_as_default: true' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox-ui/config.yaml
   ```
 
 2. Let's commit it to git:

@@ -14,7 +14,7 @@ In this exercise, we will walk through a `Data Science Project` and familiarize 
 - Get familiar with OpenShift AI and its components
 - Set up a workbench and start experimenting
 
-## 🔨 Tools used in this exercise
+## 🔨 Tools Used in this Exercise
 * <span style="color:blue;">[Jupyter Notebook](https://jupyter.org/)</span> - A web-based interactive development environment for notebooks, code, and data 
 * <span style="color:blue;">[Minio](https://min.io/)</span> - Open Source object storage system 
 * <span style="color:blue;">[Kubeflow Model Registry](https://www.kubeflow.org/docs/components/model-registry/)</span> - Provides a central index for Machine Learning model metadata

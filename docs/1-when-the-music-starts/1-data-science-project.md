@@ -8,7 +8,6 @@
 
 ![datascienceproject-2.png](./images/datascienceproject-2.png)
 
-
 3. Let's create a notebook. Click `Create a Workbench`. OpenShift AI Dashboard is pretty intuitive, isn't it? :)
 
    Select a name you want, could be something like `<USER_NAME>-hitmusic-wb` 🎺
@@ -42,10 +41,12 @@
 4. When the status of the new workbench indicates `Running`, click on the name of the workbench to access.
 
     ![create-a-workbench.png](./images/create-a-workbench.png)
-<!-- 
-   It will open up the Jupyter Notebook UI. You need to use your credentials again to log in. If you see the below screen, click `Allow selected permissions`. That will redirect you to your Jupyter Notebook.
 
-    ![create-a-workbench-4.png](./images/create-a-workbench-4.png) -->
+<!-- 
+    It will open up the Jupyter Notebook UI. You need to use your credentials again to log in. If you see the below screen, click `Allow selected permissions`. That will redirect you to your Jupyter Notebook.
+
+    ![create-a-workbench-4.png](./images/create-a-workbench-4.png)
+-->
 
 1. There are a couple of Git repositories already set up under your username in Gitea server. You can verify them by logging in Gitea [here](https://<GIT_SERVER>). Use the same username and password.
 
@@ -68,4 +69,4 @@
 
     ![jupyter-notebook-ui.png](./images/jupyter-notebook-ui.png)
 
-8. Before we get hands on and start experimenting, let’s learn about the storage environment available for us in the next chapter. 🫡
+8. Before we get hands-on and start experimenting, let's learn about the storage environment available for us in the next chapter. 🫡

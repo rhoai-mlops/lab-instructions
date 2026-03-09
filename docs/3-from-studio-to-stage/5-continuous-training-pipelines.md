@@ -49,9 +49,6 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![ct-pipeline.png](./images/ct-pipeline.png)
 
-    _Note: If you are seeing PVCs are still in Progressing status on Argo CD, it is because the OpenShift cluster is waiting for the first consumer, a.k.a. the first pipeline run, to create the Persistent Volumes. The sync status will be green after the first run._
-
-    ![pvc-progressing.png](./images/pvc-progressing.png)
 
 5. Now, let's take the webhook and add it to the Jukebox repository. Run the below command and copy the webhook URL:
 
@@ -75,7 +72,7 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
     Just add a new row to the file and click on `Commit changes`:
     ![jukebox-empty-commit.png](./images/jukebox-empty-commit.png)
 
-8. This commit in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
+7. This commit in turn triggers the pipeline! We will monitor the pipeline’s progress both from OpenShift Console `PipelineRuns` view and on OpenShift AI’s `Data Science Pipeline` > `Runs` view. (too many pipelines!🙈)
 
     First, go to `OpenShift Console` > `Pipelines` > `PipelineRuns` and click the `colorful bar` to see the logs.
 
@@ -93,23 +90,28 @@ In this exercise, we will set up OpenShift Pipelines (Tekton) to automatically t
 
     ![pipeline-running-state.png](./images/pipeline-running-state.png)
 
-    As soon as the Kubeflow pipeline has been triggered, you can go to the `OpenShift AI Dashboard` >  `Experiments` > `Experiments and Runs` and click the current run to see the details.
+    As soon as the Kubeflow pipeline has been triggered, you can go to the `OpenShift AI Dashboard` >  `Develop & train` > `Pipelines` > `Runs` and click the current run to see the details. Make sure you are in `<USER_NAME>-toolings` projct.
 
     ![openshift-ai-pipeline.png](./images/openshift-ai-pipeline.png)
+
+    Alternatively, you can also go to `OpenShift AI Dashboard` >  `Develop & train` > `Pipelines` > `Experiments` to view and manage your experiments in a grouped manner. The runs we trigger will be groupped under `jukebox-model-training` experiment.
+
+    ![openshift-ai-pipeline-2.png](./images/openshift-ai-pipeline-2.png)
 
     The pipeline will build the model, containerize it, deploy it, and save the information to the Kubeflow Registry, just like we did manually in the Data Science inner loop!!
 
     The first run of this pipeline will take some time to complete. However, for subsequent runs, we’ll leverage Kubeflow Pipeline’s caching feature, which reuses results from previous steps when inputs haven’t changed. This significantly reduces processing time and speeds up the pipeline 🧚‍♂️🧚‍♂️
 
-9. After the pipeline has finished it should look something like this:
+8. After the pipeline has finished it should look something like this:
 
     ![pipeline-done.png](./images/pipeline-done.png)
 
     And you can view the metadata added to your model from the pipeline by navigating to your Model Registry and View Metadata Details
     
-    Go to `Models` > `Model registry` > select `<USER_NAME>-prod-registry` in the drop-down > `jukebox` > choose your model version.
+    Go to `AI Hub` > `Registry` > select `<USER_NAME>-prod-registry` in the drop-down > `jukebox` > choose your model version.
 
     ![Model Metadata](./images/model-metadata-info.png)
 
     And you should have a new deployment with your model in your `<USER_NAME>-test` namespace as well as a PR raised to your `mlops-gitops` repo 👏 More about the PR in the next section.  
+    
     ⚠️ Don't accept the PR yet ⚠️

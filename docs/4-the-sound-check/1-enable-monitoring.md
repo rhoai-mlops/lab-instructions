@@ -2,7 +2,7 @@
 
 > OpenShift has monitoring capabilities built in. It deploys the Prometheus stack and integrates into the OpenShift Console for consuming cluster metrics. 
 
-1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `<USER_NAME>-test` > Models > Model deployments view and click on `jukebox` model.
+1. Let's view some out of the box dashboards. Go to OpenShift AI Dashboard > `AI Hub` > `Deployment` > and click on the jukebox model that is deployed on <USER_NAME>-test namespace.
 
     ![test-model-serving.png](./images/test-model-serving.png)
 
@@ -11,16 +11,17 @@
     ![model-metrics-dashboard.png](./images/model-metrics-dashboard.png)
 
 
-2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. On the `OpenShift Console` > `Developer` view go to `Observe`, it should show basic health indicators just like `OpenShift AI Dashboard`. 
+2. There are other metrics that the runtime exposes and OpenShift collects out of the box. You can run queries for the existing metrics easily with `promql`, a query language for Prometheus, and then decide if there are more metrics you would like to visualize. 
+
+    On the `OpenShift Console`, go to `Observe`, it should show basic resource usage metrics. 
 
     ![model-metrics-dashboard-2.png](./images/model-metrics-dashboard-2.png)
 
     There are multiple dashboards already ready for you to observe your deployed model `jukebox`. Generate some traffic by using the Jukebox UI and check here!
 
-
 3. You can also query Prometheus by using promql query language to get some info about successful requests to `jukebox` in your test environment. 
 
-    While you are in the `<USER_NAME>-test` project, go to  `Metrics` tab and paste the below query and hit `Enter`.
+    While you are in the `<USER_NAME>-test` project, go to `Observe` > `Metrics`  and paste the below query and hit `Enter`.
 
     ```bash
     ovms_requests_success{interface="REST"}
@@ -28,7 +29,6 @@
 
     ![query-metrics.png](./images/query-metrics.png)
 
-    _Note: Ignore the "Access restricted" warning, as it is just a cosmetic error and doesn't affect the metric query._
 
 ### Deploy Grafana
 

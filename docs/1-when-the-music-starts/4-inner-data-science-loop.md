@@ -57,11 +57,11 @@ Before we deploy and test the model, let's get familiar with Model Registry!
 ## Model Registry
 You can view your registered models in OpenShift AI Dashboard and able to deploy the model from there. 
 
-1. Go to `Models` > `Model registry` and see that you are viewing `<USER_NAME>-registry`.
+1. Go to `AI Hub` > `Registry` and see that you are viewing `<USER_NAME>-registry`.
 
 ![model-registry-1.png](./images/model-registry-1.png)
 
-2. Click on `jukebox` and list the versions available. For now, we only have `0.0.1` version.
+2. Click on `0.0.1` to see the details of your newly built model.
 
 ![model-registry-2.png](./images/model-registry-2.png)
 
@@ -77,28 +77,34 @@ Let's give it a try:
    
     ![deploy-from-registry.png](./images/deploy-from-registry.png)
 
-2. Update the form with the following information:
+2. You'll see that model location information is already filled out for us. Then you can select `Predictive model` as the Model type, and click `Next`
 
-- Model deployment name: `jukebox`
-- Serving runtime: `OpenVino Model Server`
-- Model framework (name - version): `onnx - 1`
-- Deployment mode: `Advanced` 
-- Model server replicas: `1`
-- Model server size: `Small`
-- Model route:
+    ![deploy-model-form-1.png](./images/deploy-model-form-1.png)
+
+3. Make sure that you update **Model deployment name** as `jukebox`, and for **Model framework (name - version)** pick `onnx-1`.
+
+    ![deploy-model-form-2.png](./images/deploy-model-form-2.png)
+
+    And click `Next`.
+
+4. For Model access:
   -  Select `Make deployed models available through an external route`
   -  **Uncheck** Require token authentication for now
 
-    ..leave the rest as it is and hit `Deploy`
+    ![deploy-model-form-3.png](./images/deploy-model-form-3.png)
 
-    ![jukebox.png](./images/jukebox.png)
-    ![jukebox-2.png](./images/jukebox-2.png)
+    And one last time, click `Next`.
 
-1. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model!  
+5. Review your inputs and click `Deploy model`.
+
+    ![deploy-model-form-4.png](./images/deploy-model-form-4.png)
+
+6. It might take some time due to all the things OpenShift AI does in the background (pulling the runtime image, downloading your model from the bucket, copying the model to the correct folder, and starting the runtime). But eventually, you’ll get an endpoint that allows you to interact with the model! 
+   
 You can also try refreshing the page if it's taking too long.
 
     ![jukebox-deployed.png](./images/jukebox-deployed.png)
 
-2. Copy the **External URL** and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶
+7. Copy the **External URL** and return to your Workbench. Open the `jukebox/2-dev_datascience/3-request_model.ipynb` notebook and follow the instructions to make some sweet predictions 🎶
 
     ![jukebox-deployed-2.png](./images/jukebox-deployed-2.png)

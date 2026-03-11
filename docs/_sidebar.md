@@ -28,9 +28,9 @@
 * [6. The Headliner](6-the-headliner/README.md)
   * [🥓 Pre & Post Processing](6-the-headliner/1-pre-post-processing.md)
   * [💸 Autoscaling](6-the-headliner/2-autoscaling.md)
-  * [🦜 Canary Deployments](6-the-headliner/3-canary-deployment.md)
-  * [🐳🍏 Blue Green Deployments](6-the-headliner/4-blue-green-deployment.md)
-  * [👻 Dark Launches](6-the-headliner/5-dark-launches.md)
+  <!-- * [🦜 Canary Deployments](6-the-headliner/3-canary-deployment.md) -->
+  <!-- * [🐳🍏 Blue Green Deployments](6-the-headliner/4-blue-green-deployment.md) -->
+  <!-- * [👻 Dark Launches](6-the-headliner/5-dark-launches.md) -->
 * [7. The Feature Playlist](7-the-feature-playlist/README.md)
   * [🪐 Feast](7-the-feature-playlist/1-feature-store.md)
   * [🎒 Outer Loop Features](7-the-feature-playlist/2-outer-loop-features.md)

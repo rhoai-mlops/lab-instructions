@@ -59,6 +59,11 @@ To set this up:
     ```python
         ### 🛍️ Fetch Data from Feast
         fetch_task = fetch_data_from_feast(version=version)
+        kubernetes.use_field_path_as_env(
+           fetch_task,
+           env_name='namespace',
+           field_path='metadata.namespace'
+        )
         kubernetes.use_secret_as_env(
             fetch_task,
             secret_name='aws-connection-data',

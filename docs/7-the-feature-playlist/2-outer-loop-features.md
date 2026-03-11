@@ -1,37 +1,4 @@
-# GitOpsifying Feast
-
-Now, let’s set up Feast for use in the **outer loop** of our workflow. We’ll configure a simple PostgreSQL database to serve a dual purpose:  
-
-- **Registry**: It will store metadata about our features, including their definitions and storage locations.  
-- **Online Store**: It will enable real-time retrieval of features during inference.  
-
-Let’s dive in!  
-
-1. We will start by creating a Feast database in `<USER_NAME>-toolings` namespace. Let's transition to `<USER_NAME>-mlops-toolings` workbench (code-server) and create `feast-database` folder under `mlops-gitops/toolings`.
-
-    ```bash
-    mkdir /opt/app-root/src/mlops-gitops/toolings/feast-database
-    touch /opt/app-root/src/mlops-gitops/toolings/feast-database/config.yaml
-    ```
-
-2. Add below config to `feast-database/config.yaml` to point Argo CD where to find the helm chart.
-
-    ```yaml
-    chart_path: charts/feast-database
-    USER_NAME: <USER_NAME>
-    git_server: <GIT_SERVER>
-    ```
-3. Commit and push the changes because if it's not in Git..😉
-   
-    ```bash
-    cd /opt/app-root/src/mlops-gitops
-    git pull
-    git add .
-    git commit -m  "🍕 ADD - Feast Database 🍕"
-    git push
-    ```
-
-## Utilizing Feast in Our Training Pipeline
+# Utilizing Feast in Our Training Pipeline
 
 Now, let’s integrate Feast into our training pipeline! This will allow us to request specific features directly from Feast to train our models.
 

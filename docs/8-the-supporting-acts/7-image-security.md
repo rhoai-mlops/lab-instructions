@@ -13,8 +13,7 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
     https://central-rhacs-operator.<CLUSTER_DOMAIN>
     ```
 
-    Using youe credentials to log in.
-    ![acs-login.png](./images/acs-login.png)
+    Select `OpenShift` and use your credentials to log in.
     ![acs-dashboard.png](images/acs-dashboard.png)
 
 2. An API Token was created for us as part of the install configuration. We can retrieve it using:
@@ -22,7 +21,7 @@ StackRox (Advanced Cluster Security, or ACS) is deployed at the cluster level an
     Export the token as environment variable:
 
     ```bash
-    export ROX_API_TOKEN=$(oc -n <USER_NAME>-toolings get secret rox-auth-ml500 -o go-template='{{index .data "password" | base64decode}}')
+    export ROX_API_TOKEN=$(oc -n <USER_NAME>-toolings get secret rox-auth-ai500 -o go-template='{{index .data "password" | base64decode}}')
     ```
     _And in case you logged out from the cluster, use below commands to login again._
 

@@ -24,7 +24,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
    
   ```bash
   sed -i 's|chart_path: charts/model-deployment/music-transformer|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
-  sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+  sed -i '$a feast_server_url: https://feast-<USER_NAME>-music-online.<USER_NAME>-toolings.svc.cluster.local:443' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   ```
@@ -40,7 +40,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   image_namespace: <USER_NAME>-test
   autoscaling: true
   keda: true
-  feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80 # 👈 New stuff
+  feast_server_url: https://feast-<USER_NAME>-music-online.<USER_NAME>-toolings.svc.cluster.local:443 # 👈 New stuff
   feature_service: serving_fs # 👈 New stuff
   entity_id_name: spotify_id # 👈 New stuff
   </code></pre></div>
@@ -52,7 +52,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   - The specific Feature Service we want to use. Remember, the Feature Service groups a bunch of features together and returns them all at once to us
   - And the Entity ID. This just says what ID we will use to fetch the feature values, in our case it's the spotify ID of whatever song we want to get properties for.
 
-3. And then commit it to git:
+1. And then commit it to git:
 
   ```bash
   cd /opt/app-root/src/mlops-gitops

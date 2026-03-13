@@ -79,9 +79,9 @@ _This step makes more sense when you use an external image registry and share im
     git push
     ```
 
-8. After the task successfully finish, in the `Administrator` view, go to `OpenShift UI` > `Builds` > `ImageStreams` and select `jukebox`. You'll see a tag ending with `.sig` which shows you that this image is signed. 
+8. After the task successfully finish, go to `OpenShift UI` > `Builds` > `ImageStreams` and select `jukebox`. Go to `History` and there, you'll see a tag ending with `.sig` which shows you that this image is signed. 
 
-    ![cosign-image-signing](images/cosign-image-signing.png)
+    ![cosign-image-signing](./images/cosign-image-signing.png)
 
 9. Let's verify the signed image with the public key. Make sure you use the right `VERSION` for the image. (`c6575637d8` in this case)
 

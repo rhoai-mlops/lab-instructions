@@ -95,7 +95,7 @@ _This step makes more sense when you use an external image registry and share im
     git push
     ```
 
-8. After the task successfully finish, go to `OpenShift UI` > `Builds` > `ImageStreams` and `jukebox`. You'll see a tag ending with `.sbom` and `.att` which shows you that an attestation for the SBOM predicate attached. With this, the SBOM is signed (and therefore tamper-proof) as it is within an attestation, and consumers can validate its authenticity.
+8. After the task successfully finish, go to `OpenShift UI` > `Builds` > `ImageStreams` and `jukebox`. In the `History` tab, you'll see a tag ending with `.sbom` and `.att` which shows you that an attestation for the SBOM predicate attached. With this, the SBOM is signed (and therefore tamper-proof) as it is within an attestation, and consumers can validate its authenticity.
 
     ![sbomatt.png](./images/sbomatt.png)
 

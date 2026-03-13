@@ -2,91 +2,8 @@
 
 In addition to retrieving features for training, Feast can also be used to fetch features during inference. This ensures consistency by using the exact same features in both training and serving, reducing the risk of mismatches and improving model performance.  
 
-Before deploying the new model server that integrates Feast, let’s first set up a **Feast Server** and **Feast UI**.  
+The Feast Server will act as the interface for feature retrieval, while its integrated UI with OpenShift AI Dashboard provides better visibility into the features being used, overall making feature consumption simpler and more transparent.
 
-The Feast Server will act as the interface for feature retrieval, while the UI provides better visibility into the features being used, overall making feature consumption simpler and more transparent. This is the same Feast UI that we saw during the Feast inner loop, now we are just deploying it in our MLOps namespace so we get a UI for our production features as well.  
-
-Let’s get everything deployed!  
-
-## Feast Server and UI
-
-1. In `<USER_NAME>-mlops-toolings` workbench (code-server), create `feast-server` folder under `mlops-gitops/toolings`.
-   
-  ```bash
-  mkdir /opt/app-root/src/mlops-gitops/toolings/feast-server
-  touch /opt/app-root/src/mlops-gitops/toolings/feast-server/config.yaml
-  ```
-
-2. Copy the following config to `mlops-gitops/toolings/feast-server/config.yaml`:
-
-  ```yaml
-  repo_url: https://github.com/feast-dev/feast.git
-  target_revision: v0.40.1
-  chart_path: infra/charts/feast-feature-server
-  feature_store_yaml_base64: cHJvamVjdDogbXVzaWMKcHJvdmlkZXI6IGxvY2FsCnJlZ2lzdHJ5OgogICAgcmVnaXN0cnlfdHlwZTogc3FsCiAgICBwYXRoOiBwb3N0Z3Jlc3FsOi8vZmVhc3Q6ZmVhc3RAZmVhc3Q6NTQzMi9mZWFzdAogICAgY2FjaGVfdHRsX3NlY29uZHM6IDYwCiAgICBzcWxhbGNoZW15X2NvbmZpZ19rd2FyZ3M6CiAgICAgICAgZWNobzogZmFsc2UKICAgICAgICBwb29sX3ByZV9waW5nOiB0cnVlCm9ubGluZV9zdG9yZToKICAgIHR5cGU6IHBvc3RncmVzCiAgICBob3N0OiBmZWFzdAogICAgcG9ydDogNTQzMgogICAgZGF0YWJhc2U6IGZlYXN0CiAgICBkYl9zY2hlbWE6IGZlYXN0CiAgICB1c2VyOiBmZWFzdAogICAgcGFzc3dvcmQ6IGZlYXN0Cm9mZmxpbmVfc3RvcmU6CiAgICB0eXBlOiBmaWxlCmVudGl0eV9rZXlfc2VyaWFsaXphdGlvbl92ZXJzaW9uOiAyCg==
-  ```
-
-  The base64 config is basically pointing the PostgreSQL server we deploy earlier.
-
-  <div class="highlight" style="background: #f7f7f7; overflow-x: auto; padding: 10px;">
-  <pre><code class="language-yaml">
-  project: music
-  provider: local
-  registry:
-      registry_type: sql
-      path: postgresql://feast:feast@feast:5432/feast
-      cache_ttl_seconds: 60
-      sqlalchemy_config_kwargs:
-          echo: false
-          pool_pre_ping: true
-  online_store:
-      type: postgres
-      host: feast
-      port: 5432
-      database: feast
-      db_schema: feast
-      user: feast
-      password: feast
-  offline_store:
-      type: file
-  entity_key_serialization_version: 2
-  </code></pre></div>
-
-3. Let's create another folder for UI:
-   
-  ```bash
-  mkdir /opt/app-root/src/mlops-gitops/toolings/feast-ui
-  touch /opt/app-root/src/mlops-gitops/toolings/feast-ui/config.yaml
-  ```
-
-4. Copy the config into `mlops-gitops/toolings/feast-ui/config.yaml`:
-
-  ```yaml
-  chart_path: charts/feast-ui
-  feast-feature-server:
-      feature_store_yaml_base64: cHJvamVjdDogbXVzaWMKcHJvdmlkZXI6IGxvY2FsCnJlZ2lzdHJ5OgogICAgcmVnaXN0cnlfdHlwZTogc3FsCiAgICBwYXRoOiBwb3N0Z3Jlc3FsOi8vZmVhc3Q6ZmVhc3RAZmVhc3Q6NTQzMi9mZWFzdAogICAgY2FjaGVfdHRsX3NlY29uZHM6IDYwCiAgICBzcWxhbGNoZW15X2NvbmZpZ19rd2FyZ3M6CiAgICAgICAgZWNobzogZmFsc2UKICAgICAgICBwb29sX3ByZV9waW5nOiB0cnVlCm9ubGluZV9zdG9yZToKICAgIHR5cGU6IHBvc3RncmVzCiAgICBob3N0OiBmZWFzdAogICAgcG9ydDogNTQzMgogICAgZGF0YWJhc2U6IGZlYXN0CiAgICBkYl9zY2hlbWE6IGZlYXN0CiAgICB1c2VyOiBmZWFzdAogICAgcGFzc3dvcmQ6IGZlYXN0Cm9mZmxpbmVfc3RvcmU6CiAgICB0eXBlOiBmaWxlCmVudGl0eV9rZXlfc2VyaWFsaXphdGlvbl92ZXJzaW9uOiAyCg==
-      feast_mode: ui
-  ```
-
-  It has the exact same config, pointing to PostgreSQL to visualize the features stored in the registry.
-
-5. Let's commit and push the changes:
- 
-  ```bash
-  cd /opt/app-root/src/mlops-gitops
-  git pull
-  git add .
-  git commit -m  "🎁 ADD - Feast Server and UI 🎁"
-  git push
-  ```
-
-6. After Argo CD sync the changes, you can run this command to get the route for the Feast UI, or simply click [here](https://feast-ui-<USER_NAME>-toolings.<CLUSTER_DOMAIN>) :)  
-
-  ```bash
-  echo https://$(oc get route feast-ui --template='{{ .spec.host }}' -n <USER_NAME>-toolings)
-  ```
-
- ![feast-ui.png](./images/feast-ui.png)
 
 ## Deploying the New Model Server  
 
@@ -107,7 +24,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
    
   ```bash
   sed -i 's|chart_path: charts/model-deployment/music-transformer|chart_path: charts/model-deployment/music-transformer-with-feast|' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
-  sed -i '$a feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
+  sed -i '$a feast_server_url: https://feast-<USER_NAME>-music-online.<USER_NAME>-toolings.svc.cluster.local:443' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a feature_service: serving_fs' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   sed -i '$a entity_id_name: spotify_id' /opt/app-root/src/mlops-gitops/model-deployments/test/jukebox/config.yaml
   ```
@@ -122,9 +39,8 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   image_repository: image-registry.openshift-image-registry.svc:5000
   image_namespace: <USER_NAME>-test
   autoscaling: true
-  canary:
-    trafficPercent: 0
-  feast_server_url: http://feast-server-feast-feature-server.<USER_NAME>-toolings.svc.cluster.local:80 # 👈 New stuff
+  keda: true
+  feast_server_url: https://feast-<USER_NAME>-music-online.<USER_NAME>-toolings.svc.cluster.local:443 # 👈 New stuff
   feature_service: serving_fs # 👈 New stuff
   entity_id_name: spotify_id # 👈 New stuff
   </code></pre></div>
@@ -136,7 +52,7 @@ By using the Feast transformer in our serving pipeline, we will be making the fe
   - The specific Feature Service we want to use. Remember, the Feature Service groups a bunch of features together and returns them all at once to us
   - And the Entity ID. This just says what ID we will use to fetch the feature values, in our case it's the spotify ID of whatever song we want to get properties for.
 
-3. And then commit it to git:
+1. And then commit it to git:
 
   ```bash
   cd /opt/app-root/src/mlops-gitops

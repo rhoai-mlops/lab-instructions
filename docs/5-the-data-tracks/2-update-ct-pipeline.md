@@ -102,7 +102,7 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ![data-pipeline-download.gif](./images/data-pipeline-download.gif)
 
-2. In OpenShift AI Dashboard, go to `Data science pipelines` > `Pipelines`, select `<USER_NAME>-toolings` as the project, and click `Import pipeline`. 
+2. In OpenShift AI Dashboard, go to `Develop & train` > `Pipelines` > `Pipelines definitions` , select `<USER_NAME>-toolings` as the project, and click `Import pipeline`. 
 
     ![import-pipeline-1.png](./images/import-pipeline-1.png)
 
@@ -146,11 +146,11 @@ And we have a bit of groundwork to cover first to set everything up properly.
 
     ..and hit `Create schedule`.
 
-5. You can see this scheduled runs under `Experiments` > `Experiment and runs` > `Default` > `Schedules`
+5. You can see this scheduled runs under `Develop & train` > `Pipelines` > `Runs`  > `Schedules`
 
     ![view-scheduled-runs.png](./images/view-scheduled-runs.png)
 
-6. But let's not wait for it to run. Just like we scheduled, we can also create an ad-hoc run. Go back to `Data science pipelines` > `Pipelines` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
+6. But let's not wait for it to run. Just like we scheduled, we can also create an ad-hoc run. Go back to  `Develop & train` > `Pipelines`> `Pipeline definitions` > `data-pipeline-with-dvc` and click `Actions` on the upper right corner again, and select `Create run`.
 
     ![create-run.png](./images/create-run.png)
 
@@ -183,7 +183,6 @@ And we have a bit of groundwork to cover first to set everything up properly.
     Go to OpenShift Console > Pipelines > `ct-pipeline`
 
     ![pipeline-run-dvc.png](./images/pipeline-run-dvc.png)
-
     Now apart from code change and alerts, the pipeline gets triggered when there is fresh data!
 
 8.  Check Model Registry, you now have dvc config there as well as which version of the data was used to build this version of the Machine Learning model.

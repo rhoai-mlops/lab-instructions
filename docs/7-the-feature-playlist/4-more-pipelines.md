@@ -24,12 +24,16 @@ With only the most recent data is materialized, we'll reduce unnecessary data lo
 
 3. This will create a new file called `song-properties-etl.yaml`, download this file 🗃️
    
-4. In `OpenShift AI` dashboard, go to `Data science pipelines` > `Pipelines` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
+4. In `OpenShift AI` dashboard, go to `Develop & train` > `Pipelines` > `Pipeline definitions` and navigate to your `<USER_NAME>-toolings` project. Then click on your `data-pipeline-with-dvc` pipeline -> `Actions` -> `Upload new version`.  
 Then upload the `song-properties-etl.yaml` you just downloaded.
    
     ![import-new-version.png](./images/import-new-version.png)
 
-5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately (Actions -> Create Run), use these settings:
+5. Since we don't want to wait for the scheduled run, let's kick off a pipeline run immediately (Actions -> Create Run)
+
+    ![run-etl-pipeline-create-run.png](./images/run-etl-pipeline-create-run.png)
+    
+    use these settings:
 
     - Name: `data-pipeline-with-feast-adhoc-run`
     - repo_url:

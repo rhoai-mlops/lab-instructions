@@ -56,9 +56,9 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
     git push
     ```
 
-5. Let's go to OpenShift Console in Developer view, go to `Observe` > `Alerts` and view the alert we just created in `<USER_NAME>-test` project. It'll be in `Firing` state in a minute. If you are still not seeing a `Firing` state, make sure you executed the drift-introducing notebook in the previous chapter "TrustyAI".
+4. Let's go to OpenShift Console, go to `Home` > `Projects` and view the `<USER_NAME>-test` project. You'll see in the middle of the page and alert is firing. If you are still not seeing it, make sure you executed the drift-introducing notebook in the previous chapter "TrustyAI".
 
-    ![alert-1.png](./images/alert-1.png)
+    ![alert-view.png](./images/alert_view.png)
 
 
 ### Trigger Retraining Pipeline based on Alerts

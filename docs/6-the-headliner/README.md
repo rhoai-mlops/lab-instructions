@@ -2,16 +2,16 @@
 >  Techniques to enhance the reliability and scalability of machine learning systems. 
 
 ## 👨‍🍳 Exercise Intro
-In this exercise, we'll cover pre- and post-processing for data and predictions, explore autoscaling to handle loads, and introduce advanced deployment patterns like canary and blue-green deployments to ensure safe and seamless model rollouts.
+In this exercise, we'll cover pre- and post-processing for data and predictions, explore autoscaling to handle loads.
 
 ## 🖼️ Big Picture
 
 ![big-picture-advanced-deployment.jpg](./images/big-picture-advanced-deployment.jpg)
 
 ## 🔮 Learning Outcomes
-- [ ] Shift traffic gradually between two different versions with canary deployment method
-- [ ] Deploy the champion model to production
-- [ ] Mirror the traffic to monitor the new version under live requests
+- [ ] Able to use transformers for pre- and post-processing of data
+- [ ] Autoscale based on resources and incoming requests
 
 ## 🔨 Tools used in this exercise
 * <span style="color:blue;">[KServe](https://kserve.github.io/website/docs/intro)</span> - A model inference platform on top of OpenShift
+* * <span style="color:blue;">[KEDA](https://keda.sh/</span> - Kubernetes Event-driven Autoscaling

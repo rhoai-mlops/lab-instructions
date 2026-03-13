@@ -12,13 +12,13 @@ Now, we can seamlessly switch our current workbench to this new image without lo
 1. Under your `<USER_NAME>-jukebox` project's Workbenches, Select `Edit Workbench` for your `<USER_NAME>-mlops-toolings` workbench (code-server).
     ![codeserver-notebook-1.png](./images/codeserver-notebook-1.png)
 
-2. Go to `Notebook image` > `Image selection `, and select `ml500-code-server`. Then click `Update workbench`. 
+2. Go to `Workbench image` > `Image selection `, and select `ai500-code-server` (bottom of the list). Then click `Update workbench`. 
 
-    ![codeserver-notebook-1.png](./images/codeserver-notebook-2.png)
+    ![codeserver-notebook-2.png](./images/codeserver-notebook-2.png)
 
 3. You should see the image you selected on your Workbenches list as below. 
 
-    ![codeserver-notebook-1.png](./images/codeserver-notebook-3.png)
+    ![codeserver-notebook-3.png](./images/codeserver-notebook-3.png)
 
 4. Your workbench will be restarted in order to start from the new workbench image. When it is `Running`, open it and test a couple of CLIs to verify the image.
 

@@ -49,8 +49,6 @@ The Model Registry serves as our source of truth, tracking which model versions 
 
     ![post-deployment-pipeline.png](./images/post-deployment-pipeline.png)
 
-    **Note:** If Persistent Volume Claims (PVCs) remain in *Progressing* status in Argo CD, it’s because OpenShift is waiting for the first pipeline run to provision the Persistent Volumes. The status will turn green after the initial run.
-
     You can also verify the pipeline's creation via the OpenShift Dashboard:
 
     ![post-deployment-pipeline-2.png](./images/post-deployment-pipeline-2.png)

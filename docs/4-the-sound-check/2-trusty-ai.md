@@ -31,7 +31,7 @@ TrustyAI is an open source community dedicated to providing a diverse toolkit fo
     git push
     ```
 
-4. Check if the TrustyAI is deployed in your `test` and `prod` environment. Go to `Model deployments`, `<USER_NAME>-test` namespace and click on `jukebox` and observe there is a new tab called `Model bias` now.
+4. Check if the TrustyAI is deployed in your `test` and `prod` environment. Go to `AI Hub` > `Deployments`, and select the `jukebox` running on `<USER_NAME>-test` namespace to observe there is a new tab called `Model bias` now.
 
     ![trustyai-model-bias.png](./images/trustyai-model-bias.png)
 
@@ -56,10 +56,10 @@ Data drift in this context is like trying to write a hit song based on old trend
 
 2. Now that the setup is done in `jukebox/4-metrics/1-trustyai_setup.ipynb`, we will introduce now a drift by using `jukebox/4-metrics/2-introducing_drift.ipynb` notebook. Please go ahead and execute this notebbok! After we introduce a drift, come back here so we can observe the metrics by querying Prometheus and create a new dashboard in Grafana!📈📉
 
-3. Go to `OpenShift Console` in `Developer view` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
+3. Go to `OpenShift Console` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
-    trustyai_meanshift{subcategory=~"danceability|acousticness"}
+    trustyai_comparemeans{subcategory=~"danceability|acousticness"}
     ```
 
     ![trusty-meanshift-metrics.png](./images/trusty-meanshift-metrics.png)
@@ -71,7 +71,7 @@ Ensuring that your models are fair and unbiased is a crucial part of establishin
 
 In our case, we will take a feature of our data (`is_explicit`) and see if the model is biased towards a given country (let's say `France`) when the songs are explicit. 
 
-1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to `OpenShift AI Dashboard` > `Models` > `Model deployments`. Select `<USER_NAME>-test` project. Go to  `jukebox` and click `Model bias`, then hit `Configure`.
+1. We can set this up either through OpenShift AI UI or through the notebook. Let's set it from UI this time. Go to `OpenShift AI Dashboard` > `AI Hub` > `Deployments`. Select `<USER_NAME>-test` project for  `jukebox` and click `Model bias`, then hit `Configure`.
 
     ![bias-monitoring.png](./images/bias-monitoring.png)
 

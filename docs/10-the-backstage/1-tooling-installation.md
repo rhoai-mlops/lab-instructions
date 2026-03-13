@@ -1,4 +1,4 @@
-## ai500 Cluster Setup
+## AI500 Cluster Setup
 
 <p class="warn">
     ⛷️ <b>NOTE</b> ⛷️ - You need an OpenShift 4.19+ cluster with cluster-admin privilege.
@@ -54,6 +54,6 @@ The necessary links such as OpenShift console, OpenShift AI Dashboard, Gitea are
 
 ## Red Hat Product Demo System
 
-This is currently only available to Red Hat Associates. You can order up your own ai500 environment in [RHPDS](https://demo.redhat.com/catalog?search=ml500). This will provision for you the latest OpenShift & ai500 workshop environment. You can select cluster size, number or users and region.
+This is currently only available to Red Hat Associates. You can order up your own AI500 environment in [RHPDS](https://demo.redhat.com/catalog?search=ml500). This will provision for you the latest OpenShift & AI500 workshop environment. You can select cluster size, number or users and region.
 
 ![images/tl500-order-rhpds.png](images/ml500-order-rhpds.png)

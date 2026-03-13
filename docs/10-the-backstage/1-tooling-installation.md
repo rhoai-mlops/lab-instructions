@@ -1,4 +1,4 @@
-## ai500 Cluster Setup
+## AI500 Cluster Setup
 
 <p class="warn">
     ⛷️ <b>NOTE</b> ⛷️ - You need an OpenShift 4.19+ cluster with cluster-admin privilege.

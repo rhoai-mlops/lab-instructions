@@ -72,7 +72,7 @@ Let's first deploy Feast in our `<USER_NAME>-toolings` namespace through GitOps!
     
      Go to your code-server terminal, and connect to the Feast pod with following commands:
    
-   ```bash
+    ```bash
     oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p <PASSWORD>
     oc project <USER_NAME>-toolings
     oc rsh `oc get po -l feast.dev/name=<USER_NAME>-music -o name -n <USER_NAME>-toolings`

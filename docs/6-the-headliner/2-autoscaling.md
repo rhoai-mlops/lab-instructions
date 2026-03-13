@@ -138,4 +138,4 @@ _Again, just for the simplicty, we trigger the autoscaling when there are more t
 
 5. Let's again use the same load testing tool. G back to your Jupyter Notebook `<USER_NAME>-hitmusic-wb` workbench and go through Notebook `jukebox/6-advanced_deployment/1-test_autoscale.ipynb` once again.  
 
-6. Go to `OpenShift Dashboard` in Administrator view > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.
+6. Go to `OpenShift Dashboard` > `<USER_NAME>-test` project > `Workloads` > `Pods` and observe that a new pod is coming up.

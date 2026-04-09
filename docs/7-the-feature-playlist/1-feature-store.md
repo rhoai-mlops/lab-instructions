@@ -75,6 +75,7 @@ Let's first deploy Feast in our `<USER_NAME>-toolings` namespace through GitOps!
     ```bash
     oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p <PASSWORD>
     oc project <USER_NAME>-toolings
+    oc wait --for=condition=Ready pod -l feast.dev/name=<USER_NAME>-music -n <USER_NAME>-toolings --timeout=120s
     oc rsh `oc get po -l feast.dev/name=<USER_NAME>-music -o name -n <USER_NAME>-toolings`
     ```
 

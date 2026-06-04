@@ -9,7 +9,7 @@ You will also find a glossary in case there are any words you are unsure of.
 - [ai-on-openshift/gitops](https://ai-on-openshift.io/odh-rhoai/gitops/) - How to create OpenShift AI resources through Kubernetes yaml files.
 - [Data Science Tutorial](https://www.w3schools.com/datascience/default.asp) - Code and guides for how you can use Python for Data Science with executable examples.
 - [How Neural Networks Work Playlist](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - A fantastic video guide that covers the basics of Neural Networks.
-- [Tensorflow Playgrounds](https://playground.tensorflow.org/) - Tensorflow Plagrounds lets you play around with different settings and data for a small neural network to get a better understanding how it works.
+- [Tensorflow Playground](https://playground.tensorflow.org/) - Tensorflow Playground lets you play around with different settings and data for a small neural network to get a better understanding how it works.
 - [Made With ML](https://madewithml.com/) - A extensive guide on ML and its lifecycle.
 - [Google MLOps Blog](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) - Blog on the different stages of MLOps maturity, how you can transition between them and what you can see included in each stage.
 - [Cookie Cutter Project Structure](https://cookiecutter-data-science.drivendata.org/) - A tool to initialize a data science project with a good project structure.

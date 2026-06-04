@@ -1,6 +1,6 @@
 # Extend Toolings with GitOps
 
-To successfully run our continuous training pipeline, we need to add two more applications to our MLOps toolset: KubeFlow Registry and the Data Science Pipelines Application (DSPA).
+To successfully run our continuous training pipeline, we need to add two more applications to our MLOps toolset: Kubeflow Registry and the Data Science Pipelines Application (DSPA).
 
 These two were already installed in your dev environment. Now we need to bring them in with GitOps. Go to your `<USER_NAME>-mlops-toolings` workbench (code-server) terminal. 
 

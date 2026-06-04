@@ -70,7 +70,7 @@ Let's first deploy Feast in our `<USER_NAME>-toolings` namespace through GitOps!
 
 6. After Feast is deployed, we need to initialize it. We can do it manually quickly! Normally, Feast comes with a cronjob that runs these steps regularly but let's not wait for it:)
     
-     Go to your code-server terminal, and connect to the Feast pod with following commands:
+     Go to your code-server terminal, and connect to the Feast pod with the following commands:
    
     ```bash
     oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p <PASSWORD>
@@ -101,11 +101,11 @@ Let's first deploy Feast in our `<USER_NAME>-toolings` namespace through GitOps!
 
  ![feast-ui.png](./images/feast-ui.png)
 
- From `Lineage` view, you can get many information regarding data sources and features.
+ From the `Lineage` view, you can get information about data sources and features.
 
   ![feast-ui-2.png](./images/feast-ui-2.png)
 
-8. And as it says on the page; you can connect your workbenches to use and manage features in your projects! So let's do that and explote Feast in the inner loop first. 
+8. And as it says on the page; you can connect your workbenches to use and manage features in your projects! So let's do that and explore Feast in the inner loop first.
 
   Go to OpenShift AI dashboard > `Projects` > `<USER_NAME>-jukebox` > `Workbenches` and edit your Jupyter workbench (Data Science on) by clicking the three dots on the right.
 
@@ -126,4 +126,3 @@ Let's first deploy Feast in our `<USER_NAME>-toolings` namespace through GitOps!
 3. Next, open the notebook `1-setup_feast.ipynb` located in the `7-feature_store` folder and execute the cells step-by-step. Then continue with `2-test_load_historical_features.ipynb` and `3-test_load_online_features.ipynb`. This will set up Feast and demonstrate how it works in the inner loop. 
 
 4. Once you’ve seen how Feast is used for inner loop tasks like feature exploration and training, we’ll move on to its role in the **outer loop**.  
-

@@ -6,7 +6,7 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
 
 ### Sealed Secrets in action
 
-1. The observant among you have noticed that in the previous exercise we created a secret for SonarQube and added it to Git just like that...😳 Lets start by fixing this and sealing our SonarQube credentials so they can be safely checked in to the repository. (yeah we know, git commit history, but we are trying to make a point here, so please 🤣)
+1. The observant among you have noticed that in the previous exercise we created a secret for SonarQube and added it to Git just like that...😳 Let's start by fixing this and sealing our SonarQube credentials so they can be safely checked in to the repository. (yeah we know, git commit history, but we are trying to make a point here, so please 🤣)
 
     First, we'll create the secret in a tmp directory. So go to your `<USER_NAME>-mlops-toolings` workbench (code-server) and run below piece of code in terminal. 
 
@@ -155,4 +155,3 @@ Sealed Secrets allows us to _seal_ Kubernetes secrets by using a utility called 
     If you drill into the `SealedSecret` -  you can verify that the `sonarqube` secret has synced automatically:
 
     ![argocd-sonar-auth-synced.png](images/argocd-sonar-auth-synced.png)
-

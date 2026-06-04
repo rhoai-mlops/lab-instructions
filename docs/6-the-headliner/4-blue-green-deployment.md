@@ -97,7 +97,7 @@ However, from an implementation point of view, for KServe, it's pretty similar w
 
   ![greenblue-metrics.png](./images/greenblue-metrics.png)
 
-7. With blue-green deployment, either way, there are two replicas of the model are running. The trade off here is that, blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your `<USER_NAME>-mlops-toolings` workbench (code-server).
+7. With blue-green deployment, either way, there are two replicas of the model running. The trade-off here is that blue-green requires maintaining duplicate environments, which can be resource-intensive. You can check it by running the below command on the terminal of your `<USER_NAME>-mlops-toolings` workbench (code-server).
 
     ```bash
     oc get po -l component=predictor -n <USER_NAME>-test

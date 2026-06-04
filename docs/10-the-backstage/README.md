@@ -13,4 +13,4 @@ In this exercise, we will walk through the steps we take in order to have a read
 
 ## 🔨 Tools used in this exercise!
 * Openshift 4.16+
-* <span style="color:blue;">[Helm](https://helm.sh/)</span> - Helps us to define, install, and upgrade Kubernetes application.
+* <span style="color:blue;">[Helm](https://helm.sh/)</span> - Helps us to define, install, and upgrade Kubernetes applications.

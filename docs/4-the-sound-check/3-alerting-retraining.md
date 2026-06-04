@@ -56,7 +56,7 @@ In OpenShift's monitoring stack, we have Alert Manager that we can use to trigge
     git push
     ```
 
-4. Let's go to OpenShift Console, go to `Home` > `Projects` and view the `<USER_NAME>-test` project. You'll see in the middle of the page and alert is firing. If you are still not seeing it, make sure you executed the drift-introducing notebook in the previous chapter "TrustyAI".
+4. Let's go to OpenShift Console, go to `Home` > `Projects` and view the `<USER_NAME>-test` project. You'll see in the middle of the page an alert is firing. If you are still not seeing it, make sure you executed the drift-introducing notebook in the previous chapter "TrustyAI".
 
     ![alert-view.png](./images/alert_view.png)
 
@@ -97,7 +97,7 @@ When a drift or other anomaly is detected, we can trigger an automated retrainin
     </code></pre></div>
 
 
-2. A trigger from an Alertmanager is very different from a trigger of Git repository. They send different types of payloads and different information to the webhook. Therefore we should also make some changes on our training pipeline. Open up `mlops-gitops/toolings/ct-pipeline/config.yaml` file and update it:
+2. A trigger from an Alertmanager is very different from a trigger from a Git repository. They send different types of payloads and different information to the webhook. Therefore we should also make some changes on our training pipeline. Open up `mlops-gitops/toolings/ct-pipeline/config.yaml` file and update it:
 
     ```yaml
     chart_path: charts/pipelines

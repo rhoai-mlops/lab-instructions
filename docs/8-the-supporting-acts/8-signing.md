@@ -1,6 +1,6 @@
 # Image Signing
 
-> It is important to verify that the container image we deploy to our clusters has not been tampered and comes from a valid source. This is generally achieved by signing the image after building and verifying the signature before deployment. In this exercise, we will use `cosign` for creating, storing and verifying container image signatures.
+> It is important to verify that the container image we deploy to our clusters has not been tampered with and comes from a valid source. This is generally achieved by signing the image after building and verifying the signature before deployment. In this exercise, we will use `cosign` for creating, storing and verifying container image signatures.
 
 ## Before starting, generate your keys
 
@@ -24,7 +24,7 @@
     You just generated two keys (one private key, one public key). Private key is used to sign the images and it is automatically saved as a secret in your `toolings` namespace alongside the password you choose. Public key is used to verify the signed images. You can share your public key for people to verify your images but private one should not be shared or at least sealed before storing publicly.
 
     <p class="tip">
-    🐌 THIS IS NOT GITOPS - The generated private key is stored in a Kubernetes secret in you <USER_NAME>-toolings project. We'll leave it as an exercise to the reader to extract and store this as a Sealed Secret instead! 🐎
+    🐌 THIS IS NOT GITOPS - The generated private key is stored in a Kubernetes secret in your <USER_NAME>-toolings project. We'll leave it as an exercise to the reader to extract and store this as a Sealed Secret instead! 🐎
     </p>
 
     <p class="tip">
@@ -79,7 +79,7 @@ _This step makes more sense when you use an external image registry and share im
     git push
     ```
 
-8. After the task successfully finish, go to `OpenShift UI` > `Builds` > `ImageStreams` and select `jukebox`. Go to `History` and there, you'll see a tag ending with `.sig` which shows you that this image is signed. 
+8. After the task successfully finishes, go to `OpenShift UI` > `Builds` > `ImageStreams` and select `jukebox`. Go to `History` and there, you'll see a tag ending with `.sig` which shows you that this image is signed.
 
     ![cosign-image-signing](./images/cosign-image-signing.png)
 

@@ -52,7 +52,7 @@ To do that, we can simply add it to our training pipeline, which will be ran at 
 
     ![unit-test-task.png](./images/unit-test-task.png)
 
-3. If you wish, you can start a pipeline run through an empty commit to our Jukebox repo as below, to see that how unit test runs. However let's add some more exciting tests and checks to our pipeline before kick it!
+3. If you wish, you can start a pipeline run through an empty commit to our Jukebox repo as below, to see how the unit test runs. However let's add some more exciting tests and checks to our pipeline before kicking it!
 
     ```bash
     cd /opt/app-root/src/jukebox

@@ -71,3 +71,14 @@ Now that you know what the pipeline is supposed to do, let's go ahead and run it
     Take some time to explore this view and familiarize yourself with its features. The pipeline might take a while to finish on its first run, but you don’t need to wait for it to complete. Feel free to move on to the next steps!
 
 4. The next step is to set up the MLOps environment, enabling this pipeline to run automatically and supporting many other MLOps practices. This is where our MLOps adventure starts! 🙌
+
+> 📖🤓 **Extra Info: Component Registry**  
+We have quite a few different components used in our pipeline.  
+Imagine if we had multiple pipelines using similar components, we then wouldn't want to build each component from scratch for each pipeline.  
+Instead, we would look at creating a registry of reusable, modular, components that anyone can import when they build their pipeline.  
+Here are a couple of example repositories of how this can look like for kubeflow pipelines:
+> - https://github.com/kubeflow/pipelines-components
+> - https://github.com/red-hat-data-services/pipelines-components
+>
+> You can also find more written about this topic in [this article](https://developers.redhat.com/articles/2026/06/03/build-modular-ai-pipelines-openshift-ai-and-reusable-components) (also linked in [The Reference Track](../9-the-reference-track/references.md)).
+

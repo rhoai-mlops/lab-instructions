@@ -14,6 +14,7 @@ You will also find a glossary in case there are any words you are unsure of.
 - [Google MLOps Blog](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) - Blog on the different stages of MLOps maturity, how you can transition between them and what you can see included in each stage.
 - [Cookie Cutter Project Structure](https://cookiecutter-data-science.drivendata.org/) - A tool to initialize a data science project with a good project structure.
 - [CNN Explainer](https://poloclub.github.io/cnn-explainer/) - Understand how a Convolutional Neural Network (a type of network that specializes on images among other things) work.
+- [AI pipeline component registry blog](https://developers.redhat.com/articles/2026/06/03/build-modular-ai-pipelines-openshift-ai-and-reusable-components#what_are_reusable_components_in_red_hat_openshift_ai_) - A blog describing how to build modular AI pipelines with OpenShift AI and reusable components.
 
 ## Glossary
 - **MLOps** - The practices, culture, and tools that aim to reliably and efficiently build, deploy and maintain AI models in production.

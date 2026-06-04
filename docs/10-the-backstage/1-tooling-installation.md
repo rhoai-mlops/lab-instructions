@@ -7,7 +7,7 @@
 Just like we practice throughout the course, we keep the cluster configuration as code in a GitHub repository: https://github.com/rhoai-mlops/deploy-lab
 
 This repository has three parts:
-- A Helm chart to deploy operators for installing in products OpenShift AI.
+- A Helm chart to deploy operators for installing products in OpenShift AI.
 - A Helm chart to configure logging stack, user workload monitoring and so on.
 - And lastly a Helm chart for the student environments.
 
@@ -22,7 +22,7 @@ helm dep up
 helm upgrade --install ai500-base . --namespace ai500 --create-namespace
 ```
 
-When the above is successfull (which might take time up to 15 mins), you can run the following for the second part of the installation:
+When the above is successful (which might take up to 15 mins), you can run the following for the second part of the installation:
 
 ```bash
 cd ../toolings
@@ -39,7 +39,7 @@ helm dep up
 helm upgrade --install ai500-student-content . --namespace ai500 --create-namespace --set cluster_domain=<CLUSTER_DOMAIN> --set attendees=5 # number of users you want to create
 ```
 
-If you are not sure what is your cluster domain, here is a one lines you can use to get it:
+If you are not sure what your cluster domain is, here is a one-liner you can use to get it:
 
 ```bash
 oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.status.domain}'
@@ -54,6 +54,6 @@ The necessary links such as OpenShift console, OpenShift AI Dashboard, Gitea are
 
 ## Red Hat Product Demo System
 
-This is currently only available to Red Hat Associates. You can order up your own AI500 environment in [RHPDS](https://demo.redhat.com/catalog?search=ml500). This will provision for you the latest OpenShift & AI500 workshop environment. You can select cluster size, number or users and region.
+This is currently only available to Red Hat Associates. You can order up your own AI500 environment in [RHPDS](https://demo.redhat.com/catalog?search=ml500). This will provision for you the latest OpenShift & AI500 workshop environment. You can select cluster size, number of users and region.
 
 ![images/tl500-order-rhpds.png](images/ml500-order-rhpds.png)

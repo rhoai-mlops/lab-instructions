@@ -12,7 +12,7 @@ When new data points arrive in our system, we need to ensure that our **online f
 
 To implement this, we will update our **ETL pipeline** to include a materialization step after the data has been uploaded to **S3**. 
 
-With only the most recent data is materialized, we'll reduce unnecessary data load on the system, keep our feature store continuously up-to-date and ready for real-time inference with minimal processing overhead.
+With only the most recent data materialized, we'll reduce unnecessary data load on the system, keep our feature store continuously up-to-date and ready for real-time inference with minimal processing overhead.
 
 
 1. Go to the UI and search for `1D2SVYXZdtNfJCg8wZWvVz` (this id corresponds to `Live Forever from Oasis`). Nothing should show up as we haven't yet added that song to our online feature store.
@@ -78,7 +78,7 @@ To apply new changes to our feature store, we can add a step to our Continuous T
 
 3. To try it out, we can remove one feature and make sure that everything from training to inference with the UI still works.
      
-    Go to your `Jupyter Notebook` and navigate to `jukebox/7-feature_store/feature_repo/feature_service.py`. Here we can remove line 14 (the feature `loudness`) as we saw in the data exploration how it was highly correlated with another feature (`energy`) so we don't need both. Make sure you hit save after make the change!
+    Go to your `Jupyter Notebook` and navigate to `jukebox/7-feature_store/feature_repo/feature_service.py`. Here we can remove line 14 (the feature `loudness`) as we saw in the data exploration how it was highly correlated with another feature (`energy`) so we don't need both. Make sure you hit save after making the change!
 
     ```python
     from feast import FeatureService

@@ -53,7 +53,7 @@
     oc login --server=https://api.<TRIMMED_CLUSTER_DOMAIN>:6443 -u <USER_NAME> -p <PASSWORD>
     ```
 
-5. Before extending the pipeline with SonarQube, we can run the code quality checks from our IDE. Fist, let's install the `pysonar` library.
+5. Before extending the pipeline with SonarQube, we can run the code quality checks from our IDE. First, let's install the `pysonar` library.
 
     ```bash
     pip install pysonar-scanner

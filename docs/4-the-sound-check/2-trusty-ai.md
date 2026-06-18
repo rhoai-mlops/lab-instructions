@@ -59,7 +59,7 @@ Data drift in this context is like trying to write a hit song based on old trend
 3. Go to `OpenShift Console` > `Observe` > `Metrics`. Select `<USER_NAME>-test` project from the top and run the below query to visualize the metrics:
 
     ```bash
-    trustyai_comparemeans{subcategory=~"danceability|acousticness"}
+    trustyai_meanshift{subcategory=~"danceability|acousticness"}
     ```
 
     ![trusty-meanshift-metrics.png](./images/trusty-meanshift-metrics.png)
